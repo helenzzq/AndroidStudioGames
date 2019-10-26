@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="save_princess">Save Princess</string>
+    <string name="start">START</string>
+    <string name="help">HELP</string>
+    <string name="settings">SETTINGS</string>
 </resources>
