@@ -4,4 +4,7 @@
     <string name="start">START</string>
     <string name="help">HELP</string>
     <string name="settings">SETTINGS</string>
+    <string name="push_box">Push Box</string>
+    <string name="back">BACK</string>
+    <string name="game_help">Game Help</string>
 </resources>
