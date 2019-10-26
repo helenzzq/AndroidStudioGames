@@ -1,8 +1,6 @@
 package com.example.myapplication;
 
-import android.content.Context;
 import android.content.res.Resources;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,13 +9,13 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 
-public class pushBoxInitialData {
+public class PushBoxInitialData {
     int mRowNum;
     int mColumnNum;
 
     String [] mInitialState;
 
-    public pushBoxInitialData(int rowNum, int columnNum){
+    public PushBoxInitialData(int rowNum, int columnNum){
         mRowNum = rowNum;
         mColumnNum = columnNum;
         mInitialState = new String[rowNum];
@@ -26,7 +24,7 @@ public class pushBoxInitialData {
 
     public static final int DEFAULT_ROW_NUM = 11;
     public static final int DEFAULT_COLUMN_NUM = 11;
-    public static ArrayList<pushBoxLevelInitialData> GameLevels = new ArrayList<>();
+    public static ArrayList<PushBoxLevelInitialData> GameLevels = new ArrayList<>();
 
     //what we put in the cell
 
@@ -50,7 +48,7 @@ public class pushBoxInitialData {
     };
 
     public static void addPushGameInitialData(){
-        GameLevels.add(new pushBoxLevelInitialData(7, 7, level_1));
+        GameLevels.add(new PushBoxLevelInitialData(7, 7, level_1));
     }
     public static void readInitialData(Resources res, String confgFileName) throws IOException {
         try {
@@ -74,7 +72,7 @@ public class pushBoxInitialData {
                 if (Character.isDigit(label.charAt(0))) {       //关卡
                     int level = Integer.parseInt(label);
                     String strRowColumnNum = bufReader.readLine();
-                    pushBoxLevelInitialData levelData = readRowColumnNum(strRowColumnNum);
+                    PushBoxLevelInitialData levelData = readRowColumnNum(strRowColumnNum);
                     for (int r = 0; r < levelData.mRowNum; r++) {
                         levelData.mInitialState[r] = bufReader.readLine();
                         if (levelData.mInitialState[r] == null)
@@ -87,13 +85,13 @@ public class pushBoxInitialData {
             }
         }
     }
-    private static pushBoxLevelInitialData readRowColumnNum(String strRowColumnNum) {
+    private static PushBoxLevelInitialData readRowColumnNum(String strRowColumnNum) {
         StringTokenizer stringTokenizer = new StringTokenizer(strRowColumnNum);
         String strRowNum = stringTokenizer.nextToken();   //默认以空格作为分隔符
         String strColumnNum = stringTokenizer.nextToken();
         int rowNum = Integer.parseInt(strRowNum);
         int columnNum = Integer.parseInt(strColumnNum);
-        pushBoxLevelInitialData levelData = new pushBoxLevelInitialData(rowNum, columnNum);
+        PushBoxLevelInitialData levelData = new PushBoxLevelInitialData(rowNum, columnNum);
         return levelData;
     }
 }

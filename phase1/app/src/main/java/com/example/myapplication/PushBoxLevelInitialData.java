@@ -1,18 +1,18 @@
 package com.example.myapplication;
 
-public class pushBoxLevelInitialData {
+public class PushBoxLevelInitialData {
     int mRowNum;
     int mColumnNum;
 
     String [] mInitialState;
 
-    public pushBoxLevelInitialData(int rowNum, int columnNum){
+    public PushBoxLevelInitialData(int rowNum, int columnNum){
         mRowNum= rowNum;
         mColumnNum = columnNum;
         mInitialState = new String[rowNum];
     }
 
-    public pushBoxLevelInitialData(int rowNum, int columnNum, String[] initialState){
+    public PushBoxLevelInitialData(int rowNum, int columnNum, String[] initialState){
         mRowNum = rowNum;
         mColumnNum = columnNum;
         mInitialState = initialState;

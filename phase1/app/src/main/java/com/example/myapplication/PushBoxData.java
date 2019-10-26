@@ -1,13 +1,11 @@
 package com.example.myapplication;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import android.content.res.Resources;
 
-public class pushBoxData {
+public class PushBoxData {
     //to record man's steps and box's steps
-    private List<pushBoxStepData> manGameSteps = new ArrayList<>();
+    private List<PushBoxStepData> manGameSteps = new ArrayList<>();
     //create man's position
     private TestCell manPosition = new TestCell();
     //remember the location of the flags
@@ -17,9 +15,9 @@ public class pushBoxData {
     //create variable represents the column number
     private int mColumnNum;
 
-//    public pushBoxData(Resources res, int level  ) throws IOException{
-//        if(pushBoxInitialData.size() == 0){
-//            pushBoxInitialData.readInitialData(res, pushBoxInitialData.CONFIG_FILE_NAME);
+//    public PushBoxData(Resources res, int level  ) throws IOException{
+//        if(PushBoxInitialData.size() == 0){
+//            PushBoxInitialData.readInitialData(res, PushBoxInitialData.CONFIG_FILE_NAME);
 //        }
 //        selectLevel = level;
 

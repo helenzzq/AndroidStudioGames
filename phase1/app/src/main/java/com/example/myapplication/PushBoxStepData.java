@@ -2,7 +2,7 @@ package com.example.myapplication;
 
 
 
-public class pushBoxStepData {
+public class PushBoxStepData {
 
 
 
