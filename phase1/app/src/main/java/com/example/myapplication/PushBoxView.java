@@ -1,4 +1,4 @@
 package com.example.myapplication;
 
-public class pushBoxView {
+public class PushBoxView {
 }

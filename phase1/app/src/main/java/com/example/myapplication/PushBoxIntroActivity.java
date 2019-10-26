@@ -1,4 +1,4 @@
 package com.example.myapplication;
 
-public class pushBoxData {
+public class PushBoxIntroActivity {
 }
