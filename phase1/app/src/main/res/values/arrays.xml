@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="game_intro">
-    <item>问：怎么算过了一关？</item>
-    <item>答：把全部箱子推到红旗所在位置，即视为过关。</item>
-    <item>问：怎么推箱子？</item>
+    <item>问：how do I pass the first level？</item>
+    <item>答：Push all boxes to locations of the flags, the you will pass.</item>
+    <item>问：how to push the boxes？</item>
     <item>答：设法让戴帽子的搬运工走到箱子上方（下方、左边或右边），然后搬运工向下（向上、向右或向左）走一步，箱子就会往下方（上方、右边或左边）移动。
             如果箱子的下方（上方、右边或左边）有障碍物（即墙或其他箱子），搬运工将无法推动箱子。</item>
     <item>问：怎么控制搬运工的行走呢？</item>

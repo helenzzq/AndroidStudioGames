@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.TextView;
 
+import com.example.myapplication.R;
+
 
 public class PushBoxChooseLevelAdapter extends ArrayAdapter<Boolean>{
     private Context mContext;

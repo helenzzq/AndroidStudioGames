@@ -27,6 +27,7 @@ public class PushBoxData {
 
     public PushBoxData(Resources res, int level) throws IOException{
         if(PushBoxInitialData.GameLevels.size() == 0){
+            PushBoxInitialData.addInitGameData();
             PushBoxInitialData.readInitialData(res, PushBoxInitialData.CONFIG_FILE_NAME);
         }
         selectedLevel = level;

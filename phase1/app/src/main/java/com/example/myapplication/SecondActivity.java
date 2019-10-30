@@ -25,7 +25,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view){
         switch (view.getId()){
             case R.id.btn_start:
-                Intent intent1 = new Intent(SecondActivity.this, PushBoxGameActivity.class);
+                Intent intent1 = new Intent(SecondActivity.this, PushBoxMainActivity.class);
                 startActivity(intent1);
                 break;
             case R.id.btn_settings:

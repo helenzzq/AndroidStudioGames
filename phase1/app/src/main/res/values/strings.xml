@@ -24,4 +24,5 @@
     <string name="xgq_exit">exit level</string>
     <string name="no_more_levels">no more levels</string>
     <string name="already_first_level">already the first level</string>
+    <string name="tui_xiangzi">Push Box</string>
 </resources>
