@@ -1,6 +1,8 @@
 package com.example.myapplication;
 
+import android.content.Context;
 import android.content.res.Resources;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,34 +12,20 @@ import java.util.StringTokenizer;
 
 
 public class PushBoxInitialData {
-    int mRowNum;
-    int mColumnNum;
-
-    String [] mInitialState;
-
-    public PushBoxInitialData(int rowNum, int columnNum){
-        mRowNum = rowNum;
-        mColumnNum = columnNum;
-        mInitialState = new String[rowNum];
-
-    }
-
     public static final int DEFAULT_ROW_NUM = 11;
     public static final int DEFAULT_COLUMN_NUM = 11;
     public static ArrayList<PushBoxLevelInitialData> GameLevels = new ArrayList<>();
 
-    //what we put in the cell
+    //游戏区单元格放了什么
+    public static final char NOTHING = ' ';         //该单元格啥也没有
+    public static final char BOX = 'B';             //该单元格放的是箱子
+    public static final char FLAG = 'F';            //红旗，表示箱子的目的地
+    public static final char MAN = 'M';              //搬运工
+    public static final char WALL = 'W';             //墙
+    public static final char MAN_FLAG = 'R';        //搬运工 + 红旗
+    public static final char BOX_FLAG = 'X';        //箱子 + 红旗
 
-    public static final char NOTHING = ' ';         //nothing in the cell
-    public static final char BOX = 'B';             //box in the cell
-    public static final char FLAG = 'F';            //flag, the destination of the box, in the cell
-    public static final char MAN = 'M';              //the character the moves the box
-    public static final char WALL = 'W';             //wall
-    public static final char MAN_FLAG = 'R';        //the character and the flag
-    public static final char BOX_FLAG = 'X';        //the box and the flag
-
-
-    public static final String[] level_1 = {
+    public static final String [] LEVEL_1 = {
             "  WWWW ",
             "  WF W ",
             "  WB W ",
@@ -46,10 +34,28 @@ public class PushBoxInitialData {
             "       ",
             "       "
     };
+    public static final String [] LEVEL_2 = {
+            "            ",
+            "            ",
+            "  WWWWWWW   ",
+            "  W FFB W   ",
+            "  W W B W   ",
+            "  W W W W   ",
+            "  W BMW W   ",
+            "  WFB   W   ",
+            "  WFWWWWW   ",
+            "  WWW       ",
+            "            ",
+            "            "
+    };
 
-    public static void addPushGameInitialData(){
-        GameLevels.add(new PushBoxLevelInitialData(7, 7, level_1));
+    public static void addInitGameData(){
+        GameLevels.add(new PushBoxLevelInitialData(7, 7, LEVEL_1));
+        GameLevels.add(new PushBoxLevelInitialData(12, 12, LEVEL_2));
     }
+
+    public static final String CONFIG_FILE_NAME = "level_list.txt";
+    //    public static final String CONFIG_FILE_NAME = "test_level_list.txt";
     public static void readInitialData(Resources res, String confgFileName) throws IOException {
         try {
             InputStreamReader inputReader = new InputStreamReader(res.getAssets().open(confgFileName) );
@@ -60,6 +66,7 @@ public class PushBoxInitialData {
             throw e;
         }
     }
+
     private static void readConfig(BufferedReader bufReader) throws IOException {
         String line = "";
         while ((line = bufReader.readLine()) != null) {
@@ -85,6 +92,7 @@ public class PushBoxInitialData {
             }
         }
     }
+
     private static PushBoxLevelInitialData readRowColumnNum(String strRowColumnNum) {
         StringTokenizer stringTokenizer = new StringTokenizer(strRowColumnNum);
         String strRowNum = stringTokenizer.nextToken();   //默认以空格作为分隔符
