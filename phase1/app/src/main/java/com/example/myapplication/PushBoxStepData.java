@@ -24,16 +24,16 @@ public class PushBoxStepData {
         this.mManCurrentPos = mManCurrentPos;
     }
 
-    public TestCell getmBoxPreviousPos(){
+    public TestCell getBoxPreviousPos(){
         return mBoxPreviousPos;
     }
 
 
-    public void setmBoxPreviousPos(){
+    public void setBoxPreviousPos(){
         this.mBoxPreviousPos = mBoxPreviousPos;
     }
 
-    public TestCell getmBoxCurrentPos(){
+    public TestCell getBoxCurrentPos(){
         return mBoxCurrentPos;
     }
 
