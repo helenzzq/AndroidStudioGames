@@ -6,13 +6,17 @@ public class PushBoxStepData {
     public TestCell mBoxPreviousPos;
     public TestCell mBoxCurrentPos;
     public PushBoxStepData(){
+//        mManPreviousPos = new TestCell();
+//        mManCurrentPos = new TestCell();
+//        mBoxPreviousPos = new TestCell();
+//        mBoxCurrentPos = new TestCell();
 
     }
     public TestCell getManPreviousPos(){
         return mManPreviousPos;
     }
 
-    public void setManPreviousPos(){
+    public void setManPreviousPos(TestCell mManPreviousPos){
         this.mManPreviousPos = mManPreviousPos;
     }
 
@@ -20,7 +24,7 @@ public class PushBoxStepData {
         return mManCurrentPos;
     }
 
-    public void setManCurrentPos(){
+    public void setManCurrentPos(TestCell mManCurrentPos){
         this.mManCurrentPos = mManCurrentPos;
     }
 
@@ -29,7 +33,7 @@ public class PushBoxStepData {
     }
 
 
-    public void setBoxPreviousPos(){
+    public void setBoxPreviousPos(TestCell mBoxPreviousPos){
         this.mBoxPreviousPos = mBoxPreviousPos;
     }
 
@@ -37,7 +41,7 @@ public class PushBoxStepData {
         return mBoxCurrentPos;
     }
 
-    public void setBoxCurrentPos(){
+    public void setBoxCurrentPos(TestCell mBoxCurrentPos){
         this.mBoxCurrentPos = mBoxCurrentPos;
     }
 

@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.myapplication.R;
+
 import java.util.List;
 
 public class PushBoxIntroActivity extends Activity {

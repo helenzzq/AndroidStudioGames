@@ -1,8 +1,6 @@
 package com.example.myapplication;
 
-import android.content.Context;
 import android.content.res.Resources;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;

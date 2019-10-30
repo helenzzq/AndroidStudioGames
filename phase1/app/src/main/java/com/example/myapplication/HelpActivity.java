@@ -9,6 +9,7 @@ import android.widget.Button;
 
 public class HelpActivity extends AppCompatActivity implements View.OnClickListener {
     private Button back, start;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

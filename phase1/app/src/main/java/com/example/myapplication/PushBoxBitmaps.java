@@ -4,6 +4,8 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import com.example.myapplication.R;
+
 class PushBoxBitmaps {
     public static void LoadBitmaps(Resources resources) {
     }

@@ -26,7 +26,7 @@ public class PushBoxData {
     private StringBuffer[] mPushBoxState;
 
     public PushBoxData(Resources res, int level) throws IOException{
-        if(PushBoxInitialData.size() == 0){
+        if(PushBoxInitialData.GameLevels.size() == 0){
             PushBoxInitialData.readInitialData(res, PushBoxInitialData.CONFIG_FILE_NAME);
         }
         selectedLevel = level;
@@ -37,7 +37,7 @@ public class PushBoxData {
     }
     private void initializePushBoxState(){
         mRowNum = selectedInitialData.mRowNum;
-        mColumnNum = selectedInitialData.DEFAULT_ROW_NUM;
+        mColumnNum = selectedInitialData.mColumnNum;
         if (mRowNum < PushBoxInitialData.DEFAULT_COLUMN_NUM){
             mPushBoxState = new StringBuffer[PushBoxInitialData.DEFAULT_ROW_NUM];
         }
@@ -89,6 +89,29 @@ public class PushBoxData {
         return mRowNum;
     }
 
+    private void go(int srcRow, int srcColumn, int destRow, int destColumn){
+        if (destRow < 0 || destRow >= mRowNum || destColumn < 0 || destColumn >= mColumnNum)
+            return;   //越界
+//        mCurrentStep = null;
+        boolean isBoxMoved = false;
+        int rowOffset = destRow - srcRow;
+        int columnOffset = destColumn - srcColumn;
+        char cell = mPushBoxState[destRow].charAt(destColumn);
+        if (cell == PushBoxInitialData.BOX) {
+            isBoxMoved = moveBox(destRow, destColumn, destRow + rowOffset, destColumn + columnOffset);
+            cell = mPushBoxState[destRow].charAt(destColumn);
+        }
+
+        if (cell == PushBoxInitialData.NOTHING || cell == PushBoxInitialData.FLAG){
+            manGoAway();
+            manPosition.row = destRow;
+            manPosition.column = destColumn;
+            mPushBoxState[manPosition.row].setCharAt(manPosition.column, PushBoxInitialData.MAN);
+
+            recordMoveInfo(srcRow, srcColumn, destRow, destColumn, isBoxMoved);
+        }
+    }
+
     public void goUp() {
         go(manPosition.row, manPosition.column, manPosition.row - 1, manPosition.column);
     }
@@ -100,6 +123,13 @@ public class PushBoxData {
     public void goLeft() {
         go(manPosition.row, manPosition.column, manPosition.row, manPosition.column - 1);
     }
+
+    public void goDown(){
+        go(manPosition.row, manPosition.column, manPosition.row + 1, manPosition.column);
+    }
+
+
+
 
     private void recordMoveInfo(int srcRow, int srcColumn, int destRow, int destColumn, boolean isBoxMoved) {
         PushBoxStepData stepData = new PushBoxStepData();
@@ -124,7 +154,7 @@ public class PushBoxData {
 
     private void manGoAway() {
         restoreInitialState(manPosition.row, manPosition.column);
-        if (GameSound.isSoundAllowed()) GameSound.playOneStepSound();
+        if (PushBoxSound.isSoundAllowed()) PushBoxSound.playOneStepSound();
     }
 
     //把箱子从(srcRow, srcColumn)移动到(destRow, destColumn)
@@ -135,7 +165,7 @@ public class PushBoxData {
         if (cell  == PushBoxInitialData.NOTHING || cell == PushBoxInitialData.FLAG){
             restoreInitialState(srcRow, srcColumn);
             mPushBoxState[destRow].setCharAt(destColumn, PushBoxInitialData.BOX);
-            if (GameSound.isSoundAllowed()) GameSound.playMoveBoxSound();
+            if (PushBoxSound.isSoundAllowed()) PushBoxSound.playMoveBoxSound();
             return true;
         }
         return false;
