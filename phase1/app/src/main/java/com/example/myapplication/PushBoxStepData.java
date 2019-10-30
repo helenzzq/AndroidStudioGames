@@ -1,51 +1,46 @@
 package com.example.myapplication;
 
-
-
 public class PushBoxStepData {
-    public TestCell mManPrvPosition;
-    public TestCell mManCurrentPosition;
-    public TestCell mBoxPrvPosition;
-    public TestCell mBoxCurrentPosition;
-
+    public TestCell mManPreviousPos;
+    public TestCell mManCurrentPos;
+    public TestCell mBoxPreviousPos;
+    public TestCell mBoxCurrentPos;
     public PushBoxStepData(){
-//        mManPrvPosition = new TCell();
-//        mManCurrentPosition = new TCell();
-//        mBoxPrvPosition = new TCell();
-//        mBoxCurrentPosition = new TCell();
+
+    }
+    public TestCell getManPreviousPos(){
+        return mManPreviousPos;
     }
 
-    public TestCell getManPrvPosition() {
-        return mManPrvPosition;
+    public void setManPreviousPos(){
+        this.mManPreviousPos = mManPreviousPos;
     }
 
-    public void setManPrvPosition(TestCell mManPrvPosition) {
-        this.mManPrvPosition = mManPrvPosition;
+    public TestCell getManCurrentPos(){
+        return mManCurrentPos;
     }
 
-    public TestCell getManCurrentPosition() {
-        return mManCurrentPosition;
+    public void setManCurrentPos(){
+        this.mManCurrentPos = mManCurrentPos;
     }
 
-    public void setManCurrentPosition(TestCell mManCurrentPosition) {
-        this.mManCurrentPosition = mManCurrentPosition;
+    public TestCell getBoxPreviousPos(){
+        return mBoxPreviousPos;
     }
 
-    public TestCell getBoxPrvPosition() {
-        return mBoxPrvPosition;
+
+    public void setBoxPreviousPos(){
+        this.mBoxPreviousPos = mBoxPreviousPos;
     }
 
-    public void setBoxPrvPosition(TestCell mBoxPrvPosition) {
-        this.mBoxPrvPosition = mBoxPrvPosition;
+    public TestCell getBoxCurrentPos(){
+        return mBoxCurrentPos;
     }
 
-    public TestCell getBoxCurrentPosition() {
-        return mBoxCurrentPosition;
+    public void setBoxCurrentPos(){
+        this.mBoxCurrentPos = mBoxCurrentPos;
     }
 
-    public void setBoxCurrentPosition(TestCell mBoxCurrentPosition) {
-        this.mBoxCurrentPosition = mBoxCurrentPosition;
-    }
 
 
 }
