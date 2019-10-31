@@ -1,4 +1,4 @@
-package com.example.myapplication.pushbox;
+package com.example.myapplication.pushbox.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.myapplication.R;
-import com.example.myapplication.pushbox.activities.PushBoxChooseLevelActivity;
+import com.example.myapplication.pushbox.*;
 
 public class PushBoxGameActivity extends Activity {
 

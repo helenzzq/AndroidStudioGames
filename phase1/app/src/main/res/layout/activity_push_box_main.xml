@@ -21,7 +21,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/kaishi_youxi"
-            android:id="@+id/btn_start_game"
+            android:id="@+id/btn_start"
             android:layout_marginTop="45dp"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
@@ -29,7 +29,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/youxi_jianjie"
-            android:id="@+id/btn_game_intro"
+            android:id="@+id/btn_intro"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
         <Button

@@ -6,7 +6,7 @@ import android.graphics.BitmapFactory;
 
 import com.example.myapplication.R;
 
-class PushBoxBitmaps {
+public class PushBoxBitmaps {
     public static void LoadBitmaps(Resources resources) {
     }
 

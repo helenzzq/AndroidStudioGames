@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.myapplication.pushbox.PushBoxGameActivity;
+import com.example.myapplication.pushbox.activities.PushBoxGameActivity;
 
 public class HelpActivity extends AppCompatActivity implements View.OnClickListener {
     private Button back, start;

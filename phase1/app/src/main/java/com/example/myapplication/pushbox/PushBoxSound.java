@@ -9,7 +9,7 @@ import android.util.Log;
 
 import java.io.IOException;
 
-class PushBoxSound {
+public class PushBoxSound {
     private static SoundPool mSoundPool;
     private static int mOneSetpMusicId;
     private static  int mMoveBoxMusicId;

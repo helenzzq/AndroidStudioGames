@@ -15,7 +15,11 @@
         <activity android:name=".HelpActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".pushbox.activities.PushBoxIntroActivity" />
-        <activity android:name=".pushbox.PushBoxGameActivity" />
+        <activity android:name=".pushbox.activities.PushBoxGameActivity"
+            android:theme="@android:style/Theme.Holo" />
+        <activity android:name=".pushbox.activities.PushBoxChooseLevelActivity"
+            android:theme="@android:style/Theme.Holo"
+            android:screenOrientation="portrait"></activity>
         <activity android:name=".SecondActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
