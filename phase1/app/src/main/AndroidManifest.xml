@@ -24,7 +24,7 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Holo" />
         <activity android:name=".SecondActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".LoginRegister.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
