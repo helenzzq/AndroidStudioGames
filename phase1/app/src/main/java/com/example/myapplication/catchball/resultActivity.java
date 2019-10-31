@@ -40,7 +40,7 @@ public class resultActivity extends AppCompatActivity {
         }
     }
 
-    public void tryAgain(View view){
+    public void next(View view){
         startActivity(new Intent(getApplicationContext(), PushBoxMainActivity.class));
     }
 }

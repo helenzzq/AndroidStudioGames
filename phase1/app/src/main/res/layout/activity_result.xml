@@ -31,10 +31,12 @@
         android:layout_marginTop="80dp"/>
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="next" />
+        android:layout_marginTop="50dp"
+        android:text="NEXT"
+        android:textAllCaps="false"
+        android:onClick="next"/>
 
 
 </LinearLayout>
