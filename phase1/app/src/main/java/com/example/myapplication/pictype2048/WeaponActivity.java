@@ -7,8 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.myapplication.LoginRegister.MainActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.pushbox.activities.PushBoxMainActivity;
+
 
 public class WeaponActivity extends AppCompatActivity {
 
@@ -49,6 +50,6 @@ public class WeaponActivity extends AppCompatActivity {
 
 
     public void next(View view){
-        startActivity(new Intent(getApplicationContext(), PushBoxMainActivity.class));
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
     }
 }
