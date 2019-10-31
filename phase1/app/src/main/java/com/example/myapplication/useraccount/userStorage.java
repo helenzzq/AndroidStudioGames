@@ -33,11 +33,16 @@ public class userStorage {
     }
 
     public void setLogin(boolean loggin){
-
+        SharedPreferences.Editor fileEd = userDatabase.edit();
+        fileEd.putBoolean("loggin",loggin);
+        fileEd.commit();
     }
 
+    //clear users data when they log out
     public void clearUserData(){
-        //SharedPreferences.Editor fileEd =
+        SharedPreferences.Editor fileEd = userDatabase.edit();
+        fileEd.clear();
+        fileEd.commit();
     }
 
 
