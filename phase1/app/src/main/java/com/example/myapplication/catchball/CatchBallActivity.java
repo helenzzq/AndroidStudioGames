@@ -187,7 +187,7 @@ public class CatchBallActivity extends AppCompatActivity {
         if( 0<=blackCenterX && blackCenterX<=boxSize &&
                 boxY <= blackCenterY && blackCenterY <= boxY +boxSize){
 
-            //stop the timer!!
+            //stop the timer!
             timer.cancel();
             timer=null;
 
