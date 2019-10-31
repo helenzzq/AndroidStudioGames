@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.myapplication.R;
 import com.example.myapplication.pictype2048.WeaponActivity;
 import com.example.myapplication.pushbox.activities.PushBoxMainActivity;
+import com.example.myapplication.Math24Activity;
 
 public class resultActivity extends AppCompatActivity {
 
@@ -42,6 +43,6 @@ public class resultActivity extends AppCompatActivity {
     }
 
     public void next(View view){
-        startActivity(new Intent(getApplicationContext(), WeaponActivity.class));
+        startActivity(new Intent(getApplicationContext(), Math24Activity.class));
     }
 }
