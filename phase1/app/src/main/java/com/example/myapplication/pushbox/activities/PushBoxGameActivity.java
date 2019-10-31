@@ -20,7 +20,7 @@ public class PushBoxGameActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
-        mGameLevel = intent.getIntExtra(PushBoxChooseLevelActivity.LEVEL, 1);
+//        mGameLevel = intent.getIntExtra(PushBoxChooseLevelActivity.LEVEL, 1);
         PushBoxBitmaps.LoadBitmaps(getResources());  // Load pictures before PushBoxView created.
         PushBoxSound.loadSound(getAssets());
         setContentView(R.layout.activity_push_box_game);
