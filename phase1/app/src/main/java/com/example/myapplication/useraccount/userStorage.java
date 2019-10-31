@@ -31,5 +31,14 @@ public class userStorage {
 
         return StoredUser;
     }
-    
+
+    public void setLogin(boolean loggin){
+
+    }
+
+    public void clearUserData(){
+        //SharedPreferences.Editor fileEd =
+    }
+
+
 }
