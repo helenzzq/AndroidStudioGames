@@ -1,31 +1,31 @@
 package com.example.myapplication.pushbox;
 
 public class PushBoxStepData {
-    public TestCell mManPreviousPos;
-    public TestCell mManCurrentPos;
+    public TestCell mPrincePreviousPos;
+    public TestCell mPrinceCurrentPos;
     public TestCell mBoxPreviousPos;
     public TestCell mBoxCurrentPos;
     public PushBoxStepData(){
-//        mManPreviousPos = new TestCell();
-//        mManCurrentPos = new TestCell();
+//        mPrincePreviousPos = new TestCell();
+//        mPrinceCurrentPos = new TestCell();
 //        mBoxPreviousPos = new TestCell();
 //        mBoxCurrentPos = new TestCell();
 
     }
-    public TestCell getManPreviousPos(){
-        return mManPreviousPos;
+    public TestCell getPrincePreviousPos(){
+        return mPrincePreviousPos;
     }
 
-    public void setManPreviousPos(TestCell mManPreviousPos){
-        this.mManPreviousPos = mManPreviousPos;
+    public void setPrincePreviousPos(TestCell mPrincePreviousPos){
+        this.mPrincePreviousPos = mPrincePreviousPos;
     }
 
-    public TestCell getManCurrentPos(){
-        return mManCurrentPos;
+    public TestCell getPrinceCurrentPos(){
+        return mPrinceCurrentPos;
     }
 
-    public void setManCurrentPos(TestCell mManCurrentPos){
-        this.mManCurrentPos = mManCurrentPos;
+    public void setPrinceCurrentPos(TestCell mPrinceCurrentPos){
+        this.mPrinceCurrentPos = mPrinceCurrentPos;
     }
 
     public TestCell getBoxPreviousPos(){

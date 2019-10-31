@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PushBoxData {
-    //to record man's steps and box's steps
-    private List<PushBoxStepData> manGameSteps = new ArrayList<>();
-    //create man's position
-    private TestCell manPosition = new TestCell();
+    //to record Prince's steps and box's steps
+    private List<PushBoxStepData> princeGameSteps = new ArrayList<>();
+    //create prince's position
+    private TestCell princePosition = new TestCell();
     //remember the location of the flags
     private List<TestCell> flagCells = new ArrayList<>();
     //create variable represents the row number
@@ -24,6 +24,8 @@ public class PushBoxData {
     private int selectedLevel;
     //
     private StringBuffer[] mPushBoxState;
+    //score
+    private int score;
 
     public PushBoxData(Resources res, int level) throws IOException{
         if(PushBoxInitialData.GameLevels.size() == 0){
@@ -62,10 +64,10 @@ public class PushBoxData {
             mPushBoxState[r].append(rightBlanks);
             //Log.d("GameData", "initializeGameState(), mGameState[" + r + "].length=" + mGameState[r].length());
             for (int c = 0; c < mColumnNum; c++) {
-                if (mPushBoxState[r].charAt(c) == PushBoxInitialData.MAN || mPushBoxState[r].charAt(c) == PushBoxInitialData.MAN_FLAG) {
-                    manPosition.set(r, c);
+                if (mPushBoxState[r].charAt(c) == PushBoxInitialData.PRINCE || mPushBoxState[r].charAt(c) == PushBoxInitialData.PRINCE_FLAG) {
+                    princePosition.set(r, c);
                 }
-                if (mPushBoxState[r].charAt(c) == PushBoxInitialData.FLAG || mPushBoxState[r].charAt(c) == PushBoxInitialData.MAN_FLAG
+                if (mPushBoxState[r].charAt(c) == PushBoxInitialData.FLAG || mPushBoxState[r].charAt(c) == PushBoxInitialData.PRINCE_FLAG
                         || mPushBoxState[r].charAt(c) == PushBoxInitialData.BOX_FLAG){
                     TestCell cell = new TestCell(r, c);
                     flagCells.add(cell);
@@ -78,8 +80,8 @@ public class PushBoxData {
         return mPushBoxState;
     }
 
-    public TestCell getmManPostion(){
-        return  manPosition;
+    public TestCell getmPrincePostion(){
+        return  princePosition;
     }
 
     public int getBoardColumnNum(){
@@ -104,29 +106,29 @@ public class PushBoxData {
         }
 
         if (cell == PushBoxInitialData.NOTHING || cell == PushBoxInitialData.FLAG){
-            manGoAway();
-            manPosition.row = destRow;
-            manPosition.column = destColumn;
-            mPushBoxState[manPosition.row].setCharAt(manPosition.column, PushBoxInitialData.MAN);
+            princeGoAway();
+            princePosition.row = destRow;
+            princePosition.column = destColumn;
+            mPushBoxState[princePosition.row].setCharAt(princePosition.column, PushBoxInitialData.PRINCE);
 
             recordMoveInfo(srcRow, srcColumn, destRow, destColumn, isBoxMoved);
         }
     }
 
     public void goUp() {
-        go(manPosition.row, manPosition.column, manPosition.row - 1, manPosition.column);
+        go(princePosition.row, princePosition.column, princePosition.row - 1, princePosition.column);
     }
 
     public void goRight() {
-        go(manPosition.row, manPosition.column, manPosition.row, manPosition.column + 1);
+        go(princePosition.row, princePosition.column, princePosition.row, princePosition.column + 1);
     }
 
     public void goLeft() {
-        go(manPosition.row, manPosition.column, manPosition.row, manPosition.column - 1);
+        go(princePosition.row, princePosition.column, princePosition.row, princePosition.column - 1);
     }
 
     public void goDown(){
-        go(manPosition.row, manPosition.column, manPosition.row + 1, manPosition.column);
+        go(princePosition.row, princePosition.column, princePosition.row + 1, princePosition.column);
     }
 
 
@@ -134,15 +136,15 @@ public class PushBoxData {
 
     private void recordMoveInfo(int srcRow, int srcColumn, int destRow, int destColumn, boolean isBoxMoved) {
         PushBoxStepData stepData = new PushBoxStepData();
-        stepData.setManPreviousPos(new TestCell(srcRow, srcColumn));
-        stepData.setManCurrentPos(new TestCell(destRow, destColumn));
+        stepData.setPrincePreviousPos(new TestCell(srcRow, srcColumn));
+        stepData.setPrinceCurrentPos(new TestCell(destRow, destColumn));
         if (isBoxMoved){
             int rowOffset = destRow - srcRow;
             int columnOffset = destColumn - srcColumn;
             stepData.setBoxPreviousPos(new TestCell(destRow, destColumn));
             stepData.setBoxCurrentPos(new TestCell(destRow + rowOffset, destColumn + columnOffset));
         }
-        manGameSteps.add(stepData);
+        princeGameSteps.add(stepData);
 //        logOneStep(stepData);
     }
 
@@ -153,9 +155,8 @@ public class PushBoxData {
             mPushBoxState[row].setCharAt(column, PushBoxInitialData.NOTHING);
     }
 
-    private void manGoAway() {
-        restoreInitialState(manPosition.row, manPosition.column);
-        if (PushBoxSound.isSoundAllowed()) PushBoxSound.playOneStepSound();
+    private void princeGoAway() {
+        restoreInitialState(princePosition.row, princePosition.column);
     }
 
     //把箱子从(srcRow, srcColumn)移动到(destRow, destColumn)
@@ -166,7 +167,6 @@ public class PushBoxData {
         if (cell  == PushBoxInitialData.NOTHING || cell == PushBoxInitialData.FLAG){
             restoreInitialState(srcRow, srcColumn);
             mPushBoxState[destRow].setCharAt(destColumn, PushBoxInitialData.BOX);
-            if (PushBoxSound.isSoundAllowed()) PushBoxSound.playMoveBoxSound();
             return true;
         }
         return false;
@@ -192,16 +192,16 @@ public class PushBoxData {
         return true;
     }
     public boolean undoMove(){
-        if (manGameSteps.isEmpty())
+        if (princeGameSteps.isEmpty())
             return false;
-        PushBoxStepData step = manGameSteps.remove(manGameSteps.size() - 1);
+        PushBoxStepData step = princeGameSteps.remove(princeGameSteps.size() - 1);
 //        logUndoOneStep(step);
-        assert(manPosition.isEqualTo(step.getManCurrentPos()));
-        restoreInitialState(step.getManCurrentPos().row, step.getManCurrentPos().column);
-        int manRow = step.getManPreviousPos().row;
-        int manColumn = step.getManPreviousPos().column;
-        manPosition.set(manRow, manColumn);
-        mPushBoxState[manRow].setCharAt(manColumn, 'M');
+        assert(princePosition.isEqualTo(step.getPrinceCurrentPos()));
+        restoreInitialState(step.getPrinceCurrentPos().row, step.getPrinceCurrentPos().column);
+        int PrinceRow = step.getPrincePreviousPos().row;
+        int PrinceColumn = step.getPrincePreviousPos().column;
+        princePosition.set(PrinceRow, PrinceColumn);
+        mPushBoxState[PrinceRow].setCharAt(PrinceColumn, 'M');
         TestCell boxPrvPos = step.getBoxPreviousPos();
         TestCell boxCurPos = step.getBoxCurrentPos();
         if (boxPrvPos != null && boxCurPos != null){
@@ -213,19 +213,19 @@ public class PushBoxData {
     }
 
     private void logUndoOneStep(PushBoxStepData step) {
-        logOneStep(step.getManCurrentPos(), step.getManPreviousPos(), step.getBoxCurrentPos(), step.getBoxPreviousPos());
+        logOneStep(step.getPrinceCurrentPos(), step.getPrincePreviousPos(), step.getBoxCurrentPos(), step.getBoxPreviousPos());
     }
 
     private void logOneStep(PushBoxStepData step) {
-        TestCell manPrvPos = step.getManPreviousPos();
-        TestCell manCurPos = step.getManCurrentPos();
+        TestCell princePrvPos = step.getPrincePreviousPos();
+        TestCell princeCurPos = step.getPrinceCurrentPos();
         TestCell boxPrvPos = step.getBoxPreviousPos();
         TestCell boxCurPos = step.getBoxCurrentPos();
-        logOneStep(manPrvPos, manCurPos, boxPrvPos, boxCurPos);
+        logOneStep(princePrvPos, princeCurPos, boxPrvPos, boxCurPos);
     }
 
-    private void logOneStep(TestCell manPrvPos, TestCell manCurPos, TestCell boxPrvPos, TestCell boxCurPos) {
-        Log.d("GameData", "一步：(" + manPrvPos.row + ", " + manPrvPos.column + ") -> (" + manCurPos.row + ", " + manCurPos.column + ")" );
+    private void logOneStep(TestCell princePrvPos, TestCell princeCurPos, TestCell boxPrvPos, TestCell boxCurPos) {
+        Log.d("GameData", "一步：(" + princePrvPos.row + ", " + princePrvPos.column + ") -> (" + princeCurPos.row + ", " + princeCurPos.column + ")" );
         if (boxPrvPos != null && boxCurPos != null) {
             Log.d("GameData", "箱子：(" + boxPrvPos.row + ", " + boxPrvPos.column + ") -> (" + boxCurPos.row + ", " + boxCurPos.column + ")" );
         }

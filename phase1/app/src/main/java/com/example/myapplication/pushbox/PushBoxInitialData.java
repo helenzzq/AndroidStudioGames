@@ -15,13 +15,13 @@ public class PushBoxInitialData {
     public static PushBoxLevelInitialData gameLevel = new PushBoxLevelInitialData(12, 12, LEVEL_1);
 
     //游戏区单元格放了什么
-    public static final char NOTHING = ' ';         //该单元格啥也没有
-    public static final char BOX = 'B';             //该单元格放的是箱子
-    public static final char FLAG = 'F';            //红旗，表示箱子的目的地
-    public static final char MAN = 'M';              //搬运工
-    public static final char WALL = 'W';             //墙
-    public static final char MAN_FLAG = 'R';        //搬运工 + 红旗
-    public static final char BOX_FLAG = 'X';        //箱子 + 红旗
+    public static final char NOTHING = ' ';         //empty cell
+    public static final char BOX = 'B';             //a box in the cell
+    public static final char FLAG = 'F';            //a flag in the cell, destination of the box
+    public static final char PRINCE = 'P';              //Prince's location
+    public static final char WALL = 'W';             //wall
+    public static final char PRINCE_FLAG = 'R';        //a cell with flag and Prince
+    public static final char BOX_FLAG = 'X';        //a cell with box and flag
 
     public static final String [] LEVEL_1 = {
             "            ",

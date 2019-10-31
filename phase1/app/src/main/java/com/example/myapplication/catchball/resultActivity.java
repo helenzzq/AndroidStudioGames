@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.catchball;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,8 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.myapplication.CatchBallActivity;
 import com.example.myapplication.R;
+import com.example.myapplication.pushbox.activities.PushBoxMainActivity;
 
 public class resultActivity extends AppCompatActivity {
 
@@ -41,6 +41,6 @@ public class resultActivity extends AppCompatActivity {
     }
 
     public void tryAgain(View view){
-        startActivity(new Intent(getApplicationContext(), CatchBallActivity.class));
+        startActivity(new Intent(getApplicationContext(), PushBoxMainActivity.class));
     }
 }

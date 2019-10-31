@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.catchball;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +13,8 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.myapplication.R;
 
 import java.util.Timer;
 import java.util.TimerTask;

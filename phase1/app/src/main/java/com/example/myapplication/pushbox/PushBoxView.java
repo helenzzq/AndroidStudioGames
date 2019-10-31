@@ -23,8 +23,7 @@ public class PushBoxView extends View {
     private int mGameLevel = 1;
     private int mTopLeft_x = 0;
     private int mTopLeft_y = 0;
-    private Rect mManRect = new Rect();          //搬运工所在的位置
-    private Rect mRectSoundSwitch = new Rect();
+    private Rect mPrinceRect = new Rect();          //搬运工所在的位置
 
     public PushBoxView(Context context) {
         super(context);
@@ -54,16 +53,16 @@ public class PushBoxView extends View {
         mColumnWidth = (float) w / mGameData.getBoardColumnNum();
         mRowHeight = (float) w / mGameData.getBoardRowNum();
         mTopLeft_y = (h - w) / 2;
-        getManRect(mGameData.getmManPostion(), mRowHeight, mColumnWidth);
+        getPrinceRect(mGameData.getmPrincePostion(), mRowHeight, mColumnWidth);
         super.onSizeChanged(w, h, oldw, oldh);
     }
 
-    private void getManRect(TestCell tCell, float rowHeight, float columnWidth) {
+    private void getPrinceRect(TestCell tCell, float rowHeight, float columnWidth) {
         int left = (int) (mTopLeft_x + tCell.column * columnWidth);
         int top = (int) (mTopLeft_y + tCell.row * rowHeight);
         int right = (int) (left + columnWidth);
         int bottom = (int) (top + rowHeight);
-        mManRect.set(left, top, right, bottom);
+        mPrinceRect.set(left, top, right, bottom);
     }
 
     private void goToLevel(int level){
@@ -76,7 +75,7 @@ public class PushBoxView extends View {
 
         mColumnWidth = getWidth() / mGameData.getBoardColumnNum();
         mRowHeight = getWidth() / mGameData.getBoardRowNum();   //正方形区域
-        getManRect(mGameData.getmManPostion(), mRowHeight, mColumnWidth);
+        getPrinceRect(mGameData.getmPrincePostion(), mRowHeight, mColumnWidth);
         invalidate();
     }
 
@@ -106,8 +105,7 @@ public class PushBoxView extends View {
         canvas.drawRect(0, 0, getWidth(), getHeight(), background);
         //游戏区域
         drawGameBoard(canvas);
-        //音效开关
-        drawSoundSwitch(canvas);
+
 
         //成功过关
         if (mGameData.isGameOver()) {
@@ -137,8 +135,8 @@ public class PushBoxView extends View {
                         break;
                     case PushBoxInitialData.NOTHING:
                         break;
-                    case PushBoxInitialData.MAN:
-                        canvas.drawBitmap(PushBoxBitmaps.mManBitmap, null, destRect, null);
+                    case PushBoxInitialData.PRINCE:
+                        canvas.drawBitmap(PushBoxBitmaps.mPrinceBitmap, null, destRect, null);
                         break;
                     case PushBoxInitialData.WALL:
 //                        destRect.set(destRect.left, destRect.top, destRect.right+2, destRect.bottom + 2);  //+2是为了去除墙体之间的缝隙
@@ -148,21 +146,14 @@ public class PushBoxView extends View {
                         canvas.drawBitmap(PushBoxBitmaps.mFlagBitmap, null, destRect, null);
                         canvas.drawBitmap(PushBoxBitmaps.mBoxBitmap, null, destRect, null);
                         break;
-                    case PushBoxInitialData.MAN_FLAG:
+                    case PushBoxInitialData.PRINCE_FLAG:
                         canvas.drawBitmap(PushBoxBitmaps.mFlagBitmap, null, destRect, null);
-                        canvas.drawBitmap(PushBoxBitmaps.mManBitmap, null, destRect, null);
+                        canvas.drawBitmap(PushBoxBitmaps.mPrinceBitmap, null, destRect, null);
                         break;
                 }
             }
     }
 
-    private void drawSoundSwitch(Canvas canvas) {
-        mRectSoundSwitch.set(canvas.getWidth() - 2 * (int)mColumnWidth, 0, canvas.getWidth(), 2 * (int)mColumnWidth);
-        if (PushBoxSound.isSoundAllowed())
-            canvas.drawBitmap(PushBoxBitmaps.mSoundOpenBitmap, null, mRectSoundSwitch, null);
-        else
-            canvas.drawBitmap(PushBoxBitmaps.mSoundCloseBitmap, null, mRectSoundSwitch, null);
-    }
 
     private void drawDoneLabel(Canvas canvas) {
         int begin_x = mTopLeft_x + 120;
@@ -185,52 +176,48 @@ public class PushBoxView extends View {
         if (!mGameData.isGameOver()) {
             //用户通过在游戏区域触摸来控制搬运工的行进
             //当触摸点落在搬运工所在单元格的上、下、左、右格子n时，即意味着指示搬运工走到格子n上（阻挡问题另外考虑）
-            if (touch_left_to_man(touch_x, touch_y))
+            if (touch_left_to_prince(touch_x, touch_y))
                 mGameData.goLeft();
-            if (touch_right_to_man(touch_x, touch_y))
+            if (touch_right_to_prince(touch_x, touch_y))
                 mGameData.goRight();
-            if (touch_above_to_man(touch_x, touch_y))
+            if (touch_above_to_Prince(touch_x, touch_y))
                 mGameData.goUp();
-            if (touch_blow_to_man(touch_x, touch_y))
+            if (touch_blow_to_Prince(touch_x, touch_y))
                 mGameData.goDown();
-            getManRect(mGameData.getmManPostion(), mRowHeight, mColumnWidth);  //重新计算搬运工的屏幕位置
-            if (mRectSoundSwitch.contains(touch_x, touch_y))
-                PushBoxSound.switchSoundAllowed();
+            getPrinceRect(mGameData.getmPrincePostion(), mRowHeight, mColumnWidth);  //重新计算搬运工的屏幕位置
             invalidate();
 
             if (mGameData.isGameOver()) {
                 PushManager.setPassedLevel(mGameActivity, mGameLevel);   //记住已经通过本关卡
-                if (PushBoxSound.isSoundAllowed())
-                    PushBoxSound.playGameOverSound(mGameActivity.getAssets());
             }
         }
         return true;
     }
 
-    private boolean touch_blow_to_man(int touch_x, int touch_y){
-        Rect belowRect = new Rect(mManRect.left, mManRect.top + (int) mRowHeight, mManRect.right, mManRect.bottom + (int) mRowHeight);
+    private boolean touch_blow_to_Prince(int touch_x, int touch_y){
+        Rect belowRect = new Rect(mPrinceRect.left, mPrinceRect.top + (int) mRowHeight, mPrinceRect.right, mPrinceRect.bottom + (int) mRowHeight);
         return belowRect.contains(touch_x, touch_y);
     }
 
-    private boolean touch_above_to_man(int touch_x, int touch_y){
-        Rect aboveRect = new Rect(mManRect.left, mManRect.top - (int) mRowHeight, mManRect.right, mManRect.bottom - (int) mRowHeight);
+    private boolean touch_above_to_Prince(int touch_x, int touch_y){
+        Rect aboveRect = new Rect(mPrinceRect.left, mPrinceRect.top - (int) mRowHeight, mPrinceRect.right, mPrinceRect.bottom - (int) mRowHeight);
         return aboveRect.contains(touch_x, touch_y);
     }
 
-    private boolean touch_right_to_man(int touch_x, int touch_y){
-        Rect rightRect = new Rect(mManRect.left + (int) mColumnWidth, mManRect.top, mManRect.right + (int) mColumnWidth, mManRect.bottom);
+    private boolean touch_right_to_prince(int touch_x, int touch_y){
+        Rect rightRect = new Rect(mPrinceRect.left + (int) mColumnWidth, mPrinceRect.top, mPrinceRect.right + (int) mColumnWidth, mPrinceRect.bottom);
         return rightRect.contains(touch_x, touch_y);
     }
 
-    private boolean touch_left_to_man(int touch_x, int touch_y){
-        Rect leftRect = new Rect(mManRect.left - (int) mColumnWidth, mManRect.top, mManRect.right - (int) mColumnWidth, mManRect.bottom);
+    private boolean touch_left_to_prince(int touch_x, int touch_y){
+        Rect leftRect = new Rect(mPrinceRect.left - (int) mColumnWidth, mPrinceRect.top, mPrinceRect.right - (int) mColumnWidth, mPrinceRect.bottom);
         return leftRect.contains(touch_x, touch_y);
     }
 
     public void undoMove() {
         if (mGameData.undoMove()) {
             invalidate();
-            getManRect(mGameData.getmManPostion(), mRowHeight, mColumnWidth);  //重新计算搬运工的位置
+            getPrinceRect(mGameData.getmPrincePostion(), mRowHeight, mColumnWidth);  //重新计算搬运工的位置
         }
     }
 }

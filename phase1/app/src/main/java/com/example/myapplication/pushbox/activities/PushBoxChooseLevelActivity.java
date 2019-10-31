@@ -26,7 +26,6 @@ public class PushBoxChooseLevelActivity extends AppCompatActivity implements Vie
     }
 
 
-
     @Override
     public void onClick(View view) {
         switch (view.getId()){

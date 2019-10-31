@@ -13,7 +13,7 @@
         android:layout_marginStart="92dp"
         android:layout_marginTop="200dp"
         android:layout_marginEnd="93dp"
-        android:text="@string/save_princess"
+        android:text="@string/save_Princess"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
