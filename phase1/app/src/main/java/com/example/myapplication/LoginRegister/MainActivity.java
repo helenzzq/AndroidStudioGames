@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.LoginRegister;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.myapplication.R;
+import com.example.myapplication.SecondActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,9 +25,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-//        Button pushBoxintro = (Button) findViewById(R.id.push_Box_intro);
-//        pushBoxintro.setOnClickListener(new pushBoxintro_CickListener());
 
         Name = findViewById(R.id.etName);
         Password = findViewById(R.id.etPassword);

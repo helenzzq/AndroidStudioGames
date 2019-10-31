@@ -8,7 +8,7 @@ import com.example.myapplication.R;
 
 public class WeaponCard extends FrameLayout {
     private ImageView pic;
-    private int[] picArray = new int[1025];
+    private int[] picArray = new int[33000];
     private int num = 0;
 
 
@@ -35,6 +35,11 @@ public class WeaponCard extends FrameLayout {
         picArray[256] = R.drawable.rare7;
         picArray[512] = R.drawable.rare8;
         picArray[1024] = R.drawable.rare9;
+        picArray[2048] = R.drawable.rare10;
+        picArray[4096] = R.drawable.rare11;
+        picArray[8192] = R.drawable.rare12;
+        picArray[16384] = R.drawable.rare13;
+        picArray[32768] = R.drawable.rare14;
 
     }
 

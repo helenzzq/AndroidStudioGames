@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.pictype2048.WeaponActivity;
 import com.example.myapplication.pushbox.activities.PushBoxMainActivity;
 
 public class resultActivity extends AppCompatActivity {
@@ -40,7 +41,7 @@ public class resultActivity extends AppCompatActivity {
         }
     }
 
-    public void tryAgain(View view){
-        startActivity(new Intent(getApplicationContext(), PushBoxMainActivity.class));
+    public void next(View view){
+        startActivity(new Intent(getApplicationContext(), WeaponActivity.class));
     }
 }
