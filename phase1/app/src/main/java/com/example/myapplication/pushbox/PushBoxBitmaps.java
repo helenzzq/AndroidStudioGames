@@ -11,7 +11,7 @@ public class PushBoxBitmaps {
     }
 
     public static  Bitmap mWallBitmap;
-    public static  Bitmap mManBitmap;
+    public static  Bitmap mPrinceBitmap;
     public static  Bitmap mBoxBitmap;
     public static  Bitmap mFlagBitmap;
     public static  Bitmap mDoneBitmap;
@@ -21,8 +21,8 @@ public class PushBoxBitmaps {
     public static void loadBitmaps(Resources res) {
         if (mBoxBitmap == null)
             mBoxBitmap = BitmapFactory.decodeResource(res, R.drawable.box_48x48);
-        if (mManBitmap == null)
-            mManBitmap = BitmapFactory.decodeResource(res, R.drawable.eggman_48x48);
+        if (mPrinceBitmap == null)
+            mPrinceBitmap = BitmapFactory.decodeResource(res, R.drawable.eggman_48x48);
         if (mFlagBitmap == null)
             mFlagBitmap = BitmapFactory.decodeResource(res, R.drawable.flag_48x48);
         if (mWallBitmap == null)
@@ -38,7 +38,7 @@ public class PushBoxBitmaps {
     public static void releaseBitmaps(){
         //game board
         releaseBmp(mBoxBitmap);
-        releaseBmp(mManBitmap);
+        releaseBmp(mPrinceBitmap);
         releaseBmp(mWallBitmap);
         releaseBmp(mFlagBitmap);
         releaseBmp(mDoneBitmap);

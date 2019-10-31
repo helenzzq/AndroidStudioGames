@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".resultActivity"
+    tools:context=".catchball.resultActivity"
     android:orientation="vertical"
     android:gravity="center">
 
@@ -31,12 +31,10 @@
         android:layout_marginTop="80dp"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:id="@+id/button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Try Again"
-        android:textAllCaps="false"
-        android:onClick="tryAgain"/>
+        android:text="next" />
 
 
 </LinearLayout>

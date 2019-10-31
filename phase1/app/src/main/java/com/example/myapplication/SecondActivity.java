@@ -7,7 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.myapplication.pushbox.activities.PushBoxMainActivity;
+import com.example.myapplication.catchball.CatchBallActivity;
+import com.example.myapplication.pushbox.activities.HelpActivity;
 
 public class SecondActivity extends AppCompatActivity implements View.OnClickListener{
     private Button start,settings, help;
@@ -27,7 +28,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view){
         switch (view.getId()){
             case R.id.btn_start:
-                Intent intent1 = new Intent(SecondActivity.this, PushBoxMainActivity.class);
+                Intent intent1 = new Intent(SecondActivity.this, CatchBallActivity.class);
                 startActivity(intent1);
                 break;
             case R.id.btn_settings:

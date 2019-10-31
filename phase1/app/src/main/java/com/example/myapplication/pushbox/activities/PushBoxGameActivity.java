@@ -22,7 +22,6 @@ public class PushBoxGameActivity extends Activity {
         Intent intent = getIntent();
 //        mGameLevel = intent.getIntExtra(PushBoxChooseLevelActivity.LEVEL, 1);
         PushBoxBitmaps.LoadBitmaps(getResources());  // Load pictures before PushBoxView created.
-        PushBoxSound.loadSound(getAssets());
         setContentView(R.layout.activity_push_box_game);
         mGameView = findViewById(R.id.game_board);
 
@@ -67,7 +66,6 @@ public class PushBoxGameActivity extends Activity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         PushBoxBitmaps.releaseBitmaps();               //release pics storage
-        PushBoxSound.releaseSound();                   //release sound storage
     }
 
     @Override
