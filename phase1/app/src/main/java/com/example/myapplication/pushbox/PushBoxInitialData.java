@@ -12,7 +12,7 @@ import java.util.StringTokenizer;
 public class PushBoxInitialData {
     public static final int DEFAULT_ROW_NUM = 11;
     public static final int DEFAULT_COLUMN_NUM = 11;
-    public static ArrayList<PushBoxLevelInitialData> GameLevels = new ArrayList<>();
+    public static PushBoxLevelInitialData gameLevel = new PushBoxLevelInitialData(12, 12, LEVEL_1);
 
     //游戏区单元格放了什么
     public static final char NOTHING = ' ';         //该单元格啥也没有
@@ -24,15 +24,6 @@ public class PushBoxInitialData {
     public static final char BOX_FLAG = 'X';        //箱子 + 红旗
 
     public static final String [] LEVEL_1 = {
-            "  WWWW ",
-            "  WF W ",
-            "  WB W ",
-            "  WM W ",
-            "  WWWW ",
-            "       ",
-            "       "
-    };
-    public static final String [] LEVEL_2 = {
             "            ",
             "            ",
             "  WWWWWWW   ",
@@ -47,14 +38,9 @@ public class PushBoxInitialData {
             "            "
     };
 
-    public static void addInitGameData(){
-        GameLevels.add(new PushBoxLevelInitialData(7, 7, LEVEL_1));
-        GameLevels.add(new PushBoxLevelInitialData(12, 12, LEVEL_2));
-    }
-
     public static final String CONFIG_FILE_NAME = "level_list.txt";
     //    public static final String CONFIG_FILE_NAME = "test_level_list.txt";
-    public static void readInitialData(Resources res, String confgFileName) throws IOException {
+    public static void readInitialData(Resources res, String game_map) throws IOException {
         try {
             InputStreamReader inputReader = new InputStreamReader(res.getAssets().open(confgFileName) );
             BufferedReader bufReader = new BufferedReader(inputReader);

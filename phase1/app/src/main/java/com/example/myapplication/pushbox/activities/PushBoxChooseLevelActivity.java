@@ -23,7 +23,6 @@ public class PushBoxChooseLevelActivity extends AppCompatActivity implements Vie
 
         level1 = findViewById(R.id.btn_level1);
         level1.setOnClickListener(this);
-
     }
 
 
@@ -32,11 +31,11 @@ public class PushBoxChooseLevelActivity extends AppCompatActivity implements Vie
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_level1:
+                GameInitialData.readInitialData(getResources(), GameInitialData.CONFIG_FILE_NAME);
                 Intent intent1 = new Intent(PushBoxChooseLevelActivity.this, PushBoxGameActivity.class);
                 startActivity(intent1);
                 break;
         }
-
     }
 }
 

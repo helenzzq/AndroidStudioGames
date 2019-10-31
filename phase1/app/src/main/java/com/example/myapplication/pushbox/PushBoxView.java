@@ -20,7 +20,7 @@ public class PushBoxView extends View {
     private float mColumnWidth;
     private float mRowHeight;
     private PushBoxData mGameData;
-    private int mGameLevel;
+    private int mGameLevel = 1;
     private int mTopLeft_x = 0;
     private int mTopLeft_y = 0;
     private Rect mManRect = new Rect();          //搬运工所在的位置
@@ -38,7 +38,7 @@ public class PushBoxView extends View {
 
     private void init(PushBoxGameActivity context) {
         mGameActivity = context;
-        mGameLevel = mGameActivity.getGameLevel();
+        /*mGameLevel = mGameActivity.getGameLevel();*/
         setFocusable(true);
         setFocusableInTouchMode(true);
         try {
