@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.pushbox;
 
 import java.io.IOException;
 import android.content.res.Resources;

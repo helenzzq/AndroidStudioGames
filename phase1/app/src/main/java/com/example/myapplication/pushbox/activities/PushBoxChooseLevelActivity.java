@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.pushbox.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +9,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
+
+import com.example.myapplication.R;
+import com.example.myapplication.pushbox.PushBoxChooseLevelAdapter;
+import com.example.myapplication.pushbox.PushBoxGameActivity;
+import com.example.myapplication.pushbox.PushBoxInitialData;
+import com.example.myapplication.pushbox.PushManager;
 
 import java.io.IOException;
 

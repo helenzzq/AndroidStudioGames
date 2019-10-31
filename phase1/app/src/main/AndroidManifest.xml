@@ -9,13 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PushBoxMainActivity"></activity>
+        <activity android:name=".pushbox.activities.PushBoxMainActivity"></activity>
         <activity android:name=".resultActivity" />
         <activity android:name=".CatchBallActivity" />
         <activity android:name=".HelpActivity" />
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".PushBoxIntroActivity" />
-        <activity android:name=".PushBoxGameActivity" />
+        <activity android:name=".pushbox.activities.PushBoxIntroActivity" />
+        <activity android:name=".pushbox.PushBoxGameActivity" />
         <activity android:name=".SecondActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.pushbox;
 
 import android.content.res.Resources;
 

@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.myapplication.pushbox.activities.PushBoxMainActivity;
+
 public class SecondActivity extends AppCompatActivity implements View.OnClickListener{
     private Button start,settings, help;
     @Override

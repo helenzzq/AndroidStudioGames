@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.pushbox;
 
 public class TestCell {
     public int row;

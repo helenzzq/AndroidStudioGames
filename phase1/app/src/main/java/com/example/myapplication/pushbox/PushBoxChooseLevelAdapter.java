@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.pushbox;
 
 import android.annotation.TargetApi;
 import android.content.Context;
