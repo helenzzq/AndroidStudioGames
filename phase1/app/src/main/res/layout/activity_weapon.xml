@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WeaponActivity"
+    tools:context=".pictype2048.WeaponActivity"
     android:orientation="vertical">
 
     <LinearLayout
@@ -27,12 +27,12 @@
 
     </LinearLayout>
 
-    <com.example.myapplication.WeaponView
+    <com.example.myapplication.pictype2048.WeaponView
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:id="@+id/weaponView">
-    </com.example.myapplication.WeaponView>
+    </com.example.myapplication.pictype2048.WeaponView>
 
 
 

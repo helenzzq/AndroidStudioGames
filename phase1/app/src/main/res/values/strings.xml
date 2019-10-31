@@ -1,10 +1,30 @@
 <resources>
     <string name="app_name">My Application</string>
-    <string name="save_princess">Save Princess</string>
+    <string name="save_Princess">Save Princess</string>
     <string name="start">START</string>
     <string name="help">HELP</string>
     <string name="settings">SETTINGS</string>
     <string name="push_box">Push Box</string>
     <string name="back">BACK</string>
     <string name="game_help">Game Help</string>
+    <string name="label_next_level">next level</string>
+    <string name="label_reset_game">reset</string>
+    <string name="label_exit_app">exit</string>
+    <string name="label_prev_level">previous level</string>
+    <string name="choose_level">Choose Level</string>
+    <string name="prv_level_label">Previous level</string>
+    <string name="next_level_label">next level</string>
+    <string name="reset_label">reset</string>
+    <string name="undo_prv_step">previous step</string>
+    <string name="change_game_level">choose a level</string>
+    <string name="tuichu_youxi">exit game</string>
+    <string name="kaishi_youxi">start</string>
+    <string name="youxi_jianjie">introduction</string>
+    <string name="back_to_main_screen">Back to main screen</string>
+    <string name="xgq_exit">exit level</string>
+    <string name="no_more_levels">no more levels</string>
+    <string name="already_first_level">already the first level</string>
+    <string name="tui_xiangzi">Push Box</string>
+    <string name="level1">LEVEL 1</string>
+    <string name="level2">LEVEL 2</string>
 </resources>

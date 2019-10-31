@@ -9,13 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WeaponActivity"></activity>
-        <activity android:name=".resultActivity" />
-        <activity android:name=".CatchBallActivity" />
-        <activity android:name=".HelpActivity" />
+        <activity android:name=".pictype2048.WeaponActivity" />
+        <activity android:name=".pushbox.activities.PushBoxMainActivity" />
+        <activity android:name=".catchball.resultActivity" />
+        <activity android:name=".catchball.CatchBallActivity" />
+        <activity android:name=".pushbox.activities.HelpActivity" />
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".PushBoxIntroActivity" />
-        <activity android:name=".PushBoxGameActivity" />
+        <activity android:name=".pushbox.activities.PushBoxIntroActivity" />
+        <activity
+            android:name=".pushbox.activities.PushBoxGameActivity"
+            android:theme="@android:style/Theme.Holo" />
+        <activity
+            android:name=".pushbox.activities.PushBoxChooseLevelActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo" />
         <activity android:name=".SecondActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
