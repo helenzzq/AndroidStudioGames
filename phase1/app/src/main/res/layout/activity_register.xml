@@ -8,7 +8,7 @@
 
 
     <EditText
-        android:id="@+id/etNameReg"
+        android:id="@+id/etNewName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etPasswordReg"
+        android:id="@+id/etNewPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -32,13 +32,13 @@
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/buttonReg"
+        app:layout_constraintBottom_toTopOf="@+id/btnNewRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNameReg" />
+        app:layout_constraintTop_toBottomOf="@+id/etNewName" />
 
     <Button
-        android:id="@+id/buttonReg"
+        android:id="@+id/btnNewRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="127dp"
@@ -50,6 +50,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPasswordReg" />
+        app:layout_constraintTop_toBottomOf="@+id/etNewPassword" />
+
+    <TextView
+        android:id="@+id/backto"
+        android:layout_width="132dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="127dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="152dp"
+        android:layout_marginBottom="328dp"
+        android:ems="10"
+        android:text="Back to Login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnNewRegister" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
