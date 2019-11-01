@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".pictype2048.WeaponResultActivity"></activity>
         <activity android:name=".LoginRegister.LogoutActivity" />
-        <activity android:name=".Math24Activity" />
+        <activity android:name=".Math24.Math24Activity" />
         <activity android:name=".LoginRegister.RegisterActivity" />
         <activity android:name=".pictype2048.WeaponActivity" />
         <activity android:name=".catchball.resultActivity" />

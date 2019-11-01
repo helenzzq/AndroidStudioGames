@@ -1,0 +1,37 @@
+
+package com.example.myapplication.Math24;
+
+import java.util.ArrayList;
+import java.util.Timer;
+
+public class Math24Calculation {
+    static private int questions[][] = {
+            {5,5,5,1},
+            {2,7,9,10},
+            {2,8,8,8},
+            {3,3,3,3},
+            {3,3,4,5},
+            {4,4,5,7},
+            {4,4,6,8},
+            {5,7,8,9},
+            {6,6,7,10},
+            {6,7,8,9}};
+
+    //create four random integers from 1 to 10
+    public int[] createQuestion() {
+        return questions[(int) (Math.random() * (10 - 1) + 1)];
+    }
+
+    //test if the four number randomly selected can make it to 24
+    private boolean is24(int n){
+        return n == 24;
+    }
+
+
+    //determine if the player's answer can make it to 24
+    public static int calculate(String equation){
+        int result = Integer.parseInt(equation);
+        return result;
+    }
+
+}
