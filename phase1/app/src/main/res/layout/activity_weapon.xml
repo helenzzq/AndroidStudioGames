@@ -25,6 +25,13 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="28sp"/>
 
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="next game" />
+
     </LinearLayout>
 
     <com.example.myapplication.pictype2048.WeaponView

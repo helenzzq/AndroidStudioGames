@@ -12,11 +12,10 @@ import android.widget.TextView;
 import com.example.myapplication.R;
 import com.example.myapplication.SecondActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private EditText Name;
     private EditText Password;
-    private TextView Info;
     private Button Login;
     private int counter=3;
 
@@ -26,23 +25,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Name = findViewById(R.id.etName);
+        Name = (EditText) findViewById(R.id.etName);
         Password = findViewById(R.id.etPassword);
-        Info = findViewById(R.id.tvInfo);
         Login = findViewById(R.id.btnLogin);
 
-        Info.setText("Number of attempts remaining:3");
-
-        Login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                validate(Name.getText().toString(),Password.getText().toString());
-            }
-        });
+        Login.setOnClickListener(this);
 
     }
 
-//    private class ;
+    @Override
+    public void onClick(View v) {
+
+        if(v.getId() == R.id.btnLogin);
+        {
+             validate(Name.getText().toString(),Password.getText().toString());
+        }
+        if(v.getId() == R.id.tvRegister)
+        {
+            startActivity(new Intent(this, RegisterActivity.class));
+        }
+    }
+
+    //    private class ;
 
     private void validate(String userName, String userPassword) {
         if ((userName.equals("Admin")) && (userPassword.equals("1234"))) {
@@ -52,8 +56,6 @@ public class MainActivity extends AppCompatActivity {
         else {
 
             counter--;
-
-            Info.setText("Number of attempts remaining: "+ String.valueOf(counter));
 
             if (counter==0)
             {

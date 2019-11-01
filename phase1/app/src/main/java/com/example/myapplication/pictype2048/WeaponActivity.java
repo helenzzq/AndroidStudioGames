@@ -52,4 +52,6 @@ public class WeaponActivity extends AppCompatActivity {
     public void next(View view){
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
     }
+
+//    public void OnClicj
 }
