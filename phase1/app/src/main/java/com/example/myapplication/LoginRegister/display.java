@@ -23,9 +23,9 @@ public class display extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("MYPREFS",MODE_PRIVATE);
         String display = preferences.getString("display","");
 
-        final Button btPlay = (Button) findViewById(R.id.btPlay);
+        final Button btPlay =findViewById(R.id.btPlay);
 
-        TextView displayInfo = (TextView) findViewById(R.id.tvName);
+        TextView displayInfo = findViewById(R.id.tvName);
         displayInfo.setText(display);
 
         btPlay.setOnClickListener(new View.OnClickListener() {
@@ -35,6 +35,11 @@ public class display extends AppCompatActivity {
                 startActivity(displayScreen);
             }
         });
+
+        if(display.equals("User or password is incorrect"))
+        {
+            btPlay.setEnabled(false);
+        }
     }
 
 
