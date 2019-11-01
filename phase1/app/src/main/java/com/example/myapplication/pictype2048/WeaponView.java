@@ -1,17 +1,12 @@
 package com.example.myapplication.pictype2048;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.graphics.Point;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.GridLayout;
-
-import com.example.myapplication.LoginRegister.MainActivity;
-import com.example.myapplication.pictype2048.WeaponActivity;
 
 import java.util.ArrayList;
 import java.util.List;

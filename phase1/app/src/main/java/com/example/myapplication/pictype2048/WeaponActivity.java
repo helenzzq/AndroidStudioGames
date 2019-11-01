@@ -4,12 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
-import com.example.myapplication.LoginRegister.MainActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.catchball.resultActivity;
 
 
 public class WeaponActivity extends AppCompatActivity {

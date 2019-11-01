@@ -6,13 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.graphics.Color;
 
-import com.example.myapplication.SecondActivity;
+import com.example.myapplication.MainPageActivity;
 import com.example.myapplication.pictype2048.WeaponActivity;
-import com.example.myapplication.catchball.CatchBallActivity;
 
 
 public class Math24Activity extends AppCompatActivity implements View.OnClickListener {
@@ -128,7 +126,7 @@ public class Math24Activity extends AppCompatActivity implements View.OnClickLis
                 }
                 break;
             case R.id.btn_next:
-                Intent nextgame = new Intent(Math24Activity.this, SecondActivity.class);
+                Intent nextgame = new Intent(Math24Activity.this, MainPageActivity.class);
                 startActivity(nextgame);
             case R.id.btn_back:
                 Intent backgame = new Intent(Math24Activity.this, WeaponActivity.class);
