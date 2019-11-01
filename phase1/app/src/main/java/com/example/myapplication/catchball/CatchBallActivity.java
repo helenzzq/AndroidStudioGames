@@ -237,8 +237,6 @@ public class CatchBallActivity extends AppCompatActivity {
         }
 
 
-
-
         return true;
     }
 }

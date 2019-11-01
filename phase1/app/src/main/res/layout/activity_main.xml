@@ -13,7 +13,7 @@
         android:layout_marginStart="96dp"
         android:layout_marginBottom="48dp"
         android:ems="10"
-        android:hint="Name"
+        android:hint="Username"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/etPassword"
         app:layout_constraintStart_toStartOf="parent" />
@@ -40,15 +40,6 @@
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/tvInfo"
-        android:layout_width="206dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="96dp"
-        android:text="Number of attempts remaining: "
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="197dp" />
 
     <TextView
         android:id="@+id/tvRegister"
