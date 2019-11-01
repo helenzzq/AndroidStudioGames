@@ -8,24 +8,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.myapplication.LoginRegister.MainActivity;
-import com.example.myapplication.R;
+import com.example.myapplication.catchball.CatchBallActivity;
 
 
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener{
+    //crete mediaPlayer variable with type MediaPlayer
     private MediaPlayer mediaPlayer;
+    //create buttons: back, start, play, pause, day, and night
     private Button back, start, play, pause, day, night;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-//        MediaPlayer Alone = MediaPlayer.create(SettingsActivity.this,R.raw.Alone);
-//        Alone.start();
 
-
+// create a mediaplayer variable
         mediaPlayer = MediaPlayer.create(this, R.raw.alone);
-
+//recognize the bottoms and assign them to the corresponding variables
         back = findViewById(R.id.btn_back1);
         back.setOnClickListener(this);
         start = findViewById(R.id.btn_start2);
@@ -44,21 +43,27 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            //If we press start, we will go to CatchBall Game
             case R.id.btn_start2:
-                Intent intent1 = new Intent(SettingsActivity.this, MainActivity.class);
+                Intent intent1 = new Intent(SettingsActivity.this, CatchBallActivity.class);
                 startActivity(intent1);
                 break;
+                //If we press back button, we will finish
             case R.id.btn_back1:
                 finish();
                 break;
+                //if we press pause, the music will stop playing
             case R.id.btn_pause:
                 mediaPlayer.pause();
                 break;
+                //if we press start, the music will start playing
             case R.id.btn_play:
                 mediaPlayer.start();
                 break;
+                //if we press bottom day, it would be day theme
             case R.id.btn_day:
                 break;
+                //if we press buttom night, it would be night theme
             case R.id.btn_night:
                 break;
             default:
