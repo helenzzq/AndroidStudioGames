@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-import com.example.myapplication.Math24.Math24Activity;
 import com.example.myapplication.Math24.Math24ResultActivity;
 
 public class MainPageActivity extends AppCompatActivity implements View.OnClickListener{
@@ -32,7 +30,7 @@ public class MainPageActivity extends AppCompatActivity implements View.OnClickL
         switch (view.getId()){
             // press button start, we will Go to CatchBall Game
             case R.id.btn_start:
-                Intent intent1 = new Intent(MainPageActivity.this, Math24Activity.class);
+                Intent intent1 = new Intent(MainPageActivity.this, Math24ResultActivity.class);
                 startActivity(intent1);
                 break;
             // press button setting, we will go to a setting page
