@@ -7,9 +7,10 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.myapplication.LoginRegister.MainActivity;
 import com.example.myapplication.R;
 
-import com.example.myapplication.pushbox.activities.PushBoxGameActivity;
 
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener{
     private MediaPlayer mediaPlayer;
@@ -44,7 +45,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_start2:
-                Intent intent1 = new Intent(SettingsActivity.this, PushBoxGameActivity.class);
+                Intent intent1 = new Intent(SettingsActivity.this, MainActivity.class);
                 startActivity(intent1);
                 break;
             case R.id.btn_back1:

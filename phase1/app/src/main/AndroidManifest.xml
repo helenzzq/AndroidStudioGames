@@ -12,19 +12,10 @@
         <activity android:name=".Math24Activity"></activity>
         <activity android:name=".LoginRegister.RegisterActivity" />
         <activity android:name=".pictype2048.WeaponActivity" />
-        <activity android:name=".pushbox.activities.PushBoxMainActivity" />
         <activity android:name=".catchball.resultActivity" />
         <activity android:name=".catchball.CatchBallActivity" />
         <activity android:name=".HelpActivity" />
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".pushbox.activities.PushBoxIntroActivity" />
-        <activity
-            android:name=".pushbox.activities.PushBoxGameActivity"
-            android:theme="@android:style/Theme.Holo" />
-        <activity
-            android:name=".pushbox.activities.PushBoxChooseLevelActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Holo" />
         <activity android:name=".SecondActivity" />
         <activity android:name=".LoginRegister.MainActivity">
             <intent-filter>
