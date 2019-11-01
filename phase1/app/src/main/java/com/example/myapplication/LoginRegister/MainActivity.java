@@ -38,7 +38,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(v.getId() == R.id.btnLogin);
         {
-
+             validate(Name.getText().toString(),Password.getText().toString());
+        }
+        if(v.getId() == R.id.tvRegister)
+        {
+            startActivity(new Intent(this, RegisterActivity.class));
         }
     }
 
