@@ -7,41 +7,52 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.myapplication.Math24Activity;
+import com.example.myapplication.Math24.Math24Activity;
 import com.example.myapplication.R;
 
 public class WeaponResultActivity extends AppCompatActivity {
 
+    private Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weapon_result);
 
-        TextView scoreLabel2048 = (TextView) findViewById(R.id.tvScore);
+        TextView scoreLabel2048 = (TextView) findViewById(R.id.scoreLabel2048);
         TextView highScoreLabel2048 = (TextView) findViewById(R.id.highScoreLabel2048);
 
-        int score = WeaponActivity.getWeaponActivity().getScore();
+        int score = getIntent().getIntExtra("SCORE2048",0);
         scoreLabel2048.setText(score + "");
 
         SharedPreferences settings = getSharedPreferences("GAME_DATA2048", Context.MODE_PRIVATE);
-        int highScore = settings.getInt("HIGH_SCORE",0);
+        int highScore = settings.getInt("HIGH_SCORE2048",0);
 
         if(score>highScore){
             highScoreLabel2048.setText("High Score: " + score);
 
             //save
             SharedPreferences.Editor editor = settings.edit();
-            editor.putInt("HIGH_SCORE",score);
+            editor.putInt("HIGH_SCORE2048",score);
             editor.commit();
         }else{
             highScoreLabel2048.setText("High Score: " + highScore);
         }
+
+        button = (Button) findViewById(R.id.button2048);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMath24();
+            }
+        });
     }
 
-    public void next(View view){
-        startActivity(new Intent(getApplicationContext(), Math24Activity.class));
+    public void openMath24(){
+        Intent intent = new Intent(this, Math24Activity.class);
+        startActivity(intent);
     }
 
 }

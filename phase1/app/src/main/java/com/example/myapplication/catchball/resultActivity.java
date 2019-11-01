@@ -9,8 +9,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.myapplication.R;
 import com.example.myapplication.Math24.Math24Activity;
+import com.example.myapplication.R;
+import com.example.myapplication.pictype2048.WeaponActivity;
 
 public class resultActivity extends AppCompatActivity {
 

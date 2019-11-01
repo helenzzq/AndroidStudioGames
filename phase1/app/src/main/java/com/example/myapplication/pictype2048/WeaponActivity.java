@@ -46,16 +46,15 @@ public class WeaponActivity extends AppCompatActivity {
         showScore();
     }
 
-    public int getScore() {
-        return score;
-    }
+
 
     public static WeaponActivity getWeaponActivity() {
         return weaponActivity;
     }
 
     public void goToResult() {
-        Intent intent = new Intent(getApplicationContext(), resultActivity.class);
+        Intent intent = new Intent(WeaponActivity.this, WeaponResultActivity.class);
+        intent.putExtra("SCORE2048", score);
         startActivity(intent);
     }
 
