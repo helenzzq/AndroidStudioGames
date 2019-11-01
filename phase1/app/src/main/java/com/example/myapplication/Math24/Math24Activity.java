@@ -1,0 +1,86 @@
+package com.example.myapplication.Math24;
+
+import androidx.appcompat.app.AppCompatActivity;
+import com.example.myapplication.R;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.content.Intent;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import com.example.myapplication.pictype2048.WeaponActivity;
+import com.example.myapplication.catchball.CatchBallActivity;
+
+
+public class Math24Activity extends AppCompatActivity implements View.OnClickListener {
+    private Button plus, minor, multiply, divide, nextgame, restart, back, help, left_bracket, right_bracket;
+    private TextView calculation;
+    private ImageButton num1, num2, num3, num4;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_math24);
+
+        plus = findViewById(R.id.btn_plus);
+        plus.setOnClickListener(this);
+        minor = findViewById(R.id.btn_minor);
+        minor.setOnClickListener(this);
+        multiply = findViewById(R.id.btn_multiply);
+        multiply.setOnClickListener(this);
+        divide = findViewById(R.id.btn_divide);
+        divide.setOnClickListener(this);
+        left_bracket = findViewById(R.id.btn_plus);
+        left_bracket.setOnClickListener(this);
+        right_bracket = findViewById(R.id.btn_plus);
+        right_bracket.setOnClickListener(this);
+
+        num1 = findViewById(R.id.ib_1);
+        num1.setOnClickListener(this);
+        num2 = findViewById(R.id.ib_2);
+        num2.setOnClickListener(this);
+        num3 = findViewById(R.id.ib_3);
+        num3.setOnClickListener(this);
+        num4 = findViewById(R.id.ib_4);
+        num4.setOnClickListener(this);
+        calculation = findViewById(R.id.tv_calculation);
+        calculation.setText("");
+
+        nextgame = findViewById(R.id.btn_next);
+        nextgame.setOnClickListener(this);
+        restart = findViewById(R.id.btn_restart);
+        restart.setOnClickListener(this);
+        back = findViewById(R.id.btn_back);
+        back.setOnClickListener(this);
+        help = findViewById(R.id.btn_help);
+        help.setOnClickListener(this);
+
+
+    }
+
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_plus:
+                calculation.append("+");
+//                startActivity();
+                break;
+            case R.id.btn_minor:
+
+//                startActivity();
+                break;
+            case R.id.btn_multiply:
+
+//                startActivity();
+                break;
+            case R.id.btn_divide:
+
+                break;
+            case R.id.btn_next:
+                Intent nextgame = new Intent(Math24Activity.this, WeaponActivity.class);
+                startActivity(nextgame);
+            case R.id.btn_back:
+                Intent backgame = new Intent(Math24Activity.this, CatchBallActivity.class);
+                startActivity(backgame);
+        }
+    }
+}
