@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.myapplication.MainPageActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.SecondActivity;
 
 public class display extends AppCompatActivity {
 
@@ -31,7 +31,7 @@ public class display extends AppCompatActivity {
         btPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent displayScreen = new Intent(display.this, SecondActivity.class);
+                Intent displayScreen = new Intent(display.this, MainPageActivity.class);
                 startActivity(displayScreen);
             }
         });
