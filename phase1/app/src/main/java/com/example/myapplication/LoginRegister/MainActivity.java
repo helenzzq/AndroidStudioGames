@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.SecondActivity;
 import com.example.myapplication.useraccount.User;
 import com.example.myapplication.useraccount.userStorage;
 
@@ -32,10 +31,10 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final EditText etName = (EditText) findViewById(R.id.etName);
+        final EditText etName = findViewById(R.id.etName);
         final EditText Password = findViewById(R.id.etPassword);
-        Button btnLogin = (Button) findViewById(R.id.btnLogin);
-        final TextView tvRegister = (TextView) findViewById(R.id.tvRegister);
+        Button btnLogin = findViewById(R.id.btnLogin);
+        final TextView tvRegister = findViewById(R.id.tvRegister);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
