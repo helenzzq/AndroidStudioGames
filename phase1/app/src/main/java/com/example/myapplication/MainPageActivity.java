@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.myapplication.Math24.Math24Activity;
+import com.example.myapplication.Math24.Math24ResultActivity;
 
 public class MainPageActivity extends AppCompatActivity implements View.OnClickListener{
     //there are three buttons in Main page: Start, setting and help

@@ -22,16 +22,15 @@ public class Math24Calculation {
         return questions[(int) (Math.random() * (10 - 1) + 1)];
     }
 
-    //test if the four number randomly selected can make it to 24
-    private boolean is24(int n){
+    //test if the result equals 24
+    public static boolean is24(int n){
         return n == 24;
     }
 
 
     //determine if the player's answer can make it to 24
     public static int calculate(String equation){
-        int result = Integer.parseInt(equation);
-        return result;
+        return (int)Math.round(Calculator.getResult(equation));
     }
 
 }

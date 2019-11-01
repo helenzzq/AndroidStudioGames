@@ -9,12 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".pictype2048.WeaponResultActivity"></activity>
+        <activity android:name=".Math24.Math24ResultActivity"></activity>
+        <activity android:name=".pictype2048.WeaponResultActivity" />
         <activity android:name=".LoginRegister.LogoutActivity" />
         <activity android:name=".Math24.Math24Activity" />
         <activity android:name=".LoginRegister.RegisterActivity" />
         <activity android:name=".pictype2048.WeaponActivity" />
-        <activity android:name=".catchball.resultActivity" />
+        <activity android:name=".catchball.CatchBallResultActivity" />
         <activity android:name=".catchball.CatchBallActivity" />
         <activity android:name=".HelpActivity" />
         <activity android:name=".SettingsActivity" />

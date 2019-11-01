@@ -192,7 +192,7 @@ public class CatchBallActivity extends AppCompatActivity {
             timer=null;
 
             //Show Result
-            Intent intent = new Intent(getApplicationContext(), resultActivity.class);
+            Intent intent = new Intent(getApplicationContext(), CatchBallResultActivity.class);
             intent.putExtra("SCORE",score);
             startActivity(intent);
 

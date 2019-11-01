@@ -9,16 +9,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.myapplication.Math24.Math24Activity;
 import com.example.myapplication.R;
 import com.example.myapplication.pictype2048.WeaponActivity;
 
-public class resultActivity extends AppCompatActivity {
+public class CatchBallResultActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_result);
+        setContentView(R.layout.activity_catch_ball_result);
 
         TextView scoreLabel = (TextView) findViewById(R.id.scoreLabel);
         TextView highScoreLabel = (TextView) findViewById(R.id.highScoreLabel);

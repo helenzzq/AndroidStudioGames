@@ -15,7 +15,7 @@ import com.example.myapplication.R;
 
 public class WeaponResultActivity extends AppCompatActivity {
 
-    private Button button;
+    private Button next;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +41,8 @@ public class WeaponResultActivity extends AppCompatActivity {
             highScoreLabel2048.setText("High Score: " + highScore);
         }
 
-        button = (Button) findViewById(R.id.button2048);
-        button.setOnClickListener(new View.OnClickListener() {
+        next= findViewById(R.id.button2048);
+        next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openMath24();
