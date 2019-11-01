@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.myapplication.LoginRegister.MainActivity;
 import com.example.myapplication.R;
+import com.example.myapplication.catchball.resultActivity;
 
 
 public class WeaponActivity extends AppCompatActivity {
@@ -44,14 +45,19 @@ public class WeaponActivity extends AppCompatActivity {
         score += s;
         showScore();
     }
+
+    public int getScore() {
+        return score;
+    }
+
     public static WeaponActivity getWeaponActivity() {
         return weaponActivity;
     }
 
-
-    public void next(View view){
-        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+    public void goToResult() {
+        Intent intent = new Intent(getApplicationContext(), resultActivity.class);
+        startActivity(intent);
     }
 
-//    public void OnClicj
+
 }

@@ -10,6 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.GridLayout;
 
+import com.example.myapplication.LoginRegister.MainActivity;
 import com.example.myapplication.pictype2048.WeaponActivity;
 
 import java.util.ArrayList;
@@ -306,14 +307,7 @@ public class WeaponView extends GridLayout {
         }
 
         if(complete){
-            new AlertDialog.Builder(getContext()).setTitle("Sorry").setMessage("Game is over.").
-                    setPositiveButton("Restart", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            startGame();
-
-                        }
-                    }).show();
+            WeaponActivity.getWeaponActivity().goToResult();
         }
 
     }

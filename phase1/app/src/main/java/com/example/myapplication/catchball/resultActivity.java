@@ -42,6 +42,6 @@ public class resultActivity extends AppCompatActivity {
     }
 
     public void next(View view){
-        startActivity(new Intent(getApplicationContext(), Math24Activity.class));
+        startActivity(new Intent(getApplicationContext(), WeaponActivity.class));
     }
 }
