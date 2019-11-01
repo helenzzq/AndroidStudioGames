@@ -19,7 +19,7 @@
         <activity android:name=".HelpActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".MainPageActivity" />
-        <activity android:name=".LoginRegister.LoginActivity">
+        <activity android:name=".LoginRegister.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

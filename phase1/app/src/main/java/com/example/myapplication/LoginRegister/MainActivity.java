@@ -11,7 +11,7 @@ import android.widget.EditText;
 import com.example.myapplication.R;
 import com.example.myapplication.MainPageActivity;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private EditText Name;
     private EditText Password;
@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void validate(String userName, String userPassword) {
         if ((userName.equals("Admin")) && (userPassword.equals("1234"))) {
-            Intent intent = new Intent(LoginActivity.this, MainPageActivity.class);
+            Intent intent = new Intent(MainActivity.this, MainPageActivity.class);
             startActivity(intent);
         }
         else {
