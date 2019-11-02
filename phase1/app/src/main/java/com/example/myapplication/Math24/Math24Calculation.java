@@ -23,7 +23,7 @@ public class Math24Calculation {
     }
 
     //test if the result equals 24
-    public static boolean is24(int n){
+    public boolean is24(int n){
         return n == 24;
     }
 
