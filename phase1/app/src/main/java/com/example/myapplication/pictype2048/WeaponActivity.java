@@ -54,6 +54,6 @@ public class WeaponActivity extends AppCompatActivity {
         intent.putExtra("SCORE2048", score);
         startActivity(intent);
     }
-
+    
 
 }

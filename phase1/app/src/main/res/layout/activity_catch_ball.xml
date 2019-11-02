@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/scoreLabel"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:gravity="center_vertical"
         android:paddingLeft="10dp"
@@ -26,11 +26,20 @@
             android:id="@+id/startLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tap To Start"
-            android:textSize="30sp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="130dp"/>
+            android:layout_marginTop="130dp"
+            android:text="Tap To Start"
+            android:textSize="30sp" />
 
+        <Button
+            android:id="@+id/PauseGameBtnBall"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="@string/pause"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="550dp"
+            android:background="#CDDC39"
+            android:textSize="18sp" />
 
         <ImageView
             android:id="@+id/box"
@@ -43,19 +52,20 @@
             android:id="@+id/orange"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:src="@drawable/orange"/>
+            android:src="@drawable/orange" />
 
         <ImageView
             android:id="@+id/pink"
             android:layout_width="16dp"
             android:layout_height="16dp"
-            android:src="@drawable/pink"/>
+            android:src="@drawable/pink" />
 
         <ImageView
             android:id="@+id/black"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/black"/>
+            android:src="@drawable/black" />
     </FrameLayout>
+
 
 </LinearLayout>

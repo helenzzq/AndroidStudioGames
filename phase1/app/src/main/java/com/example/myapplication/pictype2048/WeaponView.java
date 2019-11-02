@@ -1,6 +1,7 @@
 package com.example.myapplication.pictype2048;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Point;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -8,8 +9,13 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.GridLayout;
 
+import com.example.myapplication.R;
+import com.example.myapplication.gamemanager.GameMenu;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
 
 
 public class WeaponView extends GridLayout {
@@ -37,7 +43,7 @@ public class WeaponView extends GridLayout {
 
     private void initGameView(){
         setColumnCount(4);
-        setBackgroundColor(0xFF999999);
+        setBackgroundColor(0xFFFFFFFF);
         addCards(getCardwidth(), getCardwidth());
 
         setOnTouchListener(new View.OnTouchListener(){
@@ -306,6 +312,7 @@ public class WeaponView extends GridLayout {
         }
 
     }
+
 
 
 }

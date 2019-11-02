@@ -15,7 +15,7 @@
         <activity android:name=".Math24.Math24Activity" />
         <activity android:name=".LoginRegister.RegisterActivity" />
         <activity android:name=".pictype2048.WeaponActivity" />
-        <activity android:name=".catchball.resultActivity" />
+        <activity android:name=".catchball.CatchBallResultActivity" />
         <activity android:name=".catchball.CatchBallActivity" />
         <activity android:name=".HelpActivity" />
         <activity android:name=".SettingsActivity" />

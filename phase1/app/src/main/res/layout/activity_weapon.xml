@@ -26,15 +26,27 @@
             android:textSize="28sp"/>
 
 
+
     </LinearLayout>
 
     <com.example.myapplication.pictype2048.WeaponView
+        android:id="@+id/weaponView"
         android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:id="@+id/weaponView">
+        android:layout_height="279dp"
+        android:layout_weight="1">
+
+
     </com.example.myapplication.pictype2048.WeaponView>
 
+    <Button
+        android:id="@+id/PauseGameBtn2048"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="0dp"
+        android:background="#CDDC39"
+        android:text="@string/pause"
+        android:textSize="18sp" />
 
 
 </LinearLayout>
