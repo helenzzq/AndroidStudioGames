@@ -26,6 +26,7 @@ public class WeaponView extends GridLayout {
     public WeaponView(Context context) {
         super(context);
         initGameView();
+
     }
 
     public WeaponView(Context context, AttributeSet attrs) {
@@ -38,6 +39,7 @@ public class WeaponView extends GridLayout {
 
         super(context, attrs, defStyleAttr);
         initGameView();
+
     }
 
 
@@ -45,6 +47,7 @@ public class WeaponView extends GridLayout {
         setColumnCount(4);
         setBackgroundColor(0xFFFFFFFF);
         addCards(getCardwidth(), getCardwidth());
+
 
         setOnTouchListener(new View.OnTouchListener(){
 
@@ -87,11 +90,8 @@ public class WeaponView extends GridLayout {
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
 
-        int cardWidth = (Math.min(w, h)-10)/4;
-
-
-
         startGame();
+        WeaponActivity.getWeaponActivity().setPause2048Btn();
     }
 
     private int getCardwidth(){
