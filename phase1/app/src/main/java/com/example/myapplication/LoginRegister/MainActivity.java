@@ -37,7 +37,7 @@ ALL CREDIT FOR THE ORIGINAL IMPLEMENTATION OF A SIMILAR SINGLETON GOES TO THE OR
                 String user = etName.getText().toString();
                 String password = Password.getText().toString();
 
-                SharedPreferences preferences = getSharedPreferences("MYPREFS", MODE_PRIVATE);
+                SharedPreferences preferences = getSharedPreferences("USER", MODE_PRIVATE);
 
                 String userDetails = preferences.getString(user + password + "data", "User or password is incorrect");
                 SharedPreferences.Editor editor = preferences.edit();

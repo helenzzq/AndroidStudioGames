@@ -20,7 +20,7 @@ public class display extends AppCompatActivity {
         setContentView(R.layout.activity_display);
 
 
-        SharedPreferences preferences = getSharedPreferences("MYPREFS",MODE_PRIVATE);
+        SharedPreferences preferences = getSharedPreferences("USER",MODE_PRIVATE);
         String display = preferences.getString("display","");
 
         final Button btPlay =findViewById(R.id.btPlay);

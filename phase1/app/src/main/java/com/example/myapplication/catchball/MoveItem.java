@@ -4,4 +4,8 @@ public class MoveItem {
 
     int X;
     int Y;
+
+    public MoveItem(){
+
+    }
 }

@@ -29,7 +29,7 @@ public class RegisterActivity extends AppCompatActivity{
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences preferences = getSharedPreferences("MYPREFS",MODE_PRIVATE);
+                SharedPreferences preferences = getSharedPreferences("USER",MODE_PRIVATE);
                 String newUser = userName.getText().toString();
                 String newPassword = password.getText().toString();
 

@@ -2,7 +2,14 @@ package com.example.myapplication.catchball;
 
 public class ball extends MoveItem {
 
-    int X;
+    static int X;
     int Y;
 
+    public ball(){
+
+    }
+
+    public void move(){
+
+    }
 }

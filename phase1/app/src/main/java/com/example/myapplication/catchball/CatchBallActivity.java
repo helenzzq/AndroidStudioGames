@@ -148,6 +148,7 @@ public class CatchBallActivity extends AppCompatActivity {
         scoreLabel.setText("Score: " + score );
     }
 
+
     public void hitCheck(){
         //if the center of the ball is in the box,it counts as a hit
 
@@ -242,7 +243,6 @@ public class CatchBallActivity extends AppCompatActivity {
                 action_flag = false;
             }
         }
-
 
         return true;
     }
