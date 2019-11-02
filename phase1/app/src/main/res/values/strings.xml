@@ -27,4 +27,7 @@
     <string name="tui_xiangzi">Push Box</string>
     <string name="level1">LEVEL 1</string>
     <string name="level2">LEVEL 2</string>
+    <string name="resume">RESUME</string>
+    <string name="save">SAVE</string>
+    <string name="pause">PAUSE</string>
 </resources>
