@@ -19,6 +19,10 @@ import com.example.myapplication.R;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/*BASED ON: https://youtu.be/ojD6ZDi2ep8
+ALL CREDIT FOR THE ORIGINAL IMPLEMENTATION OF A SIMILAR SINGLETON GOES TO THE ORIGINAL AUTHOR OF
+    THE CODE.*/
+
 public class CatchBallActivity extends AppCompatActivity {
 
     private TextView scoreLabel;
