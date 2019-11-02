@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.myapplication.MainPageActivity;
 import com.example.myapplication.Math24.Math24Activity;
 import com.example.myapplication.R;
+import com.example.myapplication.pictype2048.WeaponActivity;
 
 public class Math24ResultActivity extends AppCompatActivity {
     private Button finish;
@@ -26,22 +27,12 @@ public class Math24ResultActivity extends AppCompatActivity {
         TextView scoreMath24 = (TextView) findViewById(R.id.scoremath24);
         TextView highestScoreMath24 = (TextView) findViewById(R.id.highestScoreMath24);
 
-        int score = getIntent().getIntExtra("SCORE2048",0);
+        int score = getIntent().getIntExtra("SCOREMath24",0);
         scoreMath24.setText(score + "");
+        highestScoreMath24.setText(String.format("%d", 100));
 
-        SharedPreferences settings = getSharedPreferences("GAME_DATA2048", Context.MODE_PRIVATE);
-        int highScore = settings.getInt("HIGH_SCORE2048",0);
-
-        if(score>highScore){
-            highestScoreMath24.setText("High Score: " + score);
-
-            //save
-            SharedPreferences.Editor editor = settings.edit();
-            editor.putInt("HIGH_SCORE2048",score);
-            editor.commit();
-        }else{
-            highestScoreMath24.setText("High Score: " + highScore);
-        }
+//        SharedPreferences settings = getSharedPreferences("GAME_DATA2048", Context.MODE_PRIVATE);
+//        int highScore = settings.getInt("HIGH_SCORE2048",0);
 
         finish= findViewById(R.id.finish);
         finish.setOnClickListener(new View.OnClickListener() {

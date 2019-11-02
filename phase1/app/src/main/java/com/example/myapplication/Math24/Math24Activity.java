@@ -9,15 +9,18 @@ import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
 import android.widget.TextView;
-
+import android.graphics.Color;
+import java.util.concurrent.*;
+import com.example.myapplication.Math24.Math24Calculation;
+import com.example.myapplication.Math24.Math24ResultActivity;
 import com.example.myapplication.pictype2048.WeaponActivity;
 
 
 public class Math24Activity extends AppCompatActivity implements View.OnClickListener {
-    private Button plus, minor, multiply, divide, equal, nextgame, restart, back, help, left_bracket, right_bracket;
+    private Button plus, minor, multiply, divide, equal, nextGame, clear, backGame, help, left_bracket, right_bracket;
     private TextView calculation, result, message, textLive, scoreText;
     private Button num1, num2, num3, num4;
-    public static int numLives = 3, score = 0;
+    private int numLives = 3, score = 0;
     private Math24Calculation ques = new Math24Calculation();
 
 
@@ -43,6 +46,7 @@ public class Math24Activity extends AppCompatActivity implements View.OnClickLis
         //create variable equal, assign the button to it
         equal = findViewById(R.id.btn_equal);
         equal.setOnClickListener(this);
+        equal.setEnabled(false);
 
         //select one random question in question[][], and assign each number in each number in the
         //four buttons
@@ -77,12 +81,12 @@ public class Math24Activity extends AppCompatActivity implements View.OnClickLis
         scoreText = findViewById(R.id.score);
         scoreText.setText(String.format("Your score %d", score));
 
-        nextgame = findViewById(R.id.btn_next);
-        nextgame.setOnClickListener(this);
-        restart = findViewById(R.id.btn_restart);
-        restart.setOnClickListener(this);
-        back = findViewById(R.id.btn_back);
-        back.setOnClickListener(this);
+        nextGame = findViewById(R.id.btn_next);
+        nextGame.setOnClickListener(this);
+        clear = findViewById(R.id.btn_clear);
+        clear.setOnClickListener(this);
+        backGame = findViewById(R.id.btn_back);
+        backGame.setOnClickListener(this);
         help = findViewById(R.id.btn_help);
         help.setOnClickListener(this);
 
@@ -106,15 +110,19 @@ public class Math24Activity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.ib_1:
                 calculation.append(num1.getText());
+                num1.setEnabled(false);
                 break;
             case R.id.ib_2:
                 calculation.append(num2.getText());
+                num2.setEnabled(false);
                 break;
             case R.id.ib_3:
                 calculation.append(num3.getText());
+                num3.setEnabled(false);
                 break;
             case R.id.ib_4:
                 calculation.append(num4.getText());
+                num4.setEnabled(false);
                 break;
             case R.id.btn_left:
                 calculation.append(left_bracket.getText());
@@ -122,67 +130,57 @@ public class Math24Activity extends AppCompatActivity implements View.OnClickLis
             case R.id.btn_right:
                 calculation.append(right_bracket.getText());
                 break;
-            case R.id.btn_equal:
+            case R.id.btn_next:
+                Intent nextgame = new Intent(Math24Activity.this,
+                        Math24ResultActivity.class);
+                nextgame.putExtra("SCOREMath24", score);
+                startActivity(nextgame);
+            case R.id.btn_back:
+                Intent backgame = new Intent(Math24Activity.this,
+                        WeaponActivity.class);
+                startActivity(backgame);
+
+            case R.id.btn_clear:
+                calculation.setText("");
+                num1.setEnabled(true);
+                num2.setEnabled(true);
+                num3.setEnabled(true);
+                num4.setEnabled(true);
+                break;
+            default:
+                break;
+        }
+        if(!num1.isEnabled()&& !num2.isEnabled()&& !num3.isEnabled()&&!num4.isEnabled()){
+            equal.setEnabled(true);
+            if(view.getId()==R.id.btn_equal){
+                num1.setEnabled(true);
+                num2.setEnabled(true);
+                num3.setEnabled(true);
+                num4.setEnabled(true);
                 int value = ques.calculate(calculation.getText().toString());
                 result.setText(String.format("%d",value));
                 calculation.setText("");
-//                int b = 0;
-//                while(b==0){
-//                    if (ques.is24(value)){
-//                    message.setText("Congratulations!!!");
-//                    scoreText.setText(String.format("Your score: %d", score += 20));
-//                    b=1;
-//                }
-//                else{
-//                    message.setText("It's Wrong!!!");
-//                    numLives -= 1;
-//                    calculation.setText("");
-//                    textLive.setText(String.format("lives remaining: %d", numLives));
-//                        if (numLives == 0) {
-//                            textLive.setTextColor(Color.RED);
-//                            message.setText("Out");
-//                            b = 1;
-//                            //timer stops here
-//                            goToResult();
-//                        }
-//                    }
-//                    setDelay();
-//                }
-//                goToResult();
-
-                break;
-            case R.id.btn_next:
-                Intent nextgame = new Intent(Math24Activity.this, Math24ResultActivity.class);
-                startActivity(nextgame);
-            case R.id.btn_back:
-                Intent backgame = new Intent(Math24Activity.this, WeaponActivity.class);
-                startActivity(backgame);
+                if (ques.is24(value)){
+                    message.setText("Congratulations! \nClick On Next to Proceed.");
+                    scoreText.setText(String.format("Your score: %d", score += 100));
+                    num1.setEnabled(false);
+                    num2.setEnabled(false);
+                    num3.setEnabled(false);
+                    num4.setEnabled(false);
+                    equal.setEnabled(false);
+                }
+                else{
+                    message.setText("It's Wrong!!!");
+                    numLives -= 1;
+                    textLive.setText(String.format("lives remaining: %d", numLives));
+                    equal.setEnabled(false);
+                    if (numLives == 0) {
+                        textLive.setTextColor(Color.RED);
+                        message.setText("Click On Next to Proceed.");
+                    }
+                }
+            }
         }
     }
 
-//    public void goToResult() {
-//        Intent intent = new Intent(Math24Activity.this, Math24ResultActivity.class);
-//        intent.putExtra("SCOREMath24", score);
-//        startActivity(intent);
-//    }
-
-//    public void setDelay() {
-//        ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
-//        Runnable task = new Runnable() {
-//            public void run() {
-//                num1.setText(String.format("%d", ques.createQuestion()[0]));
-//                num2.setText(String.format("%d", ques.createQuestion()[1]));
-//                num3.setText(String.format("%d", ques.createQuestion()[2]));
-//                num4.setText(String.format("%d", ques.createQuestion()[3]));
-//                calculation.setText("");
-//                result.setText("");
-//                message.setText("");
-//            }
-//        };
-//        int delay = 2;
-//        scheduler.schedule(task, delay, TimeUnit.SECONDS);
-//        scheduler.shutdown();
-//    }
-
 }
-
