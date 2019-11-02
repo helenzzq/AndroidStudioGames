@@ -10,9 +10,6 @@ import android.widget.Button;
 import android.content.Intent;
 import android.widget.TextView;
 import android.graphics.Color;
-import java.util.concurrent.*;
-import com.example.myapplication.Math24.Math24Calculation;
-import com.example.myapplication.Math24.Math24ResultActivity;
 import com.example.myapplication.pictype2048.WeaponActivity;
 
 
@@ -131,15 +128,17 @@ public class Math24Activity extends AppCompatActivity implements View.OnClickLis
                 calculation.append(right_bracket.getText());
                 break;
             case R.id.btn_next:
-                Intent nextgame = new Intent(Math24Activity.this,
-                        Math24ResultActivity.class);
+                Intent nextgame = new Intent(Math24Activity.this, Math24ResultActivity.class);
                 nextgame.putExtra("SCOREMath24", score);
                 startActivity(nextgame);
+                break;
             case R.id.btn_back:
-                Intent backgame = new Intent(Math24Activity.this,
-                        WeaponActivity.class);
-                startActivity(backgame);
-
+                finish();
+                break;
+            case R.id.btn_help:
+                Intent help1 = new Intent(Math24Activity.this, Math24Intro.class);
+                startActivity(help1);
+                break;
             case R.id.btn_clear:
                 calculation.setText("");
                 num1.setEnabled(true);
