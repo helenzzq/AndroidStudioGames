@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.gamemanager.GameMenu;
+
+import static android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
 
 
 public class WeaponActivity extends AppCompatActivity {
@@ -25,6 +28,7 @@ public class WeaponActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weapon);
+
 
         tvScore = (TextView) findViewById(R.id.tvScore);
     }
@@ -54,6 +58,16 @@ public class WeaponActivity extends AppCompatActivity {
         intent.putExtra("SCORE2048", score);
         startActivity(intent);
     }
-    
+
+    public void setPause2048Btn(){
+        findViewById(R.id.PauseGameBtn2048).setOnClickListener(v -> {
+
+            Intent i = new Intent(this, GameMenu.class);
+            i.addFlags(FLAG_ACTIVITY_REORDER_TO_FRONT);
+            startActivity(i);
+
+        });
+    }
+
 
 }

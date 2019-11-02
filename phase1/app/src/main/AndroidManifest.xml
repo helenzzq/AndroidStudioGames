@@ -19,8 +19,10 @@
         <activity android:name=".catchball.CatchBallActivity" />
         <activity android:name=".HelpActivity" />
         <activity android:name=".SettingsActivity" />
+        <activity android:name=".gamemanager.GameMenu"/>
         <activity android:name=".MainPageActivity" />
         <activity android:name=".LoginRegister.MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
