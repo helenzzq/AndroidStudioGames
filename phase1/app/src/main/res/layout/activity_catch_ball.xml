@@ -31,15 +31,15 @@
             android:text="Tap To Start"
             android:textSize="30sp" />
 
-        <Button
-            android:id="@+id/PauseGameBtnBall"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:text="@string/pause"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="550dp"
-            android:background="#CDDC39"
-            android:textSize="18sp" />
+<!--        <Button-->
+<!--            android:id="@+id/PauseGameBtnBall"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="60dp"-->
+<!--            android:text="@string/pause"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:layout_marginTop="550dp"-->
+<!--            android:background="#CDDC39"-->
+<!--            android:textSize="18sp" />-->
 
         <ImageView
             android:id="@+id/box"
