@@ -19,6 +19,10 @@ import com.example.myapplication.R;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/*BASED ON: https://youtu.be/ojD6ZDi2ep8
+ALL CREDIT FOR THE ORIGINAL IMPLEMENTATION OF A SIMILAR SINGLETON GOES TO THE ORIGINAL AUTHOR OF
+    THE CODE.*/
+
 public class CatchBallActivity extends AppCompatActivity {
 
     private TextView scoreLabel;
@@ -155,8 +159,7 @@ public class CatchBallActivity extends AppCompatActivity {
         //0<= orangeCenterX <= boxWidth
         //boxY <= orangeCenterY <= boxY+boxSize
 
-        if( 0<=orangeCenterX && orangeCenterX<=boxSize &&
-                boxY <= orangeCenterY && orangeCenterY <= boxY +boxSize){
+        if(validate(orangeCenterX,orangeCenterY,boxY,boxSize)){
 
                 score += 10;
                 orangeX = -10;
@@ -171,8 +174,7 @@ public class CatchBallActivity extends AppCompatActivity {
         //0<= pinkCenterX <= boxWidth
         //boxY <= pinkCenterY <= boxY+boxSize
 
-        if( 0<=pinkCenterX && pinkCenterX<=boxSize &&
-                boxY <= pinkCenterY && pinkCenterY <= boxY +boxSize){
+        if(validate(pinkCenterX,pinkCenterY,boxY,boxSize)){
 
             score += 30;
             pinkX = -10;
@@ -184,10 +186,9 @@ public class CatchBallActivity extends AppCompatActivity {
         int blackCenterY = blackY + black.getHeight()/2;
 
 
-        if( 0<=blackCenterX && blackCenterX<=boxSize &&
-                boxY <= blackCenterY && blackCenterY <= boxY +boxSize){
+        if(validate(blackCenterX,blackCenterY,boxY,boxSize)){
 
-            //stop the timer!
+            //stop the timer
             timer.cancel();
             timer=null;
 
@@ -197,6 +198,12 @@ public class CatchBallActivity extends AppCompatActivity {
             startActivity(intent);
 
         }
+    }
+
+    public boolean validate(int X, int Y,int itemY,int itemSize){
+
+        return 0 <= X && X <= itemSize && itemY <= Y && Y <= itemY+itemSize;
+
     }
 
     @Override
