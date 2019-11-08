@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".pictype2048.WeaponActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Score"
+            android:textSize="28sp"/>
+
+        <TextView
+            android:id="@+id/tvScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="28sp"/>
+
+
+
+    </LinearLayout>
+
+    <com.example.myapplication.pictype2048.WeaponView
+        android:id="@+id/weaponView"
+        android:layout_width="fill_parent"
+        android:layout_height="279dp"
+        android:layout_weight="1">
+
+
+    </com.example.myapplication.pictype2048.WeaponView>
+
+    <Button
+        android:id="@+id/PauseGameBtn2048"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="0dp"
+        android:background="#CDDC39"
+        android:text="@string/pause"
+        android:textSize="18sp" />
+
+
+</LinearLayout>
