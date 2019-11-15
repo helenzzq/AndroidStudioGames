@@ -1,4 +1,4 @@
-package com.example.myapplication.LoginRegister;
+package com.example.myapplication.loginRegister;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,10 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.useraccount.User;
-import com.example.myapplication.useraccount.userStorage;
 
-public class MainActivity extends AppCompatActivity{
+public class LogInActivity extends AppCompatActivity{
 
 
     /*BASED ON: hhttps://www.youtube.com/watch?v=fI9UTA-NaO4
@@ -41,10 +39,10 @@ ALL CREDIT FOR THE ORIGINAL IMPLEMENTATION OF A SIMILAR SINGLETON GOES TO THE OR
 
                 String userDetails = preferences.getString(user + password + "data", "User or password is incorrect");
                 SharedPreferences.Editor editor = preferences.edit();
-                editor.putString("display", userDetails);
+                editor.putString("MainMenuActivity", userDetails);
                 editor.commit();
 
-                Intent displayScreen = new Intent(MainActivity.this, display.class);
+                Intent displayScreen = new Intent(LogInActivity.this, MainMenuActivity.class);
                 startActivity(displayScreen);
             }
         });
@@ -52,7 +50,7 @@ ALL CREDIT FOR THE ORIGINAL IMPLEMENTATION OF A SIMILAR SINGLETON GOES TO THE OR
         tvRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerScreen = new Intent(MainActivity.this, RegisterActivity.class);
+                Intent registerScreen = new Intent(LogInActivity.this, RegisterActivity.class);
                 startActivity(registerScreen);
             }
         });

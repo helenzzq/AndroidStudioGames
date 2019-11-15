@@ -1,7 +1,7 @@
-package com.example.myapplication.Math24;
+package com.example.myapplication.math24;
 
-/**
- * resources from https://www.jb51.net/article/143978.htm
+/*
+  resources from https://www.jb51.net/article/143978.htm
  */
 
 import java.util.ArrayList;

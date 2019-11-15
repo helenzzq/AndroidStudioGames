@@ -1,4 +1,4 @@
-package com.example.myapplication.Math24;
+package com.example.myapplication.math24;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.content.Intent;
 import android.widget.TextView;
 import android.graphics.Color;
-import com.example.myapplication.pictype2048.WeaponActivity;
 
 
 public class Math24Activity extends AppCompatActivity implements View.OnClickListener {
@@ -136,7 +135,7 @@ public class Math24Activity extends AppCompatActivity implements View.OnClickLis
                 finish();
                 break;
             case R.id.btn_help:
-                Intent help1 = new Intent(Math24Activity.this, Math24Intro.class);
+                Intent help1 = new Intent(Math24Activity.this, Math24IntroActivity.class);
                 startActivity(help1);
                 break;
             case R.id.btn_clear:

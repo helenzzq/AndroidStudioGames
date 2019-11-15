@@ -1,8 +1,5 @@
 
-package com.example.myapplication.Math24;
-
-import java.util.ArrayList;
-import java.util.Timer;
+package com.example.myapplication.math24;
 
 public class Math24Calculation {
     static private int questions[][] = {

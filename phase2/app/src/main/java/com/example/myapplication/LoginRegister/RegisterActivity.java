@@ -1,4 +1,4 @@
-package com.example.myapplication.LoginRegister;
+package com.example.myapplication.loginRegister;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,8 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.myapplication.R;
-import com.example.myapplication.useraccount.User;
-import com.example.myapplication.useraccount.userStorage;
 
 public class RegisterActivity extends AppCompatActivity{
 
@@ -38,7 +36,7 @@ public class RegisterActivity extends AppCompatActivity{
                 editor.putString(newUser + newPassword + "data",newUser);
                 editor.commit();
 
-                Intent loginScreen = new Intent(RegisterActivity.this,MainActivity.class);
+                Intent loginScreen = new Intent(RegisterActivity.this, LogInActivity.class);
                 startActivity(loginScreen);
             }
         });
@@ -70,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity{
 
                 LocalStore.storeUserData(new User(username,password));
 
-                startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+                startActivity(new Intent(RegisterActivity.this, LogInActivity.class));
 
             }
         });

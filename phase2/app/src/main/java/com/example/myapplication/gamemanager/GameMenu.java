@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.myapplication.MainPageActivity;
+import com.example.myapplication.SavePrincessActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.pictype2048.WeaponActivity;
 
@@ -33,7 +33,7 @@ public class GameMenu extends AppCompatActivity {
 
     public void setBackBtn(){
         findViewById(R.id.btn_backtoMainPage).setOnClickListener(v -> {
-        Intent i = new Intent(this, MainPageActivity.class);
+        Intent i = new Intent(this, SavePrincessActivity.class);
         i.addFlags(FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(i);
 

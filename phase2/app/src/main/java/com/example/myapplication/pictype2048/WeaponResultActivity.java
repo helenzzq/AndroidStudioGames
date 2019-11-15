@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.myapplication.Math24.Math24Activity;
+import com.example.myapplication.math24.Math24Activity;
 import com.example.myapplication.R;
 
 public class WeaponResultActivity extends AppCompatActivity {

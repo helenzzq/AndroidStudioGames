@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.myapplication.LoginRegister.MainActivity;
+import com.example.myapplication.loginRegister.LogInActivity;
 
 public class HelpActivity extends AppCompatActivity implements View.OnClickListener {
     private Button back, start;
@@ -27,7 +27,7 @@ public class HelpActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_start3:
-                Intent intent1 = new Intent(HelpActivity.this, MainActivity.class);
+                Intent intent1 = new Intent(HelpActivity.this, LogInActivity.class);
                 startActivity(intent1);
                 break;
             case R.id.btn_back2:

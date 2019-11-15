@@ -1,4 +1,4 @@
-package com.example.myapplication.LoginRegister;
+package com.example.myapplication.loginRegister;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -42,7 +42,7 @@ public class LogoutActivity extends AppCompatActivity implements View.OnClickLis
             LocalStore.clearUserData();
             LocalStore.setLogin(false);
 
-            startActivity(new Intent(this,MainActivity.class));
+            startActivity(new Intent(this, LogInActivity.class));
         }
     }
     }

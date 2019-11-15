@@ -30,4 +30,6 @@
     <string name="resume">RESUME</string>
     <string name="save">SAVE</string>
     <string name="pause">PAUSE</string>
+    <string name="menu_background">Menu Background: Spring</string>
+
 </resources>

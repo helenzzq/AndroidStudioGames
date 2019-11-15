@@ -1,19 +1,15 @@
-package com.example.myapplication.Math24;
+package com.example.myapplication.math24;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.myapplication.MainPageActivity;
-import com.example.myapplication.Math24.Math24Activity;
+import com.example.myapplication.SavePrincessActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.pictype2048.WeaponActivity;
 
 public class Math24ResultActivity extends AppCompatActivity {
     private Button finish;
@@ -44,7 +40,7 @@ public class Math24ResultActivity extends AppCompatActivity {
     }
 
     public void backToMain(){
-        Intent intent = new Intent(this, MainPageActivity.class);
+        Intent intent = new Intent(this, SavePrincessActivity.class);
         startActivity(intent);
     }
 

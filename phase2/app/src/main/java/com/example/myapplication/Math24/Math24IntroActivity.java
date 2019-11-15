@@ -1,4 +1,4 @@
-package com.example.myapplication.Math24;
+package com.example.myapplication.math24;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.R;
@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class Math24Intro extends AppCompatActivity implements View.OnClickListener {
+public class Math24IntroActivity extends AppCompatActivity implements View.OnClickListener {
     private Button back;
     private TextView introTitle, introBody;
 
@@ -28,7 +28,7 @@ public class Math24Intro extends AppCompatActivity implements View.OnClickListen
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_back2:
-                Intent back = new Intent(Math24Intro.this, Math24Activity.class);
+                Intent back = new Intent(Math24IntroActivity.this, Math24Activity.class);
                 startActivity(back);
                 break;
         }
