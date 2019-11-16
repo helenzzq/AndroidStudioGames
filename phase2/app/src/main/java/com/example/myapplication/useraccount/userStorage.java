@@ -21,17 +21,17 @@ public class userStorage {
 
         //update information in the shared preferences
         SharedPreferences.Editor fileEditor = userDatabase.edit();
-        fileEditor.putString(user.username+"password",user.password);
+        fileEditor.putString(user.getUsername()+"password",user.getPassword());
         fileEditor.commit();
     }
 
     public boolean checkPassowrd(User user){
 
-        if(user.password == null){
+        if(user.getPassword() == null){
             return false;
         }
 
-        if(userDatabase.getString(user.username + "password","") == user.password)
+        if(userDatabase.getString(user.getUsername() + "password","") == user.getPassword())
         {
             return true;
         }

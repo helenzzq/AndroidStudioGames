@@ -2,8 +2,8 @@ package com.example.myapplication.useraccount;
 
 public class User {
 
-    static String username;
-    static String password;
+    private String username;
+    private String password;
 
     public User(String username,String password){
 
@@ -12,7 +12,11 @@ public class User {
         this.password=password;
     }
 
-    public static String getPassword() {
-        return password;
+    public String getPassword() {
+        return this.password;
+    }
+
+    public String getUsername() {
+        return this.username;
     }
 }
