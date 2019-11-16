@@ -12,5 +12,7 @@ public class User {
         this.password=password;
     }
 
-
+    public static String getPassword() {
+        return password;
+    }
 }
