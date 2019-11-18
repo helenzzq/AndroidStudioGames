@@ -29,8 +29,8 @@ public class MainMenuActivity extends AppCompatActivity {
 
         final Button btPlay =findViewById(R.id.btPlay);
 
-        TextView displayInfo = findViewById(R.id.tvName);
-        displayInfo.setText(display);
+        //TextView displayInfo = findViewById(R.id.tvName);
+        //displayInfo.setText(display);
 
         btPlay.setOnClickListener(v -> {
             Intent displayScreen = new Intent(MainMenuActivity.this, SavePrincessActivity.class);
