@@ -16,7 +16,7 @@ import static android.content.Context.MODE_PRIVATE;
 A file saver for game states in all of the games.
  */
 
-public class GameFileSaver implements Serializable, Observer {
+public class GameFileSaver implements Serializable, MyObserver {
     /**
      * The context
      */
@@ -73,7 +73,7 @@ public class GameFileSaver implements Serializable, Observer {
      * @param subject
      */
     @Override
-    public void setSubject(Subject subject) {
+    public void setSubject(MySubject subject) {
         this.subject = (GameController) subject;
     }
 

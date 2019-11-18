@@ -6,6 +6,7 @@
     <string name="settings">SETTINGS</string>
     <string name="push_box">Push Box</string>
     <string name="back">BACK</string>
+    <string name="load">LOAD</string>
     <string name="game_help">Game Help</string>
     <string name="label_next_level">next level</string>
     <string name="label_reset_game">reset</string>

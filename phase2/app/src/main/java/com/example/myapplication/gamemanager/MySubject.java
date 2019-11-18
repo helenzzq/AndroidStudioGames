@@ -1,12 +1,12 @@
 package com.example.myapplication.gamemanager;
 
-public interface Subject {
+public interface MySubject {
     /**
-     * Register the Observer object to observe
+     * Register the MyObserver object to observe
      * @param obj to register
      */
 
-    void register(Observer obj);
+    void register(MyObserver obj);
 
     /**
      * A method to notifyObservers to change

@@ -1,6 +1,6 @@
 package com.example.myapplication.gamemanager;
 
-public interface Observer {
+public interface MyObserver {
     /**
      * Update accordingly after subject calls notifyObservers()
      */
@@ -10,5 +10,5 @@ public interface Observer {
      * Set the subject to be obsevred
      * @param subject to be observed
      */
-    void setSubject(Subject subject);
+    void setSubject(MySubject subject);
 }
