@@ -1,4 +1,4 @@
 package com.example.myapplication.useraccount;
 
-class NoPassWordException extends Throwable {
+public class NoPassWordException extends Throwable {
 }

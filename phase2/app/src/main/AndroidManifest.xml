@@ -9,90 +9,69 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".loginRegister.CreateAccountActivity"></activity>
         <activity android:name=".math24.Math24IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
             </intent-filter>
         </activity>
-        <activity android:name=".math24.Math24ResultActivity" >
+        <activity android:name=".math24.Math24ResultActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
             </intent-filter>
         </activity>
         <activity android:name=".loginRegister.MainMenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
             </intent-filter>
         </activity>
-
-
         <activity android:name=".pictype2048.WeaponResultActivity" />
-        <activity android:name=".loginRegister.LogoutActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-            </intent-filter>
-        </activity>
-
         <activity android:name=".math24.Math24Activity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
             </intent-filter>
         </activity>
-        <activity android:name=".loginRegister.RegisterActivity">
+        <activity android:name=".loginRegister.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
             </intent-filter>
         </activity>
         <activity android:name=".pictype2048.WeaponActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
             </intent-filter>
         </activity>
         <activity android:name=".catchball.CatchBallResultActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
             </intent-filter>
         </activity>
         <activity android:name=".catchball.CatchBallActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
             </intent-filter>
         </activity>
         <activity android:name=".gamemanager.GameMenu">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
             </intent-filter>
         </activity>
         <activity android:name=".HelpActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
             </intent-filter>
         </activity>
         <activity android:name=".SettingsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
             </intent-filter>
         </activity>
         <activity android:name=".SavePrincessActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
             </intent-filter>
         </activity>
-        <activity android:name=".loginRegister.LogInActivity">
-
+        <activity android:name=".loginRegister.FirstActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
