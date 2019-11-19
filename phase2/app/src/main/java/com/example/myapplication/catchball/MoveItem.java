@@ -1,11 +1,22 @@
 package com.example.myapplication.catchball;
 
-public class MoveItem {
+import android.widget.ImageView;
 
-    int X;
-    int Y;
+public interface MoveItem {
 
-    public MoveItem(){
+    int getX();
 
-    }
+    int getY();
+
+    void setX(int x);
+
+    void setY(int y);
+
+    ImageView getView();
+
+    void setView(ImageView views);
+
+
+    void move(int screenWidth, int frameHeight, int changeInX, int width);
+
 }
