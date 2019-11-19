@@ -1,6 +1,6 @@
 package com.example.myapplication.catchball;
 
-public class ball extends MoveItem {
+public class ball {
 
     static int X;
     int Y;
