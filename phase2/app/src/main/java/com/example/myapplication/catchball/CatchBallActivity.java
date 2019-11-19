@@ -2,14 +2,12 @@ package com.example.myapplication.catchball;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,227 +21,238 @@ import java.util.TimerTask;
 ALL CREDIT FOR THE ORIGINAL IMPLEMENTATION OF A SIMILAR SINGLETON GOES TO THE ORIGINAL AUTHOR OF
     THE CODE.*/
 
-public class CatchBallActivity extends AppCompatActivity {
+public class CatchBallActivity extends AppCompatActivity implements CatchBallView {
 
     private TextView scoreLabel;
     private TextView startLabel;
-    private ImageView box;
-    private ImageView orange;
-    private ImageView pink;
-    private ImageView black;
-
-    //Size
-    private int frameHeight;
-    private int boxSize;
-    private int screenHeight;
-    private int screenWidth;
-
-
-
-    //Position
-    private int boxY;
-    private int orangeX;
-    private int orangeY;
-    private int pinkX;
-    private int pinkY;
-    private int blackX;
-    private int blackY;
 
     //Score for the game
     private int score=0;
+    //Presenter
+    private CatchBallPresenter presenter;
 
     //Initialize Class
     private Handler handler = new Handler();
     private Timer timer = new Timer();
 
     //Status check
-    private boolean action_flag = false;
-    private boolean start_flag = false;
+    private boolean actionFlag = false;
+    private boolean startFlag = false;
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catch_ball);
 
-        scoreLabel = (TextView) findViewById(R.id.scoreLabel);
-        startLabel = (TextView) findViewById(R.id.startLabel);
-        box=(ImageView) findViewById(R.id.box);
-        orange=(ImageView) findViewById(R.id.orange);
-        pink=(ImageView) findViewById(R.id.pink);
-        black=(ImageView) findViewById(R.id.black);
-
-        //get the screen size
-        WindowManager wm = getWindowManager();
-        Display disp = wm.getDefaultDisplay();
-        Point size = new Point();
-        disp.getSize(size);
-
-        screenWidth = size.x;
-        screenHeight = size.y;
-
-
-        //Move to out of screen
-        orange.setX(-80);
-        orange.setY(-80);
-        pink.setX(-80);
-        pink.setY(-80);
-        black.setX(-80);
-        black.setY(-80);
+        scoreLabel = findViewById(R.id.scoreLabel);
+        startLabel = findViewById(R.id.startLabel);
 
         scoreLabel.setText("Score: 0" );
 
+        ImageView[] imgs = new ImageView[]{findViewById(R.id.orange),findViewById(R.id.black),
+                findViewById(R.id.pink), findViewById(R.id.box)};
+
+//        frameHeight = frame.getHeight();
+        presenter = new CatchBallPresenter(this,
+                new CatchBallManager(getWindowManager(), -80,-80, imgs));
+
     }
 
-    public void changePos(){
+//    public void changePos(){
+//
+//        hitCheck();
+//
+//        //Orange
+//        orangeX -= 12;
+//        if(orangeX < 0){
+//            orangeX = screenWidth + 20;
+//            orangeY = (int)Math.floor(Math.random()*(frameHeight-orange.getHeight()));
+//        }
+//        orange.setX(orangeX);
+//        orange.setY(orangeY);
+//
+//
+//        //black
+//        blackX -= 16;
+//        if(blackX < 0){
+//            blackX = screenWidth + 10;
+//            blackY = (int)Math.floor(Math.random()*(frameHeight-black.getHeight()));
+//        }
+//        black.setX(blackX);
+//        black.setY(blackY);
+//
+//        //pink
+//        pinkX -= 20;
+//        if(pinkX < 0){
+//            pinkX = screenWidth + 3000;
+//            pinkY = (int)Math.floor(Math.random()*(frameHeight-pink.getHeight()));
+//        }
+//        pink.setX(pinkX);
+//        pink.setY(pinkY);
+//
+//        //Move Box
+//        if(actionFlag){
+//            //Touching
+//            boxY -= 20;
+//        } else{
+//            //Releasing
+//            boxY += 20;
+//        }
+//
+//        //check box position
+//        if(boxY<0)
+//            boxY=0;
+//
+//        if(boxY>frameHeight-boxSize)
+//            boxY=frameHeight-boxSize;
+//
+//        box.setY(boxY);
+//
+//        scoreLabel.setText("Score: " + score );
+//    }
+//
+//
+//    public void hitCheck(){
+//        //if the center of the ball is in the box,it counts as a hit
+//
+//        //Orange
+//        int orangeCenterX = orangeX + orange.getWidth()/2;
+//        int orangeCenterY = orangeY + orange.getHeight()/2;
+//
+//        //hit must satisfies following condition
+//        //0<= orangeCenterX <= boxWidth
+//        //boxY <= orangeCenterY <= boxY+boxSize
+//
+//        if(validate(orangeCenterX,orangeCenterY,boxY,boxSize)){
+//
+//                score += 10;
+//                orangeX = -10;
+//
+//        }
+//
+//        //Pink
+//        int pinkCenterX = pinkX + pink.getWidth()/2;
+//        int pinkCenterY = pinkY + pink.getHeight()/2;
+//
+//        //hit must satisfies following condition
+//        //0<= pinkCenterX <= boxWidth
+//        //boxY <= pinkCenterY <= boxY+boxSize
+//
+//        if(validate(pinkCenterX,pinkCenterY,boxY,boxSize)){
+//
+//            score += 30;
+//            pinkX = -10;
+//
+//        }
+//
+//        //black
+//        int blackCenterX = blackX + black.getWidth()/2;
+//        int blackCenterY = blackY + black.getHeight()/2;
+//
+//
+//        if(validate(blackCenterX,blackCenterY,boxY,boxSize)){
+//
+//            //stop the timer
+//            timer.cancel();
+//            timer=null;
+//
+//            //Show Result
+//            Intent intent = new Intent(getApplicationContext(), CatchBallResultActivity.class);
+//            intent.putExtra("SCORE",score);
+//            startActivity(intent);
+//
+//        }
+//    }
 
-        hitCheck();
-
-        //Orange
-        orangeX -= 12;
-        if(orangeX < 0){
-            orangeX = screenWidth + 20;
-            orangeY = (int)Math.floor(Math.random()*(frameHeight-orange.getHeight()));
-        }
-        orange.setX(orangeX);
-        orange.setY(orangeY);
-
-
-        //black
-        blackX -= 16;
-        if(blackX < 0){
-            blackX = screenWidth + 10;
-            blackY = (int)Math.floor(Math.random()*(frameHeight-black.getHeight()));
-        }
-        black.setX(blackX);
-        black.setY(blackY);
-
-        //pink
-        pinkX -= 20;
-        if(pinkX < 0){
-            pinkX = screenWidth + 3000;
-            pinkY = (int)Math.floor(Math.random()*(frameHeight-pink.getHeight()));
-        }
-        pink.setX(pinkX);
-        pink.setY(pinkY);
-
-        //Move Box
-        if(action_flag){
-            //Touching
-            boxY -= 20;
-        } else{
-            //Releasing
-            boxY += 20;
-        }
-
-        //check box position
-        if(boxY<0)
-            boxY=0;
-
-        if(boxY>frameHeight-boxSize)
-            boxY=frameHeight-boxSize;
-
-        box.setY(boxY);
-
-        scoreLabel.setText("Score: " + score );
+    @Override
+    public void stopTimer(){
+        //stop the timer
+        timer.cancel();
+        timer=null;
+    }
+    @Override
+    public void showResult(){
+        //Show Result
+        Intent intent = new Intent(getApplicationContext(), CatchBallResultActivity.class);
+        intent.putExtra("SCORE",score);
+        startActivity(intent);
     }
 
 
-    public void hitCheck(){
-        //if the center of the ball is in the box,it counts as a hit
 
-        //Orange
-        int orangeCenterX = orangeX + orange.getWidth()/2;
-        int orangeCenterY = orangeY + orange.getHeight()/2;
-
-        //hit must satisfies following condition
-        //0<= orangeCenterX <= boxWidth
-        //boxY <= orangeCenterY <= boxY+boxSize
-
-        if(validate(orangeCenterX,orangeCenterY,boxY,boxSize)){
-
-                score += 10;
-                orangeX = -10;
-
-        }
-
-        //Pink
-        int pinkCenterX = pinkX + pink.getWidth()/2;
-        int pinkCenterY = pinkY + pink.getHeight()/2;
-
-        //hit must satisfies following condition
-        //0<= pinkCenterX <= boxWidth
-        //boxY <= pinkCenterY <= boxY+boxSize
-
-        if(validate(pinkCenterX,pinkCenterY,boxY,boxSize)){
-
-            score += 30;
-            pinkX = -10;
-
-        }
-
-        //black
-        int blackCenterX = blackX + black.getWidth()/2;
-        int blackCenterY = blackY + black.getHeight()/2;
-
-
-        if(validate(blackCenterX,blackCenterY,boxY,boxSize)){
-
-            //stop the timer
-            timer.cancel();
-            timer=null;
-
-            //Show Result
-            Intent intent = new Intent(getApplicationContext(), CatchBallResultActivity.class);
-            intent.putExtra("SCORE",score);
-            startActivity(intent);
-
-        }
-    }
-
-    public boolean validate(int X, int Y,int itemY,int itemSize){
-
-        return 0 <= X && X <= itemSize && itemY <= Y && Y <= itemY+itemSize;
+    @SuppressLint("SetTextI18n")
+    public void updateTimer(){
+        startLabel.setVisibility(View.GONE);
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(() -> presenter.hitCheck(actionFlag));
+                scoreLabel.setText("Score: " + score );
+            }
+        },0,20);
 
     }
 
     @Override
-    public boolean onTouchEvent(MotionEvent me) {
-        if(start_flag == false){
+    public boolean onTouchEvent(MotionEvent action) {
 
-            start_flag = true;
-
-            FrameLayout frame = (FrameLayout) findViewById(R.id.frame);
-            frameHeight = frame.getHeight();
-
-            boxY=(int)box.getY();
-
-            //The box is the square.(height and width are the same.)
-            boxSize=box.getHeight();
-
-            startLabel.setVisibility(View.GONE);
-
-            timer.schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            changePos();
-                        }
-                    });
-                }
-            },0,20);
-
-        }else{
-
-            if(me.getAction()==MotionEvent.ACTION_DOWN){
-                action_flag = true;
-            } else if(me.getAction() == MotionEvent.ACTION_UP){
-                action_flag = false;
-            }
-        }
-
+        FrameLayout frame = findViewById(R.id.frame);
+        presenter.onStart(action,startFlag, frame.getHeight());
         return true;
     }
+
+
+    @Override
+    public void makeAction(MotionEvent action){
+        if(action.getAction()==MotionEvent.ACTION_DOWN){
+            actionFlag = true;
+        } else if(action.getAction() == MotionEvent.ACTION_UP){
+            actionFlag = false;
+        }
+
+    }
+    @Override
+    protected void onDestroy() {
+        presenter.onDestroy();
+        super.onDestroy();
+    }
+
+    @Override
+    public void hideStartLabel(){
+        startLabel.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void updateScore(int score) {
+        this.score += score;
+    }
+
+    @Override
+    public int getScore() {
+        return score;
+    }
+
+    @Override
+    public void setActionFlag(boolean actionFlag) {
+        this.actionFlag = actionFlag;
+    }
+
+    @Override
+    public void setStartFlag(boolean startFlag) {
+        this.startFlag = startFlag;
+    }
+
+    @Override
+    public boolean isStartFlag() {
+        return startFlag;
+    }
+
+    @Override
+    public boolean isActionFlag() {
+        return actionFlag;
+    }
+
+
 }

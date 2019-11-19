@@ -17,16 +17,17 @@ class CatchBallManager {
 
     private CatchBoard board;
     private PlayerPrince player;
+    private boolean gameOver;
 
 
-    CatchBallManager(WindowManager window, FrameLayout frame, int x, int y, List<ImageView> views) {
-        board = new CatchBoard(window, frame, x, y, views);
+    CatchBallManager(WindowManager window, int x, int y, ImageView[] views) {
+        board = new CatchBoard(window, x, y, views);
         player = board.getPlayerPrince();
+        gameOver = false;
     }
 
-    public void changePos(boolean action_flag) {
-        //Call isGaveOver before changePos
-
+    void changePos(boolean action_flag) {
+        //Call hitcheck() before changePos
         int frameHeight = board.getFrameHeight();
         for (Ball ball : board.getBalls()) {
             ball.move(board.getScreenWidth(), frameHeight, 0, 0);
@@ -36,25 +37,39 @@ class CatchBallManager {
     }
 
 
-    boolean isGameOver(int score) {
+     int hitCheck() {
         //if the center of the Ball is in the box,it counts as a hit
-
-
-        for (Ball ball : board.getBalls()) {
+         int score = 0;
+         for (Ball ball : board.getBalls()) {
             if (validate(ball.getCenterX(), ball.getCenterY(), player.getY(), player.getSize())) {
                 if(ball instanceof BlackBall){
-                    return true;}
+                    gameOver = true;
+                break;}
                 else{
-                score += ball.getPoint();
-                ball.setX(ball.getX() - 10);
+                    score += ball.getPoint();
+                    System.out.println(score);
+                ball.setX(-10);
                 }
             }
         }
-        return false;
+        return score;
+    }
 
+    boolean isGameOver(){
+        return gameOver;
+    }
 
+    CatchBoard getBoard() {
+        return board;
+    }
 
+    PlayerPrince getPlayer() {
+        return player;
+    }
 
+    void updatePlayerSize(){
+        player.setY((int)player.getView().getY());
+        player.setSize(player.getView().getHeight());
     }
 
 

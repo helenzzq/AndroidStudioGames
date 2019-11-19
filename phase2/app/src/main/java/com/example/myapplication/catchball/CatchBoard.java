@@ -11,32 +11,31 @@ import java.util.List;
 public class CatchBoard {
     private int screenHeight;
     private int screenWidth;
-    private int frameHeight;
     private OrangeBall orange;
     private BlackBall black;
     private PinkBall pink;
     private Ball[] balls;
     private PlayerPrince playerPrince;
-
+    private int frameHeight;
 
 
     /**
      * Create a Catchboard
      * @param window a windowmanager
      */
-    CatchBoard(WindowManager window, FrameLayout frame, int x, int y, List<ImageView> views){
+    CatchBoard(WindowManager window, int x, int y, ImageView[] views){
 
-        Display disp = window.getDefaultDisplay();
+        Display display = window.getDefaultDisplay();
         Point size = new Point();
-        disp.getSize(size);
+        display.getSize(size);
 
 
         screenWidth = size.x;
         screenHeight = size.y;
-        playerPrince = new PlayerPrince(views.get(3));
-        orange = new OrangeBall(x,y, views.get(0));
-        black = new BlackBall(x,y, views.get(1));
-        pink = new PinkBall(x,y, views.get(2));
+        playerPrince = new PlayerPrince(views[3]);
+        orange = new OrangeBall(x,y, views[0]);
+        black = new BlackBall(x,y, views[1]);
+        pink = new PinkBall(x,y, views[2]);
         balls = new Ball[]{orange, black, pink};
 
     }
@@ -59,15 +58,16 @@ public class CatchBoard {
         return pink;
     }
 
-    int getScreenHeight() {
-        return screenHeight;
-    }
 
     int getScreenWidth() {
         return screenWidth;
     }
 
-     int getFrameHeight() {
+    public void setFrameHeight(int frameHeight) {
+        this.frameHeight = frameHeight;
+    }
+
+    int getFrameHeight() {
         return frameHeight;
     }
 

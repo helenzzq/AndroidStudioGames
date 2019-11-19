@@ -2,48 +2,41 @@ package com.example.myapplication.catchball;
 
 import android.widget.ImageView;
 
-class Ball implements MoveItem {
+abstract class Ball implements MoveItem {
+
+
+    private ImageView view;
 
     private int x;
     private int y;
-    private ImageView view;
-    private int point;
     private int CenterX = 0;
     private int CenterY = 0;
 
 
     Ball(int x, int y, ImageView view){
-        this.x = x;
-        this.y = y;
         this.view = view;
+
         view.setX(x);
         view.setY(y);
 
     }
 
-
-    public void setPoint(int point) {
-        this.point = point;
-    }
-
-    public int getPoint() {
-        return point;
-    }
+    abstract int getPoint();
 
     /**
      * A setter for the x coordinate of the ball
      */
     @Override
     public void setX(int x) {
-        view.setX(x);
         this.x = x;
+
     }
     /**
      * A setter for the y coordinate of the ball
      */
     @Override
     public void setY(int y) {
-        view.setY(y);
+
         this.y = y;
     }
     /**
@@ -78,14 +71,19 @@ class Ball implements MoveItem {
 
 
     int getCenterY() {
+
+        CenterY = y + view.getHeight()/2;
         return CenterY;
     }
 
     int getCenterX() {
+        CenterX = x + view.getWidth()/2;
+
         return CenterX;
     }
     @Override
     public void move(int screenWidth, int frameHeight, int changeInX, int width){
+
         x -= changeInX;
         if(x < 0){
             x = screenWidth + width;
