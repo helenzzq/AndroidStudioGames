@@ -29,7 +29,6 @@ public class CatchBoard {
         Point size = new Point();
         display.getSize(size);
 
-
         screenWidth = size.x;
         screenHeight = size.y;
         playerPrince = new PlayerPrince(views[3]);

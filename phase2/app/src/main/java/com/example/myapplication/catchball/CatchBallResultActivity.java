@@ -2,6 +2,7 @@ package com.example.myapplication.catchball;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,13 +15,14 @@ import com.example.myapplication.pictype2048.WeaponActivity;
 
 public class CatchBallResultActivity extends AppCompatActivity {
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catch_ball_result);
 
-        TextView scoreLabel = (TextView) findViewById(R.id.scoreLabel);
-        TextView highScoreLabel = (TextView) findViewById(R.id.highScoreLabel);
+        TextView scoreLabel = findViewById(R.id.scoreLabel);
+        TextView highScoreLabel =  findViewById(R.id.highScoreLabel);
 
         int score = getIntent().getIntExtra("SCORE",0);
         scoreLabel.setText(score + "");
@@ -34,7 +36,7 @@ public class CatchBallResultActivity extends AppCompatActivity {
             //save
             SharedPreferences.Editor editor = settings.edit();
             editor.putInt("HIGH_SCORE",score);
-            editor.commit();
+            editor.apply();
 
         }else{
             highScoreLabel.setText("High Score: " + highScore);
