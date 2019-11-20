@@ -7,7 +7,7 @@
     tools:context=".math24.Math24ResultActivity"
     android:orientation="vertical"
     android:id="@+id/math24Result"
-
+    android:background="@drawable/whitebackground"
     android:gravity="center">
 
     <TextView
