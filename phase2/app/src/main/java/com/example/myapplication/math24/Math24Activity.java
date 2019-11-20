@@ -127,9 +127,10 @@ public class Math24Activity extends AppCompatActivity implements View.OnClickLis
                 calculation.append(right_bracket.getText());
                 break;
             case R.id.btn_next:
-                Intent nextgame = new Intent(Math24Activity.this, Math24ResultActivity.class);
+                goToResult();
+                /*Intent nextgame = new Intent(Math24Activity.this, Math24ResultActivity.class);
                 nextgame.putExtra("SCOREMath24", score);
-                startActivity(nextgame);
+                startActivity(nextgame);*/
                 break;
             case R.id.btn_back:
                 finish();
@@ -181,4 +182,9 @@ public class Math24Activity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
+    public void goToResult() {
+        Intent intent = new Intent(Math24Activity.this, Math24ResultActivity.class);
+        intent.putExtra("SCORE", score);
+        startActivity(intent);
+    }
 }
