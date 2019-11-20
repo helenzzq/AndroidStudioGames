@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.preference.PreferenceManager;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
@@ -22,15 +23,21 @@ public class BackGroundSetter {
         BackGroundSetter.switchStatus = switchStatus;
     }
 
-    public static void setWallPaper(TextView[] texts, Activity context, ViewGroup layout){
+    public static void setWallPaper(TextView[] texts, ImageView icon, Activity context, ViewGroup layout){
         if (switchStatus) {
             layout.setBackground(ContextCompat.getDrawable(context, R.drawable.deernight));
 
+/*
+            icon.setColorFilter(Color.parseColor("#FFFFFF"));
+*/
             for (TextView k : texts) {
                 k.setTextColor(Color.parseColor("#FFFFFF"));}
         } else {
             layout.setBackground(ContextCompat.getDrawable(context, R.drawable.whitebackground));
 
+/*
+            icon.setColorFilter(Color.parseColor("7C7C7C"));
+*/
             for (TextView t : texts) {
                 t.setTextColor(Color.parseColor("#FF777070"));
             }

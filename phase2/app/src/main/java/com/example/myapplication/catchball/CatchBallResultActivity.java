@@ -26,6 +26,7 @@ public class CatchBallResultActivity extends AppCompatActivity {
 
     private Handler mHandler;
     private Activity current;
+    private ImageView setting;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -37,7 +38,7 @@ public class CatchBallResultActivity extends AppCompatActivity {
         TextView highScoreLabel = findViewById(R.id.highScoreLabel);
 
 
-        ImageView setting = findViewById(R.id.setting_btn_ball);
+        setting = findViewById(R.id.setting_btn_ball);
         setting.setOnClickListener(v -> {
             Intent intent2 = new Intent(CatchBallResultActivity.this, SettingsActivity.class);
             startActivity(intent2);
@@ -70,7 +71,7 @@ public class CatchBallResultActivity extends AppCompatActivity {
     private final Runnable mRunnable = new Runnable() {
         public void run() {
             LinearLayout layout = findViewById(R.id.catchBallResult);
-            BackGroundSetter.setWallPaper(new TextView[0],current, layout);
+            BackGroundSetter.setWallPaper(new TextView[0],setting, current, layout);
             CatchBallResultActivity.this.mHandler.postDelayed(mRunnable, 50);
         }
     };

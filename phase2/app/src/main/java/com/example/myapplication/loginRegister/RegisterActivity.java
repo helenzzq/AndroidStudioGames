@@ -27,6 +27,7 @@ import com.example.myapplication.useraccount.DuplicateException;
 @SuppressLint("Registered")
 public class RegisterActivity extends AppCompatActivity {
 
+    private ImageView setting;
     /**
      * A UserManager
      */
@@ -48,7 +49,7 @@ public class RegisterActivity extends AppCompatActivity {
         this.mHandler = new Handler();
         this.mRunnable.run();
 
-        ImageView setting = findViewById(R.id.setting_btn_register);
+         setting = findViewById(R.id.setting_btn_register);
         setting.setOnClickListener(v -> {
             Intent intent2 = new Intent(RegisterActivity.this, SettingsActivity.class);
             startActivity(intent2);
@@ -58,8 +59,8 @@ public class RegisterActivity extends AppCompatActivity {
     {
         public void run()
 
-        {   ConstraintLayout layout = findViewById(R.id.catchBallMenu);
-            BackGroundSetter.setWallPaper(new TextView[0],current, layout);
+        {   ConstraintLayout layout = findViewById(R.id.register);
+            BackGroundSetter.setWallPaper(new TextView[0],setting, current, layout);
             RegisterActivity.this.mHandler.postDelayed(mRunnable, 50);
         }
 

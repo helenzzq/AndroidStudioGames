@@ -1,4 +1,4 @@
-package com.example.myapplication.pictype2048;
+package com.example.myapplication.weapon;
 
 import android.content.Context;
 import android.widget.FrameLayout;

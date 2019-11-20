@@ -19,7 +19,7 @@ public class SavePrincessActivity extends AppCompatActivity implements View.OnCl
     //there are three buttons in Main page: Start, setting and help
     private Handler mHandler;
     private Activity current;
-
+    private ImageView setting;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +38,7 @@ public class SavePrincessActivity extends AppCompatActivity implements View.OnCl
         scoreBoard.setOnClickListener(this);
         Button help = findViewById(R.id.btn_help);
         help.setOnClickListener(this);
-        ImageView setting = findViewById(R.id.setting_btn1);
+         setting = findViewById(R.id.setting_btn1);
         setting.setOnClickListener(this);
     }
     private final Runnable mRunnable = new Runnable()
@@ -46,7 +46,7 @@ public class SavePrincessActivity extends AppCompatActivity implements View.OnCl
         public void run()
 
         {   ConstraintLayout layout = findViewById(R.id.catchBallMenu);
-            BackGroundSetter.setWallPaper(new TextView[]{findViewById(R.id.savePrincess)},current
+            BackGroundSetter.setWallPaper(new TextView[]{findViewById(R.id.savePrincess)},setting, current
                     , layout);
             SavePrincessActivity.this.mHandler.postDelayed(mRunnable, 50);
         }

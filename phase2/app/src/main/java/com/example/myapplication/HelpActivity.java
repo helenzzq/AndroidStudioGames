@@ -21,6 +21,7 @@ public class HelpActivity extends AppCompatActivity implements View.OnClickListe
     private Button back, start;
     private Handler mHandler;
     private Activity current;
+    private ImageView setting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +34,14 @@ public class HelpActivity extends AppCompatActivity implements View.OnClickListe
         start.setOnClickListener(this);
 
 
+
         //Set the runnable and handler
 
         current = this;
         this.mHandler = new Handler();
         this.mRunnable.run();
 
-        ImageView setting = findViewById(R.id.setting_btn_help);
+         setting = findViewById(R.id.setting_btn_help);
         setting.setOnClickListener(v -> {
             Intent intent2 = new Intent(HelpActivity.this, SettingsActivity.class);
             startActivity(intent2);
@@ -48,8 +50,9 @@ public class HelpActivity extends AppCompatActivity implements View.OnClickListe
 
     private final Runnable mRunnable = new Runnable() {
         public void run() {
+
             ConstraintLayout layout = findViewById(R.id.helpPage);
-            BackGroundSetter.setWallPaper(new TextView[0],current, layout);
+            BackGroundSetter.setWallPaper(new TextView[]{findViewById(R.id.text_help)},setting, current, layout);
             HelpActivity.this.mHandler.postDelayed(mRunnable, 50);
         }
     };

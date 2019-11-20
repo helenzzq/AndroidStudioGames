@@ -37,6 +37,8 @@ public class LoginActivity extends AppCompatActivity{
      */
     public static User currentPlayer;
 
+    private ImageView setting;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +52,7 @@ public class LoginActivity extends AppCompatActivity{
         this.mRunnable.run();
 
 
-        ImageView setting = findViewById(R.id.setting_btn_log);
+        setting = findViewById(R.id.setting_btn_log);
         setting.setOnClickListener(v -> {
             Intent intent2 = new Intent(LoginActivity.this, SettingsActivity.class);
             startActivity(intent2);
@@ -61,7 +63,7 @@ public class LoginActivity extends AppCompatActivity{
     {
         public void run()
         {   ConstraintLayout layout = findViewById(R.id.loginPage);
-            BackGroundSetter.setWallPaper(new TextView[0],current, layout);
+            BackGroundSetter.setWallPaper(new TextView[0],setting, current, layout);
             LoginActivity.this.mHandler.postDelayed(mRunnable, 50);
         }
 
