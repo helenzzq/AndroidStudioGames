@@ -31,7 +31,7 @@ public class MainMenuActivity extends AppCompatActivity {
 
         //Set the BackGround
         BackGroundSetting backGroundSetting = new BackGroundSetting();
-        backGroundSetting.setWallPaper(new TextView[]{findViewById(R.id.savePrincess)},
+        backGroundSetting.setWallPaper(new TextView[0],
                 this, layout, on);
 
 

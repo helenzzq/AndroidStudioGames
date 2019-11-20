@@ -39,7 +39,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         ConstraintLayout layout = findViewById(R.id.createAccount);
 
         BackGroundSetting backGroundSetting = new BackGroundSetting();
-        backGroundSetting.setWallPaper(new TextView[]{findViewById(R.id.savePrincess)},
+        backGroundSetting.setWallPaper(new TextView[0],
                 this, layout, on);
     }
 
