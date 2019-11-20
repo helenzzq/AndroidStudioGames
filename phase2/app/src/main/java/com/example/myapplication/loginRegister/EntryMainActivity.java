@@ -3,22 +3,28 @@ package com.example.myapplication.loginRegister;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.myapplication.BackGroundSetting;
+import com.example.myapplication.BackGroundSetter;
 import com.example.myapplication.R;
+import com.example.myapplication.SavePrincessActivity;
+import com.example.myapplication.SettingsActivity;
 import com.example.myapplication.useraccount.UserManager;
 import com.example.myapplication.useraccount.UserFileSaver;
 
 public class EntryMainActivity extends AppCompatActivity{
     public static UserManager userManager;
 
-
+    private Handler mHandler;
+    private Activity current;
     /*BASED ON: hhttps://www.youtube.com/watch?v=fI9UTA-NaO4
 ALL CREDIT FOR THE ORIGINAL IMPLEMENTATION OF A SIMILAR SINGLETON GOES TO THE ORIGINAL AUTHOR OF
     THE CODE.*/
@@ -34,17 +40,30 @@ ALL CREDIT FOR THE ORIGINAL IMPLEMENTATION OF A SIMILAR SINGLETON GOES TO THE OR
         userManager.register(fileSaver);
         userManager.setAllUsers(fileSaver.getAllUsers());
 
-        //get the SharedPreference object
-        SharedPreferences sharedPref = getSharedPreferences("switch", Context.MODE_PRIVATE);
-        String on = sharedPref.getString("on", "");
-        ConstraintLayout layout = findViewById(R.id.entryMainPage);
+        //Set the runnable and handler
 
-        //Set the BackGround
-        BackGroundSetting backGroundSetting = new BackGroundSetting();
-        backGroundSetting.setWallPaper(new TextView[0],
-                this, layout, on);
+        current = this;
+        this.mHandler = new Handler();
+        this.mRunnable.run();
+
+        ImageView setting = findViewById(R.id.setting_btn_entry);
+        setting.setOnClickListener(v -> {
+            Intent intent2 = new Intent(EntryMainActivity.this, SettingsActivity.class);
+            startActivity(intent2);
+        });
 
     }
+
+    private final Runnable mRunnable = new Runnable()
+    {
+        public void run()
+
+        {   ConstraintLayout layout = findViewById(R.id.entryMainPage);
+            BackGroundSetter.setWallPaper(new TextView[0],current, layout);
+            EntryMainActivity.this.mHandler.postDelayed(mRunnable, 50);
+        }
+
+    };//runnable
 
     /**
      * Activate the signIn button.
@@ -64,7 +83,7 @@ ALL CREDIT FOR THE ORIGINAL IMPLEMENTATION OF A SIMILAR SINGLETON GOES TO THE OR
     public void setupSignUpListener(){
         Button signUp = findViewById(R.id.SignUp);
         signUp.setOnClickListener((v) -> {
-            Intent tmp = new Intent(this, CreateAccountActivity.class);
+            Intent tmp = new Intent(this, RegisterActivity.class);
             startActivity(tmp);
         });
 

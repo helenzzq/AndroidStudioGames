@@ -6,16 +6,21 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.accounts.AccountsException;
 import android.accounts.AuthenticatorException;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.myapplication.BackGroundSetting;
+import com.example.myapplication.BackGroundSetter;
 import com.example.myapplication.R;
+import com.example.myapplication.SavePrincessActivity;
+import com.example.myapplication.SettingsActivity;
 import com.example.myapplication.useraccount.User;
 import com.example.myapplication.useraccount.UserManager;
 
@@ -39,16 +44,32 @@ public class LoginActivity extends AppCompatActivity{
         users = EntryMainActivity.userManager;
         setupSignInListener();
 
-        //get the SharedPreference object
-        SharedPreferences sharedPref = getSharedPreferences("switch", Context.MODE_PRIVATE);
-        String on = sharedPref.getString("on", "");
-        ConstraintLayout layout = findViewById(R.id.loginPage);
+        current = this;
 
-        //Set the BackGround
-        BackGroundSetting backGroundSetting = new BackGroundSetting();
-        backGroundSetting.setWallPaper(new TextView[0],
-                this, layout, on);
+        this.mHandler = new Handler();
+        this.mRunnable.run();
+
+
+        ImageView setting = findViewById(R.id.setting_btn_log);
+        setting.setOnClickListener(v -> {
+            Intent intent2 = new Intent(LoginActivity.this, SettingsActivity.class);
+            startActivity(intent2);
+        });
+
     }
+    private final Runnable mRunnable = new Runnable()
+    {
+        public void run()
+        {   ConstraintLayout layout = findViewById(R.id.loginPage);
+            BackGroundSetter.setWallPaper(new TextView[0],current, layout);
+            LoginActivity.this.mHandler.postDelayed(mRunnable, 50);
+        }
+
+    };//runnable
+
+    private Handler mHandler;
+    private Activity current;
+
 
     /**
      *  Activate the signIn button.

@@ -1,7 +1,6 @@
 package com.example.myapplication.catchball;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -11,12 +10,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.myapplication.BackGroundSetting;
 import com.example.myapplication.R;
-import com.example.myapplication.SettingsActivity;
 
 import java.util.Timer;
 import java.util.TimerTask;

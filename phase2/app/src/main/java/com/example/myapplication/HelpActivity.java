@@ -3,18 +3,24 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.myapplication.catchball.CatchBallResultActivity;
 import com.example.myapplication.loginRegister.EntryMainActivity;
 
 public class HelpActivity extends AppCompatActivity implements View.OnClickListener {
     private Button back, start;
+    private Handler mHandler;
+    private Activity current;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,16 +32,27 @@ public class HelpActivity extends AppCompatActivity implements View.OnClickListe
         start = findViewById(R.id.btn_start3);
         start.setOnClickListener(this);
 
-        //get the SharedPreference object
-        SharedPreferences sharedPref = getSharedPreferences("switch", Context.MODE_PRIVATE);
-        String on = sharedPref.getString("on", "");
-        ConstraintLayout layout = findViewById(R.id.helpPage);
 
-        //Set the BackGround
-        BackGroundSetting backGroundSetting = new BackGroundSetting();
-        backGroundSetting.setWallPaper(new TextView[0],
-                this, layout, on);
+        //Set the runnable and handler
+
+        current = this;
+        this.mHandler = new Handler();
+        this.mRunnable.run();
+
+        ImageView setting = findViewById(R.id.setting_btn_help);
+        setting.setOnClickListener(v -> {
+            Intent intent2 = new Intent(HelpActivity.this, SettingsActivity.class);
+            startActivity(intent2);
+        });
     }
+
+    private final Runnable mRunnable = new Runnable() {
+        public void run() {
+            ConstraintLayout layout = findViewById(R.id.helpPage);
+            BackGroundSetter.setWallPaper(new TextView[0],current, layout);
+            HelpActivity.this.mHandler.postDelayed(mRunnable, 50);
+        }
+    };
 
     @Override
     public void onClick(View v) {

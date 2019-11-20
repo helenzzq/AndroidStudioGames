@@ -39,6 +39,19 @@
         android:text="NEXT"
         android:textAllCaps="false"
         android:onClick="next"/>
+    <ImageView
+        android:id="@+id/setting_btn_ball"
+        android:layout_width="46dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.956"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/settingicons" />
 
 
 </LinearLayout>

@@ -3,10 +3,11 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,31 +17,41 @@ import com.example.myapplication.catchball.CatchBallActivity;
 
 public class SavePrincessActivity extends AppCompatActivity implements View.OnClickListener{
     //there are three buttons in Main page: Start, setting and help
+    private Handler mHandler;
+    private Activity current;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catchballmenu);
 
-        ConstraintLayout layout = findViewById(R.id.catchBallMenu);
+        //Set the runnable and handler
 
-        //get the SharedPreference object
-        SharedPreferences sharedPref = getSharedPreferences("switch", Context.MODE_PRIVATE);
-        String on = sharedPref.getString("on", "");
-
-        BackGroundSetting backGroundSetting = new BackGroundSetting();
-        backGroundSetting.setWallPaper(new TextView[]{findViewById(R.id.savePrincess)},
-                this, layout, on);
+        current = this;
+        this.mHandler = new Handler();
+        this.mRunnable.run();
 
         //recognize three buttons and assign them to the corresponding Button variables
         Button start = findViewById(R.id.btn_start);
         start.setOnClickListener(this);
-        Button settings = findViewById(R.id.scoreBoard);
-        settings.setOnClickListener(this);
+        Button scoreBoard = findViewById(R.id.scoreBoard);
+        scoreBoard.setOnClickListener(this);
         Button help = findViewById(R.id.btn_help);
         help.setOnClickListener(this);
         ImageView setting = findViewById(R.id.setting_btn1);
         setting.setOnClickListener(this);
     }
+    private final Runnable mRunnable = new Runnable()
+    {
+        public void run()
+
+        {   ConstraintLayout layout = findViewById(R.id.catchBallMenu);
+            BackGroundSetter.setWallPaper(new TextView[]{findViewById(R.id.savePrincess)},current
+                    , layout);
+            SavePrincessActivity.this.mHandler.postDelayed(mRunnable, 50);
+        }
+
+    };//runnable
     @Override
     public void onClick(View view){
         switch (view.getId()){

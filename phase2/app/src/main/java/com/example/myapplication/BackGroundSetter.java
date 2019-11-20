@@ -10,10 +10,20 @@ import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 
-public class BackGroundSetting {
+public class BackGroundSetter {
 
-    public void setWallPaper(TextView[] texts, Activity context, ViewGroup layout, String on){
-        if (on.equals("true")) {
+    private static boolean switchStatus;
+
+    static boolean isSwitchStatus() {
+        return switchStatus;
+    }
+
+    static void setSwitchStatus(boolean switchStatus) {
+        BackGroundSetter.switchStatus = switchStatus;
+    }
+
+    public static void setWallPaper(TextView[] texts, Activity context, ViewGroup layout){
+        if (switchStatus) {
             layout.setBackground(ContextCompat.getDrawable(context, R.drawable.deernight));
 
             for (TextView k : texts) {

@@ -5,44 +5,65 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.accounts.AccountsException;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.myapplication.BackGroundSetting;
+import com.example.myapplication.BackGroundSetter;
 import com.example.myapplication.R;
+import com.example.myapplication.SavePrincessActivity;
+import com.example.myapplication.SettingsActivity;
 import com.example.myapplication.useraccount.UserManager;
 import com.example.myapplication.useraccount.NoPassWordException;
 import com.example.myapplication.useraccount.DuplicateException;
 
-public class CreateAccountActivity extends AppCompatActivity {
+@SuppressLint("Registered")
+public class RegisterActivity extends AppCompatActivity {
 
     /**
      * A UserManager
      */
     private UserManager users;
+    private Handler mHandler;
+    private Activity current;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_account);
+        setContentView(R.layout.activity_register);
         users = EntryMainActivity.userManager;
         setupSignUpListener();
 
-        //get the SharedPreference object
-        SharedPreferences sharedPref = getSharedPreferences("switch", Context.MODE_PRIVATE);
-        String on = sharedPref.getString("on", "");
-        ConstraintLayout layout = findViewById(R.id.createAccount);
+        //Set the runnable and handler
 
-        BackGroundSetting backGroundSetting = new BackGroundSetting();
-        backGroundSetting.setWallPaper(new TextView[0],
-                this, layout, on);
+        current = this;
+        this.mHandler = new Handler();
+        this.mRunnable.run();
+
+        ImageView setting = findViewById(R.id.setting_btn_register);
+        setting.setOnClickListener(v -> {
+            Intent intent2 = new Intent(RegisterActivity.this, SettingsActivity.class);
+            startActivity(intent2);
+        });
     }
+    private final Runnable mRunnable = new Runnable()
+    {
+        public void run()
 
+        {   ConstraintLayout layout = findViewById(R.id.catchBallMenu);
+            BackGroundSetter.setWallPaper(new TextView[0],current, layout);
+            RegisterActivity.this.mHandler.postDelayed(mRunnable, 50);
+        }
+
+    };//runnable
     /**
      * Activate the signUp button.
      */

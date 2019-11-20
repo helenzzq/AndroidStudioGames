@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:fullBackupContent="@xml/backup_descriptor">
-        <activity android:name=".loginRegister.CreateAccountActivity" />
         <activity android:name=".math24.Math24IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -37,6 +36,11 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
+        <activity android:name=".loginRegister.RegisterActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
         <activity android:name=".pictype2048.WeaponActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -47,6 +51,7 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
+
         <activity android:name=".catchball.CatchBallActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
