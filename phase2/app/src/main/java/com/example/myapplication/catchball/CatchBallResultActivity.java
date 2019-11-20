@@ -1,6 +1,7 @@
 package com.example.myapplication.catchball;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -8,8 +9,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.myapplication.BackGroundSetting;
 import com.example.myapplication.R;
 import com.example.myapplication.pictype2048.WeaponActivity;
 
@@ -23,6 +26,18 @@ public class CatchBallResultActivity extends AppCompatActivity {
 
         TextView scoreLabel = findViewById(R.id.scoreLabel);
         TextView highScoreLabel =  findViewById(R.id.highScoreLabel);
+
+
+        //get the SharedPreference object
+        SharedPreferences sharedPref = getSharedPreferences("switch", Context.MODE_PRIVATE);
+        String on = sharedPref.getString("on", "");
+        LinearLayout layout = findViewById(R.id.catchBallResult);
+
+        //Set the BackGround
+        BackGroundSetting backGroundSetting = new BackGroundSetting();
+        backGroundSetting.setWallPaper(new TextView[]{findViewById(R.id.savePrincess)},
+                this, layout, on);
+
 
         int score = getIntent().getIntExtra("SCORE",0);
         scoreLabel.setText(score + "");

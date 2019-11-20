@@ -1,15 +1,19 @@
 package com.example.myapplication.loginRegister;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.accounts.AccountsException;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.myapplication.BackGroundSetting;
 import com.example.myapplication.R;
 import com.example.myapplication.useraccount.UserManager;
 import com.example.myapplication.useraccount.NoPassWordException;
@@ -26,8 +30,17 @@ public class CreateAccountActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
-        users = FirstActivity.userManager;
+        users = EntryMainActivity.userManager;
         setupSignUpListener();
+
+        //get the SharedPreference object
+        SharedPreferences sharedPref = getSharedPreferences("switch", Context.MODE_PRIVATE);
+        String on = sharedPref.getString("on", "");
+        ConstraintLayout layout = findViewById(R.id.createAccount);
+
+        BackGroundSetting backGroundSetting = new BackGroundSetting();
+        backGroundSetting.setWallPaper(new TextView[]{findViewById(R.id.savePrincess)},
+                this, layout, on);
     }
 
     /**

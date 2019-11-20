@@ -1,18 +1,22 @@
 package com.example.myapplication.loginRegister;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
+import com.example.myapplication.BackGroundSetting;
 import com.example.myapplication.R;
 import com.example.myapplication.useraccount.UserManager;
 import com.example.myapplication.useraccount.UserFileSaver;
 
-public class FirstActivity extends AppCompatActivity{
+public class EntryMainActivity extends AppCompatActivity{
     public static UserManager userManager;
 
 
@@ -30,6 +34,16 @@ ALL CREDIT FOR THE ORIGINAL IMPLEMENTATION OF A SIMILAR SINGLETON GOES TO THE OR
         UserFileSaver fileSaver = new UserFileSaver(this);
         userManager.register(fileSaver);
         userManager.setAllUsers(fileSaver.getAllUsers());
+
+        //get the SharedPreference object
+        SharedPreferences sharedPref = getSharedPreferences("switch", Context.MODE_PRIVATE);
+        String on = sharedPref.getString("on", "");
+        ConstraintLayout layout = findViewById(R.id.entryMainPage);
+
+        //Set the BackGround
+        BackGroundSetting backGroundSetting = new BackGroundSetting();
+        backGroundSetting.setWallPaper(new TextView[]{findViewById(R.id.savePrincess)},
+                this, layout, on);
 
     }
 

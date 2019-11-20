@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.example.myapplication.BackGroundSetting;
 import com.example.myapplication.SavePrincessActivity;
 import com.example.myapplication.R;
 
@@ -21,6 +23,16 @@ public class MainMenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainmenu);
+
+        //get the SharedPreference object
+        SharedPreferences sharedPref = getSharedPreferences("switch", Context.MODE_PRIVATE);
+        String on = sharedPref.getString("on", "");
+        ConstraintLayout layout = findViewById(R.id.mainmenu);
+
+        //Set the BackGround
+        BackGroundSetting backGroundSetting = new BackGroundSetting();
+        backGroundSetting.setWallPaper(new TextView[]{findViewById(R.id.savePrincess)},
+                this, layout, on);
 
 
         SharedPreferences preferences = getSharedPreferences("USER",MODE_PRIVATE);

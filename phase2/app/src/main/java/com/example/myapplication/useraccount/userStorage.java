@@ -8,12 +8,12 @@ import com.example.myapplication.R;
 public class userStorage {
 
     //allow us to store data in file
-    public static final String USERFILE = "userDetails";
-    SharedPreferences userDatabase;
+     private static final String USERFILE = "userDetails";
+    private SharedPreferences userDatabase;
 
     public userStorage(Context context){
 
-        userDatabase = context.getSharedPreferences(USERFILE,context.MODE_PRIVATE);
+        userDatabase = context.getSharedPreferences(USERFILE, Context.MODE_PRIVATE);
 
     }
 
@@ -22,7 +22,7 @@ public class userStorage {
         //update information in the shared preferences
         SharedPreferences.Editor fileEditor = userDatabase.edit();
         fileEditor.putString(user.getUsername()+"password",user.getPassword());
-        fileEditor.commit();
+        fileEditor.apply();
     }
 
     public boolean checkPassowrd(User user){
@@ -31,13 +31,7 @@ public class userStorage {
             return false;
         }
 
-        if(userDatabase.getString(user.getUsername() + "password","") == user.getPassword())
-        {
-            return true;
-        }
-
-
-        return false;
+        return userDatabase.getString(user.getUsername() + "password", "").equals(user.getPassword());
     }
 
     //get details for user loggin
@@ -45,15 +39,14 @@ public class userStorage {
         String name = userDatabase.getString("username","");
         String password = userDatabase.getString("password","");
 
-        User StoredUser = new User(name,password);
-        return StoredUser;
+        return new User(name,password);
     }
 
     //if a user is login 1,logout 0
     public void setLogin(boolean status){
         SharedPreferences.Editor fileEd = userDatabase.edit();
         fileEd.putBoolean("status",status);
-        fileEd.commit();
+        fileEd.apply();
     }
 
     //clear users data when they log out
@@ -61,7 +54,7 @@ public class userStorage {
     public void clearUserData(){
         SharedPreferences.Editor fileEd = userDatabase.edit();
         fileEd.clear();
-        fileEd.commit();
+        fileEd.apply();
     }
 
 
