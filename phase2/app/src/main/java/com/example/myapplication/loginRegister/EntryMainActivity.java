@@ -25,6 +25,7 @@ public class EntryMainActivity extends AppCompatActivity{
 
     private Handler mHandler;
     private Activity current;
+    private ImageView setting;
     /*BASED ON: hhttps://www.youtube.com/watch?v=fI9UTA-NaO4
 ALL CREDIT FOR THE ORIGINAL IMPLEMENTATION OF A SIMILAR SINGLETON GOES TO THE ORIGINAL AUTHOR OF
     THE CODE.*/
@@ -46,7 +47,7 @@ ALL CREDIT FOR THE ORIGINAL IMPLEMENTATION OF A SIMILAR SINGLETON GOES TO THE OR
         this.mHandler = new Handler();
         this.mRunnable.run();
 
-        ImageView setting = findViewById(R.id.setting_btn_entry);
+        setting = findViewById(R.id.setting_btn_entry);
         setting.setOnClickListener(v -> {
             Intent intent2 = new Intent(EntryMainActivity.this, SettingsActivity.class);
             startActivity(intent2);
@@ -59,7 +60,7 @@ ALL CREDIT FOR THE ORIGINAL IMPLEMENTATION OF A SIMILAR SINGLETON GOES TO THE OR
         public void run()
 
         {   ConstraintLayout layout = findViewById(R.id.entryMainPage);
-            BackGroundSetter.setWallPaper(new TextView[0],current, layout);
+            BackGroundSetter.setWallPaper(new TextView[0],setting, current, layout);
             EntryMainActivity.this.mHandler.postDelayed(mRunnable, 50);
         }
 

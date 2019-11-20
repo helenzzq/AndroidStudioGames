@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/createAccount"
+    android:id="@+id/register"
     android:background="@drawable/whitebackground"
     tools:context=".loginRegister.RegisterActivity">
 

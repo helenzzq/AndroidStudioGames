@@ -20,7 +20,7 @@ import com.example.myapplication.SettingsActivity;
 
 public class MainMenuActivity extends AppCompatActivity {
 
-
+    private ImageView setting;
     private Handler mHandler;
     private Activity current;
 
@@ -37,12 +37,12 @@ public class MainMenuActivity extends AppCompatActivity {
         this.mRunnable.run();
 
 
-        SharedPreferences preferences = getSharedPreferences("USER",MODE_PRIVATE);
-        String display = preferences.getString("MainMenuActivity","");
+        SharedPreferences preferences = getSharedPreferences("USER", MODE_PRIVATE);
+        String display = preferences.getString("MainMenuActivity", "");
 
-        final Button btPlay =findViewById(R.id.btPlay);
+        final Button btPlay = findViewById(R.id.btPlay);
 
-        ImageView setting = findViewById(R.id.setting_btn_mainMenu);
+        setting = findViewById(R.id.setting_btn_mainMenu);
         setting.setOnClickListener(v -> {
             Intent intent2 = new Intent(MainMenuActivity.this, SettingsActivity.class);
             startActivity(intent2);
@@ -55,24 +55,21 @@ public class MainMenuActivity extends AppCompatActivity {
         });
 
 
-        if(display.equals("User or password is incorrect"))
-        {
+        if (display.equals("User or password is incorrect")) {
             btPlay.setEnabled(false);
         }
 
-        
-    }
-    private final Runnable mRunnable = new Runnable()
-    {
-        public void run()
 
-        {   ConstraintLayout layout = findViewById(R.id.mainmenu);
-            BackGroundSetter.setWallPaper(new TextView[0],current, layout);
+    }
+
+    private final Runnable mRunnable = new Runnable() {
+        public void run() {
+            ConstraintLayout layout = findViewById(R.id.mainmenu);
+            BackGroundSetter.setWallPaper(new TextView[0], setting, current, layout);
             MainMenuActivity.this.mHandler.postDelayed(mRunnable, 50);
         }
 
     };//runnable
-
 
 
 }
