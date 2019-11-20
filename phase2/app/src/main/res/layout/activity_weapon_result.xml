@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".pictype2048.WeaponResultActivity"
     android:orientation="vertical"
+    android:id="@+id/weaponResult"
     android:gravity="center">
 
     <TextView

@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".math24.Math24ResultActivity"
     android:orientation="vertical"
+    android:id="@+id/math24Result"
+
     android:gravity="center">
 
     <TextView

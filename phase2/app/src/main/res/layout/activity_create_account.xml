@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/createAccount"
     tools:context=".loginRegister.CreateAccountActivity">
 
     <TextView
@@ -35,7 +36,8 @@
         app:layout_constraintBottom_toTopOf="@+id/etNewPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/etNewPassword"
@@ -51,7 +53,8 @@
         app:layout_constraintBottom_toTopOf="@+id/btnNewRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNewName" />
+        app:layout_constraintTop_toBottomOf="@+id/etNewName"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/btnNewRegister"

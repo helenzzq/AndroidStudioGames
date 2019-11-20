@@ -3,7 +3,6 @@
     <string name="save_Princess">Save Princess</string>
     <string name="start">START</string>
     <string name="help">HELP</string>
-    <string name="settings">SETTINGS</string>
     <string name="push_box">Push Box</string>
     <string name="back">BACK</string>
     <string name="load">LOAD</string>
@@ -31,6 +30,8 @@
     <string name="resume">RESUME</string>
     <string name="save">SAVE</string>
     <string name="pause">PAUSE</string>
-    <string name="menu_background">Menu Background: Spring</string>
-
+    <string name="background">Night Mode : </string>
+    <string name="character">Character</string>
+    <string name="settings">Setting</string>
+    <string name="scoreBoard">SCOREBOARD</string>
 </resources>
