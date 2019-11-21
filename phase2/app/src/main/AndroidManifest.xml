@@ -26,7 +26,7 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name=".pictype2048.WeaponResultActivity" />
+        <activity android:name=".weapon.WeaponResultActivity" />
         <activity android:name=".math24.Math24Activity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -42,7 +42,7 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name=".pictype2048.WeaponActivity">
+        <activity android:name=".weapon.WeaponActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>

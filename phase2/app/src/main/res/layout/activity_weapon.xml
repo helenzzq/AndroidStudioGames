@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pictype2048.WeaponActivity"
+    tools:context=".weapon.WeaponActivity"
     android:id="@+id/weaponPage"
     android:orientation="vertical">
 
@@ -30,14 +30,14 @@
 
     </LinearLayout>
 
-    <com.example.myapplication.pictype2048.WeaponView
+    <com.example.myapplication.weapon.WeaponGridView
         android:id="@+id/weaponView"
         android:layout_width="fill_parent"
         android:layout_height="279dp"
         android:layout_weight="1">
 
 
-    </com.example.myapplication.pictype2048.WeaponView>
+    </com.example.myapplication.weapon.WeaponGridView>
 
     <Button
         android:id="@+id/PauseGameBtn2048"

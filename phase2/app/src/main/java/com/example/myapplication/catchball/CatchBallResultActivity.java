@@ -1,7 +1,6 @@
 package com.example.myapplication.catchball;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -17,9 +16,8 @@ import android.widget.TextView;
 
 import com.example.myapplication.BackGroundSetter;
 import com.example.myapplication.R;
-import com.example.myapplication.SavePrincessActivity;
 import com.example.myapplication.SettingsActivity;
-import com.example.myapplication.pictype2048.WeaponActivity;
+import com.example.myapplication.weapon.WeaponActivity;
 
 
 public class CatchBallResultActivity extends AppCompatActivity {

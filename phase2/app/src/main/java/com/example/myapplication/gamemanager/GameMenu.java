@@ -8,7 +8,6 @@ import android.os.Bundle;
 import com.example.myapplication.SavePrincessActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.catchball.CatchBallActivity;
-import com.example.myapplication.pictype2048.WeaponActivity;
 
 import static android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
 

@@ -12,6 +12,7 @@ public class WeaponCard extends FrameLayout {
     private int num = 0;
 
 
+
     public WeaponCard(Context context) {
         super(context);
         matchPic();
@@ -42,6 +43,7 @@ public class WeaponCard extends FrameLayout {
         picArray[32768] = R.drawable.rare14;
 
     }
+
 
     public int getNum() {
         return num;
