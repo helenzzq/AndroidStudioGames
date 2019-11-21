@@ -25,7 +25,7 @@ public class Math24ResultActivity extends AppCompatActivity {
         TextView scoreMath24 = (TextView) findViewById(R.id.scoremath24);
         TextView highestScoreMath24 = (TextView) findViewById(R.id.highestScoreMath24);
 
-        int score = getIntent().getIntExtra("SCOREMath24",0);
+        int score = getIntent().getIntExtra("SCORE",0);
         scoreMath24.setText(score + "");
 
         SharedPreferences settings = getSharedPreferences("GAME_DATAMATH24", Context.MODE_PRIVATE);
