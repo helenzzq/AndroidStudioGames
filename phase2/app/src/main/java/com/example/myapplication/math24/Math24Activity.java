@@ -13,10 +13,11 @@ import android.graphics.Color;
 
 
 public class Math24Activity extends AppCompatActivity implements View.OnClickListener {
-    private Button plus, minor, multiply, divide, equal, nextGame, clear, backGame, help, left_bracket, right_bracket;
+    private Button plus, minus, multiply, divide, equal, nextGame, clear, backGame, help, left_bracket, right_bracket;
     private TextView calculation, result, message, textLive, scoreText;
     private Button num1, num2, num3, num4;
     private int numLives = 3, score = 0;
+    private boolean lackOperator = false;
     private Math24Calculation ques = new Math24Calculation();
 
 
@@ -28,8 +29,8 @@ public class Math24Activity extends AppCompatActivity implements View.OnClickLis
         //create variables plus, minor, multiply, divide, and assign the buttons to them respectively
         plus = findViewById(R.id.btn_plus);
         plus.setOnClickListener(this);
-        minor = findViewById(R.id.btn_minor);
-        minor.setOnClickListener(this);
+        minus = findViewById(R.id.btn_minus);
+        minus.setOnClickListener(this);
         multiply = findViewById(R.id.btn_multiply);
         multiply.setOnClickListener(this);
         divide = findViewById(R.id.btn_divide);
@@ -71,101 +72,146 @@ public class Math24Activity extends AppCompatActivity implements View.OnClickLis
         //the text saying whether or not the answer is accurate
         message = findViewById(R.id.message);
         message.setText("");
+
         //the text saying the number of lives left
         textLive = findViewById(R.id.text_live);
-        //
+
+        //the text saying the current score
         scoreText = findViewById(R.id.score);
         scoreText.setText(String.format("Your score %d", score));
 
+        //button proceed to result activity
         nextGame = findViewById(R.id.btn_next);
         nextGame.setOnClickListener(this);
+
+        //button clear the text in calculation
         clear = findViewById(R.id.btn_clear);
         clear.setOnClickListener(this);
+
+        //button back to the last activity
         backGame = findViewById(R.id.btn_back);
         backGame.setOnClickListener(this);
+
+        //button to see the instruction of the game
         help = findViewById(R.id.btn_help);
         help.setOnClickListener(this);
 
 
     }
 
-
+    //set on click event on buttons
     public void onClick(View view) {
         switch (view.getId()) {
+            //fill the operators and brackets in the calculation
             case R.id.btn_plus:
+                disableOperators();
+                right_bracket.setEnabled(false);
                 calculation.append("+");
                 break;
-            case R.id.btn_minor:
+            case R.id.btn_minus:
+                disableOperators();
+                right_bracket.setEnabled(false);
                 calculation.append("-");
                 break;
             case R.id.btn_multiply:
+                disableOperators();
+                right_bracket.setEnabled(false);
                 calculation.append("*");
                 break;
             case R.id.btn_divide:
+                disableOperators();
+                right_bracket.setEnabled(false);
                 calculation.append("/");
                 break;
+            case R.id.btn_left:
+                right_bracket.setEnabled(false);
+                disableOperators();
+                calculation.append(left_bracket.getText());
+                break;
+            case R.id.btn_right:
+                enableOperators();
+                calculation.append(right_bracket.getText());
+                break;
+
+            //fill the numbers in the calculation
             case R.id.ib_1:
                 calculation.append(num1.getText());
+                enableOperators();
+                left_bracket.setEnabled(false);
+                right_bracket.setEnabled(true);
                 num1.setEnabled(false);
                 break;
             case R.id.ib_2:
                 calculation.append(num2.getText());
+                enableOperators();
+                left_bracket.setEnabled(false);
+                right_bracket.setEnabled(true);
                 num2.setEnabled(false);
                 break;
             case R.id.ib_3:
                 calculation.append(num3.getText());
+                enableOperators();
+                left_bracket.setEnabled(false);
+                right_bracket.setEnabled(true);
                 num3.setEnabled(false);
                 break;
             case R.id.ib_4:
                 calculation.append(num4.getText());
+                enableOperators();
+                left_bracket.setEnabled(false);
+                right_bracket.setEnabled(true);
                 num4.setEnabled(false);
                 break;
-            case R.id.btn_left:
-                calculation.append(left_bracket.getText());
+
+            //button event reset the calculation text
+            case R.id.btn_clear:
+                calculation.setText("");
+                enableNums();
+                enableOperators();
+                right_bracket.setEnabled(true);
+                left_bracket.setEnabled(true);
                 break;
-            case R.id.btn_right:
-                calculation.append(right_bracket.getText());
-                break;
+
+            //button event proceed to the result activity
             case R.id.btn_next:
                 goToResult();
                 /*Intent nextgame = new Intent(Math24Activity.this, Math24ResultActivity.class);
                 nextgame.putExtra("SCOREMath24", score);
                 startActivity(nextgame);*/
                 break;
+
+            //button event back to the last activity
             case R.id.btn_back:
                 finish();
                 break;
+            //button event see help activity
             case R.id.btn_help:
                 Intent help1 = new Intent(Math24Activity.this, Math24IntroActivity.class);
                 startActivity(help1);
                 break;
-            case R.id.btn_clear:
-                calculation.setText("");
-                num1.setEnabled(true);
-                num2.setEnabled(true);
-                num3.setEnabled(true);
-                num4.setEnabled(true);
-                break;
+
             default:
                 break;
         }
+
+        //equal button onclick event
         if(!num1.isEnabled()&& !num2.isEnabled()&& !num3.isEnabled()&&!num4.isEnabled()){
+            //equal button is enabled only when four numbers are used
             equal.setEnabled(true);
             if(view.getId()==R.id.btn_equal){
-                num1.setEnabled(true);
-                num2.setEnabled(true);
-                num3.setEnabled(true);
-                num4.setEnabled(true);
+                //four number buttons are enabled again after one try
+                enableNums();
                 int value = ques.calculate(calculation.getText().toString());
                 result.setText(String.format("%d",value));
                 calculation.setText("");
+
+                //check if is the correct answer
                 if (ques.is24(value)){
                     message.setText("Congratulations! \nClick On Next to Proceed.");
+                    // clear button disabled after win the game
+                    clear.setEnabled(false);
                     scoreText.setText(String.format("Your score: %d", score += 100));
-                    num1.setEnabled(false);
-                    num2.setEnabled(false);
-                    num3.setEnabled(false);
-                    num4.setEnabled(false);
+                    disableNums();
                     equal.setEnabled(false);
                 }
                 else{
@@ -180,6 +226,34 @@ public class Math24Activity extends AppCompatActivity implements View.OnClickLis
                 }
             }
         }
+    }
+
+    public void disableNums(){
+        num1.setEnabled(false);
+        num2.setEnabled(false);
+        num3.setEnabled(false);
+        num4.setEnabled(false);
+    }
+
+    public void enableNums(){
+        num1.setEnabled(true);
+        num2.setEnabled(true);
+        num3.setEnabled(true);
+        num4.setEnabled(true);
+    }
+
+    public void disableOperators(){
+        plus.setEnabled(false);
+        minus.setEnabled(false);
+        multiply.setEnabled(false);
+        divide.setEnabled(false);
+    }
+
+    public void enableOperators(){
+        plus.setEnabled(true);
+        minus.setEnabled(true);
+        multiply.setEnabled(true);
+        divide.setEnabled(true);
     }
 
     public void goToResult() {

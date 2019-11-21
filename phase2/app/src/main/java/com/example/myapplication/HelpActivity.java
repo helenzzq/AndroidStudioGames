@@ -16,9 +16,10 @@ import android.widget.TextView;
 
 import com.example.myapplication.catchball.CatchBallResultActivity;
 import com.example.myapplication.loginRegister.EntryMainActivity;
+import com.example.myapplication.math24.Math24Activity;
 
 public class HelpActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button back, start;
+    private Button back, start, jumpToMath24;
     private Handler mHandler;
     private Activity current;
     private ImageView setting;
@@ -32,7 +33,8 @@ public class HelpActivity extends AppCompatActivity implements View.OnClickListe
         back.setOnClickListener(this);
         start = findViewById(R.id.btn_start3);
         start.setOnClickListener(this);
-
+        jumpToMath24 = findViewById(R.id.btn_math24);
+        jumpToMath24.setOnClickListener(this);
 
 
         //Set the runnable and handler
@@ -67,6 +69,9 @@ public class HelpActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_back2:
                 finish();
                 break;
+            case R.id.btn_math24:
+                Intent intentQuickTest = new Intent(HelpActivity.this, Math24Activity.class);
+                startActivity(intentQuickTest);
             default:
                 break;
         }
