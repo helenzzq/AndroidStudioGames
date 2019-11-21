@@ -1,18 +1,21 @@
 package com.example.myapplication.scoreboard;
 
+import android.icu.text.Edits;
+
 import com.example.myapplication.gamemanager.MyObserver;
 import com.example.myapplication.gamemanager.MySubject;
+import com.example.myapplication.useraccount.User;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
+import java.util.Locale;
+import java.util.NoSuchElementException;
 
-import javax.security.auth.Subject;
-
-public class Scoreboard implements Serializable, MySubject {
+public class Scoreboard implements Serializable, MySubject, Iterator {
 
     private ArrayList<Score> GlobalScore;
 
@@ -40,6 +43,34 @@ public class Scoreboard implements Serializable, MySubject {
         Collections.sort(scores);
     }
 
+    public String getScoreValues(User currentPlayer){
+
+        ArrayList<Score> scoreList;
+        int numScores;
+
+        scoreList = GlobalScore;
+
+        if (scoreList.size() < 5){
+            numScores = scoreList.size();
+        }
+
+        else
+            {
+                numScores = 5;
+            }
+
+        // ListIterator to traverse the list
+       // ListIterator iterator = GlobalScore.listIterator();
+
+        StringBuilder scoreValues = new StringBuilder();
+        for (int i = 0; i < numScores; i++) {
+            Score currentItem = scoreList.get(i);
+            scoreValues.append(String.format(Locale.US, "%s: %d",
+                    currentItem.getUsername(), currentItem.getScore())).append("\n");
+        }
+        return scoreValues.toString();
+    }
+
 
     /**
      * Register the MyObserver object to observe
@@ -61,5 +92,28 @@ public class Scoreboard implements Serializable, MySubject {
             for (MyObserver obj : observers) {
                 obj.update();
             }
+    }
+
+    /**
+     * Returns {@code true} if the iteration has more elements.
+     * (In other words, returns {@code true} if {@link #next} would
+     * return an element rather than throwing an exception.)
+     *
+     * @return {@code true} if the iteration has more elements
+     */
+    @Override
+    public boolean hasNext() {
+        return false;
+    }
+
+    /**
+     * Returns the next element in the iteration.
+     *
+     * @return the next element in the iteration
+     * @throws NoSuchElementException if the iteration has no more elements
+     */
+    @Override
+    public Object next() {
+        return null;
     }
 }

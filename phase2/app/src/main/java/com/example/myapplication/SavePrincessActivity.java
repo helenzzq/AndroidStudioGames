@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.myapplication.catchball.CatchBallActivity;
+import com.example.myapplication.scoreboard.Scoreboard;
+import com.example.myapplication.scoreboard.ScoreboardActivity;
 
 public class SavePrincessActivity extends AppCompatActivity implements View.OnClickListener{
     //there are three buttons in Main page: Start, setting and help
@@ -62,8 +64,8 @@ public class SavePrincessActivity extends AppCompatActivity implements View.OnCl
                 break;
             // press button setting, we will go to a setting page
             case R.id.scoreBoard:
-//                Intent intent2 = new Intent(SavePrincessActivity.this, SettingsActivity.class);
-//                startActivity(intent2);
+                Intent intent2 = new Intent(SavePrincessActivity.this, ScoreboardActivity.class);
+                startActivity(intent2);
                 break;
             //press help button, will go the help page
             case R.id.btn_help:
@@ -71,8 +73,8 @@ public class SavePrincessActivity extends AppCompatActivity implements View.OnCl
                 startActivity(intent3);
                 break;
             case R.id.setting_btn1:
-                Intent intent2 = new Intent(SavePrincessActivity.this, SettingsActivity.class);
-                startActivity(intent2);
+                Intent intent4 = new Intent(SavePrincessActivity.this, SettingsActivity.class);
+                startActivity(intent4);
                 break;
             default:
                 break;

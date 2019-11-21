@@ -28,6 +28,8 @@ public class Score implements Serializable ,Comparable<Score>{
         this.score = score;
     }
 
+    public String getUsername(){return user;}
+
 
     /**
      *
