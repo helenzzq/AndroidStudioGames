@@ -6,9 +6,11 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import java.io.Serializable;
 import java.util.List;
+import java.util.Observable;
 
-public class CatchBoard {
+public class CatchBoard extends Observable implements Serializable {
     private int screenHeight;
     private int screenWidth;
     private OrangeBall orange;

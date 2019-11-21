@@ -1,6 +1,7 @@
 package com.example.myapplication.catchball;
 
 import android.view.MotionEvent;
+import android.view.View;
 
 interface CatchBallView {
 
@@ -27,4 +28,8 @@ interface CatchBallView {
     boolean isActionFlag();
 
     void updateScore(int score);
-}
+
+    void setPauseButton();
+
+
+    }

@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.example.myapplication.SavePrincessActivity;
 import com.example.myapplication.R;
+import com.example.myapplication.catchball.CatchBallActivity;
 import com.example.myapplication.pictype2048.WeaponActivity;
 
 import static android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
@@ -24,7 +25,7 @@ public class GameMenu extends AppCompatActivity {
     public void setResumeBtn(){
         findViewById(R.id.btn_gameResume).setOnClickListener(v -> {
 
-            Intent i = new Intent(this, WeaponActivity.class);
+            Intent i = new Intent(this, CatchBallActivity.class);
             i.addFlags(FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(i);
 

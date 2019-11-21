@@ -8,12 +8,14 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 
+import com.example.myapplication.gamemanager.GameManager;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-class CatchBallManager {
+class CatchBallManager implements GameManager, Serializable {
 
     private CatchBoard board;
     private PlayerPrince player;
@@ -55,8 +57,24 @@ class CatchBallManager {
         return score;
     }
 
-    boolean isGameOver(){
+    @Override
+    public int getScore() {
+        return 0;
+    }
+
+    @Override
+    public boolean isGameOver(){
         return gameOver;
+    }
+
+    @Override
+    public boolean isValidTap(int Position) {
+        return false;
+    }
+
+    @Override
+    public void touchMove(int Postion) {
+
     }
 
     CatchBoard getBoard() {
@@ -78,6 +96,8 @@ class CatchBallManager {
         return 0 <= X && X <= itemSize && itemY <= Y && Y <= itemY + itemSize;
 
     }
+
+
 
 
 

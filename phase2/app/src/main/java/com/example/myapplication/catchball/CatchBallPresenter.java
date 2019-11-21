@@ -1,8 +1,23 @@
 package com.example.myapplication.catchball;
 
 import android.view.MotionEvent;
+import android.view.View;
 
-class CatchBallPresenter {
+import com.example.myapplication.gamemanager.GameController;
+import com.example.myapplication.gamemanager.GameManager;
+import com.example.myapplication.gamemanager.MyObserver;
+import com.example.myapplication.gamemanager.MySubject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+class CatchBallPresenter implements GameController, MySubject {
+
+    /**
+     * The list of observers of this class
+     */
+    private static List<MyObserver> observers;
+
 
     private CatchBallManager manager;
     private CatchBallView catchBallView;
@@ -10,6 +25,7 @@ class CatchBallPresenter {
     CatchBallPresenter(CatchBallView boardView, CatchBallManager manager) {
         this.manager = manager;
         this.catchBallView = boardView;
+        observers = new ArrayList<>();
 
     }
 
@@ -17,6 +33,8 @@ class CatchBallPresenter {
     void onStart(MotionEvent action, boolean startFlag, int frameHeight) {
         if (startFlag) {
             catchBallView.makeAction(action);
+            catchBallView.setPauseButton();
+
 
         } else {
             catchBallView.setStartFlag(true);
@@ -24,9 +42,11 @@ class CatchBallPresenter {
             manager.getBoard().setFrameHeight(frameHeight);
 
             catchBallView.updateTimer();
+
         }
 
     }
+
 
 
     void hitCheck(boolean actionFlag) {
@@ -46,4 +66,32 @@ class CatchBallPresenter {
     }
 
 
+    @Override
+    public CatchBallManager getGameManager() {
+        return manager;
+    }
+
+    @Override
+    public void setGameManager(GameManager manager) {
+        this.manager = (CatchBallManager) manager;
+
+    }
+
+    /**
+     * Add an observer, obs, to this class
+     * @param obs The observer added
+     */
+    @Override
+    public void register(MyObserver obs) {
+        if(!observers.contains(obs))
+        {observers.add(obs);
+            obs.setSubject(this);}
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (MyObserver obs: observers) {
+            obs.update();
+        }
+    }
 }

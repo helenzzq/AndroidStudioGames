@@ -38,7 +38,7 @@ public class SavePrincessActivity extends AppCompatActivity implements View.OnCl
         scoreBoard.setOnClickListener(this);
         Button help = findViewById(R.id.btn_help);
         help.setOnClickListener(this);
-         setting = findViewById(R.id.setting_btn1);
+        setting = findViewById(R.id.setting_btn1);
         setting.setOnClickListener(this);
     }
     private final Runnable mRunnable = new Runnable()
