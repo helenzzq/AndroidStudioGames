@@ -1,5 +1,4 @@
 package com.example.myapplication.useraccount;
-
 import android.accounts.AccountsException;
 import android.accounts.AuthenticatorException;
 

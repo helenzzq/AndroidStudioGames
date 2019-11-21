@@ -2,7 +2,9 @@ package com.example.myapplication.math24;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,7 +27,20 @@ public class Math24ResultActivity extends AppCompatActivity {
 
         int score = getIntent().getIntExtra("SCOREMath24",0);
         scoreMath24.setText(score + "");
-        highestScoreMath24.setText(String.format("%d", 100));
+
+        SharedPreferences settings = getSharedPreferences("GAME_DATAMATH24", Context.MODE_PRIVATE);
+        int highScore = settings.getInt("HIGH_SCORE2048",0);
+
+        if(score>highScore){
+            highestScoreMath24.setText("High Score: " + score);
+
+            //save
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putInt("HIGH_SCORE2048",score);
+            editor.commit();
+        }else{
+            highestScoreMath24.setText("High Score: " + highScore);
+        }
 
 //        SharedPreferences settings = getSharedPreferences("GAME_DATA2048", Context.MODE_PRIVATE);
 //        int highScore = settings.getInt("HIGH_SCORE2048",0);
