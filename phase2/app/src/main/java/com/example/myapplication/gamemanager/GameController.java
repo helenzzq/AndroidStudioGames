@@ -6,6 +6,7 @@ public interface GameController {
     /**
      * A getter for the Game Manager.
      */
+
     GameManager getGameManager();
 
     /**
