@@ -69,7 +69,7 @@ public class CatchBallResultActivity extends AppCompatActivity {
     private final Runnable mRunnable = new Runnable() {
         public void run() {
             LinearLayout layout = findViewById(R.id.catchBallResult);
-            BackGroundSetter.setWallPaper(new TextView[0],setting, current, layout);
+            BackGroundSetter.setWallPaper(new TextView[0], current, layout);
             CatchBallResultActivity.this.mHandler.postDelayed(mRunnable, 50);
         }
     };

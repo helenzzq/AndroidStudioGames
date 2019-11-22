@@ -132,7 +132,7 @@ public class CatchBallActivity extends AppCompatActivity implements GameView, Ob
     public boolean onTouchEvent(MotionEvent action) {
 
         FrameLayout frame = findViewById(R.id.frame);
-        presenter.onStart(action,startFlag, frame.getHeight());
+        presenter.onStart(action,startFlag, frame.getHeight()-130);
         return true;
     }
 

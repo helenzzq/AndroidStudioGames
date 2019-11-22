@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,7 +19,7 @@
     <FrameLayout
         android:id="@+id/frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/startLabel"
@@ -31,36 +30,35 @@
             android:text="Tap To Start"
             android:textSize="30sp" />
 
-        //android:onClick="setPauseButton"
+        <Button
+            android:id="@+id/catchBallPause"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="500dp"
+            android:background="#CDDC39"
+            android:text="@string/pause"
+
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/catchBallSave"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_marginTop="550dp"
+            android:layout_marginStart="300dp"
+            android:layout_marginTop="500dp"
             android:background="#CDDC39"
             android:text="@string/save"
-            android:textSize="18sp"
-            android:layout_marginStart="200dp"/>
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/catchBallBack"
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginStart="300dp"
-            android:layout_marginTop="550dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="500dp"
             android:background="#CDDC39"
             android:text="@string/back"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/catchBallPause"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="550dp"
-            android:background="#CDDC39"
-            android:text="@string/pause"
             android:textSize="18sp" />
 
         <ImageView
