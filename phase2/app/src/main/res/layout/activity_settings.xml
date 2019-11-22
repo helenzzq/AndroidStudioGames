@@ -5,7 +5,7 @@
     android:id="@+id/setting"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/whitebackground"
+    android:background="@drawable/deernight"
     tools:context=".SettingsActivity">
 
     <TextView
@@ -69,7 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="220dp"
         android:layout_marginEnd="196dp"
-        android:checked="false"
+        android:checked="true"
         android:gravity="center_vertical"
         android:textColor="@android:color/tertiary_text_dark"
         android:textSize="22sp"
@@ -87,7 +87,7 @@
         android:layout_marginTop="84dp"
         android:layout_marginEnd="139dp"
         android:text="@string/settings"
-        android:textColor="#474343"
+        android:textColor="#5E5E5E"
         android:textSize="36sp"
         android:textStyle="bold|italic"
         android:theme="@style/SCBSwitch"
@@ -118,8 +118,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="104dp"
         android:layout_marginEnd="36dp"
-        android:backgroundTint="#CDDC39"
         android:text="play"
+        android:backgroundTint="#CDDC39"
         app:layout_constraintBottom_toTopOf="@+id/btn_back1"
         app:layout_constraintEnd_toStartOf="@+id/btn_pause"
         app:layout_constraintHorizontal_bias="1.0"
@@ -138,7 +138,10 @@
         android:text="pause"
         app:layout_constraintBottom_toTopOf="@+id/btn_start2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton4" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/character_text"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton4"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/imageButton4"

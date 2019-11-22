@@ -82,7 +82,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             setBackground.setChecked(true);
 
         }
-        else if (!BackGroundSetter.isSwitchStatus()){
+        else{
             setBackground.setChecked(false);
         }
         setBackGround();

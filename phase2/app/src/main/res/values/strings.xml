@@ -34,4 +34,5 @@
     <string name="character">Character</string>
     <string name="settings">Setting</string>
     <string name="scoreBoard">SCOREBOARD</string>
+    <string name="loadgame">LOAD GAME</string>
 </resources>

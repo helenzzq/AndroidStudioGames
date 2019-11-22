@@ -60,7 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
         public void run()
 
         {   ConstraintLayout layout = findViewById(R.id.register);
-            BackGroundSetter.setWallPaper(new TextView[0],setting, current, layout);
+            BackGroundSetter.setWallPaper(new TextView[0], current, layout);
             RegisterActivity.this.mHandler.postDelayed(mRunnable, 50);
         }
 
