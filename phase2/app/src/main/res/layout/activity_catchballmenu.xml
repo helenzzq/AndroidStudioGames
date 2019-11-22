@@ -70,7 +70,7 @@
         android:text="@string/help" />
 
     <Button
-        android:id="@+id/QuitButton"
+        android:id="@+id/quitBallBtn"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:text="Quit"

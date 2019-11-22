@@ -33,7 +33,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
 
         //recognize the bottoms and assign them to the corresponding variables
         Button[] buttons = new Button[]{findViewById(R.id.btn_back1),
-                findViewById(R.id.btn_start2), findViewById(R.id.btn_pause),
+                findViewById(R.id.btn_pause),
                 findViewById(R.id.btn_play)};
 
         //create a background switch
@@ -51,11 +51,6 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            //If we press start, we will go to CatchBall Game
-            case R.id.btn_start2:
-                Intent intent1 = new Intent(SettingsActivity.this, CatchBallActivity.class);
-                startActivity(intent1);
-                break;
             //If we press back button, we will finish
             case R.id.btn_back1:
                 finish();
