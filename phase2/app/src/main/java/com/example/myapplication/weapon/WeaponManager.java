@@ -1,6 +1,8 @@
 package com.example.myapplication.weapon;
 
-class WeaponManager {
+import com.example.myapplication.gamemanager.GameManager;
+
+class WeaponManager implements GameManager {
 
 
     private WeaponCard[][] weaponCards;
@@ -15,6 +17,7 @@ class WeaponManager {
         gameOver = false;
         cardCollection = new CardCollection();
         weaponCards = cardCollection.getCards();
+        score = 0;
 
     }
 
@@ -265,8 +268,8 @@ class WeaponManager {
 
     }
 
-
-    boolean isGameOver() {
+    @Override
+    public boolean isGameOver() {
         return gameOver;
     }
 

@@ -20,6 +20,7 @@ class CatchBallManager implements GameManager, Serializable {
     private CatchBoard board;
     private PlayerPrince player;
     private boolean gameOver;
+    private int score;
 
 
     CatchBallManager(WindowManager window, int x, int y, ImageView[] views) {
@@ -39,9 +40,8 @@ class CatchBallManager implements GameManager, Serializable {
     }
 
 
-     int hitCheck() {
+     void hitCheck() {
         //if the center of the Ball is in the box,it counts as a hit
-         int score = 0;
          for (Ball ball : board.getBalls()) {
             if (validate(ball.getCenterX(), ball.getCenterY(), player.getY(), player.getSize())) {
                 if(ball instanceof BlackBall){
@@ -49,17 +49,16 @@ class CatchBallManager implements GameManager, Serializable {
                 break;}
                 else{
                     score += ball.getPoint();
-                    System.out.println(score);
                 ball.setX(-10);
                 }
             }
         }
-        return score;
+
     }
 
     @Override
     public int getScore() {
-        return 0;
+        return score;
     }
 
     @Override
@@ -67,22 +66,8 @@ class CatchBallManager implements GameManager, Serializable {
         return gameOver;
     }
 
-    @Override
-    public boolean isValidTap(int Position) {
-        return false;
-    }
-
-    @Override
-    public void touchMove(int Postion) {
-
-    }
-
     CatchBoard getBoard() {
         return board;
-    }
-
-    PlayerPrince getPlayer() {
-        return player;
     }
 
     void updatePlayerSize(){

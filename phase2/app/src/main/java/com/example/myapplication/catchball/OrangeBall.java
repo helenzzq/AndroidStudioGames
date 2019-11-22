@@ -6,22 +6,15 @@ public class OrangeBall extends Ball {
 
 
 
-    private ImageView view;
     private int point;
-    private int CenterX;
-    private int CenterY;
-    private int x;
-    private int y;
 
     OrangeBall(int x, int y, ImageView view) {
         super(x, y, view);
-        CenterX = x + view.getWidth()/2;
-        CenterY = y + view.getHeight()/2;
         point = 10;
     }
 
     @Override
-    int getPoint() {
+    public int getPoint() {
         return point;
     }
 
