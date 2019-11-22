@@ -16,6 +16,7 @@ import com.example.myapplication.StrategyClass.BackGroundSetter;
 import com.example.myapplication.gamemanager.BaseActivity;
 import com.example.myapplication.GameMenu;
 import com.example.myapplication.loginRegister.MainMenuActivity;
+import com.example.myapplication.scoreboard.ScoreboardActivity;
 
 
 public class CatchBallMenu extends BaseActivity implements GameMenu, PopupMenu.OnMenuItemClickListener{
@@ -48,6 +49,7 @@ public class CatchBallMenu extends BaseActivity implements GameMenu, PopupMenu.O
         setHelpBtn();
         setLoadBtn();
         setNewGameBtn();
+        setScoreboardBtn();
         onClickSettingBtn(findViewById(R.id.setting_btn_ball));
     }
 
@@ -80,6 +82,10 @@ public class CatchBallMenu extends BaseActivity implements GameMenu, PopupMenu.O
         findViewById(R.id.quitBallBtn).setOnClickListener(v-> switchToPage(MainMenuActivity.class));
 
 
+    }
+
+    public void setScoreboardBtn(){
+        findViewById(R.id.ballScoreBoardbtn).setOnClickListener(v->switchToPage(ScoreboardActivity.class));
     }
 
     @Override
