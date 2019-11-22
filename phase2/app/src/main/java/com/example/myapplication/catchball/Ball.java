@@ -9,19 +9,23 @@ abstract class Ball implements MoveItem {
 
     private int x;
     private int y;
-    private int CenterX = 0;
-    private int CenterY = 0;
+    private int point;
 
 
     Ball(int x, int y, ImageView view){
         this.view = view;
-
         view.setX(x);
         view.setY(y);
-
+        point = 0;
     }
 
-    abstract int getPoint();
+    /**
+     * A getter for the point of the ball
+     */
+    @Override
+    public int getPoint(){
+        return point;
+    }
 
     /**
      * A setter for the x coordinate of the ball
@@ -56,12 +60,6 @@ abstract class Ball implements MoveItem {
     }
 
     /**
-     * A setter for the ball's view
-     */
-    public void setView(ImageView appearance) {
-        this.view = appearance;
-    }
-    /**
      * A getter for the ball's view
      */
     //cannot change appearance
@@ -72,14 +70,12 @@ abstract class Ball implements MoveItem {
 
     int getCenterY() {
 
-        CenterY = y + view.getHeight()/2;
-        return CenterY;
+        return y + view.getHeight()/2;
     }
 
     int getCenterX() {
-        CenterX = x + view.getWidth()/2;
 
-        return CenterX;
+        return x + view.getWidth()/2;
     }
     @Override
     public void move(int screenWidth, int frameHeight, int changeInX, int width){

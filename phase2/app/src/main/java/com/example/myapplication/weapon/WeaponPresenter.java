@@ -1,8 +1,10 @@
 package com.example.myapplication.weapon;
 
+import com.example.myapplication.gamemanager.GameView;
+
 class WeaponPresenter {
     private WeaponManager weaponManager;
-    private WeaponGameView weaponView;
+    private GameView weaponView;
     private WeaponGridView WeaponGridView;
 
 
@@ -12,7 +14,8 @@ class WeaponPresenter {
 
     }
 
-    void setWeaponView(WeaponGameView weaponView) {
+    void setWeaponView(GameView weaponView) {
+
         this.weaponView = weaponView;
     }
 
@@ -22,7 +25,7 @@ class WeaponPresenter {
 
 
     void restart() {
-        weaponView.clearScore();
+        weaponView.updateScore(0);
         weaponManager.getCardCollection().setCardCollection();
         weaponManager.getCardCollection().addRandomNum();
         weaponManager.getCardCollection().addRandomNum();
@@ -45,15 +48,15 @@ class WeaponPresenter {
                 weaponManager.swipeRight();
             }
         }
-        weaponView.addScore(weaponManager.getScore());
+        weaponView.updateScore(weaponManager.getScore());
         if(weaponManager.isGameOver()){
-            weaponView.goToResult();
+            weaponView.showResult();
         }
 
 //        weaponManager.swipe(vertical, leftUp);
 //        weaponView.addScore(weaponManager.getScore());
 //        if(weaponManager.isGameOver()){
-//            weaponView.goToResult();
+//            weaponView.showResult();
 //        }
     }
 

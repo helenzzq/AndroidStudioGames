@@ -15,15 +15,5 @@ public interface GameManager {
      */
     boolean isGameOver();
 
-    /**
-     * Return true iff the position is valid.
-     */
-    boolean isValidTap(int Position);
-
-    /**
-     * Make Move with corresponding Position.
-     * @param Postion int position
-     */
-    void touchMove(int Postion);
 
 }

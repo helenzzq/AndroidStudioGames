@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.myapplication.R;
 import com.example.myapplication.SavePrincessActivity;
 import com.example.myapplication.gamemanager.GameFileSaver;
+import com.example.myapplication.gamemanager.GameView;
 import com.example.myapplication.loginRegister.LoginActivity;
 
 import java.io.Serializable;
@@ -31,7 +32,7 @@ import static android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
 ALL CREDIT FOR THE ORIGINAL IMPLEMENTATION OF A SIMILAR SINGLETON GOES TO THE ORIGINAL AUTHOR OF
     THE CODE.*/
 
-public class CatchBallActivity extends AppCompatActivity implements CatchBallView, Observer, Serializable {
+public class CatchBallActivity extends AppCompatActivity implements GameView, Observer, Serializable {
 
     private TextView scoreLabel;
     private TextView startLabel;
@@ -65,9 +66,6 @@ public class CatchBallActivity extends AppCompatActivity implements CatchBallVie
         setSaveButton();
         ImageView[] imgs = new ImageView[]{findViewById(R.id.orange),findViewById(R.id.black),
                 findViewById(R.id.pink), findViewById(R.id.box)};
-
-        //frameHeight = frame.getHeight();
-        //Game Presenter setup.
         presenter = new CatchBallPresenter(this,
                 new CatchBallManager(getWindowManager(), -80,-80, imgs));
 //        GameFileSaver gameFileSaver = new GameFileSaver(this, LoginActivity.currentPlayer.
@@ -81,7 +79,7 @@ public class CatchBallActivity extends AppCompatActivity implements CatchBallVie
 
 
 
-        pauseButton = (Button)findViewById(R.id.catchBallPause);
+        pauseButton =findViewById(R.id.catchBallPause);
 
         scoreLabel = findViewById(R.id.scoreLabel);
         startLabel = findViewById(R.id.startLabel);
@@ -92,15 +90,17 @@ public class CatchBallActivity extends AppCompatActivity implements CatchBallVie
 
     }
 
-
-
-
-    @Override
+    /**
+     * Stop the Timer
+     */
     public void stopTimer(){
         //stop the timer
         timer.cancel();
         timer=null;
     }
+    /**
+     * Go to the result of the Game
+     */
     @Override
     public void showResult(){
         //Show Result
@@ -109,7 +109,9 @@ public class CatchBallActivity extends AppCompatActivity implements CatchBallVie
         startActivity(intent);
     }
 
-
+    /**
+     * Update the Timer
+     */
 
     @SuppressLint("SetTextI18n")
     public void updateTimer(){
@@ -117,18 +119,14 @@ public class CatchBallActivity extends AppCompatActivity implements CatchBallVie
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        presenter.hitCheck(actionFlag);
-                        scoreLabel.setText("Score: " + score );
-                    }
+                handler.post(() -> {
+                    presenter.hitCheck(actionFlag);
+                    scoreLabel.setText("Score: " + score );
                 });
             }
         },0,20);
 
     }
-
 
     @Override
     public boolean onTouchEvent(MotionEvent action) {
@@ -139,7 +137,6 @@ public class CatchBallActivity extends AppCompatActivity implements CatchBallVie
     }
 
 
-    @Override
     public void makeAction(MotionEvent action){
         if(action.getAction()==MotionEvent.ACTION_DOWN){
             actionFlag = true;
@@ -148,48 +145,29 @@ public class CatchBallActivity extends AppCompatActivity implements CatchBallVie
         }
 
     }
-    @Override
-    protected void onDestroy() {
-        presenter.onDestroy();
-        super.onDestroy();
-    }
 
-    @Override
+
+
     public void hideStartLabel(){
         startLabel.setVisibility(View.GONE);
     }
 
-    @Override
+
     public void updateScore(int score) {
-        this.score += score;
+        this.score = score;
     }
 
-    @Override
+
     public int getScore() {
         return score;
     }
 
-    @Override
-    public void setActionFlag(boolean actionFlag) {
-        this.actionFlag = actionFlag;
-    }
-
-    @Override
     public void setStartFlag(boolean startFlag) {
         this.startFlag = startFlag;
     }
 
-    @Override
-    public boolean isStartFlag() {
-        return startFlag;
-    }
+    @SuppressLint("SetTextI18n")
 
-    @Override
-    public boolean isActionFlag() {
-        return actionFlag;
-    }
-
-    @Override
     public void setPauseButton() {
         findViewById(R.id.catchBallPause).setOnClickListener(v -> {
             if (!pauseFlag && startFlag){
@@ -208,12 +186,9 @@ public class CatchBallActivity extends AppCompatActivity implements CatchBallVie
                 timer.schedule(new TimerTask() {
                     @Override
                     public void run() {
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                presenter.hitCheck(actionFlag);
-                                scoreLabel.setText("Score: " + score );
-                            }
+                        handler.post(() -> {
+                            presenter.hitCheck(actionFlag);
+                            scoreLabel.setText("Score: " + score );
                         });
                     }
                 },0,20);

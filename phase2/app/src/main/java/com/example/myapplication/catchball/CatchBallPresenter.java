@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.example.myapplication.gamemanager.GameController;
 import com.example.myapplication.gamemanager.GameManager;
+import com.example.myapplication.gamemanager.GameView;
 import com.example.myapplication.gamemanager.MyObserver;
 import com.example.myapplication.gamemanager.MySubject;
 
@@ -20,9 +21,9 @@ class CatchBallPresenter implements GameController, MySubject {
 
 
     private CatchBallManager manager;
-    private CatchBallView catchBallView;
+    private CatchBallActivity catchBallView;
 
-    CatchBallPresenter(CatchBallView boardView, CatchBallManager manager) {
+    CatchBallPresenter(CatchBallActivity boardView, CatchBallManager manager) {
         this.manager = manager;
         this.catchBallView = boardView;
         observers = new ArrayList<>();
@@ -50,8 +51,8 @@ class CatchBallPresenter implements GameController, MySubject {
 
 
     void hitCheck(boolean actionFlag) {
-        int score = manager.hitCheck();
-        catchBallView.updateScore(score);
+        manager.hitCheck();
+        catchBallView.updateScore(manager.getScore());
         if (manager.isGameOver()) {
             catchBallView.hideStartLabel();
             catchBallView.stopTimer();

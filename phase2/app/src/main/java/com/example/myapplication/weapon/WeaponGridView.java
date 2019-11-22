@@ -11,7 +11,6 @@ import android.widget.GridLayout;
 public class WeaponGridView extends GridLayout{
 
     private static WeaponPresenter presenter;
-    private WeaponCard[][] weaponCard;
     private float startX;
     private float startY;
 
@@ -56,7 +55,6 @@ public class WeaponGridView extends GridLayout{
                 break;
             case MotionEvent.ACTION_UP:
                 //Determine direction
-                WeaponManager weaponManager = presenter.getWeaponManager();
                 float offsetX = event.getX() - startX;
                 float offsetY = event.getY() - startY;
                 if (Math.abs(offsetX) > Math.abs(offsetY)) {
@@ -72,10 +70,8 @@ public class WeaponGridView extends GridLayout{
                     }
                 } else {
                     if (offsetY < -5) {
-                        weaponManager.swipeUp();
                         presenter.swipe(true, true);
                     } else if (offsetY > 5) {
-                        weaponManager.swipeDown();
                         presenter.swipe(true, false);
                     }
                 }
@@ -114,7 +110,6 @@ public class WeaponGridView extends GridLayout{
                 weaponCard[x][y] = c;
             }
         }
-        this.weaponCard = weaponCard;
-
     }
+
 }

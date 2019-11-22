@@ -10,8 +10,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Observable;
 
-public class CatchBoard extends Observable implements Serializable {
-    private int screenHeight;
+ class CatchBoard extends Observable implements Serializable {
     private int screenWidth;
     private OrangeBall orange;
     private BlackBall black;
@@ -32,7 +31,6 @@ public class CatchBoard extends Observable implements Serializable {
         display.getSize(size);
 
         screenWidth = size.x;
-        screenHeight = size.y;
         playerPrince = new PlayerPrince(views[3]);
         orange = new OrangeBall(x,y, views[0]);
         black = new BlackBall(x,y, views[1]);
@@ -47,24 +45,11 @@ public class CatchBoard extends Observable implements Serializable {
 
     }
 
-    public BlackBall getBlack() {
-        return black;
-    }
-
-    public OrangeBall getOrange() {
-        return orange;
-    }
-
-    public PinkBall getPink() {
-        return pink;
-    }
-
-
     int getScreenWidth() {
         return screenWidth;
     }
 
-    public void setFrameHeight(int frameHeight) {
+    void setFrameHeight(int frameHeight) {
         this.frameHeight = frameHeight;
     }
 
@@ -72,9 +57,6 @@ public class CatchBoard extends Observable implements Serializable {
         return frameHeight;
     }
 
-    Object[] getGameElements(){
-        return new Object[]{orange, black, pink, playerPrince};
-    }
     PlayerPrince getPlayerPrince(){
         return playerPrince;
     }

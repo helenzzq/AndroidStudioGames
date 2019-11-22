@@ -8,10 +8,11 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.gamemanager.GameView;
 
 
 @SuppressLint("Registered")
-public class WeaponActivity extends AppCompatActivity implements WeaponGameView {
+public class WeaponActivity extends AppCompatActivity implements GameView {
 
     private int score = 0;
     private TextView tvScore;
@@ -24,23 +25,15 @@ public class WeaponActivity extends AppCompatActivity implements WeaponGameView 
         WeaponGridView.getPresenter().setWeaponView(this);
     }
 
-    public void clearScore(){
-        score = 0;
-        showScore();
-    }
-
+    @Override
     @SuppressLint("SetTextI18n")
-    public void showScore(){
+    public void updateScore(int s) {
+        score = s;
         tvScore.setText(score + "");
     }
 
-    public void addScore(int s) {
-        score += s;
-        showScore();
-    }
-
-
-    public void goToResult() {
+    @Override
+    public void showResult() {
         Intent intent = new Intent(WeaponActivity.this, WeaponResultActivity.class);
         intent.putExtra("SCORE2048", score);
         startActivity(intent);
