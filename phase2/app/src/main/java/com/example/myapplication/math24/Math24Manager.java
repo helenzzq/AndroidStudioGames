@@ -1,7 +1,9 @@
 package com.example.myapplication.math24;
 
 public class Math24Manager {
-    static private int questions_level1[][] = {
+
+    int addScore;
+    static private int question_level1[][] = {
             {6,6,6,6},
             {3,8,1,1},
             {0,8,8,8},
@@ -24,17 +26,24 @@ public class Math24Manager {
             {4,5,5,5},
             {4,5,5,8}};
 
+    private int setAddScore(int coefficient){
+        return addScore * coefficient;
+    }
+
     //create four random integers from 1 to 10
     public int[] createQuestion_level1() {
-        return questions_level1[(int) (Math.random() * (10 - 1) + 1)];
+        addScore = setAddScore(1);
+        return question_level1[(int) (Math.random() * (question_level1.length - 1) + 1)];
     }
 
     public int[] createQuestion_level2(){
-        return question_level2[(int)(Math.random() * (5 - 1) + 1)];
+        addScore = setAddScore(2);
+        return question_level2[(int)(Math.random() * (question_level2.length - 1) + 1)];
     }
 
     public int[] createQuestion_level3(){
-        return question_level3[(int)(Math.random() * (3 - 1) + 1)];
+        addScore = setAddScore(4);
+        return question_level3[(int)(Math.random() * (question_level3.length - 1) + 1)];
     }
 
     //test if the result equals 24

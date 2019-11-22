@@ -16,15 +16,26 @@ public class Math24Activity extends AppCompatActivity implements View.OnClickLis
     private Button plus, minus, multiply, divide, equal, nextGame, clear, backGame, help, left_bracket, right_bracket;
     private TextView calculation, result, message, textLive, scoreText;
     private Button num1, num2, num3, num4;
-    private int numLives = 3, score = 0;
+    private int numLives = 3, score = 0, level=1;
     private boolean lackOperator = false;
-    private Math24Manager questions = new Math24Manager();
+    private Math24Manager manager = new Math24Manager();
+    private int[] question;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_math24);
+
+        //create number buttons whose texts are questions
+        num1 = findViewById(R.id.ib_1);
+        num1.setOnClickListener(this);
+        num2 = findViewById(R.id.ib_2);
+        num2.setOnClickListener(this);
+        num3 = findViewById(R.id.ib_3);
+        num3.setOnClickListener(this);
+        num4 = findViewById(R.id.ib_4);
+        num4.setOnClickListener(this);
 
         //create variables plus, minor, multiply, divide, and assign the buttons to them respectively
         plus = findViewById(R.id.btn_plus);
@@ -45,21 +56,8 @@ public class Math24Activity extends AppCompatActivity implements View.OnClickLis
         equal.setOnClickListener(this);
         equal.setEnabled(false);
 
-        //select one random question in question[][], and assign each number in each number in the
-        //four buttons
-        int [] question = questions.createQuestion_level1();
-        num1 = findViewById(R.id.ib_1);
-        num1.setText(String.format("%d", question[0]));
-        num1.setOnClickListener(this);
-        num2 = findViewById(R.id.ib_2);
-        num2.setText(String.format("%d", question[1]));
-        num2.setOnClickListener(this);
-        num3 = findViewById(R.id.ib_3);
-        num3.setText(String.format("%d", question[2]));
-        num3.setOnClickListener(this);
-        num4 = findViewById(R.id.ib_4);
-        num4.setText(String.format("%d", question[3]));
-        num4.setOnClickListener(this);
+        //set the first question, including set the text of number buttons
+        setQuestion(level);
 
         //create a text space called calculation to put the equation entered by the player
         calculation = findViewById(R.id.tv_calculation);
@@ -104,21 +102,25 @@ public class Math24Activity extends AppCompatActivity implements View.OnClickLis
             //fill the operators and brackets in the calculation
             case R.id.btn_plus:
                 disableOperators();
+                left_bracket.setEnabled(true);
                 right_bracket.setEnabled(false);
                 calculation.append("+");
                 break;
             case R.id.btn_minus:
                 disableOperators();
+                left_bracket.setEnabled(true);
                 right_bracket.setEnabled(false);
                 calculation.append("-");
                 break;
             case R.id.btn_multiply:
                 disableOperators();
+                left_bracket.setEnabled(true);
                 right_bracket.setEnabled(false);
                 calculation.append("*");
                 break;
             case R.id.btn_divide:
                 disableOperators();
+                left_bracket.setEnabled(true);
                 right_bracket.setEnabled(false);
                 calculation.append("/");
                 break;
@@ -200,28 +202,38 @@ public class Math24Activity extends AppCompatActivity implements View.OnClickLis
             if(view.getId()==R.id.btn_equal){
                 //four number buttons are enabled again after one try
                 enableNums();
-                int value = questions.calculate(calculation.getText().toString());
+                int value = manager.calculate(calculation.getText().toString());
                 result.setText(String.format("%d",value));
                 calculation.setText("");
 
                 //check if is the correct answer
-                if (questions.is24(value)){
-                    message.setText("Congratulations! \nClick On Next to Proceed.");
+                if (manager.is24(value)){
+                    message.setText(String.format("Congratulations! \n"));
                     // clear button disabled after win the game
                     clear.setEnabled(false);
-                    scoreText.setText(String.format("Your score: %d", score += 100));
+                    scoreText.setText(String.format("Your score: %d", score += manager.addScore));
                     disableNums();
                     equal.setEnabled(false);
+                    level+=1;
+                    if(level<=3 && numLives > 0){
+                        message.setText(message.getText() + String.format(" Now level %d", level));
+                        setQuestion(level);
+                        right_bracket.setEnabled(true);
+                        left_bracket.setEnabled(true);
+                        enableOperators();
+                        enableNums();
+                        onClick(view);
+                    }
                 }
                 else{
                     message.setText("It's Wrong!!!");
                     numLives -= 1;
                     textLive.setText(String.format("lives remaining: %d", numLives));
                     equal.setEnabled(false);
-                    if (numLives == 0) {
-                        textLive.setTextColor(Color.RED);
-                        message.setText("Click On Next to Proceed.");
-                    }
+                }
+                if(numLives < 0){
+                    textLive.setTextColor(Color.RED);
+                    message.setText("Click On Next to Proceed.");
                 }
             }
         }
@@ -253,6 +265,23 @@ public class Math24Activity extends AppCompatActivity implements View.OnClickLis
         minus.setEnabled(true);
         multiply.setEnabled(true);
         divide.setEnabled(true);
+    }
+
+    public void setQuestion(int level){
+        //select one random question in question[][], and assign each number in each number in the
+        //four buttons
+        switch(level){
+            case 1:
+                question = manager.createQuestion_level1();
+            case 2:
+                question = manager.createQuestion_level2();
+            case 3:
+                question = manager.createQuestion_level3();
+        }
+        num1.setText(String.format("%d", question[0]));
+        num2.setText(String.format("%d", question[1]));
+        num3.setText(String.format("%d", question[2]));
+        num4.setText(String.format("%d", question[3]));
     }
 
     public void goToResult() {
