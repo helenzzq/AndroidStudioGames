@@ -60,7 +60,7 @@ ALL CREDIT FOR THE ORIGINAL IMPLEMENTATION OF A SIMILAR SINGLETON GOES TO THE OR
         public void run()
 
         {   ConstraintLayout layout = findViewById(R.id.entryMainPage);
-            BackGroundSetter.setWallPaper(new TextView[0],setting, current, layout);
+            BackGroundSetter.setWallPaper(new TextView[0], current, layout);
             EntryMainActivity.this.mHandler.postDelayed(mRunnable, 50);
         }
 

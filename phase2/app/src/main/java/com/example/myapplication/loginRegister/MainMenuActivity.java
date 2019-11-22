@@ -65,7 +65,7 @@ public class MainMenuActivity extends AppCompatActivity {
     private final Runnable mRunnable = new Runnable() {
         public void run() {
             ConstraintLayout layout = findViewById(R.id.mainmenu);
-            BackGroundSetter.setWallPaper(new TextView[0], setting, current, layout);
+            BackGroundSetter.setWallPaper(new TextView[0], current, layout);
             MainMenuActivity.this.mHandler.postDelayed(mRunnable, 50);
         }
 

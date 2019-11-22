@@ -54,7 +54,7 @@ public class HelpActivity extends AppCompatActivity implements View.OnClickListe
         public void run() {
 
             ConstraintLayout layout = findViewById(R.id.helpPage);
-            BackGroundSetter.setWallPaper(new TextView[]{findViewById(R.id.text_help)},setting, current, layout);
+            BackGroundSetter.setWallPaper(new TextView[]{findViewById(R.id.text_help)}, current, layout);
             HelpActivity.this.mHandler.postDelayed(mRunnable, 50);
         }
     };

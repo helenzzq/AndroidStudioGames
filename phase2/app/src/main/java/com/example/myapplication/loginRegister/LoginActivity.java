@@ -63,7 +63,7 @@ public class LoginActivity extends AppCompatActivity{
     {
         public void run()
         {   ConstraintLayout layout = findViewById(R.id.loginPage);
-            BackGroundSetter.setWallPaper(new TextView[0],setting, current, layout);
+            BackGroundSetter.setWallPaper(new TextView[0], current, layout);
             LoginActivity.this.mHandler.postDelayed(mRunnable, 50);
         }
 
