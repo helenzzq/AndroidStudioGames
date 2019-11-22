@@ -32,9 +32,12 @@ public interface MoveItem {
      * Move the item based on screenWidth, frameHeight, width and the change in x
      * @param screenWidth the screenwidth
      * @param  frameHeight the frameHeight of the screen
-     * @param changeInX the distance changes in x
      * @param width the width of the item
      */
-    void move(int screenWidth, int frameHeight, int changeInX, int width);
+    void move(int screenWidth, int frameHeight, int width);
+
+    void setSpeed(int speed);
+
+    int getSpeed();
 
 }

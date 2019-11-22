@@ -1,6 +1,8 @@
 package com.example.myapplication.catchball;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
@@ -59,14 +61,17 @@ public class CatchBallMenu extends BaseActivity implements GameMenu, PopupMenu.O
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         Class targetGame = CatchBallActivity.class;
+        SharedPreferences level = getSharedPreferences("ballLevel", Context.MODE_PRIVATE);
         switch (item.getItemId()) {
             case R.id.easy:
                 //Select difficulty
                 switchToPage(targetGame);
+                level.edit().putString("level", "easy").apply();
                 return true;
 
             case R.id.hard:
 //                controller.setUpBoard("Hard");
+                level.edit().putString("level", "hard").apply();
                 switchToPage(CatchBallActivity.class);
                 return true;
 

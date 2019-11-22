@@ -1,19 +1,12 @@
 package com.example.myapplication.catchball;
 
-import android.content.Intent;
-import android.view.MotionEvent;
-import android.view.View;
 import android.view.WindowManager;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 
 import com.example.myapplication.gamemanager.GameManager;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 class CatchBallManager implements GameManager, Serializable {
 
@@ -23,17 +16,18 @@ class CatchBallManager implements GameManager, Serializable {
     private int score;
 
 
-    CatchBallManager(WindowManager window, int x, int y, ImageView[] views) {
-        board = new CatchBoard(window, x, y, views);
+    CatchBallManager(CatchBoard catchBoard) {
+        board = catchBoard;
         player = board.getPlayerPrince();
         gameOver = false;
     }
+
 
     void changePos(boolean action_flag) {
         //Call hitcheck() before changePos
         int frameHeight = board.getFrameHeight();
         for (Ball ball : board.getBalls()) {
-            ball.move(board.getScreenWidth(), frameHeight, 0, 0);
+            ball.move(board.getScreenWidth(), frameHeight, 0);
         }
         player.move(action_flag, frameHeight);
 

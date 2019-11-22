@@ -232,7 +232,6 @@ class SlidingManager implements GameManager {
     }
 
      void swipeDown() {
-        score = 0;
         boolean merge = false;
         for (int x = 0; x < 4; x++) {
             for (int y = 3; y >= 0; y--) {

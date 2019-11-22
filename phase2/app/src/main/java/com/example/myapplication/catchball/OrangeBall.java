@@ -8,9 +8,11 @@ public class OrangeBall extends Ball {
 
     private int point;
 
-    OrangeBall(int x, int y, ImageView view) {
-        super(x, y, view);
+    OrangeBall(int x, int y, ImageView view, int speed){
+        super(x,y, view, speed);
         point = 10;
+
+
     }
 
     @Override
@@ -19,9 +21,10 @@ public class OrangeBall extends Ball {
     }
 
 
+    //12
     @Override
-    public void move(int screenWidth, int frameHeight, int changeInX, int width) {
-        super.move(screenWidth,frameHeight, 12, 20);
+    public void move(int screenWidth, int frameHeight, int width) {
+        super.move(screenWidth,frameHeight, 20);
     }
 
 

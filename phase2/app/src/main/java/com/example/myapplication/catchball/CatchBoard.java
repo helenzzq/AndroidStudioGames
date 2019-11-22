@@ -7,6 +7,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
@@ -24,7 +25,7 @@ import java.util.Observable;
      * Create a Catchboard
      * @param window a windowmanager
      */
-    CatchBoard(WindowManager window, int x, int y, ImageView[] views){
+    CatchBoard(WindowManager window, int x, int y, int baseSpeed, ImageView[] views){
 
         Display display = window.getDefaultDisplay();
         Point size = new Point();
@@ -32,15 +33,23 @@ import java.util.Observable;
 
         screenWidth = size.x;
         playerPrince = new PlayerPrince(views[3]);
-        orange = new OrangeBall(x,y, views[0]);
-        black = new BlackBall(x,y, views[1]);
-        pink = new PinkBall(x,y, views[2]);
-        balls = new Ball[]{orange, black, pink};
+        orange = new OrangeBall(x,y, views[0],baseSpeed);
+        black = new BlackBall(x,y, views[1], baseSpeed + 4);
+        pink = new PinkBall(x,y, views[2], baseSpeed + 8);
+        balls = new Ball[] {orange,black,pink};
+//        balls = new ArrayList<>();
+//        for (int i = 0; i< 2; i++){
+//            balls.add( new OrangeBall(x+10*i,y+10*i, views[0],baseSpeed));
+//            balls.add( new BlackBall(x+10*i,y+10*i, views[1], baseSpeed + 4));
+//            balls.add(new PinkBall(x+10*i,y+10*i, views[2], baseSpeed + 8));
+//        }
 
     }
 
-    Ball[] getBalls(){
 
+
+
+     Ball[] getBalls(){
         return balls;
 
     }

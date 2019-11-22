@@ -2,6 +2,10 @@ package com.example.myapplication.catchball;
 
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowInsets;
+import android.view.WindowManager;
+import android.widget.ImageView;
 
 import com.example.myapplication.gamemanager.GameController;
 import com.example.myapplication.gamemanager.GameManager;
@@ -23,11 +27,10 @@ class CatchBallPresenter implements GameController, MySubject {
     private CatchBallManager manager;
     private CatchBallActivity catchBallView;
 
-    CatchBallPresenter(CatchBallActivity boardView, CatchBallManager manager) {
-        this.manager = manager;
+    CatchBallPresenter(CatchBallActivity boardView,String level, ImageView[] imgs, WindowManager windowManager) {
         this.catchBallView = boardView;
         observers = new ArrayList<>();
-
+        setUpBoard(level, imgs, windowManager);
     }
 
 
@@ -94,5 +97,19 @@ class CatchBallPresenter implements GameController, MySubject {
         for (MyObserver obs: observers) {
             obs.update();
         }
+    }
+
+
+    /**
+     * Set up Catch Ball game according to level
+     * @param level given level
+     */
+    private void setUpBoard(String level, ImageView[] imgs, WindowManager windowManager) {
+        if ("easy".equals(level)) {
+            manager = new CatchBallManager(new CatchBoard(windowManager, -80,-80,8,imgs));
+        } else {
+            manager = new CatchBallManager(new CatchBoard(windowManager, -80,-80,14,imgs));
+        }
+        notifyObservers();
     }
 }

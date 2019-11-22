@@ -3,7 +3,9 @@ package com.example.myapplication.catchball;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
@@ -35,7 +37,6 @@ public class CatchBallActivity extends AppCompatActivity implements GameView, Ob
     private TextView startLabel;
     private Button pauseButton;
 
-
     //Score for the game
     private int score=0;
     //Presenter
@@ -61,10 +62,12 @@ public class CatchBallActivity extends AppCompatActivity implements GameView, Ob
         setContentView(R.layout.activity_catch_ball);
         setBackButton();
         setSaveButton();
+
+        SharedPreferences levels = getSharedPreferences("ballLevel", Context.MODE_PRIVATE);
         ImageView[] imgs = new ImageView[]{findViewById(R.id.orange),findViewById(R.id.black),
                 findViewById(R.id.pink), findViewById(R.id.box)};
-        presenter = new CatchBallPresenter(this,
-                new CatchBallManager(getWindowManager(), -80,-80, imgs));
+        presenter = new CatchBallPresenter(this,levels.getString("level", "")
+                , imgs, getWindowManager());
 //        GameFileSaver gameFileSaver = new GameFileSaver(this, LoginActivity.currentPlayer.
 //                getCatchBallGameFile());
 //
@@ -204,6 +207,8 @@ public class CatchBallActivity extends AppCompatActivity implements GameView, Ob
             Intent i = new Intent(this, CatchBallMenu.class);
             i.addFlags(FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(i);
+            presenter.onDestroy();
+            finish();
         });
     }
 
