@@ -16,7 +16,7 @@ public class Math24Presenter {
         this.math24View = math24View;
     }
 
-    Math24Manager getWeaponManager() {
+    Math24Manager getMath24Manager() {
         return math24Manager;
     }
 

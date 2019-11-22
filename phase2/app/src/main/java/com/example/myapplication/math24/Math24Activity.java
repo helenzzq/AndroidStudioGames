@@ -18,7 +18,7 @@ public class Math24Activity extends AppCompatActivity implements View.OnClickLis
     private Button num1, num2, num3, num4;
     private int numLives = 3, score = 0;
     private boolean lackOperator = false;
-    private Math24Manager ques = new Math24Manager();
+    private Math24Manager questions = new Math24Manager();
 
 
     @Override
@@ -47,7 +47,7 @@ public class Math24Activity extends AppCompatActivity implements View.OnClickLis
 
         //select one random question in question[][], and assign each number in each number in the
         //four buttons
-        int [] question = ques.createQuestion();
+        int [] question = questions.createQuestion_level1();
         num1 = findViewById(R.id.ib_1);
         num1.setText(String.format("%d", question[0]));
         num1.setOnClickListener(this);
@@ -95,7 +95,6 @@ public class Math24Activity extends AppCompatActivity implements View.OnClickLis
         //button to see the instruction of the game
         help = findViewById(R.id.btn_help);
         help.setOnClickListener(this);
-
 
     }
 
@@ -201,12 +200,12 @@ public class Math24Activity extends AppCompatActivity implements View.OnClickLis
             if(view.getId()==R.id.btn_equal){
                 //four number buttons are enabled again after one try
                 enableNums();
-                int value = ques.calculate(calculation.getText().toString());
+                int value = questions.calculate(calculation.getText().toString());
                 result.setText(String.format("%d",value));
                 calculation.setText("");
 
                 //check if is the correct answer
-                if (ques.is24(value)){
+                if (questions.is24(value)){
                     message.setText("Congratulations! \nClick On Next to Proceed.");
                     // clear button disabled after win the game
                     clear.setEnabled(false);
