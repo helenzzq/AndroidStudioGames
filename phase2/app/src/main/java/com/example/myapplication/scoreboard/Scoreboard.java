@@ -71,6 +71,16 @@ public class Scoreboard implements Serializable, MySubject, Iterator {
         return scoreValues.toString();
     }
 
+    public void addScore(int score,String currentPlayer){
+        Score s = new Score(score,currentPlayer);
+        GlobalScore.add(s);
+        sortScores(GlobalScore);
+        notifyObservers();
+    }
+
+    public ArrayList<Score> getGlobalScoreboard(){
+        return GlobalScore;
+    }
 
     /**
      * Register the MyObserver object to observe
