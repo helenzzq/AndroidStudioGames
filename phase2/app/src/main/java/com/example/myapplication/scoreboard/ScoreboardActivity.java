@@ -19,18 +19,10 @@ public class ScoreboardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scoreboard);
-        addReturnButtonListener();
     }
 
     /**
      * Active the button to return to the main game screen.
      */
-    private void addReturnButtonListener() {
-        Button ReturnButton = findViewById(R.id.ReturnButton);
-        ReturnButton.setOnClickListener(v -> switchToStarting());
-    }
 
-    private void switchToStarting() {
-        Intent tmp = new Intent(this, CatchBallMenu.class);
-    }
 }
