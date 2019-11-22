@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".weapon.WeaponActivity"
+    tools:context=".sliding.SlidingActivity"
     android:id="@+id/weaponPage"
     android:orientation="vertical">
 
@@ -30,14 +29,14 @@
 
     </LinearLayout>
 
-    <com.example.myapplication.weapon.WeaponGridView
+    <com.example.myapplication.sliding.SlidingGrid
         android:id="@+id/weaponView"
         android:layout_width="fill_parent"
         android:layout_height="279dp"
         android:layout_weight="1">
 
 
-    </com.example.myapplication.weapon.WeaponGridView>
+    </com.example.myapplication.sliding.SlidingGrid>
 
     <Button
         android:id="@+id/PauseGameBtn2048"

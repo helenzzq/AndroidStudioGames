@@ -1,4 +1,4 @@
-package com.example.myapplication.weapon;
+package com.example.myapplication.sliding;
 
 import android.graphics.Point;
 
@@ -7,14 +7,14 @@ import java.util.List;
 
 class CardCollection {
     private List<Point> emptyPoints;
-    private  WeaponCard[][] cardCollection;
+    private  SlidingCard[][] cardCollection;
 
     CardCollection(){
-        cardCollection = new WeaponCard[4][4];
+        cardCollection = new SlidingCard[4][4];
         emptyPoints = new ArrayList<>();
     }
 
-     WeaponCard[][] getCards() {
+     SlidingCard[][] getCards() {
         return cardCollection;
     }
 

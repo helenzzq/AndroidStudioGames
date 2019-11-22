@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.myapplication.SavePrincessActivity;
+import com.example.myapplication.catchball.CatchBallMenu;
 import com.example.myapplication.R;
 
 public class Math24ResultActivity extends AppCompatActivity {
@@ -55,7 +55,7 @@ public class Math24ResultActivity extends AppCompatActivity {
     }
 
     public void backToMain(){
-        Intent intent = new Intent(this, SavePrincessActivity.class);
+        Intent intent = new Intent(this, CatchBallMenu.class);
         startActivity(intent);
     }
 

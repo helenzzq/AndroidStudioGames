@@ -1,11 +1,11 @@
-package com.example.myapplication.weapon;
+package com.example.myapplication.sliding;
 
 import com.example.myapplication.gamemanager.GameManager;
 
-class WeaponManager implements GameManager {
+class SlidingManager implements GameManager {
 
 
-    private WeaponCard[][] weaponCards;
+    private SlidingCard[][] slidingCards;
     private CardCollection cardCollection;
 
     private int score;
@@ -13,16 +13,16 @@ class WeaponManager implements GameManager {
     private boolean leftUp;
     private boolean gameOver;
 
-    WeaponManager() {
+    SlidingManager() {
         gameOver = false;
         cardCollection = new CardCollection();
-        weaponCards = cardCollection.getCards();
+        slidingCards = cardCollection.getCards();
         score = 0;
 
     }
 
-    WeaponCard[][] getWeaponCards() {
-        return weaponCards;
+    SlidingCard[][] getSlidingCards() {
+        return slidingCards;
     }
 
     void swipe(boolean veritical, boolean leftUp) {
@@ -43,21 +43,21 @@ class WeaponManager implements GameManager {
         }
     }
 
-    private WeaponCard setCardByDirection(int changed, int fixed) {
-        WeaponCard card = weaponCards[fixed][changed];
+    private SlidingCard setCardByDirection(int changed, int fixed) {
+        SlidingCard card = slidingCards[fixed][changed];
         if (!vertical) {
-            card = weaponCards[changed][fixed];
+            card = slidingCards[changed][fixed];
         }
         return card;
     }
 
     private int checkPos(int changed, int dynamic, int fixed, int add) {
-        WeaponCard card = weaponCards[fixed][changed];
-        WeaponCard cardNext = weaponCards[fixed][dynamic];
+        SlidingCard card = slidingCards[fixed][changed];
+        SlidingCard cardNext = slidingCards[fixed][dynamic];
 
         if (vertical) {
-            card = weaponCards[changed][fixed];
-            cardNext = weaponCards[dynamic][fixed];
+            card = slidingCards[changed][fixed];
+            cardNext = slidingCards[dynamic][fixed];
         }
 
         if (card.getNum() <= 0) {
@@ -87,7 +87,7 @@ class WeaponManager implements GameManager {
         while (setLoopCondition(start)) {
             int dynamic = start + add;
             while (setLoopCondition(dynamic)) {
-                WeaponCard cardNext = setCardByDirection(dynamic, fixed);
+                SlidingCard cardNext = setCardByDirection(dynamic, fixed);
                 if (cardNext.getNum() > 0) {
                     start += checkPos(start, dynamic, fixed, add);
                     m = true;
@@ -115,11 +115,11 @@ class WeaponManager implements GameManager {
         ALL:
         for (int y = 0; y < 4; y++) {
             for (int x = 0; x < 4; x++) {
-                if (weaponCards[x][y].getNum() == 0 ||
-                        (x > 0 && weaponCards[x][y].equals(weaponCards[x - 1][y])) ||
-                        (x < 3 && weaponCards[x][y].equals(weaponCards[x + 1][y])) ||
-                        (y > 0 && weaponCards[x][y].equals(weaponCards[x][y - 1])) ||
-                        (y < 3 && weaponCards[x][y].equals(weaponCards[x][y + 1]))) {
+                if (slidingCards[x][y].getNum() == 0 ||
+                        (x > 0 && slidingCards[x][y].equals(slidingCards[x - 1][y])) ||
+                        (x < 3 && slidingCards[x][y].equals(slidingCards[x + 1][y])) ||
+                        (y > 0 && slidingCards[x][y].equals(slidingCards[x][y - 1])) ||
+                        (y < 3 && slidingCards[x][y].equals(slidingCards[x][y + 1]))) {
                     gameOver = false;
                     break ALL;
 
@@ -135,19 +135,19 @@ class WeaponManager implements GameManager {
         for (int y = 0; y < 4; y++) {
             for (int x = 0; x < 4; x++) {
                 for (int x1 = x + 1; x1 < 4; x1++) {
-                    if (weaponCards[x1][y].getNum() > 0) {
+                    if (slidingCards[x1][y].getNum() > 0) {
 
-                        if (weaponCards[x][y].getNum() <= 0) {
-                            weaponCards[x][y].setNum(weaponCards[x1][y].getNum());
-                            weaponCards[x1][y].setNum(0);
+                        if (slidingCards[x][y].getNum() <= 0) {
+                            slidingCards[x][y].setNum(slidingCards[x1][y].getNum());
+                            slidingCards[x1][y].setNum(0);
 
                             x--;
                             merge = true;
-                        } else if (weaponCards[x][y].equals(weaponCards[x1][y])) {
-                            weaponCards[x][y].setNum(weaponCards[x][y].getNum() * 2);
-                            weaponCards[x1][y].setNum(0);
+                        } else if (slidingCards[x][y].equals(slidingCards[x1][y])) {
+                            slidingCards[x][y].setNum(slidingCards[x][y].getNum() * 2);
+                            slidingCards[x1][y].setNum(0);
 
-                            score += (weaponCards[x][y].getNum());
+                            score += (slidingCards[x][y].getNum());
                             merge = true;
                         }
 
@@ -169,18 +169,18 @@ class WeaponManager implements GameManager {
             for (int x = 3; x >= 0; x--) {
 
                 for (int x1 = x - 1; x1 >= 0; x1--) {
-                    if (weaponCards[x1][y].getNum() > 0) {
+                    if (slidingCards[x1][y].getNum() > 0) {
 
-                        if (weaponCards[x][y].getNum() <= 0) {
-                            weaponCards[x][y].setNum(weaponCards[x1][y].getNum());
-                            weaponCards[x1][y].setNum(0);
+                        if (slidingCards[x][y].getNum() <= 0) {
+                            slidingCards[x][y].setNum(slidingCards[x1][y].getNum());
+                            slidingCards[x1][y].setNum(0);
 
                             x++;
                             merge = true;
-                        } else if (weaponCards[x][y].equals(weaponCards[x1][y])) {
-                            weaponCards[x][y].setNum(weaponCards[x][y].getNum() * 2);
-                            weaponCards[x1][y].setNum(0);
-                            score += (weaponCards[x][y].getNum());
+                        } else if (slidingCards[x][y].equals(slidingCards[x1][y])) {
+                            slidingCards[x][y].setNum(slidingCards[x][y].getNum() * 2);
+                            slidingCards[x1][y].setNum(0);
+                            score += (slidingCards[x][y].getNum());
                             merge = true;
                         }
 
@@ -202,19 +202,19 @@ class WeaponManager implements GameManager {
             for (int y = 0; y < 4; y++) {
 
                 for (int y1 = y + 1; y1 < 4; y1++) {
-                    if (weaponCards[x][y1].getNum() > 0) {
+                    if (slidingCards[x][y1].getNum() > 0) {
 
-                        if (weaponCards[x][y].getNum() <= 0) {
-                            weaponCards[x][y].setNum(weaponCards[x][y1].getNum());
-                            weaponCards[x][y1].setNum(0);
+                        if (slidingCards[x][y].getNum() <= 0) {
+                            slidingCards[x][y].setNum(slidingCards[x][y1].getNum());
+                            slidingCards[x][y1].setNum(0);
 
                             y--;
                             merge = true;
 
-                        } else if (weaponCards[x][y].equals(weaponCards[x][y1])) {
-                            weaponCards[x][y].setNum(weaponCards[x][y].getNum() * 2);
-                            weaponCards[x][y1].setNum(0);
-                            score += (weaponCards[x][y].getNum());
+                        } else if (slidingCards[x][y].equals(slidingCards[x][y1])) {
+                            slidingCards[x][y].setNum(slidingCards[x][y].getNum() * 2);
+                            slidingCards[x][y1].setNum(0);
+                            score += (slidingCards[x][y].getNum());
                             merge = true;
 
                         }
@@ -238,20 +238,20 @@ class WeaponManager implements GameManager {
             for (int y = 3; y >= 0; y--) {
 
                 for (int y1 = y - 1; y1 >= 0; y1--) {
-                    if (weaponCards[x][y1].getNum() > 0) {
+                    if (slidingCards[x][y1].getNum() > 0) {
 
-                        if (weaponCards[x][y].getNum() <= 0) {
-                            weaponCards[x][y].setNum(weaponCards[x][y1].getNum());
-                            weaponCards[x][y1].setNum(0);
+                        if (slidingCards[x][y].getNum() <= 0) {
+                            slidingCards[x][y].setNum(slidingCards[x][y1].getNum());
+                            slidingCards[x][y1].setNum(0);
 
                             y++;
                             merge = true;
 
-                        } else if (weaponCards[x][y].equals(weaponCards[x][y1])) {
-                            weaponCards[x][y].setNum(weaponCards[x][y].getNum() * 2);
-                            weaponCards[x][y1].setNum(0);
+                        } else if (slidingCards[x][y].equals(slidingCards[x][y1])) {
+                            slidingCards[x][y].setNum(slidingCards[x][y].getNum() * 2);
+                            slidingCards[x][y1].setNum(0);
 
-                            score += (weaponCards[x][y].getNum());
+                            score += (slidingCards[x][y].getNum());
                             merge = true;
 
                         }

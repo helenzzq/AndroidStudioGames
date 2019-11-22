@@ -5,11 +5,11 @@
     android:background= "@drawable/whitebackground"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/catchBallmenu"
-    tools:context=".catchball.CatchBallMenu">
+    android:id="@+id/slidingMenu"
+    tools:context=".sliding.SlidingMenu">
 
     <TextView
-        android:id="@+id/catchBall_text"
+        android:id="@+id/sliding_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -17,18 +17,18 @@
         android:layout_marginTop="100dp"
         android:fontFamily="cursive"
         android:gravity="center"
-        android:text="@string/save_Princess"
+        android:text="@string/sliding"
         android:textAppearance="@android:style/TextAppearance.Material.Small"
         android:textColor="#0081BB"
         android:textSize="40sp"
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/newballGame"
+        android:id="@+id/newslidingGame"
         style="@android:style/Widget.DeviceDefault.Button.Small"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/catchBall_text"
+        android:layout_below="@+id/sliding_text"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:background="@drawable/buttonshape"
@@ -36,52 +36,52 @@
         android:textColor="#0081BB" />
 
     <Button
-        android:id="@+id/Loadballbtn"
+        android:id="@+id/Loadslidingbtn"
         style="@android:style/Widget.DeviceDefault.Button.Small"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/newballGame"
+        android:layout_below="@+id/newslidingGame"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:background="@drawable/buttonshape"
-        android:textColor="#0081BB"
-        android:text="@string/loadgame" />
+        android:text="@string/loadgame"
+        android:textColor="#0081BB" />
 
     <Button
-        android:id="@+id/ballScoreBoardbtn"
+        android:id="@+id/slideScoreBoardbtn"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/Loadballbtn"
+        android:layout_below="@+id/Loadslidingbtn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:background="@drawable/buttonshape"
-        android:textColor="#0081BB"
+        android:textColor="#066EC3"
         android:text="@string/scoreBoard" />
 
     <Button
-        android:id="@+id/help_ball"
+        android:id="@+id/help_slide"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/ballScoreBoardbtn"
+        android:layout_below="@+id/slideScoreBoardbtn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:background="@drawable/buttonshape"
-        android:textColor="#0081BB"
+        android:textColor="#066EC3"
         android:text="@string/help" />
 
     <Button
-        android:id="@+id/QuitButton"
+        android:id="@+id/QuitslideButton"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:text="Quit"
         android:background="@drawable/buttonshape"
-        android:textColor="#0081BB"
-        android:layout_below="@+id/help_ball"
+        android:textColor="#066EC3"
+        android:layout_below="@+id/help_slide"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp" />
 
     <ImageView
-        android:id="@+id/setting_btn_ball"
+        android:id="@+id/setting_btn_slide"
         android:layout_width="46dp"
         android:layout_height="57dp"
         android:background="#00C14646"

@@ -4,18 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.myapplication.BackGroundSetter;
+import com.example.myapplication.StrategyClass.BackGroundSetter;
 import com.example.myapplication.R;
-import com.example.myapplication.SavePrincessActivity;
 import com.example.myapplication.SettingsActivity;
 import com.example.myapplication.useraccount.UserManager;
 import com.example.myapplication.useraccount.UserFileSaver;

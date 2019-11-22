@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,8 +12,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.myapplication.BackGroundSetter;
-import com.example.myapplication.SavePrincessActivity;
+import com.example.myapplication.StrategyClass.BackGroundSetter;
+import com.example.myapplication.catchball.CatchBallMenu;
 import com.example.myapplication.R;
 import com.example.myapplication.SettingsActivity;
 
@@ -50,7 +49,7 @@ public class MainMenuActivity extends AppCompatActivity {
 
 
         btPlay.setOnClickListener(v -> {
-            Intent displayScreen = new Intent(MainMenuActivity.this, SavePrincessActivity.class);
+            Intent displayScreen = new Intent(MainMenuActivity.this, CatchBallMenu.class);
             startActivity(displayScreen);
         });
 

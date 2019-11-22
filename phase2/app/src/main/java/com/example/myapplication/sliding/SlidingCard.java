@@ -1,4 +1,4 @@
-package com.example.myapplication.weapon;
+package com.example.myapplication.sliding;
 
 import android.content.Context;
 import android.widget.FrameLayout;
@@ -6,14 +6,14 @@ import android.widget.ImageView;
 
 import com.example.myapplication.R;
 
-public class WeaponCard extends FrameLayout {
+public class SlidingCard extends FrameLayout {
     private ImageView pic;
     private int[] picArray = new int[33000];
     private int num = 0;
 
 
 
-    public WeaponCard(Context context) {
+    public SlidingCard(Context context) {
         super(context);
         matchPic();
         pic = new ImageView(getContext());
@@ -56,7 +56,7 @@ public class WeaponCard extends FrameLayout {
 
     }
 
-    public boolean equals(WeaponCard o) {
+    public boolean equals(SlidingCard o) {
         return getNum() == o.getNum();
     }
 

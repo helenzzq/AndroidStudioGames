@@ -34,5 +34,8 @@
     <string name="character">Character</string>
     <string name="settings">Setting</string>
     <string name="scoreBoard">SCOREBOARD</string>
-    <string name="loadgame">LOAD GAME</string>
+    <string name="loadgame">RESUME</string>
+    <string name="sliding">Sliding Card</string>
+    <string name="math24text">Math 24</string>
+    <string name="quit">Quit</string>
 </resources>

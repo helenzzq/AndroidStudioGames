@@ -1,4 +1,4 @@
-package com.example.myapplication.weapon;
+package com.example.myapplication.sliding;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -13,7 +13,7 @@ import com.example.myapplication.math24.Math24Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class WeaponResultActivity extends AppCompatActivity {
+public class SlidingResultActivity extends AppCompatActivity {
 
     private Button next;
     @SuppressLint({"SetTextI18n", "NewApi"})

@@ -10,7 +10,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".scoreboard.ScoreboardActivity"></activity>
+        <activity android:name=".scoreboard.ScoreboardActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name=".math24.Math24Menu">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".sliding.SlidingMenu">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
         <activity android:name=".math24.Math24IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -26,7 +41,7 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name=".weapon.WeaponResultActivity" />
+        <activity android:name=".sliding.SlidingResultActivity" />
         <activity android:name=".math24.Math24Activity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -42,7 +57,7 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name=".weapon.WeaponActivity">
+        <activity android:name=".sliding.SlidingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -57,7 +72,7 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name=".gamemanager.GameMenu">
+        <activity android:name=".gamemanager.BaseActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -72,7 +87,7 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name=".SavePrincessActivity">
+        <activity android:name=".catchball.CatchBallMenu">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>

@@ -15,10 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
-import com.example.myapplication.SavePrincessActivity;
-import com.example.myapplication.gamemanager.GameFileSaver;
 import com.example.myapplication.gamemanager.GameView;
-import com.example.myapplication.loginRegister.LoginActivity;
 
 import java.io.Serializable;
 import java.util.Observable;
@@ -204,7 +201,7 @@ public class CatchBallActivity extends AppCompatActivity implements GameView, Ob
 
     public void setBackButton(){
         findViewById(R.id.catchBallBack).setOnClickListener(v -> {
-            Intent i = new Intent(this, SavePrincessActivity.class);
+            Intent i = new Intent(this, CatchBallMenu.class);
             i.addFlags(FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(i);
         });

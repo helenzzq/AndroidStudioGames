@@ -1,4 +1,4 @@
-package com.example.myapplication.weapon;
+package com.example.myapplication.sliding;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -8,40 +8,40 @@ import android.view.View;
 import android.widget.GridLayout;
 
 
-public class WeaponGridView extends GridLayout{
+public class SlidingGrid extends GridLayout{
 
-    private static WeaponPresenter presenter;
+    private static SlidingPresenter presenter;
     private float startX;
     private float startY;
 
-    public WeaponGridView(Context context) {
+    public SlidingGrid(Context context) {
         super(context);
         initGameView();
 
     }
 
-    public WeaponGridView(Context context, AttributeSet attrs) {
+    public SlidingGrid(Context context, AttributeSet attrs) {
 
         super(context, attrs);
         initGameView();
     }
 
-    public WeaponGridView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SlidingGrid(Context context, AttributeSet attrs, int defStyleAttr) {
 
         super(context, attrs, defStyleAttr);
         initGameView();
 
     }
 
-    public static WeaponPresenter getPresenter() {
+    public static SlidingPresenter getPresenter() {
         return presenter;
     }
 
     private void initGameView() {
-        presenter = new WeaponPresenter(new WeaponManager(),this);
+        presenter = new SlidingPresenter(new SlidingManager(),this);
         setColumnCount(4);
         setBackgroundColor(0xFFFFFFFF);
-        addCards(getCardwidth(), getCardwidth(), presenter.getWeaponManager().getWeaponCards());
+        addCards(getCardwidth(), getCardwidth(), presenter.getSlidingManager().getSlidingCards());
         setOnTouchListener(this::setOnTouch);
 
 
@@ -100,14 +100,14 @@ public class WeaponGridView extends GridLayout{
         return (cardWidth - 10) / 4;
     }
 
-    private void addCards(int cardWidth, int cardHeight, WeaponCard[][] weaponCard) {
+    private void addCards(int cardWidth, int cardHeight, SlidingCard[][] slidingCard) {
 
         for (int y = 0; y < 4; y++) {
             for (int x = 0; x < 4; x++) {
-                WeaponCard c = new WeaponCard(getContext());
+                SlidingCard c = new SlidingCard(getContext());
                 c.setNum(2);
                 addView(c, cardWidth, cardHeight);
-                weaponCard[x][y] = c;
+                slidingCard[x][y] = c;
             }
         }
     }

@@ -14,10 +14,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.myapplication.BackGroundSetter;
+import com.example.myapplication.StrategyClass.BackGroundSetter;
 import com.example.myapplication.R;
 import com.example.myapplication.SettingsActivity;
-import com.example.myapplication.weapon.WeaponActivity;
+import com.example.myapplication.sliding.SlidingActivity;
 
 
 public class CatchBallResultActivity extends AppCompatActivity {
@@ -75,6 +75,6 @@ public class CatchBallResultActivity extends AppCompatActivity {
     };
 
     public void next(View view) {
-        startActivity(new Intent(getApplicationContext(), WeaponActivity.class));
+        startActivity(new Intent(getApplicationContext(), SlidingActivity.class));
     }
 }

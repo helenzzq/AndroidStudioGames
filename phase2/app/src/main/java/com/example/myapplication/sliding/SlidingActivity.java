@@ -1,4 +1,4 @@
-package com.example.myapplication.weapon;
+package com.example.myapplication.sliding;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,7 +12,7 @@ import com.example.myapplication.gamemanager.GameView;
 
 
 @SuppressLint("Registered")
-public class WeaponActivity extends AppCompatActivity implements GameView {
+public class SlidingActivity extends AppCompatActivity implements GameView {
 
     private int score = 0;
     private TextView tvScore;
@@ -22,7 +22,7 @@ public class WeaponActivity extends AppCompatActivity implements GameView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weapon);
         tvScore = findViewById(R.id.tvScore);
-        WeaponGridView.getPresenter().setWeaponView(this);
+        SlidingGrid.getPresenter().setWeaponView(this);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class WeaponActivity extends AppCompatActivity implements GameView {
 
     @Override
     public void showResult() {
-        Intent intent = new Intent(WeaponActivity.this, WeaponResultActivity.class);
+        Intent intent = new Intent(SlidingActivity.this, SlidingResultActivity.class);
         intent.putExtra("SCORE2048", score);
         startActivity(intent);
     }
@@ -42,7 +42,7 @@ public class WeaponActivity extends AppCompatActivity implements GameView {
 //    public void setPause2048Btn(){
 //        findViewById(R.id.PauseGameBtn2048).setOnClickListener(v -> {
 //
-//            Intent i = new Intent(this, GameMenu.class);
+//            Intent i = new Intent(this, BaseActivity.class);
 //            i.addFlags(FLAG_ACTIVITY_REORDER_TO_FRONT);
 //            startActivity(i);
 //

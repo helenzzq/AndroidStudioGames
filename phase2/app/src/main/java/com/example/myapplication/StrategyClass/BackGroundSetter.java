@@ -1,25 +1,23 @@
-package com.example.myapplication;
+package com.example.myapplication.StrategyClass;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.preference.PreferenceManager;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
+
+import com.example.myapplication.R;
 
 public class BackGroundSetter {
 
     private static boolean switchStatus;
 
-    static boolean isSwitchStatus() {
+    public static boolean isSwitchStatus() {
         return switchStatus;
     }
 
-    static void setSwitchStatus(boolean switchStatus) {
+    public static void setSwitchStatus(boolean switchStatus) {
         BackGroundSetter.switchStatus = switchStatus;
     }
 
@@ -33,7 +31,7 @@ public class BackGroundSetter {
             layout.setBackground(ContextCompat.getDrawable(context, R.drawable.whitebackground));
 
             for (TextView t : texts) {
-                t.setTextColor(Color.parseColor("#FF777070"));
+                t.setTextColor(Color.parseColor("#0081BB"));
             }
         }
 
