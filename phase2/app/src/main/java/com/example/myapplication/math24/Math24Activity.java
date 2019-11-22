@@ -18,7 +18,7 @@ public class Math24Activity extends AppCompatActivity implements View.OnClickLis
     private Button num1, num2, num3, num4;
     private int numLives = 3, score = 0;
     private boolean lackOperator = false;
-    private Math24Calculation ques = new Math24Calculation();
+    private Math24Manager ques = new Math24Manager();
 
 
     @Override

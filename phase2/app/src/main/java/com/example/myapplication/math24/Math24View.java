@@ -1,4 +1,4 @@
 package com.example.myapplication.math24;
 
-public class Math24View {
+public interface Math24View {
 }
