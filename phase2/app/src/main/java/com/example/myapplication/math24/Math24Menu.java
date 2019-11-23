@@ -17,13 +17,51 @@ import com.example.myapplication.GameMenu;
 import com.example.myapplication.R;
 import com.example.myapplication.StrategyClass.BackGroundSetter;
 import com.example.myapplication.loginRegister.MainMenuActivity;
+import com.example.myapplication.scoreboard.Scoreboard;
+import com.example.myapplication.gamemanager.GameFileSaver;
+import com.example.myapplication.loginRegister.LoginActivity;
+import com.example.myapplication.scoreboard.ScoreboardFileSaver;
+
 
 public class Math24Menu extends BaseActivity implements GameMenu, PopupMenu.OnMenuItemClickListener {
     private Handler handler;
     private Activity current;
+
+    /**
+     * A Math24Presenter.
+     */
+    public static Math24Presenter math24Presenter;
+
+    /**
+     * A ScoreBoard.
+     */
+    public static Scoreboard scoreboard;
+
+    /**
+     * A file with Math24.
+     */
+    private static final String fileName = "math24scores.ser";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Game MVC setup!!
+        GameFileSaver gameFileSaver = new GameFileSaver(this, LoginActivity.currentPlayer.getMath24GameFile());
+        math24Presenter = new Math24Presenter();
+        if(gameFileSaver.getGameManager() != null){
+            math24Presenter.setGameManager(gameFileSaver.getGameManager());
+        }
+        math24Presenter.register(gameFileSaver);
+
+        //Scoreboard MVC setup
+        scoreboard = new Scoreboard();
+        ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
+        scoreboard.register(scoreboardFileSaver);
+        scoreboard.setGlobalScore(scoreboardFileSaver.getGlobalScores());
+        gameFileSaver.saveToFile();
+
+
+
         setContentView(R.layout.activity_math24menu);
 
         current = this;

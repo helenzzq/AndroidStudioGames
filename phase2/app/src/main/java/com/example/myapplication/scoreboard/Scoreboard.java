@@ -43,21 +43,27 @@ public class Scoreboard implements Serializable, MySubject, Iterator {
         Collections.sort(scores);
     }
 
-    public String getScoreValues(User currentPlayer){
+    public String getScoreValues(boolean userScoresOnly,User currentPlayer){
 
         ArrayList<Score> scoreList;
         int numScores;
 
         scoreList = GlobalScore;
 
-        if (scoreList.size() < 5){
-            numScores = scoreList.size();
+
+        if (userScoresOnly) {
+            scoreList = getUserScoreboard(currentPlayer);
+        }
+        else {
+            scoreList = GlobalScore;
         }
 
-        else
-            {
-                numScores = 5;
-            }
+        if (scoreList.size() < 5) {
+            numScores = scoreList.size();
+        }
+        else {
+            numScores = 5;
+        }
 
         // ListIterator to traverse the list
        // ListIterator iterator = GlobalScore.listIterator();
@@ -70,6 +76,8 @@ public class Scoreboard implements Serializable, MySubject, Iterator {
         }
         return scoreValues.toString();
     }
+    
+
 
     public void addScore(String currentPlayer, int score){
         Score s = new Score(currentPlayer,score);
@@ -102,6 +110,20 @@ public class Scoreboard implements Serializable, MySubject, Iterator {
             for (MyObserver obj : observers) {
                 obj.update();
             }
+    }
+
+    /**
+     * Returns an ArrayList representing the users scoreboard for sliding tiles game.
+     * @return UserScores
+     */
+    public ArrayList<Score> getUserScoreboard(User current_player){
+        ArrayList<Score> UserScores = new ArrayList<>();
+        for(int i = 0; i < GlobalScore.size(); i++){
+            if(GlobalScore.get(i).getUsername().equals(current_player.getUsername())){
+                UserScores.add(GlobalScore.get(i));
+            }
+        }
+        return UserScores;
     }
 
     /**

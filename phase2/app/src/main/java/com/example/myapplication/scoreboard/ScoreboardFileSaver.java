@@ -32,6 +32,15 @@ public class ScoreboardFileSaver implements Serializable, MyObserver {
      * Update accordingly after subject calls notifyObservers()
      */
 
+    /**
+     * Return the save global scores
+     * @return
+     */
+    public ArrayList<Score> getGlobalScores() {
+        return GlobalScores;
+    }
+
+
     public ScoreboardFileSaver(Context context,String fileName){
         this.context = context;
         this.fileName = fileName;

@@ -8,6 +8,7 @@ import com.example.myapplication.gamemanager.MyObserver;
 import com.example.myapplication.gamemanager.MySubject;
 import com.example.myapplication.scoreboard.Scoreboard;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Math24Presenter implements GameController , MySubject {
@@ -17,9 +18,14 @@ public class Math24Presenter implements GameController , MySubject {
     private static List<MyObserver> observers;
 
 
+    Math24Presenter(){
+        observers = new ArrayList<>();
+    }
+
     Math24Presenter(Math24Manager mathManager, Math24Activity mathView) {
         this.mathManager = mathManager;
         this.mathView = mathView;
+        observers = new ArrayList<>();
     }
     public void onStart(String level){
         int[] questions = mathManager.getQuestion(level);
@@ -59,12 +65,12 @@ public class Math24Presenter implements GameController , MySubject {
 
     @Override
     public Math24Manager getGameManager() {
-        return mathManager;
+        return this.mathManager;
     }
 
     @Override
     public void setGameManager(GameManager manager) {
-
+        this.mathManager =(Math24Manager) manager;
     }
 
     /**

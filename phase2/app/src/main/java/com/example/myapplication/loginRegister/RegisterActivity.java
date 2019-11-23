@@ -21,6 +21,7 @@ import com.example.myapplication.useraccount.UserManager;
 import com.example.myapplication.useraccount.NoPassWordException;
 import com.example.myapplication.useraccount.DuplicateException;
 
+
 @SuppressLint("Registered")
 public class RegisterActivity extends AppCompatActivity {
 
