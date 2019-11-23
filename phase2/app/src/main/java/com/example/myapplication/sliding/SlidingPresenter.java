@@ -50,7 +50,7 @@ class SlidingPresenter {
         }
         weaponView.updateScore(slidingManager.getScore());
         if(slidingManager.isGameOver()){
-            weaponView.showResult();
+            weaponView.goToResult();
         }
 
 //        slidingManager.swipe(vertical, leftUp);

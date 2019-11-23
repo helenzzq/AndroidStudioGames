@@ -1,15 +1,11 @@
 package com.example.myapplication.catchball;
 
 import android.view.MotionEvent;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowInsets;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.example.myapplication.gamemanager.GameController;
 import com.example.myapplication.gamemanager.GameManager;
-import com.example.myapplication.gamemanager.GameView;
 import com.example.myapplication.gamemanager.MyObserver;
 import com.example.myapplication.gamemanager.MySubject;
 
@@ -59,7 +55,7 @@ class CatchBallPresenter implements GameController, MySubject {
         if (manager.isGameOver()) {
             catchBallView.hideStartLabel();
             catchBallView.stopTimer();
-            catchBallView.showResult();
+            catchBallView.goToResult();
         } else {
             manager.changePos(actionFlag);
         }

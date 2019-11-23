@@ -12,6 +12,7 @@ public interface GameView {
     /**
      * Go to the result page 
      */
-    void showResult();
+    void goToResult();
+
 
 }

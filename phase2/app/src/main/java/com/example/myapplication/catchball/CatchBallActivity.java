@@ -1,7 +1,5 @@
 package com.example.myapplication.catchball;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -16,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.BaseActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.gamemanager.GameView;
 
@@ -31,7 +30,7 @@ import static android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
 ALL CREDIT FOR THE ORIGINAL IMPLEMENTATION OF A SIMILAR SINGLETON GOES TO THE ORIGINAL AUTHOR OF
     THE CODE.*/
 
-public class CatchBallActivity extends AppCompatActivity implements GameView, Observer, Serializable {
+public class CatchBallActivity extends BaseActivity implements GameView, Observer, Serializable {
 
     private TextView scoreLabel;
     private TextView startLabel;
@@ -102,11 +101,9 @@ public class CatchBallActivity extends AppCompatActivity implements GameView, Ob
      * Go to the result of the Game
      */
     @Override
-    public void showResult(){
-        //Show Result
-        Intent intent = new Intent(getApplicationContext(), CatchBallResultActivity.class);
-        intent.putExtra("SCORE",score);
-        startActivity(intent);
+    public void goToResult() {
+        super.goToResult(CatchBallResultActivity.class,score);
+
     }
 
     /**
@@ -156,6 +153,8 @@ public class CatchBallActivity extends AppCompatActivity implements GameView, Ob
     public void updateScore(int score) {
         this.score = score;
     }
+
+
 
 
     public int getScore() {
