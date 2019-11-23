@@ -16,9 +16,7 @@ public class Calculator {
         String returnV;
         try{
             returnValue = doAnalysis(formula);
-        }catch(NumberFormatException nfe){
-            returnValue = 0.1;
-        }catch(Exception e){
+        } catch(Exception nfe){
             returnValue = 0.1;
         }
         if(!isRightFormat){
@@ -124,14 +122,10 @@ public class Calculator {
                     break;
             }
         }
-        return values.get(0).doubleValue();
+        return values.get(0);
     }
 
-//    public static void main(String[] args) {
-//        System.out.println(Calculator.getResult("5*(5-1/5"));
-//        System.out.println(Calculator.getResult("7/2-(-4)"));
-//        System.out.println(Calculator.getResult("1287763200000-1276272000000")/(3600*24*1000));
-//    }
+
 }
 
 

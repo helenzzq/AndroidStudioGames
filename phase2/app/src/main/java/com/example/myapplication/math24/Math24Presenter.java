@@ -1,33 +1,63 @@
 package com.example.myapplication.math24;
 
-public class Math24Presenter {
+import android.widget.Button;
 
-    private Math24Manager math24Manager;
-    private Math24View math24View;
+import com.example.myapplication.gamemanager.GameController;
+import com.example.myapplication.gamemanager.GameManager;
+
+public class Math24Presenter implements GameController {
+
+    private Math24Manager mathManager;
+    private Math24Activity mathView;
 
 
-    Math24Presenter(Math24Manager math24Manager, Math24View math24View) {
-        this.math24Manager = math24Manager;
-        this.math24View = math24View;
+    Math24Presenter(Math24Manager mathManager, Math24Activity mathView) {
+        this.mathManager = mathManager;
+        this.mathView = mathView;
+    }
+    public void onStart(String level){
+        int[] questions = mathManager.getQuestion(level);
+        Button[] nums = mathView.getNums();
+        for (int i = 0; i <4;i++){
+            mathView.setNumText(nums[i],questions[i]);
+        }
+
 
     }
 
-    void setMath24View(Math24View math24View) {
-        this.math24View = math24View;
+    void calculateResult(String mathExpression){
+        int result = mathManager.calculate(mathExpression);
+        mathView.showResult(result);
+
+        checkToAddScore();
+
+    }
+    public void checkToAddScore(){
+        if(mathManager.isGameOver()){
+            mathView.setMessage("Congratulations! \n");
+            mathView.resetAll();
+            mathView.updateScore(mathManager.getScore());
+            mathView.goToResult();
+        }
+        else{
+            mathView.setMessage("It's Wrong!!!");
+            mathView.lostLife();
+        }
+
     }
 
-    Math24Manager getMath24Manager() {
-        return math24Manager;
+    public void onDestroy() {
+        mathView = null;
     }
 
-//
-//    void restart() {
-//        weaponView.clearScore();
-//        weaponManager.getCardCollection().setCardCollection();
-//        weaponManager.getCardCollection().addRandomNum();
-//        weaponManager.getCardCollection().addRandomNum();
-//    }
 
+    @Override
+    public Math24Manager getGameManager() {
+        return mathManager;
+    }
 
+    @Override
+    public void setGameManager(GameManager manager) {
 
+    }
 }

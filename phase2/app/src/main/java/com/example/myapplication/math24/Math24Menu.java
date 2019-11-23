@@ -1,6 +1,8 @@
 package com.example.myapplication.math24;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
@@ -10,10 +12,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.BaseActivity;
+import com.example.myapplication.GameMenu;
 import com.example.myapplication.R;
 import com.example.myapplication.StrategyClass.BackGroundSetter;
-import com.example.myapplication.gamemanager.BaseActivity;
-import com.example.myapplication.GameMenu;
 import com.example.myapplication.loginRegister.MainMenuActivity;
 
 public class Math24Menu extends BaseActivity implements GameMenu, PopupMenu.OnMenuItemClickListener {
@@ -54,15 +56,18 @@ public class Math24Menu extends BaseActivity implements GameMenu, PopupMenu.OnMe
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         Class targetGame = Math24Activity.class;
+        SharedPreferences level = getSharedPreferences("mathLevel", Context.MODE_PRIVATE);
         switch (item.getItemId()) {
             case R.id.easy:
                 //Select difficulty
                 switchToPage(targetGame);
+                level.edit().putString("level", "easy").apply();
                 return true;
 
             case R.id.hard:
 //                controller.setUpBoard("Hard");
-                switchToPage(Math24Activity.class);
+                level.edit().putString("level", "hard").apply();
+                switchToPage(targetGame);
                 return true;
 
             default:
