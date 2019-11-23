@@ -3,12 +3,18 @@ package com.example.myapplication.sliding;
 import com.example.myapplication.gamemanager.GameController;
 import com.example.myapplication.gamemanager.GameManager;
 import com.example.myapplication.gamemanager.GameView;
+import com.example.myapplication.gamemanager.MyObserver;
+import com.example.myapplication.gamemanager.MySubject;
 import com.example.myapplication.scoreboard.Scoreboard;
 
-class SlidingPresenter implements GameController {
+import java.util.List;
+
+class SlidingPresenter implements GameController, MySubject {
     private SlidingManager slidingManager;
     private GameView weaponView;
     private SlidingGrid SlidingGrid;
+
+    private static List<MyObserver> observers;
 
 
     SlidingPresenter(SlidingManager slidingManager, SlidingGrid gridView) {
@@ -89,6 +95,34 @@ class SlidingPresenter implements GameController {
      */
     @Override
     public boolean checkToAddScore(Scoreboard scoreboard, String user) {
-        return false;
+       if(slidingManager.isGameOver()){
+           scoreboard.addScore(user,slidingManager.getScore());
+           slidingManager = null;
+           notifyObservers();
+           return true;
+       }
+       return false;
+    }
+
+    /**
+     * Register the MyObserver object to observe
+     *
+     * @param obj to register
+     */
+    @Override
+    public void register(MyObserver obj) {
+        if(!observers.contains(obj))
+        {observers.add(obj);
+            obj.setSubject(this);}
+    }
+
+    /**
+     * A method to notifyObservers to change
+     */
+    @Override
+    public void notifyObservers() {
+        for (MyObserver obj:observers){
+            obj.update();
+        }
     }
 }

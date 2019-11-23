@@ -4,11 +4,17 @@ import android.widget.Button;
 
 import com.example.myapplication.gamemanager.GameController;
 import com.example.myapplication.gamemanager.GameManager;
+import com.example.myapplication.gamemanager.MyObserver;
+import com.example.myapplication.gamemanager.MySubject;
+import com.example.myapplication.scoreboard.Scoreboard;
 
-public class Math24Presenter implements GameController {
+import java.util.List;
+
+public class Math24Presenter implements GameController , MySubject {
 
     private Math24Manager mathManager;
     private Math24Activity mathView;
+    private static List<MyObserver> observers;
 
 
     Math24Presenter(Math24Manager mathManager, Math24Activity mathView) {
@@ -59,5 +65,43 @@ public class Math24Presenter implements GameController {
     @Override
     public void setGameManager(GameManager manager) {
 
+    }
+
+    /**
+     * @param scoreboard
+     * @param user
+     * @return
+     */
+    @Override
+    public boolean checkToAddScore(Scoreboard scoreboard, String user) {
+        if(mathManager.isGameOver()){
+            scoreboard.addScore(user,mathManager.getScore());
+            mathManager = null;
+            notifyObservers();
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Register the MyObserver object to observe
+     *
+     * @param obj to register
+     */
+    @Override
+    public void register(MyObserver obj) {
+        if(!observers.contains(obj))
+        {observers.add(obj);
+            obj.setSubject(this);}
+    }
+
+    /**
+     * A method to notifyObservers to change
+     */
+    @Override
+    public void notifyObservers() {
+        for (MyObserver obj:observers){
+            obj.update();
+        }
     }
 }
