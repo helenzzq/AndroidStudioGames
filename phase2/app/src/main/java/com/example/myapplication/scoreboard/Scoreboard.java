@@ -71,8 +71,8 @@ public class Scoreboard implements Serializable, MySubject, Iterator {
         return scoreValues.toString();
     }
 
-    public void addScore(int score,String currentPlayer){
-        Score s = new Score(score,currentPlayer);
+    public void addScore(String currentPlayer, int score){
+        Score s = new Score(currentPlayer,score);
         GlobalScore.add(s);
         sortScores(GlobalScore);
         notifyObservers();

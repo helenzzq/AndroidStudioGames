@@ -10,10 +10,5 @@ public interface GameManager {
      */
     int getScore();
 
-    /**
-     * Return true iff finish the game.
-     */
     boolean isGameOver();
-
-
 }

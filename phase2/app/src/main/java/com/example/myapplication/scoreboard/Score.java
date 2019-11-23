@@ -8,17 +8,11 @@ public class Score implements Serializable ,Comparable<Score>{
 
     private String user;
 
-    public Score(int score, String user) {
+    public Score(String user,int score) {
         this.score = score;
         this.user = user;
     }
 
-    /*public Score(int score){
-        this.score = score;
-        this.user = "Anonymously"
-    }
-    *
-     */
 
     public int getScore() {
         return this.score;

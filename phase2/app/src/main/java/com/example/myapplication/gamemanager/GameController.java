@@ -1,5 +1,7 @@
 package com.example.myapplication.gamemanager;
 
+import com.example.myapplication.scoreboard.Scoreboard;
+
 public interface GameController {
 
 
@@ -20,7 +22,7 @@ public interface GameController {
      * @param user
      * @return
      */
- //   boolean checkToAddScore(Scoreboard scoreboard, String user);
+    boolean checkToAddScore(Scoreboard scoreboard, String user);
 
     /**
      * Set up the board according to level of difficulty

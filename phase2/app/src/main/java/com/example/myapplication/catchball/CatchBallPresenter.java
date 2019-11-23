@@ -8,9 +8,13 @@ import com.example.myapplication.gamemanager.GameController;
 import com.example.myapplication.gamemanager.GameManager;
 import com.example.myapplication.gamemanager.MyObserver;
 import com.example.myapplication.gamemanager.MySubject;
+import com.example.myapplication.scoreboard.Scoreboard;
+import com.example.myapplication.catchball.CatchBallManager;
+import com.example.myapplication.catchball.CatchBallPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 class CatchBallPresenter implements GameController, MySubject {
 
@@ -47,8 +51,6 @@ class CatchBallPresenter implements GameController, MySubject {
 
     }
 
-
-
     void hitCheck(boolean actionFlag) {
         manager.hitCheck();
         catchBallView.updateScore(manager.getScore());
@@ -75,6 +77,23 @@ class CatchBallPresenter implements GameController, MySubject {
     public void setGameManager(GameManager manager) {
         this.manager = (CatchBallManager) manager;
 
+    }
+
+    /**
+     * @param scoreboard
+     * @param user
+     * @return
+     */
+    @Override
+    public boolean checkToAddScore(Scoreboard scoreboard, String user) {
+        if(manager.isGameOver())
+        {
+            scoreboard.addScore(user,manager.getScore());
+            manager = null;
+            notifyObservers();
+            return true;
+        }
+        return false;
     }
 
     /**

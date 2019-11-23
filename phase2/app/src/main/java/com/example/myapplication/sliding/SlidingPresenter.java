@@ -1,8 +1,11 @@
 package com.example.myapplication.sliding;
 
+import com.example.myapplication.gamemanager.GameController;
+import com.example.myapplication.gamemanager.GameManager;
 import com.example.myapplication.gamemanager.GameView;
+import com.example.myapplication.scoreboard.Scoreboard;
 
-class SlidingPresenter {
+class SlidingPresenter implements GameController {
     private SlidingManager slidingManager;
     private GameView weaponView;
     private SlidingGrid SlidingGrid;
@@ -61,6 +64,31 @@ class SlidingPresenter {
     }
 
 
+    /**
+     * A getter for the Game Manager.
+     */
+    @Override
+    public GameManager getGameManager() {
+        return null;
+    }
 
+    /**
+     * A setter for the Game Manager
+     *
+     * @param manager
+     */
+    @Override
+    public void setGameManager(GameManager manager) {
 
+    }
+
+    /**
+     * @param scoreboard
+     * @param user
+     * @return
+     */
+    @Override
+    public boolean checkToAddScore(Scoreboard scoreboard, String user) {
+        return false;
+    }
 }
