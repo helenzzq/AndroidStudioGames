@@ -53,7 +53,11 @@ public class Math24Presenter implements GameController , MySubject {
         }
         else{
             mathView.setMessage("It's Wrong!!!");
-            mathView.lostLife();
+            mathView.updateLives();
+            if(mathView.getNumLives() == 0) {
+                mathView.showFailure();
+                mathView.goToResult();
+            }
         }
 
     }

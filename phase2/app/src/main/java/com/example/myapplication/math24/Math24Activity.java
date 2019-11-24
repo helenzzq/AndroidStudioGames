@@ -3,6 +3,7 @@ package com.example.myapplication.math24;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +23,8 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     private Button right_bracket;
     private TextView mathExpression, result, message, textLive, scoreText;
     private Button[] nums, operatorBtns;
-    private int numLives = 3, score = 0;
+    private int numLives = 3;
+    private int score = 0;
     private Math24Presenter presenter;
 
 
@@ -200,7 +202,7 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     }
 
     public void lostLife() {
-        numLives -= 1;
+        setNumLives(getNumLives() - 1);
     }
 
     public void resetAll() {
@@ -251,10 +253,28 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
 
     }
 
+    public void updateLives(){
+        lostLife();
+        textLive.setText(String.format("Lives remaining %d", getNumLives()));
+
+    }
+
+    public void showFailure(){
+        textLive.setTextColor(Color.RED);
+        message.setText("You lost the game!!!");
+    }
+
     @Override
     protected void onDestroy() {
         presenter.onDestroy();
         super.onDestroy();
     }
 
+    public int getNumLives() {
+        return numLives;
+    }
+
+    public void setNumLives(int numLives) {
+        this.numLives = numLives;
+    }
 }
