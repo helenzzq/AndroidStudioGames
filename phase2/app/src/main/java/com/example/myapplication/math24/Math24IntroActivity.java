@@ -28,8 +28,7 @@ public class Math24IntroActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_back2:
-                Intent back = new Intent(Math24IntroActivity.this, Math24Activity.class);
-                startActivity(back);
+                finish();
                 break;
         }
     }

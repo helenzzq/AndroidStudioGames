@@ -25,18 +25,18 @@ public class Math24ResultActivity extends AppCompatActivity {
         TextView scoreMath24 = (TextView) findViewById(R.id.scoremath24);
         TextView highestScoreMath24 = (TextView) findViewById(R.id.highestScoreMath24);
 
-        int score = getIntent().getIntExtra("SCORE",0);
+        int score = getIntent().getIntExtra("SCOREMATH24",0);
         scoreMath24.setText(score + "");
 
         SharedPreferences settings = getSharedPreferences("GAME_DATAMATH24", Context.MODE_PRIVATE);
-        int highScore = settings.getInt("HIGH_SCORE2048",0);
+        int highScore = settings.getInt("HIGH_SCOREMATH24",0);
 
         if(score>highScore){
             highestScoreMath24.setText("High Score: " + score);
 
             //save
             SharedPreferences.Editor editor = settings.edit();
-            editor.putInt("HIGH_SCORE2048",score);
+            editor.putInt("HIGH_SCOREMATH24",score);
             editor.commit();
         }else{
             highestScoreMath24.setText("High Score: " + highScore);
