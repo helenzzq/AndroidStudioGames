@@ -1,6 +1,8 @@
 package com.example.myapplication.sliding;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
@@ -54,14 +56,17 @@ public class SlidingMenu extends BaseActivity implements GameMenu, PopupMenu.OnM
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         Class targetGame = SlidingActivity.class;
+        SharedPreferences level = getSharedPreferences("slidingLevel", Context.MODE_PRIVATE);
         switch (item.getItemId()) {
-            case R.id.easy:
+            case R.id.map3x3:
                 //Select difficulty
                 switchToPage(targetGame);
+                level.edit().putString("level", "easy").apply();
                 return true;
 
-            case R.id.hard:
-//                controller.setUpBoard("Hard");
+            case R.id.map4x4:
+                //controller.setUpBoard("Hard");
+                level.edit().putString("level", "hard").apply();
                 switchToPage(SlidingActivity.class);
                 return true;
 
@@ -100,7 +105,7 @@ public class SlidingMenu extends BaseActivity implements GameMenu, PopupMenu.OnM
     public void showPopup(View v) {
         PopupMenu popup = new PopupMenu(this, v);
         popup.setOnMenuItemClickListener(this);
-        popup.inflate(R.menu.menu_choose_level);
+        popup.inflate(R.menu.menu_sliding_level);
         popup.show();
 
     }

@@ -7,6 +7,7 @@ import com.example.myapplication.gamemanager.MyObserver;
 import com.example.myapplication.gamemanager.MySubject;
 import com.example.myapplication.scoreboard.Scoreboard;
 
+import java.util.ArrayList;
 import java.util.List;
 
 class SlidingPresenter implements GameController, MySubject {
@@ -14,11 +15,16 @@ class SlidingPresenter implements GameController, MySubject {
     private GameView weaponView;
     private SlidingGrid SlidingGrid;
 
+    /**
+     * The list of observers of this class
+     */
     private static List<MyObserver> observers;
+
 
 
     SlidingPresenter(SlidingManager slidingManager, SlidingGrid gridView) {
         this.slidingManager = slidingManager;
+        observers = new ArrayList<>();
         SlidingGrid = gridView;
 
     }
@@ -35,6 +41,7 @@ class SlidingPresenter implements GameController, MySubject {
 
     void restart() {
         weaponView.updateScore(0);
+        notifyObservers();
         slidingManager.getCardCollection().setCardCollection();
         slidingManager.getCardCollection().addRandomNum();
         slidingManager.getCardCollection().addRandomNum();
@@ -81,7 +88,7 @@ class SlidingPresenter implements GameController, MySubject {
     /**
      * A setter for the Game Manager
      *
-     * @param manager
+     * @param manager The game manager.
      */
     @Override
     public void setGameManager(GameManager manager) {
@@ -89,9 +96,9 @@ class SlidingPresenter implements GameController, MySubject {
     }
 
     /**
-     * @param scoreboard
-     * @param user
-     * @return
+     * @param scoreboard The game's scoreboard.
+     * @param user The user's username.
+     * @return return true if the game is over. Otherwise return false.
      */
     @Override
     public boolean checkToAddScore(Scoreboard scoreboard, String user) {
@@ -124,5 +131,9 @@ class SlidingPresenter implements GameController, MySubject {
         for (MyObserver obj:observers){
             obj.update();
         }
+    }
+
+    void onDestroy() {
+        weaponView = null;
     }
 }

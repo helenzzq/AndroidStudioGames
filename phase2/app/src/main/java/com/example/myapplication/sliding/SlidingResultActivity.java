@@ -22,10 +22,10 @@ public class SlidingResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weapon_result);
 
-        TextView scoreLabel2048 = findViewById(R.id.scoreLabel2048);
+        TextView scoreLabel2048 = findViewById(R.id.tvScore);
         TextView highScoreLabel2048 = findViewById(R.id.highScoreLabel2048);
 
-        int score = getIntent().getIntExtra("SCORE2048",0);
+        int score = getIntent().getIntExtra("SCORE",0);
         scoreLabel2048.setText(score + "");
 
         SharedPreferences settings = getSharedPreferences("GAME_DATA2048", Context.MODE_PRIVATE);

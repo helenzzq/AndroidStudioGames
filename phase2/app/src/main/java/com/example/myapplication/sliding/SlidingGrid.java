@@ -13,9 +13,11 @@ public class SlidingGrid extends GridLayout{
     private static SlidingPresenter presenter;
     private float startX;
     private float startY;
+    public static int num;
 
     public SlidingGrid(Context context) {
         super(context);
+        setNum(SlidingActivity.getNum());
         initGameView();
 
     }
@@ -23,15 +25,18 @@ public class SlidingGrid extends GridLayout{
     public SlidingGrid(Context context, AttributeSet attrs) {
 
         super(context, attrs);
+        setNum(SlidingActivity.getNum());
         initGameView();
     }
 
     public SlidingGrid(Context context, AttributeSet attrs, int defStyleAttr) {
 
         super(context, attrs, defStyleAttr);
+        setNum(SlidingActivity.getNum());
         initGameView();
 
     }
+
 
     public static SlidingPresenter getPresenter() {
         return presenter;
@@ -39,12 +44,18 @@ public class SlidingGrid extends GridLayout{
 
     private void initGameView() {
         presenter = new SlidingPresenter(new SlidingManager(),this);
-        setColumnCount(4);
+        setColumnCount(num);
         setBackgroundColor(0xFFFFFFFF);
         addCards(getCardwidth(), getCardwidth(), presenter.getSlidingManager().getSlidingCards());
         setOnTouchListener(this::setOnTouch);
+    }
 
+    public static void setNum(int num){
+        SlidingGrid.num = num;
+    }
 
+    public static int getNum(){
+        return num;
     }
 
     private boolean setOnTouch(View v, MotionEvent event){
@@ -97,13 +108,13 @@ public class SlidingGrid extends GridLayout{
         int cardWidth;
         cardWidth = displayMetrics.widthPixels;
 
-        return (cardWidth - 10) / 4;
+        return (cardWidth - 10) / num;
     }
 
     private void addCards(int cardWidth, int cardHeight, SlidingCard[][] slidingCard) {
 
-        for (int y = 0; y < 4; y++) {
-            for (int x = 0; x < 4; x++) {
+        for (int y = 0; y < num; y++) {
+            for (int x = 0; x < num; x++) {
                 SlidingCard c = new SlidingCard(getContext());
                 c.setNum(2);
                 addView(c, cardWidth, cardHeight);

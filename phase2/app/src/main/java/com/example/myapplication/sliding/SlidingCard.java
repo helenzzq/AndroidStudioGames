@@ -10,6 +10,7 @@ public class SlidingCard extends FrameLayout {
     private ImageView pic;
     private int[] picArray = new int[33000];
     private int num = 0;
+    private int c = 3;
 
 
 
