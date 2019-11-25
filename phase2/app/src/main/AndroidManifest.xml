@@ -10,12 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".scoreboard.ScoreboardActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-
-        </activity>
+        <activity
+            android:name=".catchball.CatchBallScoreboardActivity"
+            android:label="@string/title_activity_catchball_scoreboard"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".math24.Math24Menu">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -99,7 +97,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

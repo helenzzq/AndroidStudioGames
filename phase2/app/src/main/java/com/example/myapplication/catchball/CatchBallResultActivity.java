@@ -18,6 +18,7 @@ import com.example.myapplication.StrategyClass.BackGroundSetter;
 import com.example.myapplication.R;
 import com.example.myapplication.SettingsActivity;
 import com.example.myapplication.sliding.SlidingActivity;
+import com.example.myapplication.sliding.SlidingMenu;
 
 
 public class CatchBallResultActivity extends AppCompatActivity {
@@ -75,6 +76,6 @@ public class CatchBallResultActivity extends AppCompatActivity {
     };
 
     public void next(View view) {
-        startActivity(new Intent(getApplicationContext(), SlidingActivity.class));
+        startActivity(new Intent(getApplicationContext(), SlidingMenu.class));
     }
 }

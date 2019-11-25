@@ -38,4 +38,6 @@
     <string name="sliding">Sliding Card</string>
     <string name="math24text">Math 24</string>
     <string name="quit">Quit</string>
+    <string name="title_activity_catchball_scoreboard">CatchballScoreboardActivity</string>
+    <string name="action_settings">Settings</string>
 </resources>

@@ -24,6 +24,13 @@ public class Score implements Serializable ,Comparable<Score>{
 
     public String getUsername(){return user;}
 
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof Score)
+        {Score o = (Score) obj;
+            return (o.getUsername().equals(this.getUsername()) && o.getScore() == this.getScore());}
+        return false;
+    }
 
     /**
      *

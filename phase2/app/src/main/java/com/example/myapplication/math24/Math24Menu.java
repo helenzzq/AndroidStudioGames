@@ -41,26 +41,10 @@ public class Math24Menu extends BaseActivity implements GameMenu, PopupMenu.OnMe
      * A file with Math24.
      */
     private static final String fileName = "math24scores.ser";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //Game MVC setup!!
-        GameFileSaver gameFileSaver = new GameFileSaver(this, LoginActivity.currentPlayer.getMath24GameFile());
-        math24Presenter = new Math24Presenter();
-        if(gameFileSaver.getGameManager() != null){
-            math24Presenter.setGameManager(gameFileSaver.getGameManager());
-        }
-        math24Presenter.register(gameFileSaver);
-
-        //Scoreboard MVC setup
-        scoreboard = new Scoreboard();
-        ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
-        scoreboard.register(scoreboardFileSaver);
-        scoreboard.setGlobalScore(scoreboardFileSaver.getGlobalScores());
-        gameFileSaver.saveToFile();
-
-
 
         setContentView(R.layout.activity_math24menu);
 

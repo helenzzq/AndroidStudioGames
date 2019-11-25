@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.math24.Math24Activity;
+import com.example.myapplication.math24.Math24Menu;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -48,7 +49,7 @@ public class SlidingResultActivity extends AppCompatActivity {
     }
 
     public void openMath24(){
-        Intent intent = new Intent(this, Math24Activity.class);
+        Intent intent = new Intent(this, Math24Menu.class);
         startActivity(intent);
     }
 
