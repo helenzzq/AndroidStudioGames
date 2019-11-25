@@ -19,13 +19,16 @@ import com.example.myapplication.R;
 import com.example.myapplication.SettingsActivity;
 import com.example.myapplication.sliding.SlidingActivity;
 import com.example.myapplication.sliding.SlidingMenu;
-
+import com.example.myapplication.useraccount.User;
+import com.example.myapplication.loginregister.LoginActivity;
 
 public class CatchBallResultActivity extends AppCompatActivity {
 
     private Handler mHandler;
     private Activity current;
     private ImageView setting;
+
+    private User currentPlayer = LoginActivity.currentPlayer;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -35,7 +38,7 @@ public class CatchBallResultActivity extends AppCompatActivity {
 
         TextView scoreLabel = findViewById(R.id.scoreLabel);
         TextView highScoreLabel = findViewById(R.id.highScoreLabel);
-
+        TextView usernameLabel  = findViewById(R.id.username);
 
         setting = findViewById(R.id.setting_btn_ball);
         setting.setOnClickListener(v -> {
@@ -50,6 +53,8 @@ public class CatchBallResultActivity extends AppCompatActivity {
 
         int score = getIntent().getIntExtra("SCORE", 0);
         scoreLabel.setText(score + "");
+        usernameLabel.setText("Username: " + currentPlayer.getUsername());
+        currentPlayer.setScore(score);
 
         SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);
         int highScore = settings.getInt("HIGH_SCORE", 0);
@@ -61,6 +66,7 @@ public class CatchBallResultActivity extends AppCompatActivity {
             SharedPreferences.Editor editor = settings.edit();
             editor.putInt("HIGH_SCORE", score);
             editor.apply();
+
 
         } else {
             highScoreLabel.setText("High Score: " + highScore);

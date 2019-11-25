@@ -17,6 +17,14 @@
         android:textSize="30sp"/>
 
     <TextView
+        android:id="@+id/username"
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="UserName"
+        android:textSize="24sp" />
+
+    <TextView
         android:id="@+id/scoreLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

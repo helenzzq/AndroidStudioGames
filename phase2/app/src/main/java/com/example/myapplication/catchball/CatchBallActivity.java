@@ -38,6 +38,7 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
 
     //Score for the game
     private int score=0;
+
     //Presenter
     private CatchBallPresenter presenter;
 

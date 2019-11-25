@@ -9,12 +9,15 @@ public class User implements Serializable {
     private String username;
     private String password;
     private List<String> gameFile;
+    private int score;
 
     public User(String username,String password){
 
         this.username=username;
 
         this.password=password;
+
+        this.score = 0;
     }
 
     private List<String> generateGameFiles(){
@@ -24,6 +27,7 @@ public class User implements Serializable {
         gameFiles.add(this.username + "Math24.ser");
         return gameFiles;
     }
+
 
     /**
      * Returns the file containing this user's data.
@@ -37,6 +41,13 @@ public class User implements Serializable {
 
     public String getMath24GameFile(){return gameFile.get(2);}
 
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public int getScore(){
+        return this.score;
+    }
 
     public String getPassword() {
         return this.password;

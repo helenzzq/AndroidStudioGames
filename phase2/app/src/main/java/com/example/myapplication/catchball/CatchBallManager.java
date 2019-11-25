@@ -20,6 +20,7 @@ class CatchBallManager implements GameManager, Serializable {
         board = catchBoard;
         player = board.getPlayerPrince();
         gameOver = false;
+
     }
 
 
