@@ -2,15 +2,11 @@ package com.example.myapplication.scoreboard;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.catchball.CatchBallMenu;
-import com.example.myapplication.gamemanager.GameFileSaver;
-import com.example.myapplication.loginRegister.LoginActivity;
+import com.example.myapplication.loginregister.LoginActivity;
 import com.example.myapplication.useraccount.User;
 
 public class ScoreboardActivity extends AppCompatActivity {

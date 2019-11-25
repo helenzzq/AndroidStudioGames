@@ -1,6 +1,5 @@
 package com.example.myapplication.math24;
 
-import android.app.AppComponentFactory;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -8,7 +7,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication.useraccount.User;
-import com.example.myapplication.loginRegister.LoginActivity;
+import com.example.myapplication.loginregister.LoginActivity;
 import com.example.myapplication.R;
 
 

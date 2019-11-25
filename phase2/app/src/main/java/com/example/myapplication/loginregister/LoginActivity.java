@@ -1,4 +1,4 @@
-package com.example.myapplication.loginRegister;
+package com.example.myapplication.loginregister;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;

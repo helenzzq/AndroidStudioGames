@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/register"
     android:background="@drawable/whitebackground"
-    tools:context=".loginRegister.RegisterActivity">
+    tools:context=".loginregister.RegisterActivity">
 
     <ImageView
         android:id="@+id/setting_btn_register"

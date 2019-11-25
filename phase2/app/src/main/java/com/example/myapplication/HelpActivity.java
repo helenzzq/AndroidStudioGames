@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.myapplication.StrategyClass.BackGroundSetter;
-import com.example.myapplication.loginRegister.EntryMainActivity;
+import com.example.myapplication.loginregister.EntryMainActivity;
 import com.example.myapplication.math24.Math24Activity;
 
 public class HelpActivity extends AppCompatActivity implements View.OnClickListener {

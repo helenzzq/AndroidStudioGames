@@ -17,7 +17,7 @@ import com.example.myapplication.R;
 import com.example.myapplication.StrategyClass.BackGroundSetter;
 import com.example.myapplication.BaseActivity;
 import com.example.myapplication.GameMenu;
-import com.example.myapplication.loginRegister.MainMenuActivity;
+import com.example.myapplication.loginregister.MainMenuActivity;
 import com.example.myapplication.scoreboard.ScoreboardActivity;
 
 

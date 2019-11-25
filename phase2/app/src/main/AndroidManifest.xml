@@ -36,7 +36,7 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name=".loginRegister.MainMenuActivity">
+        <activity android:name=".loginregister.MainMenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -47,12 +47,12 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name=".loginRegister.LoginActivity">
+        <activity android:name=".loginregister.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name=".loginRegister.RegisterActivity">
+        <activity android:name=".loginregister.RegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -92,7 +92,7 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name=".loginRegister.EntryMainActivity">
+        <activity android:name=".loginregister.EntryMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

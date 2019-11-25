@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/entryMainPage"
 
-    tools:context=".loginRegister.EntryMainActivity">
+    tools:context=".loginregister.EntryMainActivity">
 
 
     <Button

@@ -7,7 +7,7 @@
     android:id="@+id/loginPage"
     android:background="@drawable/whitebackground"
 
-    tools:context=".loginRegister.LoginActivity">
+    tools:context=".loginregister.LoginActivity">
 
 
     <EditText
