@@ -50,18 +50,21 @@ public class CatchBallMenu extends BaseActivity implements GameMenu, PopupMenu.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        /*GameFileSaver gameFileSaver = new GameFileSaver(this, LoginActivity.currentPlayer.getCatchBallGameFile());
-        if(gameFileSaver.getGameManager() != null){
+
+        //GameFileSaver gameFileSaver = new GameFileSaver(this, LoginActivity.currentPlayer.getCatchBallGameFile());
+        /*if(gameFileSaver.getGameManager() != null){
             controller.setGameManager(gameFileSaver.getGameManager());
         }
         controller.register(gameFileSaver);
-
+*/
         //Scoreboard MVC setup
+        /*
         scoreboard = new Scoreboard();
         ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
         scoreboard.register(scoreboardFileSaver);
         scoreboard.setGlobalScore(scoreboardFileSaver.getGlobalScores());
         gameFileSaver.saveToFile();*/
+
         setContentView(R.layout.activity_catchballmenu);
 
         current = this;

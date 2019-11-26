@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".sliding.SlidingActivity"
     android:id="@+id/weaponPage"
     android:orientation="vertical">
@@ -59,6 +60,18 @@
         android:background="#CDDC39"
         android:text="@string/save"
         android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/text_live"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="lives remaining 3"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/Help2048"
