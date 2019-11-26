@@ -12,21 +12,56 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.loginregister.LoginActivity;
+import com.example.myapplication.scoreboard.Scoreboard;
+
 import com.example.myapplication.HelpActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.StrategyClass.BackGroundSetter;
 import com.example.myapplication.BaseActivity;
 import com.example.myapplication.GameMenu;
 import com.example.myapplication.loginregister.MainMenuActivity;
-
+import com.example.myapplication.scoreboard.ScoreboardFileSaver;
+import com.example.myapplication.GameController;
+import com.example.myapplication.GameFileSaver;
 
 public class CatchBallMenu extends BaseActivity implements GameMenu, PopupMenu.OnMenuItemClickListener{
     //there are three buttons in Main page: Start, setting and help
+
+    /**
+     * The Scoreboard
+     */
+    public static Scoreboard scoreboard;
+
+    /**
+     * The CatchballPresenter
+     */
+    public static CatchBallPresenter controller;
+
+    /**
+     * The file of slidingtilesscores.
+     */
+    private static final String fileName = "CatchBallscores.ser";
+
     private Handler handler;
     private Activity current;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        /*GameFileSaver gameFileSaver = new GameFileSaver(this, LoginActivity.currentPlayer.getCatchBallGameFile());
+        if(gameFileSaver.getGameManager() != null){
+            controller.setGameManager(gameFileSaver.getGameManager());
+        }
+        controller.register(gameFileSaver);
+
+        //Scoreboard MVC setup
+        scoreboard = new Scoreboard();
+        ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
+        scoreboard.register(scoreboardFileSaver);
+        scoreboard.setGlobalScore(scoreboardFileSaver.getGlobalScores());
+        gameFileSaver.saveToFile();*/
         setContentView(R.layout.activity_catchballmenu);
 
         current = this;
