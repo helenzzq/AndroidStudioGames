@@ -3,8 +3,8 @@ package com.example.myapplication.useraccount;
 import android.content.Context;
 import android.util.Log;
 
-import com.example.myapplication.gamemanager.MyObserver;
-import com.example.myapplication.gamemanager.MySubject;
+import com.example.myapplication.MyObserver;
+import com.example.myapplication.MySubject;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.example.myapplication.BaseActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.gamemanager.GameView;
+import com.example.myapplication.GameView;
 
 
 public class Math24Activity extends BaseActivity implements GameView, View.OnClickListener {

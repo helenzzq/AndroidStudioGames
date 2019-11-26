@@ -1,4 +1,4 @@
-package com.example.myapplication.gamemanager;
+package com.example.myapplication;
 
 public interface MySubject {
     /**

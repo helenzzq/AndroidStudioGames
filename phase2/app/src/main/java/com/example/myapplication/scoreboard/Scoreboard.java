@@ -1,9 +1,7 @@
 package com.example.myapplication.scoreboard;
 
-import android.icu.text.Edits;
-
-import com.example.myapplication.gamemanager.MyObserver;
-import com.example.myapplication.gamemanager.MySubject;
+import com.example.myapplication.MyObserver;
+import com.example.myapplication.MySubject;
 import com.example.myapplication.useraccount.User;
 
 import java.io.Serializable;
@@ -11,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Locale;
 import java.util.NoSuchElementException;
 

@@ -3,8 +3,8 @@ package com.example.myapplication.scoreboard;
 import android.content.Context;
 import android.util.Log;
 
-import com.example.myapplication.gamemanager.MyObserver;
-import com.example.myapplication.gamemanager.MySubject;
+import com.example.myapplication.MyObserver;
+import com.example.myapplication.MySubject;
 
 import java.io.FileNotFoundException;
 import java.io.ObjectOutputStream;
@@ -12,8 +12,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-
-import javax.security.auth.Subject;
 
 public class ScoreboardFileSaver implements Serializable, MyObserver {
 
