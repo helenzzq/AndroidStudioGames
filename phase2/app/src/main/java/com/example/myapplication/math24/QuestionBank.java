@@ -3,10 +3,10 @@ package com.example.myapplication.math24;
 public class QuestionBank {
     private int[][] level1;
     private int[][] level2;
-    private int[][] level3;
+
 
     QuestionBank(){
-        level3 = new int[][] {
+        level2 = new int[][] {
                 {6, 6, 8, 9},
                 {4, 5, 5, 5},
                 {4, 5, 5, 8}};
@@ -33,7 +33,7 @@ public class QuestionBank {
             return level1[(int)(Math.random() * (level1.length - 1) + 1)];
         }
         else{
-            return level3[(int)(Math.random() * (level3.length - 1) + 1)];
+            return level2[(int)(Math.random() * (level2.length - 1) + 1)];
 
         }
 
