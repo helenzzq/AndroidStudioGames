@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.math24.Math24Activity;
 import com.example.myapplication.math24.Math24Menu;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +20,7 @@ public class SlidingResultActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_weapon_result);
+        setContentView(R.layout.activity_sliding_result);
 
         TextView scoreLabel2048 = findViewById(R.id.tvScore);
         TextView highScoreLabel2048 = findViewById(R.id.highScoreLabel2048);

@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.example.myapplication.BaseActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.gamemanager.GameView;
+import com.example.myapplication.GameView;
 
 import static android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
 
@@ -31,7 +31,7 @@ public class SlidingActivity extends BaseActivity implements GameView {
         }else{
             setNum(4);
         }
-        setContentView(R.layout.activity_weapon);
+        setContentView(R.layout.activity_sliding);
         setBackButton();
         tvScore = findViewById(R.id.tvScore);
         SlidingGrid.getPresenter().setWeaponView(this);

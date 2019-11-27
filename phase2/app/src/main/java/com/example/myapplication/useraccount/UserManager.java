@@ -2,8 +2,8 @@ package com.example.myapplication.useraccount;
 import android.accounts.AccountsException;
 import android.accounts.AuthenticatorException;
 
-import com.example.myapplication.gamemanager.MyObserver;
-import com.example.myapplication.gamemanager.MySubject;
+import com.example.myapplication.MyObserver;
+import com.example.myapplication.MySubject;
 
 import java.io.Serializable;
 import java.util.ArrayList;

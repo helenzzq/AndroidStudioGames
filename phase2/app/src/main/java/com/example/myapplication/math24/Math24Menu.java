@@ -18,9 +18,6 @@ import com.example.myapplication.R;
 import com.example.myapplication.StrategyClass.BackGroundSetter;
 import com.example.myapplication.loginregister.MainMenuActivity;
 import com.example.myapplication.scoreboard.Scoreboard;
-import com.example.myapplication.gamemanager.GameFileSaver;
-import com.example.myapplication.loginregister.LoginActivity;
-import com.example.myapplication.scoreboard.ScoreboardFileSaver;
 
 
 public class Math24Menu extends BaseActivity implements GameMenu, PopupMenu.OnMenuItemClickListener {
@@ -147,6 +144,6 @@ public class Math24Menu extends BaseActivity implements GameMenu, PopupMenu.OnMe
     @Override
     public void onResume() {
         super.onResume();
-
     }
+
 }

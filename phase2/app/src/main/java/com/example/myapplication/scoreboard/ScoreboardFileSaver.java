@@ -3,17 +3,16 @@ package com.example.myapplication.scoreboard;
 import android.content.Context;
 import android.util.Log;
 
-import com.example.myapplication.gamemanager.MyObserver;
-import com.example.myapplication.gamemanager.MySubject;
+import com.example.myapplication.MyObserver;
+import com.example.myapplication.MySubject;
 
 import java.io.FileNotFoundException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-
-import javax.security.auth.Subject;
 
 public class ScoreboardFileSaver implements Serializable, MyObserver {
 
@@ -49,15 +48,22 @@ public class ScoreboardFileSaver implements Serializable, MyObserver {
     }
 
 
-    public void loadFromFile(){
-        try{
+    public void loadFromFile() {
+        try {
             InputStream inputStream = context.openFileInput(fileName);
-
+            if (inputStream != null) {
+                ObjectInputStream input = new ObjectInputStream(inputStream);
+                GlobalScores = (ArrayList<Score>)input.readObject();
+                inputStream.close();
+            }
         } catch (FileNotFoundException e) {
             Log.e("login activity", "File not found: " + e.toString());
         }
-
-
+        catch (IOException e) {
+            Log.e("login activity", "Can not read file: " + e.toString());
+        } catch (ClassNotFoundException e) {
+            Log.e("login activity", "File contained unexpected data type: " + e.toString());
+        }
     }
 
     public void saveToFile(String fileName) {

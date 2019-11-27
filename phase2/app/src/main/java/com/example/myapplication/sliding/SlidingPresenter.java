@@ -1,10 +1,10 @@
 package com.example.myapplication.sliding;
 
-import com.example.myapplication.gamemanager.GameController;
-import com.example.myapplication.gamemanager.GameManager;
-import com.example.myapplication.gamemanager.GameView;
-import com.example.myapplication.gamemanager.MyObserver;
-import com.example.myapplication.gamemanager.MySubject;
+import com.example.myapplication.GameController;
+import com.example.myapplication.GameManager;
+import com.example.myapplication.GameView;
+import com.example.myapplication.MyObserver;
+import com.example.myapplication.MySubject;
 import com.example.myapplication.scoreboard.Scoreboard;
 
 import java.util.ArrayList;

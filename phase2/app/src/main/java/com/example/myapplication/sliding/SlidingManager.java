@@ -1,6 +1,6 @@
 package com.example.myapplication.sliding;
 
-import com.example.myapplication.gamemanager.GameManager;
+import com.example.myapplication.GameManager;
 
 class SlidingManager implements GameManager {
 
@@ -26,7 +26,7 @@ class SlidingManager implements GameManager {
         SlidingManager.num = num;
     }
 
-    protected static int getNum(){
+    static int getNum(){
         return num;
     }
 

@@ -1,5 +1,7 @@
 package com.example.myapplication.scoreboard;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 
 public class Score implements Serializable ,Comparable<Score>{
@@ -42,7 +44,7 @@ public class Score implements Serializable ,Comparable<Score>{
      *                              from being compared to this object.
      */
     @Override
-    public int compareTo(Score o) {
-        return this.getScore() - o.getScore();
+    public int compareTo(@NonNull Score o) {
+        return Integer.compare(o.getScore(), this.score);
     }
 }

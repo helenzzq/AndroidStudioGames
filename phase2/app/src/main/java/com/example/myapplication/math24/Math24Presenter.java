@@ -2,10 +2,10 @@ package com.example.myapplication.math24;
 
 import android.widget.Button;
 
-import com.example.myapplication.gamemanager.GameController;
-import com.example.myapplication.gamemanager.GameManager;
-import com.example.myapplication.gamemanager.MyObserver;
-import com.example.myapplication.gamemanager.MySubject;
+import com.example.myapplication.GameController;
+import com.example.myapplication.GameManager;
+import com.example.myapplication.MyObserver;
+import com.example.myapplication.MySubject;
 import com.example.myapplication.scoreboard.Scoreboard;
 
 import java.util.ArrayList;

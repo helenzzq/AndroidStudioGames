@@ -1,10 +1,7 @@
 package com.example.myapplication.catchball;
 
-import android.view.WindowManager;
-import android.widget.ImageView;
 
-
-import com.example.myapplication.gamemanager.GameManager;
+import com.example.myapplication.GameManager;
 
 import java.io.Serializable;
 
