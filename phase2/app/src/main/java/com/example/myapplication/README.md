@@ -59,7 +59,7 @@ After clicking "resume" button, timer will start, and the game will start from t
 state where it stops. Also, the current "resume" button will change to "pause" button.
 
 I. Save:
-Save the current game state. 
+Save the current game state.
 
 J. Next:
 After you finish the current game, you will see a scoreboard that includes your username and score
