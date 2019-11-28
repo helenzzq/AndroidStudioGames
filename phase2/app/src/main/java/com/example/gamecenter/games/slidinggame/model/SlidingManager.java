@@ -1,6 +1,6 @@
 package com.example.gamecenter.games.slidinggame.model;
 
-import com.example.gamecenter.GameManager;
+import com.example.gamecenter.gameinterface.GameManager;
 import com.example.gamecenter.games.slidinggame.activity.SlidingGrid;
 
 public class SlidingManager implements GameManager {

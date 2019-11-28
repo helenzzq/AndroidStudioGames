@@ -4,10 +4,10 @@ import android.view.MotionEvent;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
-import com.example.gamecenter.GameController;
-import com.example.gamecenter.GameManager;
-import com.example.gamecenter.MyObserver;
-import com.example.gamecenter.MySubject;
+import com.example.gamecenter.gameinterface.GameController;
+import com.example.gamecenter.gameinterface.GameManager;
+import com.example.gamecenter.gameinterface.MyObserver;
+import com.example.gamecenter.gameinterface.MySubject;
 import com.example.gamecenter.games.catchballgame.activity.CatchBallActivity;
 import com.example.gamecenter.games.catchballgame.model.CatchBallManager;
 import com.example.gamecenter.games.catchballgame.model.CatchBoard;

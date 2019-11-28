@@ -1,7 +1,7 @@
 package com.example.gamecenter.scoreboard;
 
-import com.example.gamecenter.MyObserver;
-import com.example.gamecenter.MySubject;
+import com.example.gamecenter.gameinterface.MyObserver;
+import com.example.gamecenter.gameinterface.MySubject;
 import com.example.gamecenter.user.User;
 
 import java.io.Serializable;

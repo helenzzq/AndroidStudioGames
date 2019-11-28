@@ -11,7 +11,7 @@ public class User implements Serializable {
     private List<String> gameFile;
     private int score;
 
-    public User(String username,String password){
+    User(String username,String password){
 
         this.username=username;
 
@@ -49,7 +49,7 @@ public class User implements Serializable {
         return this.score;
     }
 
-    public String getPassword() {
+    String getPassword() {
         return this.password;
     }
 

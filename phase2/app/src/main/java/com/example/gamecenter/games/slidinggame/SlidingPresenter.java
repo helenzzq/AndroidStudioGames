@@ -1,10 +1,10 @@
 package com.example.gamecenter.games.slidinggame;
 
-import com.example.gamecenter.GameController;
-import com.example.gamecenter.GameManager;
-import com.example.gamecenter.GameView;
-import com.example.gamecenter.MyObserver;
-import com.example.gamecenter.MySubject;
+import com.example.gamecenter.gameinterface.GameController;
+import com.example.gamecenter.gameinterface.GameManager;
+import com.example.gamecenter.gameinterface.GameView;
+import com.example.gamecenter.gameinterface.MyObserver;
+import com.example.gamecenter.gameinterface.MySubject;
 import com.example.gamecenter.games.slidinggame.activity.SlidingGrid;
 import com.example.gamecenter.games.slidinggame.model.SlidingManager;
 import com.example.gamecenter.scoreboard.Scoreboard;

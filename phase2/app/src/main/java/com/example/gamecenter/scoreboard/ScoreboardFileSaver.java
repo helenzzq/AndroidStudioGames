@@ -3,8 +3,8 @@ package com.example.gamecenter.scoreboard;
 import android.content.Context;
 import android.util.Log;
 
-import com.example.gamecenter.MyObserver;
-import com.example.gamecenter.MySubject;
+import com.example.gamecenter.gameinterface.MyObserver;
+import com.example.gamecenter.gameinterface.MySubject;
 
 import java.io.FileNotFoundException;
 import java.io.ObjectInputStream;

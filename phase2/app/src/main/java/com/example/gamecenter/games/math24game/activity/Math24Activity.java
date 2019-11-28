@@ -13,7 +13,7 @@ import com.example.gamecenter.games.math24game.Math24Presenter;
 import com.example.gamecenter.games.math24game.model.Math24Manager;
 import com.example.gamecenter.strategy.BaseActivity;
 import com.example.gamecenter.R;
-import com.example.gamecenter.GameView;
+import com.example.gamecenter.gameinterface.GameView;
 
 
 public class Math24Activity extends BaseActivity implements GameView, View.OnClickListener {

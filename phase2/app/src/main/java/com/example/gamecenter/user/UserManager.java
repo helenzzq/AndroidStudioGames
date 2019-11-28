@@ -2,8 +2,8 @@ package com.example.gamecenter.user;
 import android.accounts.AccountsException;
 import android.accounts.AuthenticatorException;
 
-import com.example.gamecenter.MyObserver;
-import com.example.gamecenter.MySubject;
+import com.example.gamecenter.gameinterface.MyObserver;
+import com.example.gamecenter.gameinterface.MySubject;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -56,7 +56,7 @@ public class UserManager implements Serializable, MySubject{
      * @param account username
      * @return the index
      */
-    public int hasAccount(String account){
+    private int hasAccount(String account){
         if (allUsers.size() != 0){
             for (int i = 0; i < allUsers.size(); i++) {
                 if (allUsers.get(i).getUsername().equals(account)) {

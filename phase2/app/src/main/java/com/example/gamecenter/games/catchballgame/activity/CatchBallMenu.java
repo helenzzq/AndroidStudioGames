@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.gamecenter.GameMenu;
+import com.example.gamecenter.gameinterface.GameMenu;
 import com.example.gamecenter.HelpActivity;
 import com.example.gamecenter.R;
 import com.example.gamecenter.games.catchballgame.presenter.CatchBallPresenter;

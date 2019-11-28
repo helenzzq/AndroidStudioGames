@@ -1,4 +1,4 @@
-package com.example.gamecenter;
+package com.example.gamecenter.gameinterface;
 
 /**
  * An Interface of GameManager

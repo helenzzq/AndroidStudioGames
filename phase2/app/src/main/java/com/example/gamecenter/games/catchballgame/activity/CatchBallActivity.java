@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.gamecenter.GameView;
+import com.example.gamecenter.gameinterface.GameView;
 import com.example.gamecenter.R;
 import com.example.gamecenter.games.catchballgame.presenter.CatchBallPresenter;
 import com.example.gamecenter.strategy.BaseActivity;

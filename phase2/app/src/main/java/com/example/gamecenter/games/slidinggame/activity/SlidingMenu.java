@@ -16,7 +16,7 @@ import com.example.gamecenter.HelpActivity;
 import com.example.gamecenter.R;
 import com.example.gamecenter.strategy.BackGroundSetter;
 import com.example.gamecenter.strategy.BaseActivity;
-import com.example.gamecenter.GameMenu;
+import com.example.gamecenter.gameinterface.GameMenu;
 import com.example.gamecenter.login.MainMenuActivity;
 
 

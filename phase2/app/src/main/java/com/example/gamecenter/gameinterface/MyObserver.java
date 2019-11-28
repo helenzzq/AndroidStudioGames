@@ -1,4 +1,4 @@
-package com.example.gamecenter;
+package com.example.gamecenter.gameinterface;
 
 public interface MyObserver {
     /**

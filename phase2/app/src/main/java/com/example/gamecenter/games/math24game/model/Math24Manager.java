@@ -1,6 +1,6 @@
 package com.example.gamecenter.games.math24game.model;
 
-import com.example.gamecenter.GameManager;
+import com.example.gamecenter.gameinterface.GameManager;
 import com.example.gamecenter.games.math24game.strategy.Calculator;
 
 public class Math24Manager implements GameManager {

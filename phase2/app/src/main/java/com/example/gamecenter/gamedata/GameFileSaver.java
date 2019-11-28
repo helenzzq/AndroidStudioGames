@@ -3,10 +3,10 @@ package com.example.gamecenter.gamedata;
 import android.content.Context;
 import android.util.Log;
 
-import com.example.gamecenter.GameController;
-import com.example.gamecenter.GameManager;
-import com.example.gamecenter.MyObserver;
-import com.example.gamecenter.MySubject;
+import com.example.gamecenter.gameinterface.GameController;
+import com.example.gamecenter.gameinterface.GameManager;
+import com.example.gamecenter.gameinterface.MyObserver;
+import com.example.gamecenter.gameinterface.MySubject;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
