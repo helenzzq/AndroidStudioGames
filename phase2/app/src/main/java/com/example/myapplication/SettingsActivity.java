@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -13,8 +12,7 @@ import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.example.myapplication.StrategyClass.BackGroundSetter;
-import com.example.myapplication.catchball.CatchBallActivity;
+import com.example.myapplication.strategyclass.BackGroundSetter;
 
 
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener {

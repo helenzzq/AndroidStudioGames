@@ -1,6 +1,6 @@
 package com.example.myapplication.sliding;
 
-import com.example.myapplication.GameManager;
+import com.example.myapplication.gamecenter.GameManager;
 
 class SlidingManager implements GameManager {
 

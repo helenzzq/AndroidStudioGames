@@ -1,6 +1,6 @@
 package com.example.myapplication.math24;
 
-import com.example.myapplication.GameManager;
+import com.example.myapplication.gamecenter.GameManager;
 
 public class Math24Manager implements GameManager {
 

@@ -1,8 +1,8 @@
 package com.example.myapplication.sliding;
 
-import com.example.myapplication.GameController;
-import com.example.myapplication.GameManager;
-import com.example.myapplication.GameView;
+import com.example.myapplication.gamecenter.GameController;
+import com.example.myapplication.gamecenter.GameManager;
+import com.example.myapplication.gamecenter.GameView;
 import com.example.myapplication.MyObserver;
 import com.example.myapplication.MySubject;
 import com.example.myapplication.scoreboard.Scoreboard;

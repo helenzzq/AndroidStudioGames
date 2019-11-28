@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.myapplication.StrategyClass.BackGroundSetter;
+import com.example.myapplication.strategyclass.BackGroundSetter;
 import com.example.myapplication.loginregister.EntryMainActivity;
 import com.example.myapplication.math24.Math24Activity;
 

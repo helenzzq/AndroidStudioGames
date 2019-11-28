@@ -1,7 +1,7 @@
 package com.example.myapplication.catchball;
 
 
-import com.example.myapplication.GameManager;
+import com.example.myapplication.gamecenter.GameManager;
 
 import java.io.Serializable;
 

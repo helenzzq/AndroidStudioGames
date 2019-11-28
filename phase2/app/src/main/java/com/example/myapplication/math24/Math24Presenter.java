@@ -2,8 +2,8 @@ package com.example.myapplication.math24;
 
 import android.widget.Button;
 
-import com.example.myapplication.GameController;
-import com.example.myapplication.GameManager;
+import com.example.myapplication.gamecenter.GameController;
+import com.example.myapplication.gamecenter.GameManager;
 import com.example.myapplication.MyObserver;
 import com.example.myapplication.MySubject;
 import com.example.myapplication.scoreboard.Scoreboard;

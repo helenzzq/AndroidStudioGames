@@ -20,7 +20,6 @@ public class UserManager implements Serializable, MySubject{
      */
     private ArrayList<User> allUsers;
 
-
     /**
      * The list of observers of this class
      */

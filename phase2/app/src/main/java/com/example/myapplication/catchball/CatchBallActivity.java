@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import com.example.myapplication.BaseActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.GameView;
+import com.example.myapplication.gamecenter.GameView;
 
 import java.io.Serializable;
 import java.util.Observable;

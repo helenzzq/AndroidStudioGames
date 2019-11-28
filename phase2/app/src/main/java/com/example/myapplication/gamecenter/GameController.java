@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.gamecenter;
 
 import com.example.myapplication.scoreboard.Scoreboard;
 

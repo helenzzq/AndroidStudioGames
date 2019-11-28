@@ -13,9 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.BaseActivity;
-import com.example.myapplication.GameMenu;
+import com.example.myapplication.gamecenter.GameMenu;
 import com.example.myapplication.R;
-import com.example.myapplication.StrategyClass.BackGroundSetter;
+import com.example.myapplication.strategyclass.BackGroundSetter;
 import com.example.myapplication.loginregister.MainMenuActivity;
 import com.example.myapplication.scoreboard.Scoreboard;
 

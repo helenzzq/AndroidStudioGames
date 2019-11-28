@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.example.myapplication.BaseActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.GameView;
+import com.example.myapplication.gamecenter.GameView;
 
 import static android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
 

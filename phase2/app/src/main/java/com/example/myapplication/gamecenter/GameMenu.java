@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.example.myapplication.gamecenter;
 
 import android.view.MenuItem;
 import android.view.View;

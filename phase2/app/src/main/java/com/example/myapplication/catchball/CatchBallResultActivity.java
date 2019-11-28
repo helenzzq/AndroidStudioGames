@@ -14,10 +14,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.myapplication.StrategyClass.BackGroundSetter;
+import com.example.myapplication.strategyclass.BackGroundSetter;
 import com.example.myapplication.R;
 import com.example.myapplication.SettingsActivity;
-import com.example.myapplication.sliding.SlidingActivity;
 import com.example.myapplication.sliding.SlidingMenu;
 import com.example.myapplication.useraccount.User;
 import com.example.myapplication.loginregister.LoginActivity;

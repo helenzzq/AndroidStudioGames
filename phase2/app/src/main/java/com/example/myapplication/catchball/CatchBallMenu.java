@@ -12,18 +12,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.myapplication.loginregister.LoginActivity;
 import com.example.myapplication.scoreboard.Scoreboard;
 
 import com.example.myapplication.HelpActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.StrategyClass.BackGroundSetter;
+import com.example.myapplication.strategyclass.BackGroundSetter;
 import com.example.myapplication.BaseActivity;
-import com.example.myapplication.GameMenu;
+import com.example.myapplication.gamecenter.GameMenu;
 import com.example.myapplication.loginregister.MainMenuActivity;
-import com.example.myapplication.scoreboard.ScoreboardFileSaver;
-import com.example.myapplication.GameController;
-import com.example.myapplication.GameFileSaver;
 
 public class CatchBallMenu extends BaseActivity implements GameMenu, PopupMenu.OnMenuItemClickListener{
     //there are three buttons in Main page: Start, setting and help

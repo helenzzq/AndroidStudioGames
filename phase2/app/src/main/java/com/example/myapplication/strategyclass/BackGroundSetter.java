@@ -1,4 +1,4 @@
-package com.example.myapplication.StrategyClass;
+package com.example.myapplication.strategyclass;
 
 import android.app.Activity;
 import android.graphics.Color;

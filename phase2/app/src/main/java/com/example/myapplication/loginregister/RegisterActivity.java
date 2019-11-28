@@ -14,7 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.myapplication.StrategyClass.BackGroundSetter;
+import com.example.myapplication.strategyclass.BackGroundSetter;
 import com.example.myapplication.R;
 import com.example.myapplication.SettingsActivity;
 import com.example.myapplication.useraccount.UserManager;

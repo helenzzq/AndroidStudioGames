@@ -1,7 +1,10 @@
-package com.example.myapplication;
+package com.example.myapplication.gamecenter;
 
 import android.content.Context;
 import android.util.Log;
+
+import com.example.myapplication.MyObserver;
+import com.example.myapplication.MySubject;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
