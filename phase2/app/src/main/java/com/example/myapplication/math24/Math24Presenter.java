@@ -44,6 +44,17 @@ public class Math24Presenter implements GameController , MySubject {
         checkToAddScore();
 
     }
+//
+//    @Override
+//    public boolean checkToAddScore(Scoreboard scoreboard, String user) {
+//        if(slidingManager.isGameOver()){
+//            scoreboard.addScore(user,slidingManager.getScore());
+//            slidingManager = null;
+//            notifyObservers();
+//            return true;
+//        }
+//        return false;
+//    }
     public void checkToAddScore(){
         if(mathManager.isGameOver()){
             mathView.setMessage("Congratulations! \n");
