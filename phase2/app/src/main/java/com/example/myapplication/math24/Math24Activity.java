@@ -202,7 +202,8 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     }
 
     public void lostLife() {
-        setNumLives(getNumLives() - 1);
+        int lives = getNumLives() - 1;
+        if(lives > 0)   setNumLives(lives);
     }
 
     public void resetAll() {
