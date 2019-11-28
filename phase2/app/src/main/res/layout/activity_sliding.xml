@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".sliding.SlidingActivity"
+    tools:context=".games.slidinggame.activity.SlidingActivity"
     android:id="@+id/weaponPage"
     android:orientation="vertical">
 
@@ -31,14 +31,14 @@
 
     </RelativeLayout>
 
-    <com.example.myapplication.sliding.SlidingGrid
+    <com.example.gamecenter.games.slidinggame.SlidingGrid
         android:id="@+id/weaponView"
         android:layout_marginTop="50dp"
         android:layout_width="fill_parent"
         android:layout_height="500dp">
 
 
-    </com.example.myapplication.sliding.SlidingGrid>
+    </com.example.gamecenter.games.slidinggame.SlidingGrid>
 
 <!--    <Button-->
 <!--        android:id="@+id/Pause2048"-->

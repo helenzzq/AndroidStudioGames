@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/math24introPage"
 
-    tools:context=".math24.Math24IntroActivity">
+    tools:context=".games.math24game.activity.Math24IntroActivity">
 
     <Button
         android:id="@+id/btn_back2"

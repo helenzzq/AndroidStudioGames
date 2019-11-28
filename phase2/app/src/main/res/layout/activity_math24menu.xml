@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/math24Menu"
-    tools:context=".math24.Math24Menu">
+    tools:context=".games.math24game.activity.Math24Menu">
 
     <TextView
         android:id="@+id/math24_text"

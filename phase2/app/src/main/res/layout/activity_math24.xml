@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context=".math24.Math24Activity">
+    tools:context=".games.math24game.activity.Math24Activity">
 
     <Button
         android:id="@+id/mathnum1"

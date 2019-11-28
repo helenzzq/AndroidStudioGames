@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/catchBallmenu"
-    tools:context=".catchball.CatchBallMenu">
+    tools:context=".games.catchballgame.activity.CatchBallMenu">
 
     <TextView
         android:id="@+id/catchBall_text"
