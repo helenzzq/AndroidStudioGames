@@ -5,14 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.gamecenter.R;
-import com.example.gamecenter.setting.SettingsActivity;
 import com.example.gamecenter.strategy.BackGroundSetter;
 import com.example.gamecenter.user.UserFileSaver;
 import com.example.gamecenter.user.UserManager;
@@ -22,7 +20,7 @@ public class MainEntryActivity extends AppCompatActivity{
 
     private Handler mHandler;
     private Activity current;
-    private ImageView setting;
+
     /*BASED ON: hhttps://www.youtube.com/watch?v=fI9UTA-NaO4
 ALL CREDIT FOR THE ORIGINAL IMPLEMENTATION OF A SIMILAR SINGLETON GOES TO THE ORIGINAL AUTHOR OF
     THE CODE.*/
@@ -44,11 +42,7 @@ ALL CREDIT FOR THE ORIGINAL IMPLEMENTATION OF A SIMILAR SINGLETON GOES TO THE OR
         this.mHandler = new Handler();
         this.mRunnable.run();
 
-        setting = findViewById(R.id.setting_btn_entry);
-        setting.setOnClickListener(v -> {
-            Intent intent2 = new Intent(MainEntryActivity.this, SettingsActivity.class);
-            startActivity(intent2);
-        });
+
 
     }
 
