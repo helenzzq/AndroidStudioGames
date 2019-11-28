@@ -25,7 +25,7 @@ import com.example.gamecenter.user.UserManager;
 @SuppressLint("Registered")
 public class RegisterActivity extends AppCompatActivity {
 
-    private ImageView setting;
+
     /**
      * A UserManager
      */
@@ -47,11 +47,6 @@ public class RegisterActivity extends AppCompatActivity {
         this.mHandler = new Handler();
         this.mRunnable.run();
 
-         setting = findViewById(R.id.setting_btn_register);
-        setting.setOnClickListener(v -> {
-            Intent intent2 = new Intent(RegisterActivity.this, SettingsActivity.class);
-            startActivity(intent2);
-        });
     }
     private final Runnable mRunnable = new Runnable()
     {

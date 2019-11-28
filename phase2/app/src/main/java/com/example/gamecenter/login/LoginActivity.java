@@ -34,7 +34,6 @@ public class LoginActivity extends AppCompatActivity{
      */
     public static User currentPlayer;
 
-    private ImageView setting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +48,6 @@ public class LoginActivity extends AppCompatActivity{
         this.mRunnable.run();
 
 
-        setting = findViewById(R.id.setting_btn_log);
-        setting.setOnClickListener(v -> {
-            Intent intent2 = new Intent(LoginActivity.this, SettingsActivity.class);
-            startActivity(intent2);
-        });
 
     }
     private final Runnable mRunnable = new Runnable()
