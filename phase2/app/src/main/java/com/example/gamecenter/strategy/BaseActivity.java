@@ -1,15 +1,18 @@
 package com.example.gamecenter.strategy;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.gamecenter.gameinterface.GameView;
 import com.example.gamecenter.setting.SettingsActivity;
 
 import static android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
 
-public abstract class BaseActivity extends AppCompatActivity{
+public class BaseActivity extends AppCompatActivity {
 
 
     public void switchToPage(Class targetPage){
@@ -33,6 +36,27 @@ public abstract class BaseActivity extends AppCompatActivity{
         Intent intent = new Intent(this, targetPage);
         intent.putExtra(dataName, score);
         startActivity(intent);
+    }
+
+
+    @SuppressLint("SetTextI18n")
+    public void setPauseButton(Button pauseBtn, GameTimer gameTimer){
+        pauseBtn.setOnClickListener(v -> {
+            if ((int)pauseBtn.getTag()==0){
+                pauseBtn.setTag(1);
+                gameTimer.stop();
+                //Change Button Text;
+                pauseBtn.setText("RESUME");
+            }
+            else{
+                pauseBtn.setTag(0);
+                gameTimer.restart();
+                //Change Button Text;
+                pauseBtn.setText("PAUSE");
+            }
+
+        });
+
     }
 
 

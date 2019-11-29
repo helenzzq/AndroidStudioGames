@@ -30,7 +30,7 @@ public class CatchBallResultActivity extends BaseActivity {
     private Button backToMain;
     private int score;
 
- //   private User currentPlayer = UserManager.getCurrentUser();
+    private User currentPlayer = UserManager.getCurrentUser();
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -57,8 +57,8 @@ public class CatchBallResultActivity extends BaseActivity {
 
         score = getScore("CATCH_BALL_SCORE");
         scoreLabel.setText(score + "");
-//        usernameLabel.setText("Username: " + currentPlayer.getUsername());
-//        currentPlayer.setScore(score);
+        usernameLabel.setText("Username: " + currentPlayer.getUsername());
+        currentPlayer.setScore(score);
 
         SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);
         int highScore = settings.getInt("CATCH_BALL_HIGH_SCORE", 0);

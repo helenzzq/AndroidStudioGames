@@ -25,6 +25,12 @@ public class UserManager implements Serializable, MySubject{
      */
     private static List<MyObserver> observers;
 
+
+    /**
+     * The current User
+     */
+
+    private static User currentUser;
     /**
      * Construct a new UserManager with context and load it from "allUsers.ser" if needed.
      */
@@ -109,8 +115,14 @@ public class UserManager implements Serializable, MySubject{
             throw new AuthenticatorException();
         }
         else{
-            return allUsers.get(index);
+            currentUser = allUsers.get(index);
+            return currentUser;
+
         }
+    }
+
+    public static User getCurrentUser() {
+        return currentUser;
     }
 
     public static List<MyObserver> getObservers() {
