@@ -13,10 +13,11 @@ import android.widget.TextView;
 public class SlidingIntroActivity extends AppCompatActivity implements View.OnClickListener {
     private Button resume;
 
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sliding_help);
+        setContentView(R.layout.activity_sliding_intro);
 
         resume = findViewById(R.id.btn_resume);
         resume.setOnClickListener(this);
@@ -30,4 +31,3 @@ public class SlidingIntroActivity extends AppCompatActivity implements View.OnCl
         }
     }
 }
-
