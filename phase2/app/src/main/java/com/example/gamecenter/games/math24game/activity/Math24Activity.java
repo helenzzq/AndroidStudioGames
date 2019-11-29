@@ -246,7 +246,7 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     }
     @Override
     public void goToResult() {
-        super.goToResult(Math24ResultActivity.class, score);
+        super.goToResult(Math24ResultActivity.class, "MATH24_SCORE", score);
     }
 
     @SuppressLint("DefaultLocale")

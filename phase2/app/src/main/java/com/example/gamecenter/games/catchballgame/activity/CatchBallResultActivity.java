@@ -15,6 +15,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gamecenter.R;
+import com.example.gamecenter.gamedata.GameDataSaver;
 import com.example.gamecenter.login.MainMenuActivity;
 import com.example.gamecenter.setting.SettingsActivity;
 import com.example.gamecenter.games.slidinggame.activity.SlidingMenu;
@@ -22,12 +23,13 @@ import com.example.gamecenter.login.LoginActivity;
 import com.example.gamecenter.strategy.BackGroundSetter;
 import com.example.gamecenter.user.User;
 
-public class CatchBallResultActivity extends AppCompatActivity {
+public class CatchBallResultActivity extends AppCompatActivity implements GameDataSaver {
 
     private Handler mHandler;
     private Activity current;
     private ImageView setting;
     private Button mainPage;
+    private int score;
 
     private User currentPlayer = LoginActivity.currentPlayer;
 
@@ -58,20 +60,20 @@ public class CatchBallResultActivity extends AppCompatActivity {
         this.mHandler = new Handler();
         this.mRunnable.run();
 
-        int score = getIntent().getIntExtra("SCORE", 0);
+        score = getScore("CATCH_BALL_SCORE");
         scoreLabel.setText(score + "");
         usernameLabel.setText("Username: " + currentPlayer.getUsername());
         currentPlayer.setScore(score);
 
         SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);
-        int highScore = settings.getInt("HIGH_SCORE", 0);
+        int highScore = settings.getInt("CATCH_BALL_HIGH_SCORE", 0);
 
         if (score > highScore) {
             highScoreLabel.setText("High Score: " + score);
 
             //save
             SharedPreferences.Editor editor = settings.edit();
-            editor.putInt("HIGH_SCORE", score);
+            editor.putInt("CATCH_BALL_HIGH_SCORE", score);
             editor.apply();
 
 
@@ -87,6 +89,15 @@ public class CatchBallResultActivity extends AppCompatActivity {
             CatchBallResultActivity.this.mHandler.postDelayed(mRunnable, 50);
         }
     };
+
+    public int getScore(String dataName){
+        int score = getIntent().getIntExtra(dataName,0);
+        return score;
+    }
+
+    public int getTime(){
+        return 0;//not yet pass the time data
+    }
 
     public void next(View view) {
         startActivity(new Intent(getApplicationContext(), SlidingMenu.class));
