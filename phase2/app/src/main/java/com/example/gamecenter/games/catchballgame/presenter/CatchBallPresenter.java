@@ -16,7 +16,6 @@ import com.example.gamecenter.scoreboard.Scoreboard;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
 
 
 public class CatchBallPresenter implements GameController, MySubject {
@@ -40,7 +39,6 @@ public class CatchBallPresenter implements GameController, MySubject {
     public void onStart(MotionEvent action, boolean startFlag, int frameHeight) {
         if (startFlag) {
             catchBallView.makeAction(action);
-            catchBallView.setPauseButton();
 
 
         } else {
@@ -48,7 +46,7 @@ public class CatchBallPresenter implements GameController, MySubject {
             manager.updatePlayerSize();
             manager.setBoardHeight(frameHeight);
             catchBallView.hideStartLabel();
-            catchBallView.getGameTimer().start();
+            catchBallView.getGameTimer().restart();
             catchBallView.updateTimer();
         }
 

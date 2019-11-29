@@ -18,7 +18,7 @@ import com.example.gamecenter.strategy.BackGroundSetter;
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener {
     //crete mediaPlayer variable with type MediaPlayer
     private MediaPlayer mediaPlayer;
-    //create buttons: back, start, play, pause, day, and night
+    //create buttons: back, restart, play, pause, day, and night
     private Switch setBackground;
 
     @Override
@@ -57,7 +57,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             case com.example.gamecenter.R.id.btn_pause:
                 mediaPlayer.pause();
                 break;
-            //if we press start, the music will start playing
+            //if we press restart, the music will restart playing
             case com.example.gamecenter.R.id.btn_play:
                 mediaPlayer.start();
                 break;

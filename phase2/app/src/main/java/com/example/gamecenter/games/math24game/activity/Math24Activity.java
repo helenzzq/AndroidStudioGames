@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.TextView;
 
 import com.example.gamecenter.games.math24game.Math24Presenter;
@@ -14,6 +15,7 @@ import com.example.gamecenter.games.math24game.model.Math24Manager;
 import com.example.gamecenter.strategy.BaseActivity;
 import com.example.gamecenter.R;
 import com.example.gamecenter.gameinterface.GameView;
+import com.example.gamecenter.strategy.GameTimer;
 
 
 public class Math24Activity extends BaseActivity implements GameView, View.OnClickListener {
@@ -43,17 +45,19 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         setTextSpace();
         setUpMenuBtn();
 
+        Button pauseBtn = findViewById(R.id.mathPause);
+        GameTimer gameTimer = new GameTimer(findViewById(R.id.mathTimer));
+        gameTimer.restart();
+        pauseBtn.setTag(0);
+        setPauseButton(pauseBtn, gameTimer);
+
+
         scoreText = findViewById(R.id.score);
         scoreText.setText(String.format("Your score %d", score));
-
         //set the first question, including set the text of number buttons
-
         presenter = new Math24Presenter(new Math24Manager(), this);
-
         SharedPreferences level = getSharedPreferences("mathLevel", Context.MODE_PRIVATE);
-
         presenter.onStart(level.getString("level",""));
-
 
     }
 
@@ -260,7 +264,7 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
 
     public void showFailure(){
         textLive.setTextColor(Color.RED);
-        message.setText("You lost the game!!!");
+        message.setText("You lose the game!!!");
     }
 
     @Override
