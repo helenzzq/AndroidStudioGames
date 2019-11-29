@@ -4,17 +4,20 @@ import android.widget.ImageView;
 
 abstract class Ball implements MoveItem {
 
-
+    //view of the ball
     private ImageView view;
-
+    //x coordinate of the ball
     private int x;
+    //y coordinate of the ball
     private int y;
+    //
     private int point;
+    //speed of the ball
     private int speed;
 
 
 
-
+    //ball information including its x and y coordinates, view and speed
     Ball(int x, int y, ImageView view, int speed){
         this.view = view;
         view.setX(x);
@@ -79,17 +82,18 @@ abstract class Ball implements MoveItem {
         return view;
     }
 
-
+    // return y coordinate of the centre of the ball
     int getCenterY() {
 
         return y + view.getHeight()/2;
     }
-
+    // return x coordinate of the centre of the ball
     int getCenterX() {
 
         return x + view.getWidth()/2;
     }
     @Override
+    //
     public void move(int screenWidth, int frameHeight, int width){
 
         x -= speed;
