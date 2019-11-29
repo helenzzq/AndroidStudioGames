@@ -9,12 +9,15 @@
     tools:context=".games.catchballgame.activity.CatchBallActivity">
 
     <Chronometer
-        android:id="@+id/chronometer"
+        android:id="@+id/chronometerBall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="55dp"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toStartOf="@+id/catchBallLevel"
+        android:layout_marginStart="84dp"
+        android:layout_marginEnd="214dp"
+        android:format='"USED TIME: 00:00'
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,7 +45,7 @@
         app:layout_constraintBottom_toTopOf="@+id/frame"
         app:layout_constraintEnd_toStartOf="@+id/catchBallLevel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chronometer" />
+        app:layout_constraintTop_toBottomOf="@+id/chronometerBall" />
 
     <FrameLayout
         android:id="@+id/frame"
@@ -125,18 +128,17 @@
         android:layout_width="209dp"
         android:layout_height="37dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginStart="115dp"
+        android:layout_marginStart="150dp"
         android:layout_marginTop="41dp"
-        android:layout_marginEnd="47dp"
+        android:layout_marginEnd="52dp"
         android:layout_marginBottom="10dp"
         android:text=""
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/text_live"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.375" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
