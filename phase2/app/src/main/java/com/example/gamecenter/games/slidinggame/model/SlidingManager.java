@@ -35,9 +35,7 @@ public class SlidingManager implements GameManager {
         return slidingCards;
     }
 
-    public CardCollection getCardCollection() {
-        return cardCollection;
-    }
+
 
     public int getScore() {
         return score;
@@ -77,10 +75,10 @@ public class SlidingManager implements GameManager {
                             x--;
                             merge = true;
                         } else if (slidingCards[x][y].equals(slidingCards[x1][y])) {
-                            slidingCards[x][y].setNum(slidingCards[x][y].getNum() * 2);
+                            slidingCards[x][y].setNum(slidingCards[x][y].getNum() + 1);
                             slidingCards[x1][y].setNum(0);
 
-                            score += (slidingCards[x][y].getNum());
+                            score += (Math.pow(2,slidingCards[x][y].getNum()));
                             merge = true;
                         }
 
@@ -111,9 +109,9 @@ public class SlidingManager implements GameManager {
                             x++;
                             merge = true;
                         } else if (slidingCards[x][y].equals(slidingCards[x1][y])) {
-                            slidingCards[x][y].setNum(slidingCards[x][y].getNum() * 2);
+                            slidingCards[x][y].setNum(slidingCards[x][y].getNum() + 1);
                             slidingCards[x1][y].setNum(0);
-                            score += (slidingCards[x][y].getNum());
+                            score += (Math.pow(2,slidingCards[x][y].getNum()));
                             merge = true;
                         }
 
@@ -145,9 +143,9 @@ public class SlidingManager implements GameManager {
                             merge = true;
 
                         } else if (slidingCards[x][y].equals(slidingCards[x][y1])) {
-                            slidingCards[x][y].setNum(slidingCards[x][y].getNum() * 2);
+                            slidingCards[x][y].setNum(slidingCards[x][y].getNum() + 1);
                             slidingCards[x][y1].setNum(0);
-                            score += (slidingCards[x][y].getNum());
+                            score += (Math.pow(2,slidingCards[x][y].getNum()));
                             merge = true;
 
                         }
@@ -180,10 +178,10 @@ public class SlidingManager implements GameManager {
                             merge = true;
 
                         } else if (slidingCards[x][y].equals(slidingCards[x][y1])) {
-                            slidingCards[x][y].setNum(slidingCards[x][y].getNum() * 2);
+                            slidingCards[x][y].setNum(slidingCards[x][y].getNum() + 1);
                             slidingCards[x][y1].setNum(0);
 
-                            score += (slidingCards[x][y].getNum());
+                            score += (Math.pow(2,slidingCards[x][y].getNum()));
                             merge = true;
 
                         }

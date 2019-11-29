@@ -120,7 +120,7 @@ public class SlidingGrid extends GridLayout{
         for (int y = 0; y < num; y++) {
             for (int x = 0; x < num; x++) {
                 SlidingCard c = new SlidingCard(getContext());
-                c.setNum(2);
+                c.setNum(1);
                 addView(c, cardWidth, cardHeight);
                 slidingCard[x][y] = c;
             }

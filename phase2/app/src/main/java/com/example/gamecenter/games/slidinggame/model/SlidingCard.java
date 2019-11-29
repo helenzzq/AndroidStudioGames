@@ -8,7 +8,7 @@ import com.example.gamecenter.R;
 
 public class SlidingCard extends FrameLayout {
     private ImageView pic;
-    private int[] picArray = new int[33000];
+    private int[] picArray = new int[16];
     private int num = 0;
     private int c = 3;
 
@@ -27,21 +27,21 @@ public class SlidingCard extends FrameLayout {
 
     public void matchPic() {
         picArray[0] = 0;
-        picArray[2] = R.drawable.rare0;
-        picArray[4] = R.drawable.rare1;
-        picArray[8] = R.drawable.rare2;
-        picArray[16] = R.drawable.rare3;
-        picArray[32] = R.drawable.rare4;
-        picArray[64] = R.drawable.rare5;
-        picArray[128] = R.drawable.rare6;
-        picArray[256] = R.drawable.rare7;
-        picArray[512] = R.drawable.rare8;
-        picArray[1024] = R.drawable.rare9;
-        picArray[2048] = R.drawable.rare10;
-        picArray[4096] = R.drawable.rare11;
-        picArray[8192] = R.drawable.rare12;
-        picArray[16384] = R.drawable.rare13;
-        picArray[32768] = R.drawable.rare14;
+        picArray[1] = R.drawable.rare0;
+        picArray[2] = R.drawable.rare1;
+        picArray[3] = R.drawable.rare2;
+        picArray[4] = R.drawable.rare3;
+        picArray[5] = R.drawable.rare4;
+        picArray[6] = R.drawable.rare5;
+        picArray[7] = R.drawable.rare6;
+        picArray[8] = R.drawable.rare7;
+        picArray[9] = R.drawable.rare8;
+        picArray[10] = R.drawable.rare9;
+        picArray[11] = R.drawable.rare10;
+        picArray[12] = R.drawable.rare11;
+        picArray[13] = R.drawable.rare12;
+        picArray[14] = R.drawable.rare13;
+        picArray[15] = R.drawable.rare14;
 
     }
 
