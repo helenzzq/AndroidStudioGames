@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.TextView;
 
 import com.example.gamecenter.games.math24game.Math24Presenter;
@@ -14,6 +15,7 @@ import com.example.gamecenter.games.math24game.model.Math24Manager;
 import com.example.gamecenter.strategy.BaseActivity;
 import com.example.gamecenter.R;
 import com.example.gamecenter.gameinterface.GameView;
+import com.example.gamecenter.strategy.GameTimer;
 
 
 public class Math24Activity extends BaseActivity implements GameView, View.OnClickListener {
@@ -43,22 +45,25 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         setTextSpace();
         setUpMenuBtn();
 
+        Button pauseBtn = findViewById(R.id.mathPause);
+        GameTimer gameTimer = new GameTimer(findViewById(R.id.mathTimer));
+        gameTimer.restart();
+        pauseBtn.setTag(0);
+        setPauseButton(pauseBtn, gameTimer);
+
+
         scoreText = findViewById(R.id.score);
         scoreText.setText(String.format("Your score %d", score));
-
         //set the first question, including set the text of number buttons
-
         presenter = new Math24Presenter(new Math24Manager(), this);
-
         SharedPreferences level = getSharedPreferences("mathLevel", Context.MODE_PRIVATE);
-
         presenter.onStart(level.getString("level",""));
-
 
     }
 
     private void setUpNumBtnView() {
         //create number buttons whose texts are questions
+
         Button num1 = findViewById(R.id.mathnum1);
         Button num2 = findViewById(R.id.mathnum2);
         Button num3 = findViewById(R.id.mathnum3);
@@ -203,11 +208,6 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         }
     }
 
-    public void lostLife() {
-        int lives = getNumLives() - 1;
-        if(lives > 0)   setNumLives(lives);
-    }
-
     public void resetAll() {
         mathExpression.setText("");
         clear.setEnabled(false);
@@ -246,7 +246,7 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     }
     @Override
     public void goToResult() {
-        super.goToResult(Math24ResultActivity.class, score);
+        super.goToResult(Math24ResultActivity.class, "MATH24_SCORE", score);
     }
 
     @SuppressLint("DefaultLocale")
@@ -257,14 +257,14 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     }
 
     public void updateLives(){
-        lostLife();
-        textLive.setText(String.format("Lives remaining %d", getNumLives()));
+        numLives -= 1;
+        textLive.setText(String.format("Lives remaining %d", numLives));
 
     }
 
     public void showFailure(){
         textLive.setTextColor(Color.RED);
-        message.setText("You lost the game!!!");
+        message.setText("You lose the game!!!");
     }
 
     @Override
@@ -275,9 +275,5 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
 
     public int getNumLives() {
         return numLives;
-    }
-
-    public void setNumLives(int numLives) {
-        this.numLives = numLives;
     }
 }

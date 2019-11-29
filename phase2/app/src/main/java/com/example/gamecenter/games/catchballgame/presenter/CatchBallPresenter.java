@@ -1,6 +1,7 @@
 package com.example.gamecenter.games.catchballgame.presenter;
 
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
@@ -38,16 +39,15 @@ public class CatchBallPresenter implements GameController, MySubject {
     public void onStart(MotionEvent action, boolean startFlag, int frameHeight) {
         if (startFlag) {
             catchBallView.makeAction(action);
-            catchBallView.setPauseButton();
 
 
         } else {
             catchBallView.setStartFlag(true);
             manager.updatePlayerSize();
             manager.setBoardHeight(frameHeight);
-
+            catchBallView.hideStartLabel();
+            catchBallView.getGameTimer().restart();
             catchBallView.updateTimer();
-
         }
 
     }
@@ -56,8 +56,7 @@ public class CatchBallPresenter implements GameController, MySubject {
         manager.hitCheck();
         catchBallView.updateScore(manager.getScore());
         if (manager.isGameOver()) {
-            catchBallView.hideStartLabel();
-            catchBallView.stopTimer();
+            catchBallView.getGameTimer().stop();
             catchBallView.goToResult();
         } else {
             manager.changePos(actionFlag);

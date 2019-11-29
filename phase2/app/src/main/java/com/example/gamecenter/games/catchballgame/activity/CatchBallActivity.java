@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,6 +20,7 @@ import com.example.gamecenter.gameinterface.GameView;
 import com.example.gamecenter.R;
 import com.example.gamecenter.games.catchballgame.presenter.CatchBallPresenter;
 import com.example.gamecenter.strategy.BaseActivity;
+import com.example.gamecenter.strategy.GameTimer;
 
 import java.io.Serializable;
 import java.util.Observable;
@@ -45,13 +48,13 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
 
     //Initialize Class
     private Handler handler = new Handler();
-    public Timer timer = new Timer();
+    public GameTimer gameTimer;
 
     //Status check
     private boolean actionFlag = false;
     private boolean startFlag = false;
-    private boolean pauseFlag = false;
     private TextView level;
+    private Chronometer chrono;
 
 
     private static final String fileName = "catchball.ser";
@@ -74,51 +77,38 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
 
         level = findViewById(R.id.catchBallLevel);
         level.setText("LEVEL1"  );
-//        GameFileSaver gameFileSaver = new GameFileSaver(this, LoginActivity.currentPlayer.
-//                getCatchBallGameFile());
-//
-//        if(gameFileSaver.getGameManager() != null){
-//            presenter.setGameManager(gameFileSaver.getGameManager());
-//        }
-//        presenter.register(gameFileSaver);
-//        gameFileSaver.saveToFile();
 
-
+//         Set GameTimer
+        chrono = findViewById(R.id.chronometerBall);
+        gameTimer = new GameTimer(chrono);
 
         pauseButton =findViewById(R.id.catchBallPause);
-
         scoreLabel = findViewById(R.id.scoreLabel);
         startLabel = findViewById(R.id.startLabel);
 
         scoreLabel.setText("Score: 0" );
+        pauseButton.setTag(0);
+        setPauseButton(pauseButton, gameTimer);
 
     }
 
-    /**
-     * Stop the Timer
-     */
-    public void stopTimer(){
-        //stop the timer
-        timer.cancel();
-        timer=null;
-    }
     /**
      * Go to the result of the Game
      */
     @Override
     public void goToResult() {
-        super.goToResult(CatchBallResultActivity.class,score);
-
+        super.goToResult(CatchBallResultActivity.class,"CATCH_BALL_SCORE", score);
     }
 
+
+
     /**
-     * Update the Timer
+     * Update the GameTimer
      */
 
     @SuppressLint("SetTextI18n")
     public void updateTimer(){
-        startLabel.setVisibility(View.GONE);
-        timer.schedule(new TimerTask() {
+        gameTimer.getTimer().schedule(new TimerTask() {
             @Override
             public void run() {
                 handler.post(() -> {
@@ -138,7 +128,9 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
     public boolean onTouchEvent(MotionEvent action) {
 
         FrameLayout frame = findViewById(R.id.frame);
-        presenter.onStart(action,startFlag, frame.getHeight()-130);
+
+        presenter.onStart(action, startFlag, frame.getHeight()-130);
+
         return true;
     }
 
@@ -163,8 +155,9 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
         this.score = score;
     }
 
-
-
+    public GameTimer getGameTimer() {
+        return gameTimer;
+    }
 
     public int getScore() {
         return score;
@@ -176,36 +169,24 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
 
     @SuppressLint("SetTextI18n")
 
-    public void setPauseButton() {
-        findViewById(R.id.catchBallPause).setOnClickListener(v -> {
-            if (!pauseFlag && startFlag){
-                pauseFlag = true;
+    @Override
+    public void setPauseButton(Button pauseBtn, GameTimer gameTimer) {
+        pauseBtn.setOnClickListener(v -> {
+            if ((int)pauseBtn.getTag() == 0 && startFlag){
+                pauseBtn.setTag(1);
 
-                stopTimer();
-
+                gameTimer.stop();
                 //Change Button Text;
-                pauseButton.setText("RESUME");
+                pauseBtn.setText("RESUME");
+
             }
             else{
-
-                pauseFlag = false;
-
-                timer = new Timer();
-                timer.schedule(new TimerTask() {
-                    @Override
-                    public void run() {
-                        handler.post(() -> {
-                            presenter.hitCheck(actionFlag);
-                            scoreLabel.setText("Score: " + score );
-                        });
-                    }
-                },0,20);
-
+                pauseBtn.setTag(0);
+                gameTimer.restart();
+                updateTimer();
                 //Change Button Text;
-                pauseButton.setText("PAUSE");
-
+                pauseBtn.setText("PAUSE");
             }
-
 
         });
     }
@@ -243,7 +224,6 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
     private void makeToastSavedText() {
         Toast.makeText(this, "Game Saved", Toast.LENGTH_SHORT).show();
     }
-
 
 
 }

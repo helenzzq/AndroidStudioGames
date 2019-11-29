@@ -8,6 +8,7 @@ public class Math24Manager implements GameManager {
     private int score;
     private boolean gameOver;
     private QuestionBank questionBank;
+    private boolean checkAnswer;
 
     public Math24Manager(){
         this.score = 10;
@@ -16,20 +17,19 @@ public class Math24Manager implements GameManager {
     }
 
 
-    private int setAddScore(int coefficient){
-        return score * coefficient;
+    public String getLevel(){
+        if(! checkNextLevel()){
+            return "Level 1";
+        }
+        else{
+            return "Level 2";
+        }
     }
 
 
-    public int[] getQuestion(String level){
-        if (level.equals("easy")){
-            score = setAddScore(5);
-        }
-        else{
-            score = setAddScore(10);
-        }
+    public int[] getQuestion(){
+            return questionBank.getRandomQ(getLevel());
 
-        return questionBank.getRandomQ(level);
     }
 
     //test if the result equals 24
@@ -37,20 +37,31 @@ public class Math24Manager implements GameManager {
         return gameOver;
     }
 
+    public boolean isCheckAnswer(){
+        return checkAnswer;
+    }
+
     @Override
     public boolean checkNextLevel() {
-        return false;
+        return score >= 150;
     }
 
 
     //determine if the player's answer can make it to 24
     public int calculate(String equation){
         int result = (int)Math.round(Calculator.getResult(equation));
-        gameOver = (result == 24);
+        checkAnswer = (result == 24);
         return result;
     }
 
+
     public int getScore() {
+        if(! checkNextLevel()){
+            score += 50;
+        }
+        else{
+            score += 100;
+        }
         return score;
     }
 }
