@@ -43,7 +43,12 @@ import java.util.Observable;
 
     }
 
+     void setBasespeed(int baseSpeed){
+         for (int i = 0; i < 3; i ++){
+             balls[i].setSpeed(baseSpeed + i * 4);
+         }
 
+     }
 
 
      Ball[] getBalls(){

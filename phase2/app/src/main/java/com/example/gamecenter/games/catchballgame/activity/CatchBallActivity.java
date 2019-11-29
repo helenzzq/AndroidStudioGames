@@ -51,6 +51,7 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
     private boolean actionFlag = false;
     private boolean startFlag = false;
     private boolean pauseFlag = false;
+    private TextView level;
 
 
     private static final String fileName = "catchball.ser";
@@ -69,6 +70,10 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
                 findViewById(R.id.pink), findViewById(R.id.box)};
         presenter = new CatchBallPresenter(this,levels.getString("level", "")
                 , imgs, getWindowManager());
+
+
+        level = findViewById(R.id.catchBallLevel);
+        level.setText("LEVEL1"  );
 //        GameFileSaver gameFileSaver = new GameFileSaver(this, LoginActivity.currentPlayer.
 //                getCatchBallGameFile());
 //
@@ -86,8 +91,6 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
         startLabel = findViewById(R.id.startLabel);
 
         scoreLabel.setText("Score: 0" );
-
-
 
     }
 
@@ -125,6 +128,10 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
             }
         },0,20);
 
+    }
+
+    public void setLevel(String levels) {
+       level.setText(levels);
     }
 
     @Override

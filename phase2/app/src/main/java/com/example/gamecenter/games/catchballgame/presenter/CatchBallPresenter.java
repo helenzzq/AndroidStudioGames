@@ -61,6 +61,10 @@ public class CatchBallPresenter implements GameController, MySubject {
             catchBallView.goToResult();
         } else {
             manager.changePos(actionFlag);
+            if(manager.checkNextLevel()){
+                catchBallView.setLevel("LEVEL2");
+            }
+
         }
     }
 
@@ -77,8 +81,9 @@ public class CatchBallPresenter implements GameController, MySubject {
     @Override
     public void setGameManager(GameManager manager) {
         this.manager = (CatchBallManager) manager;
-
     }
+
+
 
     /**
      * @param scoreboard
