@@ -14,6 +14,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.gamecenter.R;
 import com.example.gamecenter.games.catchballgame.activity.CatchBallMenu;
+import com.example.gamecenter.games.math24game.activity.Math24Menu;
+import com.example.gamecenter.games.slidinggame.activity.SlidingMenu;
 import com.example.gamecenter.setting.SettingsActivity;
 import com.example.gamecenter.strategy.BackGroundSetter;
 
@@ -22,6 +24,9 @@ public class MainMenuActivity extends AppCompatActivity {
     private ImageView setting;
     private Handler mHandler;
     private Activity current;
+    private Button catchballGame;
+    private Button slidingGame;
+    private Button math24Game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +47,29 @@ public class MainMenuActivity extends AppCompatActivity {
         final Button btPlay = findViewById(R.id.btPlay);
 
         setting = findViewById(R.id.setting_btn_mainMenu);
+        catchballGame = findViewById(R.id.btn_catchBall);
+        slidingGame = findViewById(R.id.btn_slidingGame);
+        math24Game = findViewById(R.id.btn_math24);
+
         setting.setOnClickListener(v -> {
             Intent intent2 = new Intent(MainMenuActivity.this, SettingsActivity.class);
             startActivity(intent2);
         });
+
+        catchballGame.setOnClickListener(v -> {
+            Intent catchBallgame1 = new Intent(MainMenuActivity.this, CatchBallMenu.class);
+            startActivity(catchBallgame1);
+        });
+
+        slidingGame.setOnClickListener(v -> {
+            Intent slidingGame1 = new Intent(MainMenuActivity.this, SlidingMenu.class);
+            startActivity(slidingGame1);
+        });
+
+        math24Game.setOnClickListener(v -> {
+            Intent math24Game1 = new Intent(MainMenuActivity.this, Math24Menu.class);
+            startActivity(math24Game1);
+            });
 
 
         btPlay.setOnClickListener(v -> {

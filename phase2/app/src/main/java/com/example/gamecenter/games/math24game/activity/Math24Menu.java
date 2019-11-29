@@ -57,7 +57,7 @@ public class Math24Menu extends BaseActivity implements GameMenu, PopupMenu.OnMe
         @Override
         public void run() {
             RelativeLayout layout = findViewById(R.id.math24Menu);
-            BackGroundSetter.setWallPaper(new TextView[]{findViewById(R.id.math24_text)},current,layout);
+            BackGroundSetter.setWallPaper(new TextView[]{findViewById(R.id.savePrincess)},current,layout);
             handler.postDelayed(runnable, 50);
         }
     };

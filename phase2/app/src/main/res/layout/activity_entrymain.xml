@@ -9,7 +9,7 @@
     tools:context=".login.MainEntryActivity">
 
     <TextView
-        android:id="@+id/math24_text"
+        android:id="@+id/savePrincess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"

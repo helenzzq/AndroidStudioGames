@@ -9,7 +9,7 @@
     tools:context=".games.math24game.activity.Math24Menu">
 
     <TextView
-        android:id="@+id/math24_text"
+        android:id="@+id/savePrincess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -28,7 +28,7 @@
         style="@android:style/Widget.DeviceDefault.Button.Small"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/math24_text"
+        android:layout_below="@+id/savePrincess"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:background="@drawable/buttonshape"
