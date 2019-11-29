@@ -59,6 +59,7 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
 
     private void setUpNumBtnView() {
         //create number buttons whose texts are questions
+
         Button num1 = findViewById(R.id.mathnum1);
         Button num2 = findViewById(R.id.mathnum2);
         Button num3 = findViewById(R.id.mathnum3);
