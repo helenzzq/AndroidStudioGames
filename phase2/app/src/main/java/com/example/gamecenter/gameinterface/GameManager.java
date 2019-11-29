@@ -6,9 +6,19 @@ package com.example.gamecenter.gameinterface;
 public interface GameManager {
 
     /**
-     * Get the Score of the game.
+     * Return the Score of the game.
      */
     int getScore();
 
+    /**
+     * Check whether the game is over;
+     */
     boolean isGameOver();
+
+
+    /**
+     * Check whether we can go to next level
+     */
+    boolean checkNextLevel();
+
 }

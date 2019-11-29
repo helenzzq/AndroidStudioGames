@@ -203,6 +203,11 @@ public class SlidingManager implements GameManager {
         return gameOver;
     }
 
+    @Override
+    public boolean checkNextLevel() {
+        return false;
+    }
+
     public void setCardCollection(){
         cardCollection.setCardCollection();
         cardCollection.addRandomNum();
