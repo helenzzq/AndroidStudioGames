@@ -3,6 +3,7 @@ package com.example.gamecenter.games.slidinggame.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.gamecenter.R;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 
@@ -10,8 +11,9 @@ import android.widget.Button;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class SlidingIntroActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button resume;
+import static android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
+
+public class SlidingIntroActivity extends AppCompatActivity {
 
     
     @Override
@@ -19,15 +21,17 @@ public class SlidingIntroActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sliding_intro);
 
-        resume = findViewById(R.id.btn_resume);
-        resume.setOnClickListener(this);
+        setResumeBtn();
     }
 
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btn_resume:
-                finish();
-                break;
-        }
+    private void setResumeBtn(){
+        findViewById(R.id.btn_resume).setOnClickListener(v -> {
+
+            Intent i = new Intent(this, SlidingActivity.class);
+            i.addFlags(FLAG_ACTIVITY_REORDER_TO_FRONT);
+            startActivity(i);
+            SlidingActivity.getGameTimer().restart();
+
+        });
     }
 }

@@ -18,7 +18,7 @@ public class Math24ScoreboardActivity extends AppCompatActivity {
     /**
      * The quick reference for the currently logged in player.
      */
-    private User currentPlayer = LoginActivity.currentPlayer;
+   // private User currentPlayer = LoginActivity.currentPlayer;
 
     /**
      *The controller of this view
@@ -35,13 +35,13 @@ public class Math24ScoreboardActivity extends AppCompatActivity {
         gameTitle.setText("Memory");
         scoreDescription.setText("Least moves taken");
 
-        TextView globalScoresText = findViewById(R.id.GlobalScores);
-        String globalScoreValues = Math24Menu.scoreboard.getScoreValues(false, currentPlayer);
-        globalScoresText.setText(globalScoreValues);
-
-        TextView userScoresText = findViewById(R.id.UserScores);
-        String userScoreValues = Math24Menu.scoreboard.getScoreValues(true, currentPlayer);
-        userScoresText.setText(userScoreValues);
+//        TextView globalScoresText = findViewById(R.id.GlobalScores);
+//        String globalScoreValues = Math24Menu.scoreboard.getScoreValues(false, currentPlayer);
+//        globalScoresText.setText(globalScoreValues);
+//
+//        TextView userScoresText = findViewById(R.id.UserScores);
+//        String userScoreValues = Math24Menu.scoreboard.getScoreValues(true, currentPlayer);
+//        userScoresText.setText(userScoreValues);
     }
 
     /**

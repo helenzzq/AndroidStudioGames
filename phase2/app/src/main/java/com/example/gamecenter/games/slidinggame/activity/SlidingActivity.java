@@ -24,19 +24,20 @@ public class SlidingActivity extends BaseActivity implements GameView {
     private TextView textScore;
     //The number of columns and rows.
     public static int num;
-    private GameTimer gameTimer;
+    private static GameTimer gameTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SharedPreferences levels = getSharedPreferences("slidingLevel", Context.MODE_PRIVATE);
-        if("easy".equals(levels.getString("level", ""))){
+        if ("easy".equals(levels.getString("level", ""))) {
             setNum(3);
-        }else{
+        } else {
             setNum(4);
         }
         setContentView(R.layout.activity_sliding);
         setBackButton();
+        setHelpButton();
         textScore = findViewById(R.id.tvScore);
         SlidingGrid.getPresenter().setWeaponView(this);
 
@@ -47,14 +48,19 @@ public class SlidingActivity extends BaseActivity implements GameView {
         pauseBtn.setTag(0);
         setPauseButton(pauseBtn, gameTimer);
 
+
     }
 
-    public static void setNum(int column){
+    public static void setNum(int column) {
         num = column;
     }
 
-    public static int getNum(){
+    public static int getNum() {
         return num;
+    }
+
+    public static GameTimer getGameTimer() {
+        return gameTimer;
     }
 
     @Override
@@ -66,11 +72,11 @@ public class SlidingActivity extends BaseActivity implements GameView {
 
     @Override
     public void goToResult() {
-        super.goToResult(SlidingResultActivity.class,"SLIDING_SCORE", score);
+        super.goToResult(SlidingResultActivity.class, "SLIDING_SCORE", score);
     }
 
 
-    public void setBackButton(){
+    public void setBackButton() {
         findViewById(R.id.backtoMain).setOnClickListener(v -> {
             Intent i = new Intent(this, SlidingMenu.class);
             i.addFlags(FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -81,5 +87,16 @@ public class SlidingActivity extends BaseActivity implements GameView {
         });
     }
 
+    public void setHelpButton() {
+        findViewById(R.id.Help2048).setOnClickListener(v -> {
+            Intent i = new Intent(this, SlidingIntroActivity.class);
+            i.addFlags(FLAG_ACTIVITY_REORDER_TO_FRONT);
+            startActivity(i);
+            gameTimer.stop();
+
+        });
+    }
 
 }
+
+
