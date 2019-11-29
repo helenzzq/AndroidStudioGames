@@ -8,11 +8,13 @@ import android.widget.ImageView;
 import java.io.Serializable;
 import java.util.Observable;
 
- public class CatchBoard extends Observable implements Serializable {
+import static android.view.View.X;
+
+public class CatchBoard extends Observable implements Serializable {
     private int screenWidth;
-    private OrangeBall orange;
-    private BlackBall black;
-    private PinkBall pink;
+    private Ball orange;
+    private Ball black;
+    private Ball pink;
     private Ball[] balls;
     private PlayerPrince playerPrince;
     private int frameHeight;
@@ -30,16 +32,10 @@ import java.util.Observable;
 
         screenWidth = size.x;
         playerPrince = new PlayerPrince(views[3]);
-        orange = new OrangeBall(x,y, views[0],baseSpeed);
-        black = new BlackBall(x,y, views[1], baseSpeed + 4);
-        pink = new PinkBall(x,y, views[2], baseSpeed + 8);
+        orange = new OrangeBallBuilder().setX(x).setY(y).setView(views[0]).setPoint(10).setSpeed(baseSpeed).build();
+        black = new BlackBallBuilder().setX(x).setY(y).setView(views[1]).setPoint(0).setSpeed(baseSpeed+4).build();
+        pink = new PinkBallBuilder().setX(x).setY(y).setView(views[2]).setPoint(30).setSpeed(baseSpeed+8).build();
         balls = new Ball[] {orange,black,pink};
-//        balls = new ArrayList<>();
-//        for (int i = 0; i< 2; i++){
-//            balls.add( new OrangeBall(x+10*i,y+10*i, views[0],baseSpeed));
-//            balls.add( new BlackBall(x+10*i,y+10*i, views[1], baseSpeed + 4));
-//            balls.add(new PinkBall(x+10*i,y+10*i, views[2], baseSpeed + 8));
-//        }
 
     }
 

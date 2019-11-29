@@ -15,16 +15,18 @@ class Ball implements MoveItem {
     //speed of the ball
     private int speed;
 
+    private boolean status;
 
 
     //ball information including its x and y coordinates, view and speed
-    Ball(int x, int y, ImageView view, int speed){
-        this.view = view;
-        view.setX(x);
-        view.setY(y);
-        point = 0;
-        this.speed = speed;
-    }
+    //Ball(int x, int y, ImageView view, int speed){
+        //this.view = view;
+        //view.setX(x);
+        //view.setY(y);
+        //point = 0;
+        //this.speed = speed;
+    //
+    // }
 
     /**
      * A getter for the point of the ball
@@ -34,20 +36,33 @@ class Ball implements MoveItem {
         return point;
     }
 
+    public void setPoint(int point){
+        this.point = point;
+    }
+
+    public void setView(ImageView view) {
+        this.view = view;
+    }
+
+    public boolean getStatus(){return this.status;}
+
     /**
      * A setter for the x coordinate of the ball
      */
     @Override
     public void setX(int x) {
         this.x = x;
-
     }
+
+    public boolean CheckStatus() {
+        return this.status;
+    }
+
     /**
      * A setter for the y coordinate of the ball
      */
     @Override
     public void setY(int y) {
-
         this.y = y;
     }
     /**
@@ -104,5 +119,7 @@ class Ball implements MoveItem {
         view.setX(x);
         view.setY(y);
     }
+
+
 
 }

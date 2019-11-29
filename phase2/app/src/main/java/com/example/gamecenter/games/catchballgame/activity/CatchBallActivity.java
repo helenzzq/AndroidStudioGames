@@ -39,7 +39,6 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
     private TextView scoreLabel;
     private TextView startLabel;
     private Button pauseButton;
-    private long lastPause;
 
     //Score for the game
     private int score=0;
@@ -54,7 +53,6 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
     //Status check
     private boolean actionFlag = false;
     private boolean startFlag = false;
-    private boolean pauseFlag = false;
     private TextView level;
     private Chronometer chrono;
 
@@ -89,14 +87,8 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
         startLabel = findViewById(R.id.startLabel);
 
         scoreLabel.setText("Score: 0" );
-        //        GameFileSaver gameFileSaver = new GameFileSaver(this, LoginActivity.currentPlayer.
-//                getCatchBallGameFile());
-//
-//        if(gameFileSaver.getGameManager() != null){
-//            presenter.setGameManager(gameFileSaver.getGameManager());
-//        }
-//        presenter.register(gameFileSaver);
-//        gameFileSaver.saveToFile();
+        pauseButton.setTag(0);
+        setPauseButton(pauseButton, gameTimer);
 
     }
 
@@ -125,7 +117,6 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
                 });
             }
         },0,20);
-        chrono.start();
 
     }
 
@@ -178,27 +169,23 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
 
     @SuppressLint("SetTextI18n")
 
-    public void setPauseButton() {
-        findViewById(R.id.catchBallPause).setOnClickListener(v -> {
-            if (!pauseFlag && startFlag){
-                pauseFlag = true;
+    @Override
+    public void setPauseButton(Button pauseBtn, GameTimer gameTimer) {
+        pauseBtn.setOnClickListener(v -> {
+            if ((int)pauseBtn.getTag() == 0 && startFlag){
+                pauseBtn.setTag(1);
 
                 gameTimer.stop();
                 //Change Button Text;
-                pauseButton.setText("RESUME");
+                pauseBtn.setText("RESUME");
 
             }
             else{
-                chrono.setBase(chrono.getBase() + SystemClock.elapsedRealtime() - lastPause);
-
-                chrono.start();
-
-                pauseFlag = false;
-                gameTimer.start();
+                pauseBtn.setTag(0);
+                gameTimer.restart();
                 updateTimer();
-                chrono.start();
                 //Change Button Text;
-                pauseButton.setText("PAUSE");
+                pauseBtn.setText("PAUSE");
             }
 
         });

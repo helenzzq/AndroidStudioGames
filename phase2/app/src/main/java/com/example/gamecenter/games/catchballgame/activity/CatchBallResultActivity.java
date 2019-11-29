@@ -12,26 +12,25 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Button;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gamecenter.R;
-import com.example.gamecenter.gamedata.GameDataSaver;
+import com.example.gamecenter.gamedata.GameDataBuilder;
 import com.example.gamecenter.login.MainMenuActivity;
-import com.example.gamecenter.setting.SettingsActivity;
 import com.example.gamecenter.games.slidinggame.activity.SlidingMenu;
-import com.example.gamecenter.login.LoginActivity;
 import com.example.gamecenter.strategy.BackGroundSetter;
+import com.example.gamecenter.strategy.BaseActivity;
 import com.example.gamecenter.user.User;
+import com.example.gamecenter.user.UserManager;
 
-public class CatchBallResultActivity extends AppCompatActivity implements GameDataSaver {
+public class CatchBallResultActivity extends BaseActivity {
 
     private Handler mHandler;
     private Activity current;
     private ImageView setting;
-    private Button mainPage;
+    private Button backToMain;
     private int score;
 
-    private User currentPlayer = LoginActivity.currentPlayer;
+ //   private User currentPlayer = UserManager.getCurrentUser();
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -44,16 +43,12 @@ public class CatchBallResultActivity extends AppCompatActivity implements GameDa
         TextView usernameLabel  = findViewById(R.id.username);
 
         setting = findViewById(R.id.setting_btn_ball);
-        mainPage = findViewById(R.id.btn_catchballbackToMain);
-        setting.setOnClickListener(v -> {
-            Intent intent2 = new Intent(CatchBallResultActivity.this, SettingsActivity.class);
-            startActivity(intent2);
-        });
+        backToMain = findViewById(R.id.btn_catchballbackToMain);
+        onClickSettingBtn(setting);
         //Set the runnable and handler
 
-        mainPage.setOnClickListener(v -> {
-            Intent mainPage1 = new Intent(CatchBallResultActivity.this, MainMenuActivity.class);
-            startActivity(mainPage1);
+        backToMain.setOnClickListener(v -> {
+            switchToPage(MainMenuActivity.class);
         });
 
         current = this;
@@ -62,8 +57,8 @@ public class CatchBallResultActivity extends AppCompatActivity implements GameDa
 
         score = getScore("CATCH_BALL_SCORE");
         scoreLabel.setText(score + "");
-        usernameLabel.setText("Username: " + currentPlayer.getUsername());
-        currentPlayer.setScore(score);
+//        usernameLabel.setText("Username: " + currentPlayer.getUsername());
+//        currentPlayer.setScore(score);
 
         SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);
         int highScore = settings.getInt("CATCH_BALL_HIGH_SCORE", 0);
