@@ -46,6 +46,7 @@ public class CatchBallResultActivity extends BaseActivity {
         backToMain = findViewById(R.id.btn_catchballbackToMain);
         onClickSettingBtn(setting);
         //Set the runnable and handler
+
         backToMain.setOnClickListener(v -> {
             switchToPage(MainMenuActivity.class);
         });

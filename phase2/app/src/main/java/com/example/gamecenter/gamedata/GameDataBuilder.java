@@ -45,4 +45,7 @@ public class GameDataBuilder {
         editor.apply();
     }
 
+    int getNumDeath(){
+         return gameData.getInt("death",0);
+    }
 }
