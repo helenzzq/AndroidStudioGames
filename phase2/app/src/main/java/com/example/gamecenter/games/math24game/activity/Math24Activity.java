@@ -17,12 +17,12 @@ import com.example.gamecenter.gameinterface.GameView;
 
 
 public class Math24Activity extends BaseActivity implements GameView, View.OnClickListener {
-    private Button plus, minus, multiply, divide;
+    private Button minus, multiply, divide;
     //    private Operators plus, minus, multiply, divide;
     private Button equal;
     private Button clear;
-    private Button left_bracket;
-    private Button right_bracket;
+    private Button leftBracket;
+    private Button rightBracket;
     private TextView mathExpression, result, message, textLive, scoreText;
     private Button[] nums, operatorBtns;
     private int numLives = 3;
@@ -68,7 +68,7 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     }
 
     private void setUpOperators() {
-        plus = findViewById(R.id.btn_plus);
+        Button plus = findViewById(R.id.btn_plus);
         minus = findViewById(R.id.btn_minus);
         multiply = findViewById(R.id.btn_multiply);
         divide = findViewById(R.id.btn_divide);
@@ -93,8 +93,8 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
 
     private void setUpBrackets() {
         //create variables left bracket, right bracket and assign the the buttons to them respectively
-        left_bracket = findViewById(R.id.btn_left);
-        right_bracket = findViewById(R.id.btn_right);
+        leftBracket = findViewById(R.id.btn_left);
+        rightBracket = findViewById(R.id.btn_right);
         setOnClickBrackets();
 
     }
@@ -124,8 +124,8 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     }
 
     void enableBracket(boolean left, boolean right) {
-        left_bracket.setEnabled(left);
-        right_bracket.setEnabled(right);
+        leftBracket.setEnabled(left);
+        rightBracket.setEnabled(right);
 
     }
 
@@ -145,11 +145,11 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
 
     private void setOnClickBrackets(
     ) {
-        for (Button bracket : new Button[]{left_bracket, right_bracket}) {
+        for (Button bracket : new Button[]{leftBracket, rightBracket}) {
             bracket.setOnClickListener(v ->
             {
-                if (bracket == left_bracket) {
-                    right_bracket.setEnabled(false);
+                if (bracket == leftBracket) {
+                    rightBracket.setEnabled(false);
                     disableBtns(operatorBtns);
                 }
                 if (checkNumDisabled()){

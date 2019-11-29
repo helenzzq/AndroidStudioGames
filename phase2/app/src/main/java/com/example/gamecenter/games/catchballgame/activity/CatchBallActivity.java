@@ -87,8 +87,6 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
 
         scoreLabel.setText("Score: 0" );
 
-
-
     }
 
     /**
