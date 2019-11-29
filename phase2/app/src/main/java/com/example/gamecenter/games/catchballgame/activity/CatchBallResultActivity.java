@@ -27,7 +27,7 @@ public class CatchBallResultActivity extends AppCompatActivity {
     private Handler mHandler;
     private Activity current;
     private ImageView setting;
-    private Button mainpage;
+    private Button mainPage;
 
     private User currentPlayer = LoginActivity.currentPlayer;
 
@@ -42,14 +42,14 @@ public class CatchBallResultActivity extends AppCompatActivity {
         TextView usernameLabel  = findViewById(R.id.username);
 
         setting = findViewById(R.id.setting_btn_ball);
-        mainpage = findViewById(R.id.btn_catchballbackToMain);
+        mainPage = findViewById(R.id.btn_catchballbackToMain);
         setting.setOnClickListener(v -> {
             Intent intent2 = new Intent(CatchBallResultActivity.this, SettingsActivity.class);
             startActivity(intent2);
         });
         //Set the runnable and handler
 
-        mainpage.setOnClickListener(v -> {
+        mainPage.setOnClickListener(v -> {
             Intent mainPage1 = new Intent(CatchBallResultActivity.this, MainMenuActivity.class);
             startActivity(mainPage1);
         });

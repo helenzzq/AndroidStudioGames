@@ -28,6 +28,7 @@ class CardCollection {
     {
         return num;
     }
+    
     void setCardCollection() {
         for (int y = 0; y < num; y++) {
             for (int x = 0; x < num; x++) {
@@ -49,6 +50,6 @@ class CardCollection {
         }
 
         Point p = emptyPoints.remove((int) (Math.random() * emptyPoints.size()));
-        cardCollection[p.x][p.y].setNum(Math.random() > 0.1 ? 2 : 4);
+        cardCollection[p.x][p.y].setNum(Math.random() > 0.1 ? 1 : 2);
     }
 }
