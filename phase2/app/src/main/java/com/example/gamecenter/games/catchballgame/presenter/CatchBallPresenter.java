@@ -41,6 +41,7 @@ public class CatchBallPresenter implements GameController, MySubject {
             catchBallView.makeAction(action);
 
 
+
         } else {
             catchBallView.setStartFlag(true);
             manager.updatePlayerSize();
