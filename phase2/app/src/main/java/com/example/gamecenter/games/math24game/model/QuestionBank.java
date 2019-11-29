@@ -27,7 +27,7 @@ class QuestionBank {
 
 
     public int[] getRandomQ(String level){
-        if (level.equals("easy")){
+        if (level.equals("Level 1")){
             return level1[(int)Math.random() * (level1.length - 1) + 1];
         }
         else{

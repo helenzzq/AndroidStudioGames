@@ -203,11 +203,6 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         }
     }
 
-    public void lostLife() {
-        int lives = getNumLives() - 1;
-        if(lives > 0)   setNumLives(lives);
-    }
-
     public void resetAll() {
         mathExpression.setText("");
         clear.setEnabled(false);
@@ -257,8 +252,8 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     }
 
     public void updateLives(){
-        lostLife();
-        textLive.setText(String.format("Lives remaining %d", getNumLives()));
+        numLives -= 1;
+        textLive.setText(String.format("Lives remaining %d", numLives));
 
     }
 
@@ -275,9 +270,5 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
 
     public int getNumLives() {
         return numLives;
-    }
-
-    public void setNumLives(int numLives) {
-        this.numLives = numLives;
     }
 }
