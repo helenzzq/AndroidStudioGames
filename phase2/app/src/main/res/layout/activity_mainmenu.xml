@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/whitebackground"
     android:id="@+id/mainmenu"
-    tools:context=".loginregister.MainMenuActivity">
+    tools:context=".login.MainMenuActivity">
 
 
     <ImageView
