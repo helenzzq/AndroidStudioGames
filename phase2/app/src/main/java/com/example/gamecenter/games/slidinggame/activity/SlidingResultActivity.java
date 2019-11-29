@@ -9,13 +9,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.gamecenter.R;
-import com.example.gamecenter.gamedata.GameDataSaver;
-import com.example.gamecenter.games.math24game.activity.Math24Menu;
+import com.example.gamecenter.gamedata.GameDataBuilder;
 import com.example.gamecenter.login.MainMenuActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class SlidingResultActivity extends AppCompatActivity implements GameDataSaver {
+public class SlidingResultActivity extends AppCompatActivity {
 
     private Button mainPage;
     private int score;

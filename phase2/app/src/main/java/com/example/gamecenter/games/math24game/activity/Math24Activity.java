@@ -256,10 +256,10 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
 
     }
 
+
     public void updateLives(){
         numLives -= 1;
-        textLive.setText(String.format("Lives remaining %d", numLives));
-
+        textLive.setText(String.format("Lives : %d", numLives));
     }
 
     public void showFailure(){
