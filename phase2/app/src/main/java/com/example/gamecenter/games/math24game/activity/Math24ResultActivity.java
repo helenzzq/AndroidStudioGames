@@ -5,13 +5,15 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+import android.content.Intent;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gamecenter.R;
+import com.example.gamecenter.login.MainMenuActivity;
 
 public class Math24ResultActivity extends AppCompatActivity {
-    private Button finish;
+    private Button mainpage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,19 +44,14 @@ public class Math24ResultActivity extends AppCompatActivity {
 //        SharedPreferences settings = getSharedPreferences("GAME_DATA2048", Context.MODE_PRIVATE);
 //        int highScore = settings.getInt("HIGH_SCORE2048",0);
 
-        finish= findViewById(R.id.finish);
-//        finish.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                backToMain();
-//            }
-//        });
+        mainpage= findViewById(R.id.btn_math24backToMain);
+        mainpage.setOnClickListener(v -> {
+            Intent mainpage1 = new Intent(Math24ResultActivity.this, MainMenuActivity.class);
+            startActivity(mainpage1);
+        });
+
     }
 
-//    public void backToMain(){
-//        Intent intent = new Intent(this, CatchBallMenu.class);
-//        startActivity(intent);
-//    }
 
 }
 

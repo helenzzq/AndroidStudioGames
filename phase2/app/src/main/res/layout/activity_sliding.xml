@@ -31,14 +31,14 @@
 
     </RelativeLayout>
 
-    <com.example.gamecenter.games.slidinggame.SlidingGrid
+    <com.example.gamecenter.games.slidinggame.activity.SlidingGrid
         android:id="@+id/weaponView"
         android:layout_marginTop="50dp"
         android:layout_width="fill_parent"
         android:layout_height="500dp">
 
 
-    </com.example.gamecenter.games.slidinggame.SlidingGrid>
+    </com.example.gamecenter.games.slidinggame.activity.SlidingGrid>
 
 <!--    <Button-->
 <!--        android:id="@+id/Pause2048"-->

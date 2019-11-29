@@ -10,12 +10,13 @@ import android.widget.TextView;
 
 import com.example.gamecenter.R;
 import com.example.gamecenter.games.math24game.activity.Math24Menu;
+import com.example.gamecenter.login.MainMenuActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SlidingResultActivity extends AppCompatActivity {
 
-    private Button next;
+    private Button mainPage;
     @SuppressLint({"SetTextI18n", "NewApi"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +44,12 @@ public class SlidingResultActivity extends AppCompatActivity {
 
         }
 
-        next= findViewById(R.id.button2048);
-        next.setOnClickListener(v -> openMath24());
+        mainPage= findViewById(R.id.btn_slidingbackToMain);
+        mainPage.setOnClickListener(v -> openMath24());
     }
 
     public void openMath24(){
-        Intent intent = new Intent(this, Math24Menu.class);
+        Intent intent = new Intent(this, MainMenuActivity.class);
         startActivity(intent);
     }
 
