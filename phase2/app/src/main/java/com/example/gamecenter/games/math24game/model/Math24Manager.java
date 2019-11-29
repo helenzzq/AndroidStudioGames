@@ -17,10 +17,6 @@ public class Math24Manager implements GameManager {
     }
 
 
-    private int setAddScore(int coefficient){
-        return score * coefficient;
-    }
-
     public String getLevel(){
         if(! checkNextLevel()){
             return "Level 1";
@@ -58,7 +54,14 @@ public class Math24Manager implements GameManager {
         return result;
     }
 
+
     public int getScore() {
+        if(! checkNextLevel()){
+            score += 50;
+        }
+        else{
+            score += 100;
+        }
         return score;
     }
 }

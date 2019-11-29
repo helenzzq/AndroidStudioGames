@@ -13,7 +13,7 @@
         android:layout_width="73dp"
         android:layout_height="93dp"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="90dp"
         android:text=""
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/mathnum2"
@@ -26,7 +26,7 @@
         android:layout_width="73dp"
         android:layout_height="93dp"
         android:layout_marginStart="13dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="90dp"
         android:text=""
         android:textSize="24sp"
 
@@ -38,7 +38,7 @@
         android:layout_width="73dp"
         android:layout_height="93dp"
         android:layout_marginStart="13dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="90dp"
         android:text=""
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/mathnum2"
@@ -50,7 +50,7 @@
         android:layout_width="73dp"
         android:layout_height="93dp"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="90dp"
         android:text=""
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/mathnum3"
@@ -60,18 +60,18 @@
         android:id="@+id/btn_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="150dp"
         android:text="("
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_calculation" />
+        app:layout_constraintTop_toBottomOf="@+id/mathnum1" />
 
     <Button
         android:id="@+id/btn_plus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
         android:text="+"
         android:textSize="24sp"
@@ -95,7 +95,7 @@
         android:id="@+id/btn_minus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:text="-"
         android:textSize="24sp"
@@ -134,16 +134,12 @@
         android:id="@+id/btn_equal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="38dp"
+        android:layout_marginStart="20dp"
         android:layout_marginBottom="17dp"
         android:text="="
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/btn_back"
-        app:layout_constraintEnd_toStartOf="@+id/math24result"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_minus" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tv_calculation"
@@ -178,34 +174,31 @@
         android:id="@+id/btn_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="296dp"
-        android:layout_marginTop="663dp"
-        android:layout_marginEnd="27dp"
+        android:layout_marginStart="45dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="#E91E63"
         android:text="next"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/btn_help" />
 
     <Button
         android:id="@+id/btn_help"
         android:layout_width="98dp"
         android:layout_height="48dp"
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="#E91E63"
         android:text="help"
         android:textSize="16sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btn_back"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_back" />
 
     <Button
         android:id="@+id/btn_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="20dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="#E91E63"
         android:text="back"
@@ -217,24 +210,20 @@
         android:id="@+id/btn_clear"
         android:layout_width="79dp"
         android:layout_height="48dp"
-        android:layout_marginStart="301dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="30dp"
         android:backgroundTint="#FFC107"
         android:text="Clear"
         android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_multiply"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mathnum4"
-        app:layout_constraintVertical_bias="0.16" />
+        app:layout_constraintTop_toBottomOf="@+id/mathnum4" />
 
     <TextView
         android:id="@+id/text_live"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="28dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:text="lives remaining 3"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -262,10 +251,10 @@
         android:id="@+id/score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
         android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.125"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -274,5 +263,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="top" />
+
+    <TextView
+        android:id="@+id/level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/score"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

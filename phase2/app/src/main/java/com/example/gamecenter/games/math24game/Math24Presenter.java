@@ -58,11 +58,11 @@ public class Math24Presenter implements GameController , MySubject {
 //        return false;
 //    }
 private void checkToAddScore(){
-        if(mathManager.isGameOver()){
+        if(mathManager.isCheckAnswer()){
             mathView.setMessage("Congratulations! \n");
             mathView.resetAll();
             mathView.updateScore(mathManager.getScore());
-            mathView.goToResult();
+            mathManager.getQuestion();
         }
         else{
             mathView.setMessage("It's Wrong!!!");
