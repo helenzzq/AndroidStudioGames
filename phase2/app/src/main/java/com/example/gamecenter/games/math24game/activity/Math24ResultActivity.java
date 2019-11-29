@@ -10,10 +10,10 @@ import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gamecenter.R;
-import com.example.gamecenter.gamedata.GameDataSaver;
+import com.example.gamecenter.gamedata.GameDataBuilder;
 import com.example.gamecenter.login.MainMenuActivity;
 
-public class Math24ResultActivity extends AppCompatActivity implements GameDataSaver {
+public class Math24ResultActivity extends AppCompatActivity{
     private Button mainpage;
     int score;
     SharedPreferences settings;

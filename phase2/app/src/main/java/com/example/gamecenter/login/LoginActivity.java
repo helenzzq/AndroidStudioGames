@@ -25,19 +25,14 @@ public class LoginActivity extends AppCompatActivity{
     /**
      * A UserManager.
      */
-    private UserManager users;
-
-    /**
-     * The current player of the game.
-     */
-    public static User currentPlayer;
+    private UserManager userManager;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        users = MainEntryActivity.userManager;
+        userManager = MainEntryActivity.userManager;
         setupSignInListener();
 
         current = this;
@@ -73,7 +68,7 @@ public class LoginActivity extends AppCompatActivity{
             String passWord = ((EditText)findViewById(R.id.etPassword)).getText().toString();
             TextView textBox = findViewById(R.id.etTextBox);
             try {
-                currentPlayer = users.signIn(userName, passWord);
+                userManager.signIn(userName, passWord);
             }
             catch (AuthenticatorException e){
                 textBox.setText("Incorrect Password.");
