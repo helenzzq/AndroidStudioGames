@@ -29,9 +29,9 @@ public abstract class BaseActivity extends AppCompatActivity{
         });
     }
 
-    public void goToResult(Class targetPage, int score){
+    public void goToResult(Class targetPage, String dataName,int score){
         Intent intent = new Intent(this, targetPage);
-        intent.putExtra("SCORE", score);
+        intent.putExtra(dataName, score);
         startActivity(intent);
     }
 

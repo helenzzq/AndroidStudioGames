@@ -54,7 +54,7 @@ public class SlidingActivity extends BaseActivity implements GameView {
 
     @Override
     public void goToResult() {
-        super.goToResult(SlidingResultActivity.class,score);
+        super.goToResult(SlidingResultActivity.class,"SLIDING_SCORE", score);
     }
 
 
