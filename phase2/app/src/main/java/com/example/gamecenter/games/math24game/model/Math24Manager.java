@@ -37,6 +37,11 @@ public class Math24Manager implements GameManager {
         return gameOver;
     }
 
+    @Override
+    public boolean checkNextLevel() {
+        return false;
+    }
+
 
     //determine if the player's answer can make it to 24
     public int calculate(String equation){
