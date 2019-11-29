@@ -13,6 +13,7 @@ import android.widget.TextView;
 public class SlidingIntroActivity extends AppCompatActivity implements View.OnClickListener {
     private Button resume;
 
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
