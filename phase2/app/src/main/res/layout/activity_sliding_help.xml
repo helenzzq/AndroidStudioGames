@@ -58,7 +58,7 @@
 
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/textView15" android:text="Rare 13" app:layout_constraintBottom_toBottomOf="@+id/imageView15" app:layout_constraintStart_toStartOf="@+id/textView14" app:layout_constraintTop_toTopOf="@+id/imageView15" android:textSize="18sp"/>
 
-    <Button android:layout_width="100dp" android:layout_height="65dp" android:id="@+id/button" android:text="Resume" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp" android:layout_marginStart="16dp"/>
+    <Button android:layout_width="100dp" android:layout_height="65dp" android:id="@+id/btn_resume" android:text="Resume" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp" android:layout_marginStart="16dp"/>
 
     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/textView16" android:text="Help" app:layout_constraintBottom_toBottomOf="@+id/button" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="@+id/button" android:textSize="24sp"/>
 
