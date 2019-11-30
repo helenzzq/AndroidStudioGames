@@ -1,35 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".games.slidinggame.activity.SlidingIntroActivity">
+    android:background="@drawable/whitebackground"
+    android:id="@+id/mainmenu"
+    tools:context=".login.MainMenuActivity">
+
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/textView7"
-        android:text="Rare 5"
-        app:layout_constraintBottom_toBottomOf="@+id/textView14"
-        app:layout_constraintEnd_toEndOf="@+id/textView5"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toTopOf="@+id/textView14"
-        android:textSize="18sp"/>
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Rare 5"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+        app:layout_constraintEnd_toEndOf="@+id/textView5"
+        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintTop_toTopOf="@+id/imageView7" />
+
+    <TextView
         android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Rare 4"
+        android:textSize="21sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
         app:layout_constraintEnd_toEndOf="@+id/textView4"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="@+id/imageView6"
-        android:textSize="18sp"/>
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
     <TextView
         android:id="@+id/textView"
@@ -37,44 +38,43 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="100dp"
         android:text="Rare 0"
-        android:textSize="18sp"
+        android:textSize="21sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2"
-        android:text="Rare 1"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
-        android:textSize="18sp"
-        android:layout_marginEnd="100dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintVertical_bias="0.452"/>
+        android:text="Rare 1"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.452" />
 
     <TextView
+        android:id="@+id/music"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/music"
         android:text="Rare 2"
+        android:textSize="21sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="@+id/imageView4"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/imageView4"
-        android:textSize="18sp"/>
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginBottom="568dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="555dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/rare0" />
 
     <TextView
@@ -82,10 +82,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Rare 3"
-        android:textSize="18sp"
+        android:textSize="21sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toEndOf="@+id/music"
         app:layout_constraintStart_toStartOf="@+id/music"
         app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
@@ -93,30 +92,26 @@
         android:id="@+id/imageView3"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="80dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:srcCompat="@drawable/rare1" />
 
     <ImageView
+        android:id="@+id/imageView4"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:id="@+id/imageView4"
-        android:layout_marginEnd="128dp"
         android:layout_marginTop="8dp"
-        app:srcCompat="@drawable/rare2"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toStartOf="@+id/imageView11"/>
+        app:srcCompat="@drawable/rare2" />
 
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="80dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView4"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
         app:srcCompat="@drawable/rare3" />
 
@@ -125,9 +120,7 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView7"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
         app:layout_constraintTop_toBottomOf="@+id/imageView5"
         app:srcCompat="@drawable/rare4" />
 
@@ -136,7 +129,7 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@+id/imageView8"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:srcCompat="@drawable/rare5" />
 
@@ -145,31 +138,29 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="128dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView15"
+        app:layout_constraintStart_toStartOf="@+id/imageView7"
         app:layout_constraintTop_toBottomOf="@+id/imageView7"
         app:srcCompat="@drawable/rare6" />
 
     <TextView
+        android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView8"
         android:text="Rare 6"
-        app:layout_constraintBottom_toBottomOf="@+id/textView15"
-        app:layout_constraintEnd_toEndOf="@+id/imageView8"
+        android:textSize="21sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="@+id/textView7"
         app:layout_constraintStart_toStartOf="@+id/textView7"
-        app:layout_constraintTop_toTopOf="@+id/textView15"
-        android:textSize="18sp"
-        android:layout_marginEnd="100dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
     <ImageView
+        android:id="@+id/imageView9"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:id="@+id/imageView9"
+        android:layout_marginStart="130dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="@+id/imageView2"
-        app:srcCompat="@drawable/rare7"
-        android:layout_marginStart="128dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"/>
+        app:srcCompat="@drawable/rare7" />
 
     <ImageView
         android:layout_width="80dp"
@@ -235,7 +226,7 @@
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="@+id/textView10"
         app:layout_constraintTop_toTopOf="@+id/imageView9"
-        android:textSize="18sp"
+        android:textSize="21sp"
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView9"/>
 
@@ -246,7 +237,7 @@
         android:text="Rare 8"
         app:layout_constraintBottom_toBottomOf="@+id/imageView10"
         app:layout_constraintStart_toStartOf="@+id/textView11"
-        android:textSize="18sp"
+        android:textSize="21sp"
         android:layout_marginEnd="20dp"
         app:layout_constraintTop_toBottomOf="@+id/imageView9"
         app:layout_constraintEnd_toStartOf="@+id/imageView10"/>
@@ -259,7 +250,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView11"
         app:layout_constraintStart_toStartOf="@+id/textView12"
         app:layout_constraintTop_toTopOf="@+id/imageView11"
-        android:textSize="18sp"
+        android:textSize="21sp"
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView11"/>
 
@@ -270,8 +261,8 @@
         android:text="Rare 10"
         app:layout_constraintBottom_toBottomOf="@+id/imageView12"
         app:layout_constraintTop_toTopOf="@+id/imageView12"
-        android:textSize="18sp"
-        android:layout_marginEnd="20dp"
+        android:textSize="21sp"
+        android:layout_marginEnd="21dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView12"/>
 
     <TextView
@@ -282,7 +273,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView13"
         app:layout_constraintStart_toStartOf="@+id/textView12"
         app:layout_constraintTop_toTopOf="@+id/imageView13"
-        android:textSize="18sp"/>
+        android:textSize="21sp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -292,7 +283,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView14"
         app:layout_constraintStart_toStartOf="@+id/textView13"
         app:layout_constraintTop_toTopOf="@+id/imageView14"
-        android:textSize="18sp"/>
+        android:textSize="21sp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -302,30 +293,33 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView15"
         app:layout_constraintStart_toStartOf="@+id/textView14"
         app:layout_constraintTop_toTopOf="@+id/imageView15"
-        android:textSize="18sp"/>
+        android:textSize="21sp"/>
 
 
     <Button
+        android:id="@+id/btn_resume"
         android:layout_width="100dp"
         android:layout_height="65dp"
-        android:id="@+id/btn_resume"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/buttonshape"
         android:text="Resume"
+        android:textColor="#F44336"
+        android:textSize="17sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:text="Introduction"
-        android:textSize="24sp"
+        android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.563"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
