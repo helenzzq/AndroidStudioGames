@@ -21,7 +21,10 @@ public class SlidingManager implements GameManager {
         gameOver = false;
         cardCollection = new CardCollection();
         slidingCards = cardCollection.getCards();
+        if(SlidingActivity.getIsLevel1()){
         score = 0;
+        }
+
 
     }
 
@@ -37,7 +40,9 @@ public class SlidingManager implements GameManager {
         return slidingCards;
     }
 
-
+    public void setScore(int score){
+        this.score = score;
+    }
 
     public int getScore() {
         return score;

@@ -29,10 +29,11 @@ public class Math24Presenter implements GameController , MySubject {
         this.mathView = mathView;
         observers = new ArrayList<>();
     }
-    public void onStart(String level){
+
+    public void onStart() {
         int[] questions = mathManager.getQuestion();
         Button[] nums = mathView.getNums();
-        for (int i = 0; i <4;i++){
+        for (int i = 0; i < 4; i++) {
             mathView.setNumText(nums[i],questions[i]);
         }
 
@@ -43,26 +44,15 @@ public class Math24Presenter implements GameController , MySubject {
         int result = mathManager.calculate(mathExpression);
         mathView.showResult(result);
 
-        checkToAddScore();
 
     }
-//
-//    @Override
-//    public boolean checkToAddScore(Scoreboard scoreboard, String user) {
-//        if(slidingManager.isGameOver()){
-//            scoreboard.addScore(user,slidingManager.getScore());
-//            slidingManager = null;
-//            notifyObservers();
-//            return true;
-//        }
-//        return false;
-//    }
-private void checkToAddScore(){
+
+    public void checkCurrentResult() {
         if(mathManager.isCheckAnswer()){
             mathView.setMessage("Congratulations! \n");
             mathView.resetAll();
             mathView.updateScore(mathManager.getScore());
-            mathManager.getQuestion();
+            onStart();
         }
         else{
             mathView.setMessage("It's Wrong!!!");
@@ -90,12 +80,7 @@ private void checkToAddScore(){
         this.mathManager =(Math24Manager) manager;
     }
 
-    /**
-     * @param scoreboard
-     * @param user
-     * @return
-     */
-    @Override
+
     public boolean checkToAddScore(Scoreboard scoreboard, String user) {
         if(mathManager.isGameOver()){
             scoreboard.addScore(user,mathManager.getScore());

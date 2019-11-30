@@ -72,8 +72,10 @@ public class SlidingPresenter implements GameController, MySubject {
             SlidingActivity.notLevel1();
 //            SlidingActivity.setNum();
 //            slidingManager.setNum(4);
-//            int level1Score = slidingManager.getScore();
+            int level1Score = slidingManager.getScore();
             slidingView.startLevel2();
+            slidingView.updateScore(level1Score);
+            slidingManager.setScore(level1Score);
 
 
         }

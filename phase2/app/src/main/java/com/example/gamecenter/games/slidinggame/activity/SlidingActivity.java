@@ -41,11 +41,8 @@ public class SlidingActivity extends BaseActivity implements GameView {
 
         SlidingGrid.getPresenter().setSlidingView(this);
 
-        if (isLevel1) {
-            gameTimer = new GameTimer(findViewById(R.id.slidingTimer));
-        }else{
-            gameTimer = getGameTimer();
-        }
+
+        gameTimer = new GameTimer(findViewById(R.id.slidingTimer));
 
         gameTimer.restart();
 

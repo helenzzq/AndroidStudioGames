@@ -1,13 +1,8 @@
 package com.example.gamecenter.games.catchballgame.activity;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.PopupMenu;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,7 +16,7 @@ import com.example.gamecenter.scoreboard.Scoreboard;
 import com.example.gamecenter.strategy.BackGroundSetter;
 import com.example.gamecenter.strategy.BaseActivity;
 
-public class CatchBallMenu extends BaseActivity implements GameMenu, PopupMenu.OnMenuItemClickListener{
+public class CatchBallMenu extends BaseActivity implements GameMenu {
     //there are three buttons in Main page: Start, setting and help
 
     /**
@@ -89,30 +84,6 @@ public class CatchBallMenu extends BaseActivity implements GameMenu, PopupMenu.O
     }
 
     /**
-     * Activate the items in the dropDown menu.
-     */
-    @Override
-    public boolean onMenuItemClick(MenuItem item) {
-        Class targetGame = CatchBallActivity.class;
-        SharedPreferences level = getSharedPreferences("ballLevel", Context.MODE_PRIVATE);
-        switch (item.getItemId()) {
-            case R.id.easy:
-                //Select difficulty
-                switchToPage(targetGame);
-                level.edit().putString("level", "easy").apply();
-                return true;
-
-            case R.id.hard:
-//                controller.setUpBoard("Hard");
-                level.edit().putString("level", "hard").apply();
-                switchToPage(CatchBallActivity.class);
-                return true;
-
-            default:
-                return false;
-        }
-    }
-    /**
      * Activate the quit button.
      */
     @Override
@@ -128,7 +99,7 @@ public class CatchBallMenu extends BaseActivity implements GameMenu, PopupMenu.O
 
     @Override
     public void setNewGameBtn() {
-        findViewById(R.id.newballGame).setOnClickListener(this::showPopup);
+        findViewById(R.id.newballGame).setOnClickListener(v -> switchToPage(CatchBallActivity.class));
 
     }
     @Override
@@ -143,14 +114,7 @@ public class CatchBallMenu extends BaseActivity implements GameMenu, PopupMenu.O
 
     }
 
-    @Override
-    public void showPopup(View v) {
-        PopupMenu popup = new PopupMenu(this, v);
-        popup.setOnMenuItemClickListener(this);
-        popup.inflate(R.menu.menu_choose_level);
-        popup.show();
 
-    }
 
     @Override
     public void makeToastLoadedText() {
