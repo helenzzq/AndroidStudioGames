@@ -1,10 +1,13 @@
 package com.example.gamecenter.games.slidinggame;
 
+import android.content.Intent;
+
 import com.example.gamecenter.gameinterface.GameController;
 import com.example.gamecenter.gameinterface.GameManager;
 import com.example.gamecenter.gameinterface.GameView;
 import com.example.gamecenter.gameinterface.MyObserver;
 import com.example.gamecenter.gameinterface.MySubject;
+import com.example.gamecenter.games.slidinggame.activity.SlidingActivity;
 import com.example.gamecenter.games.slidinggame.activity.SlidingGrid;
 import com.example.gamecenter.games.slidinggame.model.SlidingManager;
 import com.example.gamecenter.scoreboard.Scoreboard;
@@ -14,7 +17,7 @@ import java.util.List;
 
 public class SlidingPresenter implements GameController, MySubject {
     private SlidingManager slidingManager;
-    private GameView weaponView;
+    private SlidingActivity slidingView;
     private com.example.gamecenter.games.slidinggame.activity.SlidingGrid SlidingGrid;
 
     /**
@@ -31,9 +34,9 @@ public class SlidingPresenter implements GameController, MySubject {
 
     }
 
-    public void setWeaponView(GameView weaponView) {
+    public void setSlidingView(SlidingActivity slidingView) {
 
-        this.weaponView = weaponView;
+        this.slidingView = slidingView;
     }
 
     public SlidingManager getSlidingManager() {
@@ -42,7 +45,7 @@ public class SlidingPresenter implements GameController, MySubject {
 
 
     public void restart() {
-        weaponView.updateScore(0);
+        slidingView.updateScore(0);
         notifyObservers();
         slidingManager.setCardCollection();
     }
@@ -64,15 +67,24 @@ public class SlidingPresenter implements GameController, MySubject {
                 slidingManager.swipeRight();
             }
         }
-        weaponView.updateScore(slidingManager.getScore());
+        slidingView.updateScore(slidingManager.getScore());
+        if((slidingManager.isNextLevel())&&(slidingView.getIsLevel1())){
+            SlidingActivity.notLevel1();
+//            SlidingActivity.setNum();
+//            slidingManager.setNum(4);
+//            int level1Score = slidingManager.getScore();
+            slidingView.startLevel2();
+
+
+        }
         if(slidingManager.isGameOver()){
-            weaponView.goToResult();
+            slidingView.goToResult();
         }
 
 //        slidingManager.swipe(vertical, leftUp);
-//        weaponView.addScore(slidingManager.getScore());
+//        slidingView.addScore(slidingManager.getScore());
 //        if(slidingManager.isGameOver()){
-//            weaponView.showResult();
+//            slidingView.showResult();
 //        }
     }
 
@@ -134,6 +146,6 @@ public class SlidingPresenter implements GameController, MySubject {
     }
 
     public void onDestroy() {
-        weaponView = null;
+        slidingView = null;
     }
 }

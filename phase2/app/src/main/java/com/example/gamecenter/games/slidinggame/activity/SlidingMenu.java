@@ -20,7 +20,7 @@ import com.example.gamecenter.gameinterface.GameMenu;
 import com.example.gamecenter.login.MainMenuActivity;
 
 
-public class SlidingMenu extends BaseActivity implements GameMenu, PopupMenu.OnMenuItemClickListener {
+public class SlidingMenu extends BaseActivity implements GameMenu, PopupMenu.OnMenuItemClickListener{
     private Handler handler;
     private Activity current;
     @Override
@@ -50,6 +50,7 @@ public class SlidingMenu extends BaseActivity implements GameMenu, PopupMenu.OnM
         setNewGameBtn();
         onClickSettingBtn(findViewById(R.id.setting_btn_slide));
     }
+
     /**
      * Activate the items in the dropDown menu.
      */
@@ -74,6 +75,8 @@ public class SlidingMenu extends BaseActivity implements GameMenu, PopupMenu.OnM
                 return false;
         }
     }
+
+
     /**
      * Activate the quit button.
      */
@@ -86,7 +89,7 @@ public class SlidingMenu extends BaseActivity implements GameMenu, PopupMenu.OnM
 
     @Override
     public void setNewGameBtn() {
-        findViewById(R.id.newslidingGame).setOnClickListener(this::showPopup);
+        findViewById(R.id.newslidingGame).setOnClickListener(v-> switchToPage(SlidingActivity.class));
 
     }
     @Override
