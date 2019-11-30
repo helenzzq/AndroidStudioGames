@@ -28,7 +28,7 @@ public class Math24Manager implements GameManager {
 
 
     public int[] getQuestion(){
-            return questionBank.getRandomQ(getLevel());
+        return questionBank.getRandomQ(getLevel());
 
     }
 
@@ -65,3 +65,4 @@ public class Math24Manager implements GameManager {
         return score;
     }
 }
+

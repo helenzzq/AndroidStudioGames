@@ -77,7 +77,6 @@ public class CatchBallMenu extends BaseActivity implements GameMenu {
     private void setButtons(){
         setQuitBtn();
         setHelpBtn();
-        setLoadBtn();
         setNewGameBtn();
         setScoreboardBtn();
         onClickSettingBtn(findViewById(R.id.setting_btn_ball));
@@ -89,8 +88,6 @@ public class CatchBallMenu extends BaseActivity implements GameMenu {
     @Override
     public void setQuitBtn() {
         findViewById(R.id.quitBallBtn).setOnClickListener(v-> switchToPage(MainMenuActivity.class));
-
-
     }
 
     public void setScoreboardBtn(){
@@ -102,35 +99,10 @@ public class CatchBallMenu extends BaseActivity implements GameMenu {
         findViewById(R.id.newballGame).setOnClickListener(v -> switchToPage(CatchBallActivity.class));
 
     }
+
     @Override
     public void setHelpBtn() {
         findViewById(R.id.help_ball).setOnClickListener(v-> switchToPage(HelpActivity.class));
-
-    }
-
-    @Override
-    public void setLoadBtn() {
-//        findViewById(R.id.Loadballbtn).setOnClickListener();
-
-    }
-
-
-
-    @Override
-    public void makeToastLoadedText() {
-        Toast.makeText(this, "Loaded Game", Toast.LENGTH_SHORT).show();
-
-    }
-
-    @Override
-    public void makeToastNoLoadedText() {
-        Toast.makeText(this, "No Saved Game", Toast.LENGTH_SHORT).show();
-
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
 
     }
 }

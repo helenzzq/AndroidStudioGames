@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Button;
 
 import com.example.gamecenter.R;
-import com.example.gamecenter.gamedata.GameDataBuilder;
 import com.example.gamecenter.login.MainMenuActivity;
 import com.example.gamecenter.games.slidinggame.activity.SlidingMenu;
 import com.example.gamecenter.strategy.BackGroundSetter;

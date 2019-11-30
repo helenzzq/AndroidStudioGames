@@ -31,10 +31,12 @@ public class Math24Presenter implements GameController , MySubject {
     }
 
     public void onStart() {
+        mathView.setMessage("");
         int[] questions = mathManager.getQuestion();
         Button[] nums = mathView.getNums();
         for (int i = 0; i < 4; i++) {
             mathView.setNumText(nums[i],questions[i]);
+
         }
 
 
@@ -43,6 +45,7 @@ public class Math24Presenter implements GameController , MySubject {
     public void calculateResult(String mathExpression){
         int result = mathManager.calculate(mathExpression);
         mathView.showResult(result);
+        checkCurrentResult();
 
 
     }
@@ -54,7 +57,7 @@ public class Math24Presenter implements GameController , MySubject {
             mathView.updateScore(mathManager.getScore());
             onStart();
         }
-        else{
+        if (!mathManager.isCheckAnswer()) {
             mathView.setMessage("It's Wrong!!!");
             mathView.updateLives();
             if(mathView.getNumLives() == 0) {
@@ -113,3 +116,4 @@ public class Math24Presenter implements GameController , MySubject {
         }
     }
 }
+

@@ -41,7 +41,6 @@ public class SlidingMenu extends BaseActivity implements GameMenu {
     private void setButtons(){
         setQuitBtn();
         setHelpBtn();
-        setLoadBtn();
         setNewGameBtn();
         onClickSettingBtn(findViewById(R.id.setting_btn_slide));
     }
@@ -67,24 +66,6 @@ public class SlidingMenu extends BaseActivity implements GameMenu {
 
     }
 
-    @Override
-    public void setLoadBtn() {
-//        findViewById(R.id.Loadballbtn).setOnClickListener();
-
-    }
-
-
-    @Override
-    public void makeToastLoadedText() {
-        Toast.makeText(this, "Loaded Game", Toast.LENGTH_SHORT).show();
-
-    }
-
-    @Override
-    public void makeToastNoLoadedText() {
-        Toast.makeText(this, "No Saved Game", Toast.LENGTH_SHORT).show();
-
-    }
 
     @Override
     public void onResume() {

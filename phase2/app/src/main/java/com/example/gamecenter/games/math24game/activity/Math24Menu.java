@@ -50,7 +50,6 @@ public class Math24Menu extends BaseActivity implements GameMenu {
     private void setButtons(){
         setQuitBtn();
         setHelpBtn();
-        setLoadBtn();
         setNewGameBtn();
         onClickSettingBtn(findViewById(R.id.setting_btn_math));
     }
@@ -62,38 +61,15 @@ public class Math24Menu extends BaseActivity implements GameMenu {
     @Override
     public void setQuitBtn() {
         findViewById(R.id.QuitmathButton).setOnClickListener(v-> switchToPage(MainMenuActivity.class));
-
-
     }
 
     @Override
     public void setNewGameBtn() {
         findViewById(R.id.newmathGame).setOnClickListener(v -> switchToPage(Math24Activity.class));
-
     }
     @Override
     public void setHelpBtn() {
         findViewById(R.id.help_mathBtn).setOnClickListener(v-> switchToPage(Math24IntroActivity.class));
-
-    }
-
-    @Override
-    public void setLoadBtn() {
-//        findViewById(R.id.Loadballbtn).setOnClickListener();
-
-    }
-
-
-    @Override
-    public void makeToastLoadedText() {
-        Toast.makeText(this, "Loaded Game", Toast.LENGTH_SHORT).show();
-
-    }
-
-    @Override
-    public void makeToastNoLoadedText() {
-        Toast.makeText(this, "No Saved Game", Toast.LENGTH_SHORT).show();
-
     }
 
     @Override

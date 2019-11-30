@@ -56,8 +56,6 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         presenter = new Math24Presenter(new Math24Manager(), this);
 //        SharedPreferences level = getSharedPreferences("mathLevel", Context.MODE_PRIVATE);
         presenter.onStart();
-        presenter.checkCurrentResult();
-
     }
 
     private void setUpNumBtnView() {
@@ -157,7 +155,7 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
                     disableBtns(operatorBtns);
                 }
                 if (checkNumDisabled()){
-                disableBtns(operatorBtns);
+                    disableBtns(operatorBtns);
                 }
                 mathExpression.append(bracket.getText());
             });
