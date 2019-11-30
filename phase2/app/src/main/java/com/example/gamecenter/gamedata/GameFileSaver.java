@@ -22,14 +22,17 @@ A file saver for game states in all of the games.
  */
 
 public class GameFileSaver implements Serializable, MyObserver {
+
     /**
      * The context
      */
+
     private Context context;
 
     /**
      * the GameController
      */
+
     private GameController subject;
 
     /**
@@ -41,6 +44,12 @@ public class GameFileSaver implements Serializable, MyObserver {
      * The fileName
      */
     private String fileName;
+
+    /**
+     *
+     * @param context the context
+     * @param fileName the filename
+     */
 
     public GameFileSaver(Context context, String fileName){
         this.context = context;
@@ -77,6 +86,7 @@ public class GameFileSaver implements Serializable, MyObserver {
      * Sets this game file saver's subject for observation.
      * @param subject
      */
+
     @Override
     public void setSubject(MySubject subject) {
         this.subject = (GameController) subject;

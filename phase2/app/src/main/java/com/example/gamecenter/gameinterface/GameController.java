@@ -22,6 +22,7 @@ public interface GameController {
      * @param user
      * @return
      */
+
     boolean checkToAddScore(Scoreboard scoreboard, String user);
 
     /**

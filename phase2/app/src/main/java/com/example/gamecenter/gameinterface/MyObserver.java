@@ -7,7 +7,7 @@ public interface MyObserver {
     void update();
 
     /**
-     * Set the subject to be obsevred
+     * Set the subject to be observed
      * @param subject to be observed
      */
     void setSubject(MySubject subject);
