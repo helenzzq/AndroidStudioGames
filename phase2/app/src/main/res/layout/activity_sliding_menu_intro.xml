@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="110dp"
-        android:text="The game's objective is to slide tiles on a grid to combine them to get more points. "
+        android:text="The main goal of this game is to slide tiles on a grid to combine them to get more points. "
         android:textSize="21sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,7 +26,7 @@
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="Every turn, a new tile will randomly appear in an empty spot on the board with a picture of either rare 2 or rare 4."
+        android:text="After you swipe, a new tile will randomly appear in an empty spot on the board with a picture of either rare 0 or rare 1."
         android:textSize="21sp"
         app:layout_constraintStart_toStartOf="@+id/textView22"
         app:layout_constraintTop_toBottomOf="@+id/textView22" />
@@ -36,24 +36,24 @@
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text=" If two tiles of the same picture collide while moving, they will merge into a tile with."
+        android:text=" If two tiles of the same picture collide while moving, they will merge into one tile."
         android:textSize="21sp"
         app:layout_constraintStart_toStartOf="@+id/textView19"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
 
     <TextView
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:text="@string/introduction"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.563"
+        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <TextView
         android:id="@+id/textView24"
@@ -70,7 +70,7 @@
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="The timer is paused when the introduction button is pressed"
+        android:text="You can pause the game by pressing the help button, meanwhile, you can see the how rare each picture is. The numbers indicate the order of appearance of pictures in game."
         android:textSize="21sp"
         app:layout_constraintStart_toStartOf="@+id/textView24"
         app:layout_constraintTop_toBottomOf="@+id/textView24" />
@@ -82,11 +82,13 @@
         android:layout_marginStart="14dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/buttonshape"
-        android:text="Resume"
+        android:text="@string/back"
         android:textColor="#F44336"
         android:textSize="17sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
 
 
 

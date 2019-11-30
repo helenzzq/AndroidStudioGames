@@ -30,28 +30,17 @@
         android:layout_height="50dp"
         android:layout_below="@+id/sliding_text"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/buttonshape"
         android:text="New Game"
         android:textColor="#0081BB" />
 
-    <Button
-        android:id="@+id/Loadslidingbtn"
-        style="@android:style/Widget.DeviceDefault.Button.Small"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/newslidingGame"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/buttonshape"
-        android:text="@string/loadgame"
-        android:textColor="#0081BB" />
 
     <Button
         android:id="@+id/slideScoreBoardbtn"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/Loadslidingbtn"
+        android:layout_below="@+id/newslidingGame"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:background="@drawable/buttonshape"
