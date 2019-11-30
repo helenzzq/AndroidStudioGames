@@ -96,8 +96,8 @@ public class SlidingManager implements GameManager {
         }
         if (merge) {
             cardCollection.addRandomNum();
-            if(!checkNextLevel()){
-                checkAllPair();}
+            checkAllPair();
+            nextLevel = checkNextLevel();
         }
 
     }
@@ -130,8 +130,9 @@ public class SlidingManager implements GameManager {
         }
         if (merge) {
             cardCollection.addRandomNum();
-            if(!checkNextLevel()){
-                checkAllPair();}
+            checkAllPair();
+            if(SlidingActivity.getIsLevel1()){
+            nextLevel = checkNextLevel();}
         }
 
     }
@@ -166,8 +167,9 @@ public class SlidingManager implements GameManager {
         }
         if (merge) {
             cardCollection.addRandomNum();
-            if(!checkNextLevel()){
-                checkAllPair();}
+            checkAllPair();
+            if(SlidingActivity.getIsLevel1()){
+                nextLevel = checkNextLevel();}
         }
 
     }
@@ -203,8 +205,9 @@ public class SlidingManager implements GameManager {
         }
         if (merge) {
             cardCollection.addRandomNum();
-            if(!checkNextLevel()){
-                checkAllPair();}
+            checkAllPair();
+            if(SlidingActivity.getIsLevel1()){
+                nextLevel = checkNextLevel();}
         }
 
     }
