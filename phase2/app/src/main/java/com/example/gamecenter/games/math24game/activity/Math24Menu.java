@@ -1,13 +1,8 @@
 package com.example.gamecenter.games.math24game.activity;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.PopupMenu;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,19 +21,9 @@ public class Math24Menu extends BaseActivity implements GameMenu {
     private Activity current;
 
     /**
-     * A Math24Presenter.
-     */
-    public static Math24Presenter math24Presenter;
-
-    /**
      * A ScoreBoard.
      */
     public static Scoreboard scoreboard;
-
-    /**
-     * A file with Math24.
-     */
-    private static final String fileName = "math24scores.ser";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,8 +54,6 @@ public class Math24Menu extends BaseActivity implements GameMenu {
         setNewGameBtn();
         onClickSettingBtn(findViewById(R.id.setting_btn_math));
     }
-
-
 
 
     /**
