@@ -1,6 +1,7 @@
 package com.example.gamecenter.games.slidinggame.model;
 
 import com.example.gamecenter.gameinterface.GameManager;
+import com.example.gamecenter.games.slidinggame.activity.SlidingActivity;
 import com.example.gamecenter.games.slidinggame.activity.SlidingGrid;
 
 public class SlidingManager implements GameManager {
@@ -11,6 +12,7 @@ public class SlidingManager implements GameManager {
 
     private int score;
     private boolean gameOver;
+    private boolean nextLevel;
 
     private static int num;
 
@@ -19,11 +21,14 @@ public class SlidingManager implements GameManager {
         gameOver = false;
         cardCollection = new CardCollection();
         slidingCards = cardCollection.getCards();
+        if(SlidingActivity.getIsLevel1()){
         score = 0;
+        }
+
 
     }
 
-    private static void setNum(int num) {
+    public static void setNum(int num) {
         SlidingManager.num = num;
     }
 
@@ -35,7 +40,9 @@ public class SlidingManager implements GameManager {
         return slidingCards;
     }
 
-
+    public void setScore(int score){
+        this.score = score;
+    }
 
     public int getScore() {
         return score;
@@ -89,7 +96,8 @@ public class SlidingManager implements GameManager {
         }
         if (merge) {
             cardCollection.addRandomNum();
-            checkAllPair();
+            if(!checkNextLevel()){
+                checkAllPair();}
         }
 
     }
@@ -122,7 +130,8 @@ public class SlidingManager implements GameManager {
         }
         if (merge) {
             cardCollection.addRandomNum();
-            checkAllPair();
+            if(!checkNextLevel()){
+                checkAllPair();}
         }
 
     }
@@ -157,7 +166,8 @@ public class SlidingManager implements GameManager {
         }
         if (merge) {
             cardCollection.addRandomNum();
-            checkAllPair();
+            if(!checkNextLevel()){
+                checkAllPair();}
         }
 
     }
@@ -193,7 +203,8 @@ public class SlidingManager implements GameManager {
         }
         if (merge) {
             cardCollection.addRandomNum();
-            checkAllPair();
+            if(!checkNextLevel()){
+                checkAllPair();}
         }
 
     }
@@ -205,14 +216,22 @@ public class SlidingManager implements GameManager {
 
     @Override
     public boolean checkNextLevel() {
-        return false;
+        int currentScore = getScore();
+        nextLevel = (currentScore >= 50);
+        return nextLevel;
+    }
+
+    public boolean isNextLevel() {
+        return nextLevel;
     }
 
     public void setCardCollection(){
         cardCollection.setCardCollection();
         cardCollection.addRandomNum();
         cardCollection.addRandomNum();
+    }
 
+    public void startNextLevel(){
 
     }
 

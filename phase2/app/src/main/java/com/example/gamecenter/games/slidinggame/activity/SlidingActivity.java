@@ -1,12 +1,9 @@
 package com.example.gamecenter.games.slidinggame.activity;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.Chronometer;
 import android.widget.TextView;
 
 import com.example.gamecenter.strategy.BaseActivity;
@@ -22,41 +19,68 @@ public class SlidingActivity extends BaseActivity implements GameView {
 
     private int score = 0;
     private TextView textScore;
+    private TextView level;
     //The number of columns and rows.
     public static int num;
     private static GameTimer gameTimer;
+    private static boolean isLevel1 = true;
+
+    //private TextView level;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SharedPreferences levels = getSharedPreferences("slidingLevel", Context.MODE_PRIVATE);
-        if ("easy".equals(levels.getString("level", ""))) {
-            setNum(3);
-        } else {
-            setNum(4);
-        }
+        setNum();
         setContentView(R.layout.activity_sliding);
+
+        textScore = findViewById(R.id.tvScore);
+        level = findViewById(R.id.slidingLevel);
+        setLevelText();
         setBackButton();
         setHelpButton();
-        textScore = findViewById(R.id.tvScore);
-        SlidingGrid.getPresenter().setWeaponView(this);
 
-        Button pauseBtn = findViewById(R.id.pause2048);
+        SlidingGrid.getPresenter().setSlidingView(this);
+
 
         gameTimer = new GameTimer(findViewById(R.id.slidingTimer));
+
         gameTimer.restart();
+
+        Button pauseBtn = findViewById(R.id.pause2048);
         pauseBtn.setTag(0);
         setPauseButton(pauseBtn, gameTimer);
 
 
     }
 
-    public static void setNum(int column) {
-        num = column;
+    public void setLevelText(){
+        if (isLevel1){
+            level.setText("LEVEL1");
+        }
+        else{
+            level.setText("LEVEL2");
+        }
+    }
+
+    public static void setNum() {
+        if (isLevel1){
+            num = 3;
+        }
+        else{
+            num = 4;
+        }
     }
 
     public static int getNum() {
         return num;
+    }
+
+    public static boolean getIsLevel1(){
+        return isLevel1;
+    }
+
+    public static void notLevel1(){
+        isLevel1 = !isLevel1;
     }
 
     public static GameTimer getGameTimer() {
@@ -97,6 +121,14 @@ public class SlidingActivity extends BaseActivity implements GameView {
         });
     }
 
+    public void startLevel2(){
+        Intent intent = new Intent(SlidingActivity.this, SlidingActivity.class);
+        startActivity(intent);
+    }
+
+    public SlidingActivity getSlidingActivity(){
+        return this;
+    }
 }
 
 
