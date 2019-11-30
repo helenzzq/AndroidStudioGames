@@ -41,7 +41,7 @@ public class CatchBallManager implements GameManager, Serializable {
         //if the center of the Ball is in the box,it counts as a hit
          for (Ball ball : board.getBalls()) {
             if (validate(ball.getCenterX(), ball.getCenterY(), player.getY(), player.getSize())) {
-                if(ball.getPoint()==0){
+                if(ball instanceof BlackBall){
                     gameOver = true;
                     break;
                 }
