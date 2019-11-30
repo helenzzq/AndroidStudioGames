@@ -40,6 +40,7 @@ public class Math24Presenter implements GameController , MySubject {
         }
         if (mathManager.checkNextLevel()){
             mathView.setLevel("Level2");
+            mathView.setLives(1);
         }
     }
 
@@ -61,8 +62,8 @@ public class Math24Presenter implements GameController , MySubject {
         }
         else{
             mathView.setMessage("It's Wrong!!!");
-            mathView.updateLives();
-            if(mathView.getGameTimer().getTime()/60 >= 3) {
+            mathView.setLives(mathManager.getLives());
+            if(mathManager.getLives() == 0) {
                 mathView.showFailure();
                 mathView.goToResult();
             }

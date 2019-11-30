@@ -9,15 +9,13 @@ public class Math24Manager implements GameManager {
     private boolean gameOver;
     private QuestionBank questionBank;
     private boolean checkAnswer;
+    private int lives;
 
     public Math24Manager(){
         this.score = 0;
         gameOver =false;
         questionBank = new QuestionBank();
     }
-
-
-
 
 
     public int[] getQuestion(){
@@ -36,14 +34,23 @@ public class Math24Manager implements GameManager {
 
     @Override
     public boolean checkNextLevel() {
-        return score >= 100;
+        return score >= 150;
     }
 
+    public int getLives() {
+        return lives;
+    }
 
     //determine if the player's answer can make it to 24
     public int calculate(String equation){
         int result = (int)Math.round(Calculator.getResult(equation));
-        checkAnswer = (result == 24);
+        if (result == 24) {
+            checkAnswer = true;
+        }
+        else{
+            lives -=1;
+            checkAnswer = false;
+        }
         return result;
     }
 

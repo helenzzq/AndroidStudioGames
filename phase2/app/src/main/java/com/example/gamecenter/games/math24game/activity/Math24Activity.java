@@ -24,7 +24,6 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     private Button rightBracket;
     private TextView mathExpression, result, message, textLive, scoreText,level;
     private Button[] nums, operatorBtns;
-    private int numLives = 3;
     private int score = 0;
     private Math24Presenter presenter;
 
@@ -63,59 +62,6 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         return gameTimer;
     }
 
-    private void setUpNumBtnView() {
-        //create number buttons whose texts are questions
-
-        Button num1 = findViewById(R.id.mathnum1);
-        Button num2 = findViewById(R.id.mathnum2);
-        Button num3 = findViewById(R.id.mathnum3);
-        Button num4 = findViewById(R.id.mathnum4);
-        nums = new Button[]{num1, num2, num3, num4};
-        setOnClickNums();
-    }
-
-    private void setUpOperators() {
-        Button plus = findViewById(R.id.btn_plus);
-        Button minus = findViewById(R.id.btn_minus);
-        Button multiply = findViewById(R.id.btn_multiply);
-        Button divide = findViewById(R.id.btn_divide);
-        operatorBtns = new Button[]{plus, minus, multiply, divide};
-        equal = findViewById(R.id.btn_equal);
-        equal.setEnabled(false);
-        equal.setOnClickListener(this);
-        setOnClickOperators();
-
-    }
-
-    private void setUpMenuBtn() {
-        nextBtn = findViewById(R.id.btn_next);
-        Button backGame = findViewById(R.id.btn_back);
-        Button help = findViewById(R.id.btn_help);
-        clear = findViewById(R.id.btn_clear);
-        nextBtn.setOnClickListener(this);
-        backGame.setOnClickListener(this);
-        help.setOnClickListener(this);
-        clear.setOnClickListener(this);
-    }
-
-    private void setUpBrackets() {
-        //create variables left bracket, right bracket and assign the the buttons to them respectively
-        leftBracket = findViewById(R.id.btn_left);
-        rightBracket = findViewById(R.id.btn_right);
-        setOnClickBrackets();
-
-    }
-
-    private void setTextSpace() {
-        //put the output in result
-        result = findViewById(R.id.math24result);
-        //the text saying whether or not the answer is accurate
-        message = findViewById(R.id.message);
-        //the text saying the number of lives left
-        textLive = findViewById(R.id.text_live);
-        //create a text space called mathExpression to put the equation entered by the player
-        mathExpression = findViewById(R.id.tv_calculation);
-    }
 
 
     void disableBtns(Button[] btn) {
@@ -281,10 +227,12 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         this.level.setText(level);
     }
 
-    public void updateLives(){
-        numLives -= 1;
-        textLive.setText(String.format("Lives : %d", numLives));
+    @SuppressLint("DefaultLocale")
+    public void setLives(int lives) {
+        textLive.setText(String.format("Your score: %d", lives));
     }
+
+
 
     public void showFailure(){
         textLive.setTextColor(Color.RED);
@@ -297,7 +245,59 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         super.onDestroy();
     }
 
-    public int getNumLives() {
-        return numLives;
+
+    private void setUpNumBtnView() {
+        //create number buttons whose texts are questions
+
+        Button num1 = findViewById(R.id.mathnum1);
+        Button num2 = findViewById(R.id.mathnum2);
+        Button num3 = findViewById(R.id.mathnum3);
+        Button num4 = findViewById(R.id.mathnum4);
+        nums = new Button[]{num1, num2, num3, num4};
+        setOnClickNums();
     }
+
+    private void setUpOperators() {
+        Button plus = findViewById(R.id.btn_plus);
+        Button minus = findViewById(R.id.btn_minus);
+        Button multiply = findViewById(R.id.btn_multiply);
+        Button divide = findViewById(R.id.btn_divide);
+        operatorBtns = new Button[]{plus, minus, multiply, divide};
+        equal = findViewById(R.id.btn_equal);
+        equal.setEnabled(false);
+        equal.setOnClickListener(this);
+        setOnClickOperators();
+
+    }
+
+    private void setUpMenuBtn() {
+        nextBtn = findViewById(R.id.btn_next);
+        Button backGame = findViewById(R.id.btn_back);
+        Button help = findViewById(R.id.btn_help);
+        clear = findViewById(R.id.btn_clear);
+        nextBtn.setOnClickListener(this);
+        backGame.setOnClickListener(this);
+        help.setOnClickListener(this);
+        clear.setOnClickListener(this);
+    }
+
+    private void setUpBrackets() {
+        //create variables left bracket, right bracket and assign the the buttons to them respectively
+        leftBracket = findViewById(R.id.btn_left);
+        rightBracket = findViewById(R.id.btn_right);
+        setOnClickBrackets();
+
+    }
+
+    private void setTextSpace() {
+        //put the output in result
+        result = findViewById(R.id.math24result);
+        //the text saying whether or not the answer is accurate
+        message = findViewById(R.id.message);
+        //the text saying the number of lives left
+        textLive = findViewById(R.id.text_live);
+        //create a text space called mathExpression to put the equation entered by the player
+        mathExpression = findViewById(R.id.tv_calculation);
+    }
+
 }
