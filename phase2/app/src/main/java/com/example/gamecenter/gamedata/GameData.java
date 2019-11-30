@@ -1,7 +1,5 @@
 package com.example.gamecenter.gamedata;
 
-import android.provider.ContactsContract;
-
 public class GameData {
 
     /**
@@ -22,16 +20,20 @@ public class GameData {
 
     /**
      *
-     * @param scoreType represents whether the score or highest score to be displayed
      * @param score numerical representation of score
      * @param time numerical representation of time used
      * @param numDeath represent the number for the user's death in game
      */
 
-    public void constructGameData(String scoreType, int score, int time, int numDeath){
-        this.gameDataBuilder.setScore(scoreType, score);
+    public void constructGameData(int score, int time, int numDeath){
+        this.gameDataBuilder.setScore(score);
         this.gameDataBuilder.setDeath(numDeath);
         this.gameDataBuilder.setTime(time);
+    }
+
+
+    public GameDataBuilder getGameDataBuilder() {
+        return gameDataBuilder;
     }
 
     /**
@@ -59,6 +61,9 @@ public class GameData {
         return gameDataBuilder.getNumDeath();
     }
 
+    public String getUserName(){
+        return gameDataBuilder.getUserName();
+    }
     /**
      *
      * @return the highest score in gameDataBuilder

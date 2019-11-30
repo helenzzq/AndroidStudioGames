@@ -1,26 +1,37 @@
 package com.example.gamecenter.gamedata;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 
 /**
 * A game data builder.
 */
 
-public class GameDataBuilder {
+class GameDataBuilder {
     /**
      * The gameData
      */
-    private SharedPreferences gameData;
+    private  SharedPreferences gameData;
+    private SharedPreferences.Editor editor;
 
     /**
      *
-     * @param gameName the name of game
-     * @param context the context
+     * @param dataName the name of game
      */
-     GameDataBuilder(String gameName, Context context){
-        gameData = context.getSharedPreferences(gameName, Context.MODE_PRIVATE);
+    @SuppressLint("CommitPrefEdits")
+    GameDataBuilder(String dataName, SharedPreferences gameData){
+        this.gameData = gameData;
+        editor = gameData.edit();
+        setUserName(dataName);
+    }
+    @SuppressLint("CommitPrefEdits")
+    GameDataBuilder(SharedPreferences gameData){
+        this.gameData = gameData;
+        editor = gameData.edit();
+    }
 
+    public SharedPreferences getGameData() {
+        return gameData;
     }
 
     /**
@@ -37,11 +48,11 @@ public class GameDataBuilder {
      * @return highest score
      */
     int getHighestScore(){
-        return gameData.getInt("highestScore", 0);
+        return gameData.getInt("highestGameScore", 0);
     }
 
     /**
-     * Return the numerical time value according to key
+     * Return the used time for the game of the user
      * @return time
      */
 
@@ -50,21 +61,35 @@ public class GameDataBuilder {
     }
 
 
-    void setScore(String dataName, int score) {
-        SharedPreferences.Editor editor = gameData.edit();
-        editor.putInt(dataName, score);
+    void setHighestScore(int score){
+        editor.putInt("highestGameScore", score);
+        editor.apply();
+    }
+
+    void setUserName(String userName){
+        editor.putString("userName", userName);
+        editor.apply();
+    }
+
+    String getUserName(){
+        return gameData.getString("userName", "");
+    }
+
+    void setScore(int score) {
+        editor.putInt("score", score);
+        if (score > getHighestScore()){
+            setHighestScore(score);
+        }
         editor.apply();
     }
 
 
     void setTime(int time) {
-        SharedPreferences.Editor editor = gameData.edit();
         editor.putInt("Time", time);
         editor.apply();
     }
 
     void setDeath(int numDeath) {
-        SharedPreferences.Editor editor = gameData.edit();
         editor.putInt("death", numDeath);
         editor.apply();
     }
