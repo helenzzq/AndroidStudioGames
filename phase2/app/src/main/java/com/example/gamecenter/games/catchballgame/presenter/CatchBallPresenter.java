@@ -1,10 +1,13 @@
 package com.example.gamecenter.games.catchballgame.presenter;
 
+import android.content.Context;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
+import com.example.gamecenter.gamedata.CatchBallDataBuilder;
+import com.example.gamecenter.gamedata.GameData;
 import com.example.gamecenter.gameinterface.GameController;
 import com.example.gamecenter.gameinterface.GameManager;
 import com.example.gamecenter.gameinterface.MyObserver;
@@ -13,6 +16,8 @@ import com.example.gamecenter.games.catchballgame.activity.CatchBallActivity;
 import com.example.gamecenter.games.catchballgame.model.CatchBallManager;
 import com.example.gamecenter.games.catchballgame.model.CatchBoard;
 import com.example.gamecenter.scoreboard.Scoreboard;
+import com.example.gamecenter.user.User;
+import com.example.gamecenter.user.UserManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +29,7 @@ public class CatchBallPresenter implements GameController, MySubject {
      * The list of observers of this class
      */
     private static List<MyObserver> observers;
+    private static GameData gameData;
 
 
     private CatchBallManager manager;
@@ -58,7 +64,9 @@ public class CatchBallPresenter implements GameController, MySubject {
         catchBallView.updateScore(manager.getScore());
         if (manager.isGameOver()) {
             catchBallView.getGameTimer().stop();
+            setGameData();
             catchBallView.goToResult();
+
         } else {
             manager.changePos(actionFlag);
             if(manager.checkNextLevel()){
@@ -132,5 +140,13 @@ public class CatchBallPresenter implements GameController, MySubject {
             manager = new CatchBallManager(new CatchBoard(windowManager, -80,-80,14,imgs));
         }
         notifyObservers();
+    }
+    private void setGameData(){
+        User currentPlayer = UserManager.getCurrentUser();
+        String username = currentPlayer.getUsername();
+        gameData = new GameData(new CatchBallDataBuilder(currentPlayer.getUsername(),
+                catchBallView.getSharedPreferences(username+"catchBall", Context.MODE_PRIVATE))) ;
+        gameData.constructGameData(manager.getScore(), catchBallView.getGameTimer().getTime(),1);
+
     }
 }
