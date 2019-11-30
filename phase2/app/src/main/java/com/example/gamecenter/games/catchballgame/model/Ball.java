@@ -19,14 +19,14 @@ class Ball implements MoveItem {
 
 
     //ball information including its x and y coordinates, view and speed
-    //Ball(int x, int y, ImageView view, int speed){
-        //this.view = view;
-        //view.setX(x);
-        //view.setY(y);
-        //point = 0;
-        //this.speed = speed;
-    //
-    // }
+    Ball(int x, int y, ImageView view, int speed){
+        this.view = view;
+        view.setX(x);
+        view.setY(y);
+        point = 0;
+        this.speed = speed;
+
+     }
 
     /**
      * A getter for the point of the ball
