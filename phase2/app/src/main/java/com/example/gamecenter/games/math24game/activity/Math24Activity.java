@@ -56,8 +56,9 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         scoreText.setText(String.format("Your score %d", score));
         //set the first question, including set the text of number buttons
         presenter = new Math24Presenter(new Math24Manager(), this);
-        SharedPreferences level = getSharedPreferences("mathLevel", Context.MODE_PRIVATE);
-        presenter.onStart(level.getString("level",""));
+//        SharedPreferences level = getSharedPreferences("mathLevel", Context.MODE_PRIVATE);
+        presenter.onStart();
+        presenter.checkCurrentResult();
 
     }
 

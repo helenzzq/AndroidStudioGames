@@ -17,10 +17,6 @@ public interface GameMenu {
      * Activate the load button.
      */
     void setLoadBtn();
-    /**
-     * Pop up a menu of complexities.
-     */
-    void showPopup(View v);
 
     /**
      * Activate the NewGame button.
