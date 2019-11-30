@@ -32,29 +32,34 @@ public class Math24Presenter implements GameController , MySubject {
 
     public void onStart() {
         mathView.setMessage("");
+        mathView.getNextBtn().setEnabled(false);
         int[] questions = mathManager.getQuestion();
         Button[] nums = mathView.getNums();
         for (int i = 0; i < 4; i++) {
             mathView.setNumText(nums[i],questions[i]);
         }
+        if (mathManager.checkNextLevel()){
+            mathView.setLevel("Level2");
+        }
     }
+
+
 
     public void calculateResult(String mathExpression){
         int result = mathManager.calculate(mathExpression);
         mathView.showResult(result);
         checkCurrentResult();
 
-
     }
 
-    public void checkCurrentResult() {
+    private void checkCurrentResult() {
         if(mathManager.isCheckAnswer()){
-            mathView.setMessage("Congratulations!\n Click Next to next question");
+            mathView.setMessage("Congratulations!\n Click Next to proceed");
             mathView.getNextBtn().setEnabled(true);
             mathView.disableAll();
             mathView.updateScore(mathManager.getScore());
         }
-        if (!mathManager.isCheckAnswer()) {
+        else{
             mathView.setMessage("It's Wrong!!!");
             mathView.updateLives();
             if(mathView.getGameTimer().getTime()/60 >= 3) {

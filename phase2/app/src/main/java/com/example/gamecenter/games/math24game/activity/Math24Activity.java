@@ -16,21 +16,20 @@ import com.example.gamecenter.strategy.GameTimer;
 
 
 public class Math24Activity extends BaseActivity implements GameView, View.OnClickListener {
-    private Button minus, multiply, divide;
     private GameTimer gameTimer;
     //    private Operators plus, minus, multiply, divide;
     private Button equal;
     private Button clear;
     private Button leftBracket, nextBtn;
     private Button rightBracket;
-    private TextView mathExpression, result, message, textLive, scoreText;
+    private TextView mathExpression, result, message, textLive, scoreText,level;
     private Button[] nums, operatorBtns;
     private int numLives = 3;
     private int score = 0;
     private Math24Presenter presenter;
 
 
-    @SuppressLint("DefaultLocale")
+    @SuppressLint({"DefaultLocale", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,11 +49,13 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         setPauseButton(pauseBtn, gameTimer);
         nextBtn.setEnabled(false);
 
+        level = findViewById(R.id.level);
+        level.setText("LEVEL1");
+
         scoreText = findViewById(R.id.score);
         scoreText.setText(String.format("Your score %d", score));
         //set the first question, including set the text of number buttons
         presenter = new Math24Presenter(new Math24Manager(), this);
-//        SharedPreferences level = getSharedPreferences("mathLevel", Context.MODE_PRIVATE);
         presenter.onStart();
     }
 
@@ -75,9 +76,9 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
 
     private void setUpOperators() {
         Button plus = findViewById(R.id.btn_plus);
-        minus = findViewById(R.id.btn_minus);
-        multiply = findViewById(R.id.btn_multiply);
-        divide = findViewById(R.id.btn_divide);
+        Button minus = findViewById(R.id.btn_minus);
+        Button multiply = findViewById(R.id.btn_multiply);
+        Button divide = findViewById(R.id.btn_divide);
         operatorBtns = new Button[]{plus, minus, multiply, divide};
         equal = findViewById(R.id.btn_equal);
         equal.setEnabled(false);
@@ -221,16 +222,15 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         disableBtns(nums);
 
     }
-
-    public void clearText() {
+    public void clearText(){
         result.setText("");
         mathExpression.setText("");
         message.setText("");
 
     }
 
-    public void enableAll() {
-        enableBracket(true, true);
+    public void enableAll(){
+        enableBracket(true,true);
         enableBtns(operatorBtns);
         enableBtns(nums);
         clear.setEnabled(true);
@@ -275,11 +275,11 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     @Override
     public void updateScore(int score) {
         scoreText.setText(String.format("Your score: %d", this.score += score));
-
     }
 
-
-
+    public void setLevel(String level) {
+        this.level.setText(level);
+    }
 
     public void updateLives(){
         numLives -= 1;
