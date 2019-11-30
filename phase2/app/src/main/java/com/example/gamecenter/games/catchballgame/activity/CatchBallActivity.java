@@ -38,7 +38,7 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
 
     private TextView scoreLabel;
     private TextView startLabel;
-    private Button pauseButton;
+    private Button pauseButton, introButton;
 
     //Score for the game
     private int score=0;
@@ -83,13 +83,17 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
         gameTimer = new GameTimer(chrono);
 
         pauseButton =findViewById(R.id.catchBallPause);
+        introButton = findViewById(R.id.catchBallIntro);
         scoreLabel = findViewById(R.id.scoreLabel);
         startLabel = findViewById(R.id.startLabel);
 
         scoreLabel.setText("Score: 0" );
         pauseButton.setTag(0);
         setPauseButton(pauseButton, gameTimer);
-
+        introButton.setOnClickListener(v -> {
+            Intent catchBallIntro1 = new Intent(CatchBallActivity.this, CatchBallIntroActivity.class);
+            startActivity(catchBallIntro1);
+        });
     }
 
     /**
@@ -99,7 +103,6 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
     public void goToResult() {
         super.goToResult(CatchBallResultActivity.class,"CATCH_BALL_SCORE", score);
     }
-
 
 
     /**
@@ -144,12 +147,9 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
 
     }
 
-
-
     public void hideStartLabel(){
         startLabel.setVisibility(View.GONE);
     }
-
 
     public void updateScore(int score) {
         this.score = score;
@@ -167,8 +167,8 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
         this.startFlag = startFlag;
     }
 
-    @SuppressLint("SetTextI18n")
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void setPauseButton(Button pauseBtn, GameTimer gameTimer) {
         pauseBtn.setOnClickListener(v -> {
