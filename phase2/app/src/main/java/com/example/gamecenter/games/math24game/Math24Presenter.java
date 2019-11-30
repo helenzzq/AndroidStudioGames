@@ -36,10 +36,7 @@ public class Math24Presenter implements GameController , MySubject {
         Button[] nums = mathView.getNums();
         for (int i = 0; i < 4; i++) {
             mathView.setNumText(nums[i],questions[i]);
-
         }
-
-
     }
 
     public void calculateResult(String mathExpression){
@@ -52,15 +49,15 @@ public class Math24Presenter implements GameController , MySubject {
 
     public void checkCurrentResult() {
         if(mathManager.isCheckAnswer()){
-            mathView.setMessage("Congratulations! \n");
-            mathView.resetAll();
+            mathView.setMessage("Congratulations!\n Click Next to next question");
+            mathView.getNextBtn().setEnabled(true);
+            mathView.disableAll();
             mathView.updateScore(mathManager.getScore());
-            onStart();
         }
         if (!mathManager.isCheckAnswer()) {
             mathView.setMessage("It's Wrong!!!");
             mathView.updateLives();
-            if(mathView.getNumLives() == 0) {
+            if(mathView.getGameTimer().getTime()/60 >= 3) {
                 mathView.showFailure();
                 mathView.goToResult();
             }
