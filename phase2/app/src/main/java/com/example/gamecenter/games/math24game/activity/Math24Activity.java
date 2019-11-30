@@ -18,6 +18,7 @@ import com.example.gamecenter.strategy.GameTimer;
 
 public class Math24Activity extends BaseActivity implements GameView, View.OnClickListener {
     private Button minus, multiply, divide;
+    private GameTimer gameTimer;
     //    private Operators plus, minus, multiply, divide;
     private Button equal;
     private Button clear;
@@ -44,7 +45,7 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         setUpMenuBtn();
 
         Button pauseBtn = findViewById(R.id.mathPause);
-        GameTimer gameTimer = new GameTimer(findViewById(R.id.mathTimer));
+        gameTimer = new GameTimer(findViewById(R.id.mathTimer));
         gameTimer.restart();
         pauseBtn.setTag(0);
         setPauseButton(pauseBtn, gameTimer);
@@ -56,6 +57,10 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         presenter = new Math24Presenter(new Math24Manager(), this);
 //        SharedPreferences level = getSharedPreferences("mathLevel", Context.MODE_PRIVATE);
         presenter.onStart();
+    }
+
+    public GameTimer getGameTimer() {
+        return gameTimer;
     }
 
     private void setUpNumBtnView() {
@@ -83,11 +88,11 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     }
 
     private void setUpMenuBtn() {
-        Button nextGame = findViewById(R.id.btn_next);
+        Button nextQuestion = findViewById(R.id.btn_next);
         Button backGame = findViewById(R.id.btn_back);
         Button help = findViewById(R.id.btn_help);
         clear = findViewById(R.id.btn_clear);
-        nextGame.setOnClickListener(this);
+        nextQuestion.setOnClickListener(this);
         backGame.setOnClickListener(this);
         help.setOnClickListener(this);
         clear.setOnClickListener(this);
@@ -185,12 +190,15 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
             //button event reset the mathExpression text
             case R.id.btn_clear:
                 mathExpression.setText("");
+                setMessage("Congratulations! \n");
                 enableBtns(nums);
                 enableBtns(operatorBtns);
                 enableBracket(true, true);
+                result.setText("");
+                message.setText("");
                 break;
             case R.id.btn_next:
-                goToResult();
+                presenter.onStart();
                 break;
             case R.id.btn_back:
                 finish();
@@ -252,6 +260,8 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         scoreText.setText(String.format("Your score: %d", this.score += score));
 
     }
+
+
 
 
     public void updateLives(){
