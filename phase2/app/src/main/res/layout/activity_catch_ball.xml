@@ -8,6 +8,13 @@
     android:orientation="vertical"
     tools:context=".games.catchballgame.activity.CatchBallActivity">
 
+    //william modified
+<!--    <fragment-->
+<!--        android:id="@+id/fragment_massege"-->
+<!--        android:name="com.example.gamecenter.games.catchballgame.activity"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content" />-->
+
     <Chronometer
         android:id="@+id/chronometerBall"
         android:layout_width="wrap_content"
