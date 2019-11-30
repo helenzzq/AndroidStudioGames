@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Chronometer;
 import android.widget.TextView;
 
 import com.example.gamecenter.games.math24game.Math24Presenter;
@@ -22,7 +21,7 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     //    private Operators plus, minus, multiply, divide;
     private Button equal;
     private Button clear;
-    private Button leftBracket;
+    private Button leftBracket, nextBtn;
     private Button rightBracket;
     private TextView mathExpression, result, message, textLive, scoreText;
     private Button[] nums, operatorBtns;
@@ -49,7 +48,7 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         gameTimer.restart();
         pauseBtn.setTag(0);
         setPauseButton(pauseBtn, gameTimer);
-
+        nextBtn.setEnabled(false);
 
         scoreText = findViewById(R.id.score);
         scoreText.setText(String.format("Your score %d", score));
@@ -88,11 +87,11 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     }
 
     private void setUpMenuBtn() {
-        Button nextQuestion = findViewById(R.id.btn_next);
+        nextBtn = findViewById(R.id.btn_next);
         Button backGame = findViewById(R.id.btn_back);
         Button help = findViewById(R.id.btn_help);
         clear = findViewById(R.id.btn_clear);
-        nextQuestion.setOnClickListener(this);
+        nextBtn.setOnClickListener(this);
         backGame.setOnClickListener(this);
         help.setOnClickListener(this);
         clear.setOnClickListener(this);
@@ -128,6 +127,10 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         for (Button b : btn) {
             b.setEnabled(true);
         }
+    }
+
+    public Button getNextBtn() {
+        return nextBtn;
     }
 
     void enableBracket(boolean left, boolean right) {
@@ -189,16 +192,16 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         switch (view.getId()) {
             //button event reset the mathExpression text
             case R.id.btn_clear:
-                mathExpression.setText("");
-                setMessage("Congratulations! \n");
+                clearText();
                 enableBtns(nums);
                 enableBtns(operatorBtns);
                 enableBracket(true, true);
-                result.setText("");
-                message.setText("");
                 break;
             case R.id.btn_next:
                 presenter.onStart();
+                enableAll();
+                nextBtn.setEnabled(false);
+                clearText();
                 break;
             case R.id.btn_back:
                 finish();
@@ -213,11 +216,25 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         }
     }
 
-    public void resetAll() {
-        mathExpression.setText("");
+    public void disableAll() {
         clear.setEnabled(false);
         disableBtns(nums);
-        equal.setEnabled(false);
+
+    }
+
+    public void clearText() {
+        result.setText("");
+        mathExpression.setText("");
+        message.setText("");
+
+    }
+
+    public void enableAll() {
+        enableBracket(true, true);
+        enableBtns(operatorBtns);
+        enableBtns(nums);
+        clear.setEnabled(true);
+
     }
 
     private boolean checkNumDisabled() {
