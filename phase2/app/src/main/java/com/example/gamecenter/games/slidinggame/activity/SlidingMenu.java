@@ -5,9 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.gamecenter.HelpActivity;
 import com.example.gamecenter.R;
 import com.example.gamecenter.strategy.BackGroundSetter;
 import com.example.gamecenter.strategy.BaseActivity;
@@ -62,7 +60,7 @@ public class SlidingMenu extends BaseActivity implements GameMenu {
     }
     @Override
     public void setHelpBtn() {
-        findViewById(R.id.help_slide).setOnClickListener(v-> switchToPage(HelpActivity.class));
+        findViewById(R.id.help_slide).setOnClickListener(v -> switchToPage(SlidingIntroActivity.class));
 
     }
 
