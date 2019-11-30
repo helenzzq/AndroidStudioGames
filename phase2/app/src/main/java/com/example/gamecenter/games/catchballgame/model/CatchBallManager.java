@@ -82,14 +82,13 @@ public class CatchBallManager implements GameManager, Serializable {
 
     public boolean checkNextLevel() {
         if (score >= 50) {
-            board.setBasespeed(14);
+            board.setBaseSpeed(14);
             return true;
 
         }
         return false;
 
     }
-
 
 
 

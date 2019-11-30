@@ -97,16 +97,23 @@ class Ball implements MoveItem {
         return view;
     }
 
-    // return y coordinate of the centre of the ball
+    /*
+    return y coordinate of the centre of the ball
+    */
+
     int getCenterY() {
 
         return y + view.getHeight()/2;
     }
-    // return x coordinate of the centre of the ball
+    /**
+    *return X coordinate of the centre of the ball
+    */
+
     int getCenterX() {
 
         return x + view.getWidth()/2;
     }
+
     @Override
     //
     public void move(int screenWidth, int frameHeight, int width){

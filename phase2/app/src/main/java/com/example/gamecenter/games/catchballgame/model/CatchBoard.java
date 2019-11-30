@@ -39,7 +39,7 @@ public class CatchBoard extends Observable implements Serializable {
 
     }
 
-     void setBasespeed(int baseSpeed){
+     void setBaseSpeed(int baseSpeed){
          for (int i = 0; i < 3; i ++){
              balls[i].setSpeed(baseSpeed + i * 4);
          }

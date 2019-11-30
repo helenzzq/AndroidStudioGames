@@ -35,9 +35,9 @@ public class CatchBallMenu extends BaseActivity implements GameMenu, PopupMenu.O
     public static CatchBallPresenter controller;
 
     /**
-     * The file of slidingtilesscores.
+     * The file of CatchBallScores.
      */
-    private static final String fileName = "CatchBallscores.ser";
+    private static final String fileName = "CatchBallScores.ser";
 
     private Handler handler;
     private Activity current;
