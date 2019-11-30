@@ -20,7 +20,7 @@ import com.example.gamecenter.gameinterface.GameMenu;
 import com.example.gamecenter.login.MainMenuActivity;
 
 
-public class SlidingMenu extends BaseActivity implements GameMenu, PopupMenu.OnMenuItemClickListener {
+public class SlidingMenu extends BaseActivity implements GameMenu {
     private Handler handler;
     private Activity current;
     @Override
@@ -50,30 +50,7 @@ public class SlidingMenu extends BaseActivity implements GameMenu, PopupMenu.OnM
         setNewGameBtn();
         onClickSettingBtn(findViewById(R.id.setting_btn_slide));
     }
-    /**
-     * Activate the items in the dropDown menu.
-     */
-    @Override
-    public boolean onMenuItemClick(MenuItem item) {
-        Class targetGame = SlidingActivity.class;
-        SharedPreferences level = getSharedPreferences("slidingLevel", Context.MODE_PRIVATE);
-        switch (item.getItemId()) {
-            case R.id.map3x3:
-                //Select difficulty
-                switchToPage(targetGame);
-                level.edit().putString("level", "easy").apply();
-                return true;
 
-            case R.id.map4x4:
-                //controller.setUpBoard("Hard");
-                level.edit().putString("level", "hard").apply();
-                switchToPage(SlidingActivity.class);
-                return true;
-
-            default:
-                return false;
-        }
-    }
     /**
      * Activate the quit button.
      */
@@ -86,7 +63,7 @@ public class SlidingMenu extends BaseActivity implements GameMenu, PopupMenu.OnM
 
     @Override
     public void setNewGameBtn() {
-        findViewById(R.id.newslidingGame).setOnClickListener(this::showPopup);
+        findViewById(R.id.newslidingGame).setOnClickListener(v -> switchToPage(SlidingActivity.class));
 
     }
     @Override
@@ -101,14 +78,6 @@ public class SlidingMenu extends BaseActivity implements GameMenu, PopupMenu.OnM
 
     }
 
-    @Override
-    public void showPopup(View v) {
-        PopupMenu popup = new PopupMenu(this, v);
-        popup.setOnMenuItemClickListener(this);
-        popup.inflate(R.menu.menu_sliding_level);
-        popup.show();
-
-    }
 
     @Override
     public void makeToastLoadedText() {
