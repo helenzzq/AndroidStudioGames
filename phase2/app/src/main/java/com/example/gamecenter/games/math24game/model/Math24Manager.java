@@ -26,7 +26,7 @@ public class Math24Manager implements GameManager {
 
     //test if the result equals 24
     public boolean isGameOver(){
-        return (checkNextLevel()&& score >= 600 )|| lives <=0 ;
+        return score >= 450 || lives <= 0;
     }
 
     public boolean isCheckAnswer(){
