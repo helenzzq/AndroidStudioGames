@@ -21,8 +21,11 @@ import com.example.gamecenter.R;
 import com.example.gamecenter.games.catchballgame.model.CatchBallManager;
 import com.example.gamecenter.games.catchballgame.model.CatchBoard;
 import com.example.gamecenter.games.catchballgame.presenter.CatchBallPresenter;
+import com.example.gamecenter.scoreboard.ScoreboardFileSaver;
 import com.example.gamecenter.strategy.BaseActivity;
 import com.example.gamecenter.strategy.GameTimer;
+import com.example.gamecenter.user.User;
+import com.example.gamecenter.user.UserManager;
 
 import java.io.Serializable;
 import java.util.Observable;
@@ -58,6 +61,8 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
 
 
     private static final String fileName = "catchball.ser";
+
+    private User currentPlayer = UserManager.getCurrentUser();
 
 
     @SuppressLint("SetTextI18n")
@@ -100,6 +105,9 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
      */
     @Override
     public void goToResult() {
+        presenter.getGameManager().checkToAddScore(CatchBallMenu.scoreboard,currentPlayer.getUsername());
+        ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
+        scoreboardFileSaver.saveToFile(fileName);
         finish();
         super.goToResult(CatchBallResultActivity.class,"CATCH_BALL_SCORE", score);
     }

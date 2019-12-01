@@ -25,7 +25,7 @@ public class CatchBallScoreboardActivity extends AppCompatActivity {
         TextView gameTitle = findViewById(R.id.GameTitle);
         TextView scoreDescription = findViewById(R.id.ScoreDescription);
         gameTitle.setText("CatchBall");
-        scoreDescription.setText("Total points of ball");
+        scoreDescription.setText("Highest Points of ball collected");
 
         TextView globalScoresText = findViewById(R.id.GlobalScores);
 

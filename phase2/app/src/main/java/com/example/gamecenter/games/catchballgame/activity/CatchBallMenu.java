@@ -49,7 +49,7 @@ public class CatchBallMenu extends BaseActivity implements GameMenu {
 
         scoreboard = new Scoreboard();
         //!
-        ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, "CatchBallScores.ser");
+        ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
         scoreboard.register(scoreboardFileSaver);
         scoreboard.setGlobalScore(scoreboardFileSaver.getGlobalScores());
 
