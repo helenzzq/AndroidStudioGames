@@ -2,6 +2,9 @@ package com.example.gamecenter.games.catchballgame.model;
 
 import android.widget.ImageView;
 
+/**
+ * A class of the ball
+ * */
 class Ball implements MoveItem {
 
     //view of the ball
@@ -60,6 +63,7 @@ class Ball implements MoveItem {
 
     /**
      * A setter for the y coordinate of the ball
+     * @param y
      */
     @Override
     public void setY(int y) {
@@ -69,7 +73,9 @@ class Ball implements MoveItem {
      * A getter for the x coordinate of the ball
      */
     @Override
-
+    /**
+     * A getter for the x coordinate of the ball
+     */
     public int getX() {
         return x;
     }
@@ -81,11 +87,17 @@ class Ball implements MoveItem {
         return y;
     }
 
-    public void setSpeed(int speed) {
+  /**
+   * A setter for th speed of the ball.
+   * @param speed */
+  public void setSpeed(int speed) {
         this.speed = speed;
     }
 
-    public int getSpeed() {
+  /**
+   * A getter for the speed of the balls.
+   * @return */
+  public int getSpeed() {
         return speed;
     }
 
@@ -105,18 +117,24 @@ class Ball implements MoveItem {
 
         return y + view.getHeight()/2;
     }
+
     /**
     *return X coordinate of the centre of the ball
     */
-
     int getCenterX() {
 
         return x + view.getWidth()/2;
     }
 
-    @Override
-    //
-    public void move(int screenWidth, int frameHeight, int width){
+  /**
+   * Let the ball move.
+   *
+   * @param screenWidth the screenwidth
+   * @param frameHeight the frameHeight of the screen
+   * @param width the width of the item
+   */
+  @Override
+  public void move(int screenWidth, int frameHeight, int width) {
 
         x -= speed;
         if(x < 0){

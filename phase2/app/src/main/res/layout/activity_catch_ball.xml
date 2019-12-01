@@ -76,18 +76,17 @@
             android:id="@+id/catchBallPause"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_marginStart="290dp"
+            android:layout_marginStart="160dp"
             android:layout_marginTop="450dp"
             android:background="#CDDC39"
             android:text="@string/pause"
-
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/catchBallBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="160dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="450dp"
             android:background="#CDDC39"
             android:text="@string/back"
@@ -97,7 +96,7 @@
             android:id="@+id/catchBallIntro"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="290dp"
             android:layout_marginTop="450dp"
             android:background="#CDDC39"
             android:text="Intro"

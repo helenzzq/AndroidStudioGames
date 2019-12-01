@@ -3,10 +3,10 @@ package com.example.gamecenter.games.slidinggame.activity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
-
 
 import com.example.gamecenter.games.slidinggame.SlidingPresenter;
 import com.example.gamecenter.strategy.BaseActivity;
@@ -14,6 +14,7 @@ import com.example.gamecenter.R;
 import com.example.gamecenter.gameinterface.GameView;
 import com.example.gamecenter.strategy.GameTimer;
 
+import java.util.Timer;
 
 import static android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
 
@@ -30,8 +31,6 @@ public class SlidingActivity extends BaseActivity implements GameView {
     private static GameTimer gameTimer;
     private Chronometer chronometer;
     private static boolean isLevel1 = true;
-
-    private SlidingPresenter presenter = SlidingGrid.getPresenter();
 
 
     //private TextView level;
@@ -56,7 +55,7 @@ public class SlidingActivity extends BaseActivity implements GameView {
 
     @Override
     public void setPauseButton(Button pauseBtn, GameTimer gameTimer) {
-       //SlidingPresenter presenter = SlidingGrid.getPresenter();
+        SlidingPresenter presenter = SlidingGrid.getPresenter();
         pauseBtn.setOnClickListener(v -> {
             super.setPauseButton(pauseBtn, gameTimer);
             if (pauseBtn.getText().equals("RESUME")){
@@ -77,7 +76,6 @@ public class SlidingActivity extends BaseActivity implements GameView {
 
          else {
             gameTimer.setResume(chronometer);
-            isLevel1 = false;
             level.setText("LEVEL2");
 
     }}
@@ -100,7 +98,11 @@ public class SlidingActivity extends BaseActivity implements GameView {
     }
 
     public static void changeLevel() {
-        isLevel1 = false;
+        isLevel1 = !isLevel1;
+    }
+
+    public static GameTimer getGameTimer() {
+        return gameTimer;
     }
 
     @Override
@@ -117,8 +119,7 @@ public class SlidingActivity extends BaseActivity implements GameView {
     @Override
     public void goToResult() {
         finish();
-        super.goToResult(SlidingScoreboardActivity.class);
-
+        super.goToResult(SlidingResultActivity.class, "SLIDING_SCORE", score);
     }
 
 

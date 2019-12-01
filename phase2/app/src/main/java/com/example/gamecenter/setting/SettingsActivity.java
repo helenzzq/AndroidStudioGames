@@ -103,7 +103,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         //Enable set background button
         boolean on = (setBackground).isChecked();
         TextView[] texts = new TextView[]{findViewById(com.example.gamecenter.R.id.character_text),
-                findViewById(com.example.gamecenter.R.id.background_text), findViewById(com.example.gamecenter.R.id.music), findViewById(com.example.gamecenter.R.id.settings)};
+                findViewById(com.example.gamecenter.R.id.background_text), findViewById(com.example.gamecenter.R.id.points3), findViewById(com.example.gamecenter.R.id.settings)};
 
         ConstraintLayout layout = findViewById(com.example.gamecenter.R.id.setting);
 

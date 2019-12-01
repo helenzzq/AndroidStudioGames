@@ -3,7 +3,6 @@ package com.example.gamecenter.games.slidinggame.model;
 import com.example.gamecenter.gameinterface.GameManager;
 import com.example.gamecenter.games.slidinggame.activity.SlidingActivity;
 import com.example.gamecenter.games.slidinggame.activity.SlidingGrid;
-import com.example.gamecenter.scoreboard.Scoreboard;
 
 public class SlidingManager implements GameManager {
 
@@ -13,7 +12,7 @@ public class SlidingManager implements GameManager {
 
     private static int score;
     private boolean gameOver;
-    public static int num;
+    private static int num;
 
     public SlidingManager(int num, boolean isLevel1) {
         this.num = num;
@@ -23,6 +22,14 @@ public class SlidingManager implements GameManager {
         if (isLevel1) {
             score = 0;
         }
+    }
+
+    private static void setNum(int num) {
+        SlidingManager.num = num;
+    }
+
+    static int getNum() {
+        return num;
     }
 
 
@@ -213,19 +220,5 @@ public class SlidingManager implements GameManager {
             cardCollection.addRandomNum();
         }
 
-
-    /**
-     * @param scoreboard
-     * @param user
-     * @return
-     */
-    public boolean checkToAddScore(Scoreboard scoreboard, String user) {
-        if(isGameOver())
-        {
-            scoreboard.addScore(user,this.getScore());
-            return true;
-        }
-        return false;
-    }
 
     }

@@ -8,13 +8,24 @@ import android.widget.ImageView;
 import java.io.Serializable;
 import java.util.Observable;
 
+/**
+ * The class for the game board of the first game:  Catch Ball.
+ *
+ * */
 public class CatchBoard extends Observable implements Serializable {
-    private int screenWidth;
+  /** The width of the screen. */
+  private int screenWidth;
+
+    /** Balls.*/
     private OrangeBall orange;
     private BlackBall black;
     private Ball pink;
     private Ball[] balls;
+
+    /** The player.*/
     private PlayerPrince playerPrince;
+
+    /** The height of the frame.*/
     private int frameHeight;
 
 
@@ -38,31 +49,53 @@ public class CatchBoard extends Observable implements Serializable {
 
     }
 
-     void setBaseSpeed(int baseSpeed){
+  /**
+   * Set the base speed of the balls.
+   * @param baseSpeed */
+  void setBaseSpeed(int baseSpeed) {
          for (int i = 0; i < 3; i ++){
              balls[i].setSpeed(baseSpeed + i * 4);
          }
      }
 
-
-     Ball[] getBalls(){
+  /**
+   * A getter for the balls.
+   *
+   * @return */
+  Ball[] getBalls() {
         return balls;
 
     }
 
-    int getScreenWidth() {
+  /**
+   * A getter for the screen width.
+   *
+   * @return */
+  int getScreenWidth() {
         return screenWidth;
     }
 
-    void setFrameHeight(int frameHeight) {
+  /**
+   * A setter for the frame height.
+   *
+   * @param frameHeight */
+  void setFrameHeight(int frameHeight) {
         this.frameHeight = frameHeight;
     }
 
-    int getFrameHeight() {
+  /**
+   * A getter for the frame hright.
+   *
+   * @return */
+  int getFrameHeight() {
         return frameHeight;
     }
 
-    PlayerPrince getPlayerPrince(){
+  /**
+   * A getter for the player.
+   *
+   * @return */
+  PlayerPrince getPlayerPrince() {
         return playerPrince;
     }
 
