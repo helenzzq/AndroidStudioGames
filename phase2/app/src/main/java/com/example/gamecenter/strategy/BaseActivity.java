@@ -64,7 +64,6 @@ public class BaseActivity extends AppCompatActivity {
      */
     @SuppressLint("SetTextI18n")
     public void setPauseButton(Button pauseBtn, GameTimer gameTimer){
-        pauseBtn.setOnClickListener(v -> {
             if ((int)pauseBtn.getTag()==0){
                 pauseBtn.setTag(1);
                 gameTimer.stop();
@@ -78,7 +77,6 @@ public class BaseActivity extends AppCompatActivity {
                 pauseBtn.setText("PAUSE");
             }
 
-        });
 
     }
 

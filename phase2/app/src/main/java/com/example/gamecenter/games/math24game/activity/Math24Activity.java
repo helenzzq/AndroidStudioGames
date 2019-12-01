@@ -53,17 +53,30 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         gameTimer = new GameTimer(findViewById(R.id.mathTimer));
         gameTimer.restart();
         pauseBtn.setTag(0);
-        setPauseButton(pauseBtn, gameTimer);
+
         nextBtn.setEnabled(false);
 
         level = findViewById(R.id.level);
         level.setText("LEVEL1");
-
+        setPauseButton(pauseBtn, gameTimer);
         scoreText = findViewById(R.id.score);
         scoreText.setText(String.format("Your score %d", score));
         //set the first question, including set the text of number buttons
         presenter = new Math24Presenter(new Math24Manager(), this);
         presenter.onStart();
+    }
+
+    @Override
+    public void setPauseButton(Button pauseBtn, GameTimer gameTimer) {
+        pauseBtn.setOnClickListener(v -> {
+            super.setPauseButton(pauseBtn, gameTimer);
+            if (pauseBtn.getText().equals("RESUME")){
+                disableAll();
+            }
+            else{
+                enableAll();
+            }
+        });
     }
 
     public GameTimer getGameTimer() {
@@ -174,6 +187,8 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     public void disableAll() {
         clear.setEnabled(false);
         disableBtns(nums);
+        disableBtns(operatorBtns);
+        disableBtns(new Button[]{leftBracket, rightBracket, clear});
 
     }
     public void clearText(){
