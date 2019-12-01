@@ -88,12 +88,12 @@ If the player already finish the game, and get back to the game page by clicking
 back button, #############
 
 # ScoreBoard:
-After the game is over, a page will pop up asking the player whether want to save the score or not.
+A. After the game is over, a page will pop up asking the player whether want to save the score or not.
 There are three options:
     1. Save the score, and display both username and score on scoreboard.
     2. Save the score, but only display the score on scoreboard.
-    3. Do not save the score, and go back to the main page. 
-
+    3. Do not save the score, and go back to the main page.
+B. On the scoreboard, you can choose "Main Menu" button to go back to "choose game" page.
 
 
 # Introduction of the game:
