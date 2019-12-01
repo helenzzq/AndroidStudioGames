@@ -29,7 +29,7 @@ public class Math24Menu extends BaseActivity implements GameMenu {
      */
     public static Scoreboard scoreboard;
 
-    private static final String fileName = "Math24.ser";
+    private static final String fileName = "Math24Scores.ser";
 
     private User currentPlayer = UserManager.getCurrentUser();
 
