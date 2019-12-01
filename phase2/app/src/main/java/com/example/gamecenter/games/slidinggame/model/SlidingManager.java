@@ -36,6 +36,7 @@ public class SlidingManager implements GameManager {
         return num;
     }
 
+
     public SlidingCard[][] getSlidingCards() {
         return slidingCards;
     }
@@ -224,9 +225,6 @@ public class SlidingManager implements GameManager {
         return nextLevel;
     }
 
-    public boolean isNextLevel() {
-        return nextLevel;
-    }
 
     public void setCardCollection(){
         cardCollection.setCardCollection();
