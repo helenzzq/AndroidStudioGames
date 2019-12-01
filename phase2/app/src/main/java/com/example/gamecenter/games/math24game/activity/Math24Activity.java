@@ -214,6 +214,7 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     }
     @Override
     public void goToResult() {
+        finish();
         super.goToResult(Math24ResultActivity.class, "MATH24_SCORE", score);
     }
 
@@ -229,7 +230,7 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
 
     @SuppressLint("DefaultLocale")
     public void setLives(int lives) {
-        textLive.setText(String.format("Your score: %d", lives));
+        textLive.setText(String.format("Lives: %d", lives));
     }
 
 

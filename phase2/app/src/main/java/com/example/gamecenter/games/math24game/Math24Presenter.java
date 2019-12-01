@@ -63,7 +63,7 @@ public class Math24Presenter implements GameController , MySubject {
         else{
             mathView.setMessage("It's Wrong!!!");
             mathView.setLives(mathManager.getLives());
-            if(mathManager.getLives() == 0) {
+            if(mathManager.isGameOver()) {
                 mathView.showFailure();
                 mathView.goToResult();
             }
