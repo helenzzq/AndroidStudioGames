@@ -36,9 +36,6 @@ import java.util.TimerTask;
 ALL CREDIT FOR THE ORIGINAL IMPLEMENTATION OF A SIMILAR SINGLETON GOES TO THE ORIGINAL AUTHOR OF
     THE CODE.*/
 
-/**
- * Activity class of the first game: catch ball.
- * */
 public class CatchBallActivity extends BaseActivity implements GameView, Observer, Serializable {
 
     private TextView scoreLabel;
@@ -59,29 +56,17 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
     //Status check
     private boolean actionFlag = false;
     private boolean startFlag = false;
+    private TextView level;
 
-  /**
-   * Level of the game.
-   * */
-  private TextView level;
 
-  /**
-   * File of CatchBall game score.
-   * */
-  private static final String fileName = "CatchBallScores.ser";
+    private static final String fileName = "CatchBallScores.ser";
 
-  /**
-   * The current user.
-   * */
-  private User currentPlayer = UserManager.getCurrentUser();
+    private User currentPlayer = UserManager.getCurrentUser();
 
-  /**
-   * Create items when starting this activity.
-   *
-   * @param savedInstanceState */
-  @SuppressLint("SetTextI18n")
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
+
+    @SuppressLint("SetTextI18n")
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catch_ball);
         setBackButton();
@@ -113,22 +98,16 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
         });
     }
 
+
     /**
-     * Go to the result of the Game.
+     * Go to the result of the Game
      */
     @Override
     public void goToResult() {
-        presenter.getGameManager().checkToAddScore(CatchBallMenu.scoreboard, currentPlayer.getUsername());
-        ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
-        scoreboardFileSaver.saveToFile(fileName);
-        finish();
-        super.goToResult(CatchBallResultActivity.class, "CATCH_BALL_SCORE", score);
+        super.goToResult(CatchBallScoreboardActivity.class);
     }
 
-  /**
-   * Show prompts on the screen.
-   * */
-  public void showPrompt() {
+    public void showPrompt() {
         ViewGroup layout = findViewById(R.id.catchBall);
         view = getLayoutInflater().inflate(R.layout.fragment_massege,
                 layout, false);
@@ -146,7 +125,7 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
 
 
     /**
-     * Update the GameTimer.
+     * Update the GameTimer
      */
 
     @SuppressLint("SetTextI18n")
@@ -163,21 +142,12 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
 
     }
 
-  /**
-   * Set the value of level
-   * @param levels */
-  public void setLevel(String levels) {
+    public void setLevel(String levels) {
         level.setText(levels);
     }
 
-  /**
-   * Create events on touching.
-   *
-   * @param action
-   * @return
-   */
-  @Override
-  public boolean onTouchEvent(MotionEvent action) {
+    @Override
+    public boolean onTouchEvent(MotionEvent action) {
 
         FrameLayout frame = findViewById(R.id.frame);
 
@@ -186,11 +156,8 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
         return true;
     }
 
-  /**
-   * Enable or disable the action.
-   *
-   * @param action */
-  public void makeAction(MotionEvent action) {
+
+    public void makeAction(MotionEvent action) {
         if (action.getAction() == MotionEvent.ACTION_DOWN) {
             actionFlag = true;
         } else if (action.getAction() == MotionEvent.ACTION_UP) {
@@ -199,54 +166,30 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
 
     }
 
-  /**
-   * Hide the start label from users.
-   * */
-  public void hideStartLabel() {
+    public void hideStartLabel() {
         startLabel.setVisibility(View.GONE);
     }
 
-  /**
-   * Update the score of the player.
-   *
-   * @param score the score of the player */
-  public void updateScore(int score) {
+    public void updateScore(int score) {
         this.score = score;
     }
 
-  /**
-   * Get the timer for the game.
-   *
-   * @return */
-  public GameTimer getGameTimer() {
+    public GameTimer getGameTimer() {
         return gameTimer;
     }
 
-  /**
-   * Get the score of the player.
-   *
-   * @return */
-  public int getScore() {
+    public int getScore() {
         return score;
     }
 
-  /**
-   * Set the start flag to a boolean value.
-   *
-   * @param startFlag */
-  public void setStartFlag(boolean startFlag) {
+    public void setStartFlag(boolean startFlag) {
         this.startFlag = startFlag;
     }
 
-  /**
-   * Set the text of the Pause button, whether pause or resume.
-   *
-   * @param pauseBtn the button used to pause a game
-   * @param gameTimer a timer that displays the time
-   */
-  @SuppressLint("SetTextI18n")
-  @Override
-  public void setPauseButton(Button pauseBtn, GameTimer gameTimer) {
+
+    @SuppressLint("SetTextI18n")
+    @Override
+    public void setPauseButton(Button pauseBtn, GameTimer gameTimer) {
         pauseBtn.setOnClickListener(v -> {
             if (( int ) pauseBtn.getTag() == 0 && startFlag) {
                 pauseBtn.setTag(1);
@@ -266,32 +209,21 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
         });
     }
 
-  /**
-   * Set the back-to-main button.
-   * */
-  public void setBackButton() {
+    public void setBackButton() {
         findViewById(R.id.catchBallBack).setOnClickListener(v -> {
             backToMain();
         });
     }
 
-  /**
-   * Create the event of the back button.
-   * */
-  private void backToMain() {
+    private void backToMain() {
         switchToPage(CatchBallMenu.class);
         presenter.onDestroy();
         finish();
     }
 
-  /**
-   * Update game information to the observer.
-   *
-   * @param o
-   * @param arg
-   */
-  @Override
-  public void update(Observable o, Object arg) {
+
+    @Override
+    public void update(Observable o, Object arg) {
         presenter.notifyObservers();
     }
 

@@ -10,6 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".games.slidinggame.activity.SlidingScoreboardActivity"></activity>
         <activity android:name=".games.math24game.activity.Math24ScoreboardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -25,19 +26,16 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-
         <activity android:name=".games.slidinggame.activity.SlidingIntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-
         <activity android:name=".games.catchballgame.activity.CatchBallScoreboardActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.VIEW" />
-        </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
         </activity>
-
         <activity android:name=".games.slidinggame.activity.SlidingMenu">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -48,28 +46,25 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name=".games.math24game.activity.Math24ResultActivity">
+
+        <activity android:name=".login.MainMenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.gamecenter.login.MainMenuActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".games.slidinggame.activity.SlidingResultActivity" />
+
         <activity android:name=".games.math24game.activity.Math24Activity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.gamecenter.login.LoginActivity">
+
+        <activity android:name=".login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.gamecenter.login.RegisterActivity">
+        <activity android:name=".login.RegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -79,22 +74,17 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name=".games.catchballgame.activity.CatchBallResultActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-        </activity>
         <activity android:name=".games.catchballgame.activity.CatchBallActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.gamecenter.strategy.BaseActivity">
+        <activity android:name=".strategy.BaseActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.gamecenter.setting.SettingsActivity">
+        <activity android:name=".setting.SettingsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -104,7 +94,7 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.gamecenter.login.MainEntryActivity">
+        <activity android:name=".login.MainEntryActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
