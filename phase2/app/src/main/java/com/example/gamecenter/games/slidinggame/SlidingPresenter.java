@@ -60,8 +60,9 @@ public class SlidingPresenter implements GameController, MySubject {
                 slidingManager.swipeRight();
             }
         }
+        checkGameOver();
         slidingView.updateScore(slidingManager.getScore());
-        if ((slidingManager.checkNextLevel()) && (slidingView.getIsLevel1())) {
+        if ((slidingManager.checkNextLevel()) && (SlidingActivity.getIsLevel1())) {
             SlidingActivity.changeLevel();
 
             int level1Score = slidingManager.getScore();
@@ -81,9 +82,8 @@ public class SlidingPresenter implements GameController, MySubject {
 //        }
 
 
-    public void checkGameOver(){
+     void checkGameOver(){
         if(slidingManager.isGameOver()){
-            SlidingActivity.changeLevel();
             slidingView.goToResult();
             slidingGrid.onDestory();
         }
