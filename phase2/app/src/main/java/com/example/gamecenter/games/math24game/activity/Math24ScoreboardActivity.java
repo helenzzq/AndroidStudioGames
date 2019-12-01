@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.gamecenter.user.User;
 import com.example.gamecenter.login.LoginActivity;
 import com.example.gamecenter.R;
-
+import com.example.gamecenter.user.UserManager;
 
 
 public class Math24ScoreboardActivity extends AppCompatActivity {
@@ -18,7 +18,7 @@ public class Math24ScoreboardActivity extends AppCompatActivity {
     /**
      * The quick reference for the currently logged in player.
      */
-   // private User currentPlayer = LoginActivity.currentPlayer;
+    private User currentPlayer = UserManager.getCurrentUser();
 
     /**
      *The controller of this view
@@ -26,22 +26,22 @@ public class Math24ScoreboardActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scoreboard);
+        setContentView(R.layout.activity_score);
         addReturnButtonListener();
 
-        // Change to appropriate game title and score description
+        //Change to appropriate game title and score description
         TextView gameTitle = findViewById(R.id.GameTitle);
         TextView scoreDescription = findViewById(R.id.ScoreDescription);
-        gameTitle.setText("Memory");
+        gameTitle.setText("Math24");
         scoreDescription.setText("Least moves taken");
 
-//        TextView globalScoresText = findViewById(R.id.GlobalScores);
-//        String globalScoreValues = Math24Menu.scoreboard.getScoreValues(false, currentPlayer);
-//        globalScoresText.setText(globalScoreValues);
-//
-//        TextView userScoresText = findViewById(R.id.UserScores);
-//        String userScoreValues = Math24Menu.scoreboard.getScoreValues(true, currentPlayer);
-//        userScoresText.setText(userScoreValues);
+         TextView globalScoresText = findViewById(R.id.GlobalScores);
+         String globalScoreValues = Math24Menu.scoreboard.getScoreValues(false, currentPlayer);
+         globalScoresText.setText(globalScoreValues);
+
+         TextView userScoresText = findViewById(R.id.UserScores);
+         String userScoreValues = Math24Menu.scoreboard.getScoreValues(true, currentPlayer);
+         userScoresText.setText(userScoreValues);
     }
 
     /**

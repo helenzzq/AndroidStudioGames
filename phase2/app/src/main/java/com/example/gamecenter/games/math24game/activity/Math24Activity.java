@@ -7,12 +7,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.gamecenter.games.catchballgame.activity.CatchBallMenu;
 import com.example.gamecenter.games.math24game.Math24Presenter;
 import com.example.gamecenter.games.math24game.model.Math24Manager;
+import com.example.gamecenter.scoreboard.ScoreboardFileSaver;
 import com.example.gamecenter.strategy.BaseActivity;
 import com.example.gamecenter.R;
 import com.example.gamecenter.gameinterface.GameView;
 import com.example.gamecenter.strategy.GameTimer;
+import com.example.gamecenter.user.User;
+import com.example.gamecenter.user.UserManager;
 
 
 public class Math24Activity extends BaseActivity implements GameView, View.OnClickListener {
@@ -26,6 +30,10 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     private Button[] nums, operatorBtns;
     private int score = 0;
     private Math24Presenter presenter;
+
+    private static final String fileName = "Math24.ser";
+
+    private User currentPlayer = UserManager.getCurrentUser();
 
 
     @SuppressLint({"DefaultLocale", "SetTextI18n"})
@@ -214,6 +222,9 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     }
     @Override
     public void goToResult() {
+        presenter.getGameManager().checkToAddScore(Math24Menu.scoreboard,currentPlayer.getUsername());
+        ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
+        scoreboardFileSaver.saveToFile(fileName);
         finish();
         super.goToResult(Math24ResultActivity.class, "MATH24_SCORE", score);
     }

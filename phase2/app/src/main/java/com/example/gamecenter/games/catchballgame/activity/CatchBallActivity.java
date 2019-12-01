@@ -60,7 +60,7 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
     private TextView level;
 
 
-    private static final String fileName = "catchball.ser";
+    private static final String fileName = "CatchBallScores.ser";
 
     private User currentPlayer = UserManager.getCurrentUser();
 
