@@ -71,9 +71,25 @@ for current game. Click "next" button will lead the player to the next game.
 # Introduction of the game:
 
 ## Game 1: Catchball
+A. Game Rule: 
 
 
 ## Game 2: Sliding
+A. Game Rule:
+    1. In level 1, it's played on a 3*3 grid, while in level 2, it's on a 4*4 grid
+    2. Every turn, a new pictured card(##) will randomly appear in an empty spot on the board ####
+    3. Cards slide as far as possible in the chosen direction until they are stopped by either 
+    another card, or the edge of the grid.
+    4. If two cards of the same picture collide while moving, they will merge into a new pictured card
+    that is in higher level. 
 
 
 ## Game 3: Math24
+A. Game Rule:
+  1. The purpose: use the 4 numbers to get 24. Each number must and can be only used once. \n
+  2. Three lives for level 1, and one live for level 2. The player will lose a live if the result isn't 24 after clicking the equal sign. \n
+  3. The clear button can clear the letters you entered before you press the equal sign.\n
+  4. After getting a question accurate, click 'next' button to get to next question.\n
+  5. After getting three questions accurate, you will jump to level 2, which needs more complex number combinations.\n
+  6. The game will end when the player has no more lives. For level 2 specifically, if you get three questions accurate consecutively"
+ 

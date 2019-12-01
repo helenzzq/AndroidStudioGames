@@ -52,7 +52,6 @@ public class User implements Serializable {
         return this.password;
     }
 
-
     /**
      * Get the player's username.
      * @return username.
@@ -74,5 +73,4 @@ public class User implements Serializable {
         }
         return false;
     }
-
 }
