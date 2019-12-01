@@ -3,12 +3,10 @@ package com.example.gamecenter.games.math24game;
 import android.widget.Button;
 
 import com.example.gamecenter.gameinterface.GameController;
-import com.example.gamecenter.gameinterface.GameManager;
 import com.example.gamecenter.gameinterface.MyObserver;
 import com.example.gamecenter.gameinterface.MySubject;
 import com.example.gamecenter.games.math24game.activity.Math24Activity;
 import com.example.gamecenter.games.math24game.model.Math24Manager;
-import com.example.gamecenter.scoreboard.Scoreboard;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +34,7 @@ public class Math24Presenter implements GameController , MySubject {
         }
         if (mathManager.checkNextLevel()){
             mathView.setLevel("Level2");
+            mathView.setLives(1);
         }
     }
 
@@ -49,7 +48,7 @@ public class Math24Presenter implements GameController , MySubject {
     }
 
     private void checkCurrentResult() {
-        if(mathManager.isCheckAnswer()){
+        if(mathManager.isCorrectAnswer()){
             mathView.setMessage("Congratulations!\n Click Next to proceed");
             mathView.getNextBtn().setEnabled(true);
             mathView.disableAll();
@@ -57,7 +56,8 @@ public class Math24Presenter implements GameController , MySubject {
         }
         else{
             mathView.setMessage("It's Wrong!!!");
-            if(mathView.getGameTimer().getTime()/60 >= 3) {
+            mathView.setLives(mathManager.getLives());
+            if(mathManager.isGameOver()) {
                 mathView.showFailure();
                 mathView.goToResult();
             }

@@ -70,7 +70,6 @@ public class SlidingPresenter implements GameController, MySubject {
             slidingView.updateScore(level1Score);
             slidingManager.setScore(level1Score);
 
-
         }
     }
 
@@ -82,13 +81,20 @@ public class SlidingPresenter implements GameController, MySubject {
 //        }
 
 
-     void checkGameOver(){
+     private void checkGameOver(){
         if(slidingManager.isGameOver()){
+            onDestory();
             slidingView.goToResult();
-            slidingGrid.onDestory();
         }
     }
 
+    public void onDestory(){
+        SlidingActivity.setGameTimer(null);
+        SlidingActivity.setIsLevel1(true);
+        slidingGrid.onDestory();
+        slidingView.finish();
+
+    }
     public void onPause(){
         slidingGrid.onPause();
     }

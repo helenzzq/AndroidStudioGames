@@ -15,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SlidingResultActivity extends AppCompatActivity {
 
-    private Button mainPage;
     private int score;
     @SuppressLint({"SetTextI18n", "NewApi"})
     @Override
@@ -44,7 +43,7 @@ public class SlidingResultActivity extends AppCompatActivity {
 
         }
 
-        mainPage= findViewById(R.id.btn_slidingbackToMain);
+        Button mainPage = findViewById(R.id.btn_slidingbackToMain);
         mainPage.setOnClickListener(v -> openMath24());
     }
 

@@ -65,7 +65,6 @@ public class SlidingActivity extends BaseActivity implements GameView {
                 presenter.onResume();
             }
         });
-
     }
 
     public void initViewByLevel() {
@@ -113,6 +112,10 @@ public class SlidingActivity extends BaseActivity implements GameView {
         textScore.setText(score + "");
     }
 
+    public static void setIsLevel1(boolean isLevel1) {
+        SlidingActivity.isLevel1 = isLevel1;
+    }
+
     @Override
     public void goToResult() {
         finish();
@@ -122,10 +125,13 @@ public class SlidingActivity extends BaseActivity implements GameView {
 
     public void setBackButton() {
         findViewById(R.id.backtoMain).setOnClickListener(v -> {
-            isLevel1 = true;
-            finish();
+            SlidingGrid.getPresenter().onDestory();
             switchToPage(SlidingMenu.class);
         });
+    }
+
+    public static void setGameTimer(GameTimer gameTimer) {
+        SlidingActivity.gameTimer = gameTimer;
     }
 
     public void setHelpButton() {
@@ -140,8 +146,9 @@ public class SlidingActivity extends BaseActivity implements GameView {
     }
 
     public void startLevel2() {
-        finish();
+
         gameTimer.stop();
+        finish();
         Intent intent = new Intent(SlidingActivity.this, SlidingActivity.class);
         intent.putExtra("score", score);
         startActivity(intent);
