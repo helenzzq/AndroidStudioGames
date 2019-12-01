@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.gamecenter.games.catchballgame.activity.CatchBallMenu;
 import com.example.gamecenter.games.math24game.Math24Presenter;
 import com.example.gamecenter.games.math24game.model.Math24Manager;
 import com.example.gamecenter.scoreboard.ScoreboardFileSaver;
@@ -175,7 +174,7 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
             case R.id.btn_back:
                 finish();
                 break;
-            case R.id.btn_help:
+            case R.id.btn_intro:
                 switchToPage(Math24IntroActivity.class);
                 break;
             case R.id.btn_equal:
@@ -305,7 +304,7 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     private void setUpMenuBtn() {
         nextBtn = findViewById(R.id.btn_next);
         Button backGame = findViewById(R.id.btn_back);
-        Button help = findViewById(R.id.btn_help);
+        Button help = findViewById(R.id.btn_intro);
         clear = findViewById(R.id.btn_clear);
         nextBtn.setOnClickListener(this);
         backGame.setOnClickListener(this);
