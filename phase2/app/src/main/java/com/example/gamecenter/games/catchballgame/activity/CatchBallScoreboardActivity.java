@@ -13,7 +13,10 @@ import com.example.gamecenter.user.UserManager;
 
 public class CatchBallScoreboardActivity extends AppCompatActivity {
 
-    private User currentPlayer = UserManager.getCurrentUser();
+  /**
+   * The current user.
+   * */
+  private User currentPlayer = UserManager.getCurrentUser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +47,11 @@ public class CatchBallScoreboardActivity extends AppCompatActivity {
         Button ReturnButton = findViewById(R.id.ReturnButton);
         ReturnButton.setOnClickListener(v -> switchToStarting());
     }
-    private void switchToStarting(){
+
+  /**
+   * Switch to the starting menu activity of CatchBall.
+   * */
+  private void switchToStarting() { 
         Intent tmp = new Intent(this, CatchBallMenu.class);
         startActivity(tmp);
     }
