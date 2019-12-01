@@ -14,7 +14,7 @@ public class GameTimer {
     /**
      * A timer.
      */
-    private Timer timer;
+    private Timer timer = new Timer();
 
     /**
      * A Chronometer.

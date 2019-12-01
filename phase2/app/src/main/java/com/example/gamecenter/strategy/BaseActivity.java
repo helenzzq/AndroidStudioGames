@@ -7,7 +7,6 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.gamecenter.gameinterface.GameView;
 import com.example.gamecenter.setting.SettingsActivity;
 
 import static android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
@@ -79,6 +78,9 @@ public class BaseActivity extends AppCompatActivity {
 
 
     }
+
+
+
 
 
 }

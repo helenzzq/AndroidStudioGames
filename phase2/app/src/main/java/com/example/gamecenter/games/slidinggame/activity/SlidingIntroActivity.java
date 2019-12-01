@@ -20,18 +20,7 @@ public class SlidingIntroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sliding_intro);
-
-        setResumeBtn();
     }
 
-    private void setResumeBtn(){
-        findViewById(R.id.btn_resume).setOnClickListener(v -> {
 
-            Intent i = new Intent(this, SlidingActivity.class);
-            i.addFlags(FLAG_ACTIVITY_REORDER_TO_FRONT);
-            startActivity(i);
-            SlidingActivity.getGameTimer().restart();
-
-        });
-    }
 }

@@ -45,8 +45,6 @@ public class CatchBallPresenter implements GameController, MySubject {
         if (startFlag) {
             catchBallView.makeAction(action);
 
-
-
         } else {
             catchBallView.setStartFlag(true);
             manager.updatePlayerSize();
@@ -63,7 +61,7 @@ public class CatchBallPresenter implements GameController, MySubject {
         catchBallView.updateScore(manager.getScore());
         if (manager.isGameOver()) {
             catchBallView.getGameTimer().stop();
-            catchBallView.goToResult();
+            catchBallView.showPrompt();
 
         } else {
             manager.changePos(actionFlag);
@@ -104,20 +102,5 @@ public class CatchBallPresenter implements GameController, MySubject {
     }
 
 
-    /**
-     * Set up Catch Ball game according to level
-     */
-    private void setUpBoard(ImageView[] imgs, WindowManager windowManager) {
-        manager = new CatchBallManager(new CatchBoard(windowManager, -80,-80,8,imgs));
 
-        notifyObservers();
-    }
-//    private void setGameData(){
-//        User currentPlayer = UserManager.getCurrentUser();
-//        String username = currentPlayer.getUsername();
-//        gameData = new GameData(new CatchBallDataBuilder(currentPlayer.getUsername(),
-//                catchBallView.getSharedPreferences(username+"catchBall", Context.MODE_PRIVATE))) ;
-//        gameData.constructGameData(manager.getScore(), catchBallView.getGameTimer().getTime(),1);
-//
-//    }
 }
