@@ -11,8 +11,11 @@ import com.example.gamecenter.R;
 import com.example.gamecenter.games.catchballgame.presenter.CatchBallPresenter;
 import com.example.gamecenter.login.MainMenuActivity;
 import com.example.gamecenter.scoreboard.Scoreboard;
+import com.example.gamecenter.scoreboard.ScoreboardFileSaver;
 import com.example.gamecenter.strategy.BackGroundSetter;
 import com.example.gamecenter.strategy.BaseActivity;
+import com.example.gamecenter.user.User;
+import com.example.gamecenter.user.UserManager;
 
 public class CatchBallMenu extends BaseActivity implements GameMenu {
     //there are three buttons in Main page: Start, setting and help
@@ -23,7 +26,7 @@ public class CatchBallMenu extends BaseActivity implements GameMenu {
     public static Scoreboard scoreboard;
 
     /**
-     * The CatchballPresenter
+     * The CatchBallPresenter
      */
     public static CatchBallPresenter controller;
 
@@ -35,24 +38,20 @@ public class CatchBallMenu extends BaseActivity implements GameMenu {
     private Handler handler;
     private Activity current;
 
+
+
+    private User currentPlayer = UserManager.getCurrentUser();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
 
-        //GameFileSaver gameFileSaver = new GameFileSaver(this, LoginActivity.currentPlayer.getCatchBallGameFile());
-        /*if(gameFileSaver.getGameManager() != null){
-            controller.setGameManager(gameFileSaver.getGameManager());
-        }
-        controller.register(gameFileSaver);
-*/
-        //Scoreboard MVC setup
-        /*
         scoreboard = new Scoreboard();
         ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
         scoreboard.register(scoreboardFileSaver);
         scoreboard.setGlobalScore(scoreboardFileSaver.getGlobalScores());
-        gameFileSaver.saveToFile();*/
+
 
         setContentView(R.layout.activity_catchballmenu);
 
@@ -88,6 +87,7 @@ public class CatchBallMenu extends BaseActivity implements GameMenu {
         findViewById(R.id.quitBallBtn).setOnClickListener(v-> switchToPage(MainMenuActivity.class));
     }
 
+    @Override
     public void setScoreboardBtn(){
         findViewById(R.id.ballScoreBoardbtn).setOnClickListener(v->switchToPage(CatchBallScoreboardActivity.class));
     }

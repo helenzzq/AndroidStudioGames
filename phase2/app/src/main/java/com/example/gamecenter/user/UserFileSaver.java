@@ -79,6 +79,7 @@ public class UserFileSaver implements Serializable, MyObserver {
     }
 
     /**Load Users from fileName**/
+
     @SuppressWarnings("unchecked")
     public void loadFromFile(Context context) {
 

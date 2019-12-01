@@ -7,12 +7,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.gamecenter.games.catchballgame.activity.CatchBallMenu;
 import com.example.gamecenter.games.math24game.Math24Presenter;
 import com.example.gamecenter.games.math24game.model.Math24Manager;
+import com.example.gamecenter.scoreboard.ScoreboardFileSaver;
 import com.example.gamecenter.strategy.BaseActivity;
 import com.example.gamecenter.R;
 import com.example.gamecenter.gameinterface.GameView;
 import com.example.gamecenter.strategy.GameTimer;
+import com.example.gamecenter.user.User;
+import com.example.gamecenter.user.UserManager;
 
 
 public class Math24Activity extends BaseActivity implements GameView, View.OnClickListener {
@@ -26,6 +30,10 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     private Button[] nums, operatorBtns;
     private int score = 0;
     private Math24Presenter presenter;
+
+    private static final String fileName = "Math24.ser";
+
+    private User currentPlayer = UserManager.getCurrentUser();
 
 
     @SuppressLint({"DefaultLocale", "SetTextI18n"})
@@ -45,17 +53,30 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         gameTimer = new GameTimer(findViewById(R.id.mathTimer));
         gameTimer.restart();
         pauseBtn.setTag(0);
-        setPauseButton(pauseBtn, gameTimer);
+
         nextBtn.setEnabled(false);
 
         level = findViewById(R.id.level);
         level.setText("LEVEL1");
-
+        setPauseButton(pauseBtn, gameTimer);
         scoreText = findViewById(R.id.score);
         scoreText.setText(String.format("Your score %d", score));
         //set the first question, including set the text of number buttons
         presenter = new Math24Presenter(new Math24Manager(), this);
         presenter.onStart();
+    }
+
+    @Override
+    public void setPauseButton(Button pauseBtn, GameTimer gameTimer) {
+        pauseBtn.setOnClickListener(v -> {
+            super.setPauseButton(pauseBtn, gameTimer);
+            if (pauseBtn.getText().equals("RESUME")){
+                disableAll();
+            }
+            else{
+                enableAll();
+            }
+        });
     }
 
     public GameTimer getGameTimer() {
@@ -166,6 +187,8 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     public void disableAll() {
         clear.setEnabled(false);
         disableBtns(nums);
+        disableBtns(operatorBtns);
+        disableBtns(new Button[]{leftBracket, rightBracket, clear});
 
     }
     public void clearText(){
@@ -214,6 +237,9 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     }
     @Override
     public void goToResult() {
+        presenter.getGameManager().checkToAddScore(Math24Menu.scoreboard,currentPlayer.getUsername());
+        ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
+        scoreboardFileSaver.saveToFile(fileName);
         finish();
         super.goToResult(Math24ResultActivity.class, "MATH24_SCORE", score);
     }

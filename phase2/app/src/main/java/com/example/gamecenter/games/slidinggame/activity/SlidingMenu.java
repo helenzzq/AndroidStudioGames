@@ -7,6 +7,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.gamecenter.R;
+import com.example.gamecenter.games.catchballgame.activity.CatchBallScoreboardActivity;
 import com.example.gamecenter.strategy.BackGroundSetter;
 import com.example.gamecenter.strategy.BaseActivity;
 import com.example.gamecenter.gameinterface.GameMenu;
@@ -60,8 +61,14 @@ public class SlidingMenu extends BaseActivity implements GameMenu {
     }
     @Override
     public void setHelpBtn() {
-        findViewById(R.id.help_slide).setOnClickListener(v -> switchToPage(SlidingIntroActivity.class));
+        findViewById(R.id.help_slide).setOnClickListener(v -> switchToPage(SlidingMenuIntroActivity.class));
 
+    }
+
+
+    @Override
+    public void setScoreboardBtn(){
+        findViewById(R.id.ballScoreBoardbtn).setOnClickListener(v->switchToPage(CatchBallScoreboardActivity.class));
     }
 
 

@@ -84,29 +84,6 @@ public class CatchBallPresenter implements GameController, MySubject {
         return manager;
     }
 
-    @Override
-    public void setGameManager(GameManager manager) {
-        this.manager = (CatchBallManager) manager;
-    }
-
-
-
-    /**
-     * @param scoreboard
-     * @param user
-     * @return
-     */
-    @Override
-    public boolean checkToAddScore(Scoreboard scoreboard, String user) {
-        if(manager.isGameOver())
-        {
-            scoreboard.addScore(user,manager.getScore());
-            manager = null;
-            notifyObservers();
-            return true;
-        }
-        return false;
-    }
 
     /**
      * Add an observer, obs, to this class

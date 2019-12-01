@@ -16,6 +16,8 @@ import android.widget.Button;
 import com.example.gamecenter.R;
 import com.example.gamecenter.login.MainMenuActivity;
 import com.example.gamecenter.games.slidinggame.activity.SlidingMenu;
+import com.example.gamecenter.scoreboard.Scoreboard;
+import com.example.gamecenter.scoreboard.ScoreboardFileSaver;
 import com.example.gamecenter.strategy.BackGroundSetter;
 import com.example.gamecenter.strategy.BaseActivity;
 import com.example.gamecenter.user.User;
@@ -29,7 +31,11 @@ public class CatchBallResultActivity extends BaseActivity {
     private Button backToMain;
     private int score;
 
+
+    private Scoreboard scoreBoard = CatchBallMenu.scoreboard;
+
     private User currentPlayer = UserManager.getCurrentUser();
+
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -59,6 +65,8 @@ public class CatchBallResultActivity extends BaseActivity {
         usernameLabel.setText("Username: " + currentPlayer.getUsername());
         currentPlayer.setScore(score);
 
+
+
         SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);
         int highScore = settings.getInt("CATCH_BALL_HIGH_SCORE", 0);
 
@@ -74,6 +82,8 @@ public class CatchBallResultActivity extends BaseActivity {
         } else {
             highScoreLabel.setText("High Score: " + highScore);
         }
+
+
     }
 
     private final Runnable mRunnable = new Runnable() {
@@ -96,4 +106,5 @@ public class CatchBallResultActivity extends BaseActivity {
     public void next(View view) {
         startActivity(new Intent(getApplicationContext(), SlidingMenu.class));
     }
+
 }

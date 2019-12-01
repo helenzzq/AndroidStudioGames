@@ -289,19 +289,6 @@
         android:textSize="21sp"/>
 
 
-    <Button
-        android:id="@+id/btn_resume"
-        android:layout_width="100dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="14dp"
-        android:background="@drawable/buttonshape"
-        android:text="Resume"
-        android:textColor="#F44336"
-        android:textSize="17sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/textView16"
         android:layout_width="wrap_content"

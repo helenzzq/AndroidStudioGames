@@ -15,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class SlidingResultActivity extends AppCompatActivity {
 
-    private Button mainPage;
     private int score;
     @SuppressLint({"SetTextI18n", "NewApi"})
     @Override
@@ -23,7 +22,7 @@ public class SlidingResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sliding_result);
 
-        TextView slidingScoreLabel = findViewById(R.id.tvScore);
+        TextView slidingScoreLabel = findViewById(R.id.slidingScore);
         TextView slidingHighScoreLabel = findViewById(R.id.highScoreLabel2048);
 
         score = getScore("SLIDING_SCORE");
@@ -44,7 +43,7 @@ public class SlidingResultActivity extends AppCompatActivity {
 
         }
 
-        mainPage= findViewById(R.id.btn_slidingbackToMain);
+        Button mainPage = findViewById(R.id.btn_slidingbackToMain);
         mainPage.setOnClickListener(v -> openMath24());
     }
 

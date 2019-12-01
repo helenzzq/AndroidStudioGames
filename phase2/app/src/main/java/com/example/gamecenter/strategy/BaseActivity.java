@@ -12,15 +12,26 @@ import com.example.gamecenter.setting.SettingsActivity;
 
 import static android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
 
+/**
+ * The BaseActivity class contains some basic methods can be used by all Game activities.
+ */
 public class BaseActivity extends AppCompatActivity {
 
-
+    /**
+     * The switchToPage method to switch to another class.
+     * @param targetPage the target class.
+     */
     public void switchToPage(Class targetPage){
             Intent i = new Intent(this, targetPage);
             i.addFlags(FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(i);
 
     }
+
+    /**
+     * The onClickSettingBtn
+     * @param settingBtn a button
+     */
 
     public void onClickSettingBtn(ImageView settingBtn){
         settingBtn.setOnClickListener(v -> {
@@ -32,6 +43,13 @@ public class BaseActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * The goToResult method is used to switch to the scoreboard page and pass in the player's
+     * score.
+     * @param targetPage gameResult class
+     * @param dataName a specific name given for the score
+     * @param score player's score
+     */
     public void goToResult(Class targetPage, String dataName,int score){
         Intent intent = new Intent(this, targetPage);
         intent.putExtra(dataName, score);
@@ -39,9 +57,13 @@ public class BaseActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * The setPauseButton is used to set the pause button in different game.
+     * @param pauseBtn the button used to pause a game
+     * @param gameTimer a timer that displays the time
+     */
     @SuppressLint("SetTextI18n")
     public void setPauseButton(Button pauseBtn, GameTimer gameTimer){
-        pauseBtn.setOnClickListener(v -> {
             if ((int)pauseBtn.getTag()==0){
                 pauseBtn.setTag(1);
                 gameTimer.stop();
@@ -55,7 +77,6 @@ public class BaseActivity extends AppCompatActivity {
                 pauseBtn.setText("PAUSE");
             }
 
-        });
 
     }
 

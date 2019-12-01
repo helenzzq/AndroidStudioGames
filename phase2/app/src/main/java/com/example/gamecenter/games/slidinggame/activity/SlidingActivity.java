@@ -1,11 +1,11 @@
 package com.example.gamecenter.games.slidinggame.activity;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.TextView;
 
 import com.example.gamecenter.games.slidinggame.SlidingPresenter;
@@ -13,6 +13,8 @@ import com.example.gamecenter.strategy.BaseActivity;
 import com.example.gamecenter.R;
 import com.example.gamecenter.gameinterface.GameView;
 import com.example.gamecenter.strategy.GameTimer;
+
+import java.util.Timer;
 
 import static android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
 
@@ -27,67 +29,56 @@ public class SlidingActivity extends BaseActivity implements GameView {
     public static int num;
     @SuppressLint("StaticFieldLeak")
     private static GameTimer gameTimer;
+    private Chronometer chronometer;
     private static boolean isLevel1 = true;
+
 
     //private TextView level;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setNum();
         setContentView(R.layout.activity_sliding);
-        textScore = findViewById(R.id.tvScore);
+        textScore = findViewById(R.id.slidingScore);
         level = findViewById(R.id.slidingLevel);
-        setLevelText();
+        chronometer = findViewById(R.id.slidingTimer);
+
+        SlidingGrid.getPresenter().setSlidingView(this);
+        initViewByLevel();
         setBackButton();
         setHelpButton();
-        SlidingGrid.getPresenter().setSlidingView(this);
         Button pauseBtn = findViewById(R.id.pause2048);
         pauseBtn.setTag(0);
-        setPauseButton(pauseBtn, gameTimer);
-        textScore.setText(120);
-        if (!isLevel1) {
-            textScore.setText(score);
-        } else {
-            gameTimer = new GameTimer(findViewById(R.id.slidingTimer));
-
-        }
         gameTimer.restart();
-
     }
-
 
     @Override
     public void setPauseButton(Button pauseBtn, GameTimer gameTimer) {
         SlidingPresenter presenter = SlidingGrid.getPresenter();
         pauseBtn.setOnClickListener(v -> {
-            if (( int ) pauseBtn.getTag() == 0) {
-                pauseBtn.setTag(1);
-                gameTimer.stop();
+            super.setPauseButton(pauseBtn, gameTimer);
+            if (pauseBtn.getText().equals("RESUME")){
                 presenter.onPause();
-
-                //Change Button Text;
-                pauseBtn.setText("RESUME");
-            } else {
-                pauseBtn.setTag(0);
-                gameTimer.restart();
-                //Change Button Text;
-                presenter.onResume();
-                pauseBtn.setText("PAUSE");
             }
-
+            else{
+                presenter.onResume();
+            }
         });
-
     }
 
-    public void setLevelText() {
+    public void initViewByLevel() {
+
         if (isLevel1) {
-            level.setText("LEVEL1");
-        } else {
+            gameTimer = new GameTimer(chronometer);
+            System.out.println(gameTimer);
+            level.setText("LEVEL1");}
+
+         else {
+            gameTimer.setResume(chronometer);
             level.setText("LEVEL2");
-        }
-    }
+
+    }}
 
     private void setNum() {
         if (isLevel1) {
@@ -121,6 +112,10 @@ public class SlidingActivity extends BaseActivity implements GameView {
         textScore.setText(score + "");
     }
 
+    public static void setIsLevel1(boolean isLevel1) {
+        SlidingActivity.isLevel1 = isLevel1;
+    }
+
     @Override
     public void goToResult() {
         finish();
@@ -130,11 +125,13 @@ public class SlidingActivity extends BaseActivity implements GameView {
 
     public void setBackButton() {
         findViewById(R.id.backtoMain).setOnClickListener(v -> {
-            isLevel1 = true;
-            finish();
+            SlidingGrid.getPresenter().onDestory();
             switchToPage(SlidingMenu.class);
-
         });
+    }
+
+    public static void setGameTimer(GameTimer gameTimer) {
+        SlidingActivity.gameTimer = gameTimer;
     }
 
     public void setHelpButton() {
@@ -149,6 +146,9 @@ public class SlidingActivity extends BaseActivity implements GameView {
     }
 
     public void startLevel2() {
+
+        gameTimer.stop();
+        finish();
         Intent intent = new Intent(SlidingActivity.this, SlidingActivity.class);
         intent.putExtra("score", score);
         startActivity(intent);

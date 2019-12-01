@@ -48,7 +48,8 @@ public class SlidingGrid extends GridLayout{
     }
 
     private void initGameView() {
-        presenter = new SlidingPresenter(new SlidingManager(),this);
+        presenter = new SlidingPresenter(new SlidingManager(SlidingActivity.getNum(),
+                SlidingActivity.getIsLevel1()),this);
         setColumnCount(num);
         setBackgroundColor(0xFFFFFFFF);
         addCards(getCardwidth(), getCardwidth(), presenter.getSlidingManager().getSlidingCards());
@@ -64,6 +65,7 @@ public class SlidingGrid extends GridLayout{
     }
 
     private boolean setOnTouch(View v, MotionEvent event){
+
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 startX = event.getX();
@@ -129,6 +131,10 @@ public class SlidingGrid extends GridLayout{
                 slidingCard[x][y] = c;
             }
         }
+    }
+
+    public void onDestory(){
+        presenter = null;
     }
 
 }

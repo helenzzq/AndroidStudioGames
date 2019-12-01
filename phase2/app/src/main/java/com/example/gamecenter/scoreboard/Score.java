@@ -45,6 +45,6 @@ public class Score implements Serializable ,Comparable<Score>{
      */
     @Override
     public int compareTo(@NonNull Score o) {
-        return Integer.compare(o.getScore(), this.score);
+        return Integer.compare(this.score,o.getScore());
     }
 }

@@ -1,10 +1,7 @@
 package com.example.gamecenter.games.slidinggame;
 
-import android.content.Intent;
-
 import com.example.gamecenter.gameinterface.GameController;
 import com.example.gamecenter.gameinterface.GameManager;
-import com.example.gamecenter.gameinterface.GameView;
 import com.example.gamecenter.gameinterface.MyObserver;
 import com.example.gamecenter.gameinterface.MySubject;
 import com.example.gamecenter.games.slidinggame.activity.SlidingActivity;
@@ -18,7 +15,7 @@ import java.util.List;
 public class SlidingPresenter implements GameController, MySubject {
     private SlidingManager slidingManager;
     private SlidingActivity slidingView;
-    private SlidingGrid grid;
+    private com.example.gamecenter.games.slidinggame.activity.SlidingGrid slidingGrid;
 
     /**
      * The list of observers of this class
@@ -30,12 +27,11 @@ public class SlidingPresenter implements GameController, MySubject {
     public SlidingPresenter(SlidingManager slidingManager, SlidingGrid gridView) {
         this.slidingManager = slidingManager;
         observers = new ArrayList<>();
-        grid = gridView;
+        slidingGrid = gridView;
 
     }
 
     public void setSlidingView(SlidingActivity slidingView) {
-
         this.slidingView = slidingView;
     }
 
@@ -45,89 +41,73 @@ public class SlidingPresenter implements GameController, MySubject {
 
 
     public void restart() {
-        slidingView.updateScore(0);
+        slidingView.updateScore(getGameManager().getScore());
         notifyObservers();
         slidingManager.setCardCollection();
     }
 
     public void swipe(boolean vertical, boolean leftUp) {
-        if(vertical){
-            if(leftUp){
+        if (vertical) {
+            if (leftUp) {
                 slidingManager.swipeUp();
-            }
-            else{
+            } else {
                 slidingManager.swipeDown();
             }
-        }
-        else {
-            if(leftUp){
+        } else {
+            if (leftUp) {
                 slidingManager.swipeLeft();
-            }
-            else{
+            } else {
                 slidingManager.swipeRight();
             }
         }
+        checkGameOver();
         slidingView.updateScore(slidingManager.getScore());
-        if((slidingManager.isNextLevel())&&(SlidingActivity.getIsLevel1())){
+        if ((slidingManager.checkNextLevel()) && (SlidingActivity.getIsLevel1())) {
             SlidingActivity.changeLevel();
-            int level1Score = slidingManager.getScore();
             slidingView.startLevel2();
-            slidingView.updateScore(level1Score);
+            slidingManager.setScore(slidingManager.getScore());
+
         }
-        if(slidingManager.isGameOver()){
-            SlidingActivity.changeLevel();
-            slidingView.goToResult();
-            onDestroy();
-        }
+    }
+
 
 //        slidingManager.swipe(vertical, leftUp);
 //        slidingView.addScore(slidingManager.getScore());
 //        if(slidingManager.isGameOver()){
 //            slidingView.showResult();
 //        }
+
+
+     private void checkGameOver(){
+        if(slidingManager.isGameOver()){
+            onDestory();
+            slidingView.goToResult();
+        }
     }
 
+    public void onDestory(){
+        SlidingActivity.setGameTimer(null);
+        SlidingActivity.setIsLevel1(true);
+        slidingGrid.onDestory();
+        slidingView.finish();
+
+    }
     public void onPause(){
-        grid.onPause();
-    }
-    public void onResume(){
-        grid.onResume();
+        slidingGrid.onPause();
     }
 
+    public void onResume(){
+        slidingGrid.onResume();
+    }
 
     /**
      * A getter for the Game Manager.
      */
     @Override
     public GameManager getGameManager() {
-        return null;
+        return slidingManager;
     }
 
-    /**
-     * A setter for the Game Manager
-     *
-     * @param manager The game manager.
-     */
-    @Override
-    public void setGameManager(GameManager manager) {
-
-    }
-
-    /**
-     * @param scoreboard The game's scoreboard.
-     * @param user The user's username.
-     * @return return true if the game is over. Otherwise return false.
-     */
-    @Override
-    public boolean checkToAddScore(Scoreboard scoreboard, String user) {
-       if(slidingManager.isGameOver()){
-           scoreboard.addScore(user,slidingManager.getScore());
-           slidingManager = null;
-           notifyObservers();
-           return true;
-       }
-       return false;
-    }
 
     /**
      * Register the MyObserver object to observe
@@ -151,7 +131,8 @@ public class SlidingPresenter implements GameController, MySubject {
         }
     }
 
-    public void onDestroy() {
+    private void onDestroy() {
         slidingView = null;
+        slidingGrid = null;
     }
 }

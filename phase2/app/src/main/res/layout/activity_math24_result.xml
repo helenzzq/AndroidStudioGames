@@ -35,9 +35,11 @@
     <Button
         android:id="@+id/btn_math24backToMain"
         android:layout_width="200dp"
+        android:background="@drawable/buttonshape"
         android:layout_height="60dp"
         android:layout_marginTop="50dp"
         android:text="Main Menu"
+        android:textColor="#066EC3"
         android:textSize="20sp"
         android:textAllCaps="false" />
 

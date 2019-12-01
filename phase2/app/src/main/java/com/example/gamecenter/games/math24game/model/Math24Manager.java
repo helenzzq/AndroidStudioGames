@@ -2,13 +2,14 @@ package com.example.gamecenter.games.math24game.model;
 
 import com.example.gamecenter.gameinterface.GameManager;
 import com.example.gamecenter.games.math24game.strategy.Calculator;
+import com.example.gamecenter.scoreboard.Scoreboard;
 
 public class Math24Manager implements GameManager {
 
     private int score;
     private boolean gameOver;
     private QuestionBank questionBank;
-    private boolean checkAnswer;
+    private boolean correctAnswer;
     private int lives;
 
     public Math24Manager(){
@@ -26,11 +27,11 @@ public class Math24Manager implements GameManager {
 
     //test if the result equals 24
     public boolean isGameOver(){
-        return score >= 450 || lives <= 0;
+        return score >= 450 || lives <= 0 || checkNextLevel() && !isCorrectAnswer();
     }
 
-    public boolean isCheckAnswer(){
-        return checkAnswer;
+    public boolean isCorrectAnswer(){
+        return correctAnswer;
     }
 
     @Override
@@ -46,13 +47,13 @@ public class Math24Manager implements GameManager {
     public int calculate(String equation){
         int result = (int)Math.round(Calculator.getResult(equation));
         if (result == 24) {
-            checkAnswer = true;
+            correctAnswer = true;
             addScore();
 
         }
         else{
             lives -= 1;
-            checkAnswer = false;
+            correctAnswer = false;
 
         }
         return result;
@@ -70,6 +71,20 @@ public class Math24Manager implements GameManager {
 
     public int getScore() {
         return score;
+    }
+
+    /**
+     * @param scoreboard
+     * @param user
+     * @return
+     */
+    public boolean checkToAddScore(Scoreboard scoreboard, String user) {
+        if(isGameOver())
+        {
+            scoreboard.addScore(user,this.getScore());
+            return true;
+        }
+        return false;
     }
 }
 

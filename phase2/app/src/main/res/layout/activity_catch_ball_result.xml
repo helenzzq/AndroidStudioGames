@@ -46,6 +46,8 @@
         android:layout_height="60dp"
         android:layout_marginTop="50dp"
         android:text="Main Menu"
+        android:background="@drawable/buttonshape"
+        android:textColor="#066EC3"
         android:textSize="20sp"
         android:textAllCaps="false" />
     <ImageView
