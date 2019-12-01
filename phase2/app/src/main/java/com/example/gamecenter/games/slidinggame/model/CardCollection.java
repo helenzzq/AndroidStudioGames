@@ -10,8 +10,8 @@ class CardCollection {
     private  SlidingCard[][] cardCollection;
     private static int num;
 
-    CardCollection(){
-        setNum(SlidingManager.getNum());
+    CardCollection(int num){
+        this.num = num;
         cardCollection = new SlidingCard[num][num];
         emptyPoints = new ArrayList<>();
     }

@@ -14,12 +14,12 @@ public class SlidingManager implements GameManager {
     private boolean gameOver;
     private static int num;
 
-    public SlidingManager() {
-        setNum(SlidingGrid.getNum());
+    public SlidingManager(int num, boolean isLevel1) {
+        this.num = num;
         gameOver = false;
-        cardCollection = new CardCollection();
+        cardCollection = new CardCollection(num);
         slidingCards = cardCollection.getCards();
-        if (SlidingActivity.getIsLevel1()) {
+        if (isLevel1) {
             score = 0;
         }
     }
