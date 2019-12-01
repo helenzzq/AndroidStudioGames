@@ -56,10 +56,6 @@ public class GameTimer {
 
     }
 
-    /**
-     * Gets the timer.
-     * @return timer.
-     */
     public Timer getTimer() {
         return timer;
     }
@@ -72,4 +68,7 @@ public class GameTimer {
         return  (int)((SystemClock.elapsedRealtime() - chrono.getBase())/1000);
     }
 
+    public void setChrono(Chronometer chronometer) {
+        this.chrono= chronometer;
+    }
 }

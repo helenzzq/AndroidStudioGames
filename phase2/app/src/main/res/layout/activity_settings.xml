@@ -105,6 +105,15 @@
         app:layout_constraintStart_toEndOf="@+id/music"
         app:layout_constraintTop_toBottomOf="@+id/imageButton4" />
 
+    <ImageView
+        android:id="@+id/imageView18"
+        android:layout_width="64dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="324dp"
+        android:src="@drawable/character"
+        app:layout_constraintStart_toEndOf="@+id/imageButton4"
+        app:layout_constraintTop_toTopOf="parent" />
     <Button
         android:id="@+id/btn_pause"
         android:layout_width="92dp"
@@ -114,7 +123,7 @@
         android:backgroundTint="#CDDC39"
         android:text="pause"
         app:layout_constraintStart_toEndOf="@+id/btn_play"
-        app:layout_constraintTop_toBottomOf="@+id/imageView18" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton4" />
 
     <ImageButton
         android:id="@+id/imageButton4"
@@ -128,14 +137,6 @@
         app:layout_constraintStart_toEndOf="@+id/character_text"
         app:layout_constraintTop_toBottomOf="@+id/Setbackground" />
 
-    <ImageView
-        android:id="@+id/imageView18"
-        android:layout_width="64dp"
-        android:layout_height="68dp"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="324dp"
-        android:src="@drawable/character"
-        app:layout_constraintStart_toEndOf="@+id/imageButton4"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

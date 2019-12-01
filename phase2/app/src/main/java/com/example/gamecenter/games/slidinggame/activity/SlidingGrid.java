@@ -64,6 +64,7 @@ public class SlidingGrid extends GridLayout{
     }
 
     private boolean setOnTouch(View v, MotionEvent event){
+
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 startX = event.getX();
@@ -129,6 +130,10 @@ public class SlidingGrid extends GridLayout{
                 slidingCard[x][y] = c;
             }
         }
+    }
+
+    public void onDestory(){
+        presenter = null;
     }
 
 }

@@ -11,6 +11,15 @@ public interface GameController {
 
     GameManager getGameManager();
 
+    /**
+     *
+     * @param scoreboard
+     * @param user
+     * @return
+     */
+
+//    boolean checkToAddScore(Scoreboard scoreboard, String user);
+
 
     /**
      * Set up the board according to level of difficulty

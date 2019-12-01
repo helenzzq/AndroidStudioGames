@@ -85,8 +85,6 @@ public class CatchBallPresenter implements GameController, MySubject {
     }
 
 
-
-
     /**
      * Add an observer, obs, to this class
      * @param obs The observer added
