@@ -35,53 +35,70 @@ game "Catch Ball".
 
 ## The common button in these three game:
 A. New Game:
-After Clicking "New Game" Button, you can choose between two levels: "Easy" and "Hard".
-For "Sliding Card" game specifically, you can choose between "3*3" and "4*4" grid.
+Start a new game
 
 B. Resume:
-You will go back to the game state where you stopped the game if you click this button.
+Go back to the game state where the player stopped the game
 
 C. Scoreboard:
-You will see the scoreboard for this specific game after clicking it.
+Scoreboard for this specific game after clicking it.
+The player's score will be stored on the scoreboard.
 
 D. Help:
+Introduction for the game
 
 E. Quit:
+Quit the game, game state will/won't be saved. #######
 
 F. Back:
+Return the the page before.
 
 G. Pause:
-After you click "pause" button, timer will stop and the game will remain its current state.
-Also, the current "pause" button will change to "resume" button.
+Timer will stop and the game will remain its current state.
+The current "pause" button will change to "resume" button.
 
 H. Resume:
-After clicking "resume" button, timer will start, and the game will start from the
-state where it stops. Also, the current "resume" button will change to "pause" button.
+Timer will start, and the game will start from the state where it stops. 
+The current "resume" button will change to "pause" button.
 
 I. Save:
 Save the current game state.
 
 J. Next:
 After you finish the current game, you will see a scoreboard that includes your username and score
-for current game. Click "next" button will lead the player to the next game.
+for current game.
 
 ** Important Note:
+If the player already finish the game, and get back to the game page by clicking the phone's 
+back button, #############
+
+## In the ScoreBoard page:
+
 
 
 # Introduction of the game:
 
 ## Game 1: Catchball
 A. Game Rule: 
+    1. Purpose of the game is to control the character's intent on eating as much as yellow
+    or red balls as possible and watch out the booms(black stars). 
+    2. The yellow ball values 10 points while the red ball values 30 points. 
+    3. When the score reaches 60 points, the player will be access to the next level. 
+    4. Level 2 increases game difficulty by increasing speed of the balls.
+    5. The game will end with the character collides to a boom(black stars)
 
 
 ## Game 2: Sliding
 A. Game Rule:
-    1. In level 1, it's played on a 3*3 grid, while in level 2, it's on a 4*4 grid
-    2. Every turn, a new pictured card(##) will randomly appear in an empty spot on the board ####
-    3. Cards slide as far as possible in the chosen direction until they are stopped by either 
+    1. Purpose of the game is sliding cards to merge the same cards into a new pictured card that is in higher level. 
+    2. In level 1, it's played on a 3*3 grid, while in level 2, it's on a 4*4 grid
+    3. Every turn, a new pictured card(##) will randomly appear in an empty spot on the board ####
+    4. Cards slide as far as possible in the chosen direction until they are stopped by either 
     another card, or the edge of the grid.
-    4. If two cards of the same picture collide while moving, they will merge into a new pictured card
-    that is in higher level. 
+    5. The game will end when their is no more space for merge and sliding. 
+    
+B. Could check the "Sliding intro" page for clear introduction of the pictured cards
+    
 
 
 ## Game 3: Math24
@@ -92,4 +109,6 @@ A. Game Rule:
   4. After getting a question accurate, click 'next' button to get to next question.\n
   5. After getting three questions accurate, you will jump to level 2, which needs more complex number combinations.\n
   6. The game will end when the player has no more lives. For level 2 specifically, if you get three questions accurate consecutively"
+ 
+ 
  
