@@ -38,6 +38,11 @@ public class Scoreboard implements Serializable, MySubject {
       // Collections.sort(scores);
     //}
 
+    public ArrayList<Score> sortScores(ArrayList<Score> scores){
+        Collections.sort(scores);
+        return scores;
+    }
+    /*
     /**
      * A sortScores() helper method that merges the left and right lists.
      * This code was adapted from Codexpedia's post on merge sort in 2016 retrieved on 11052018
@@ -46,7 +51,7 @@ public class Scoreboard implements Serializable, MySubject {
      * @param right list on the right to be merged
      * @param whole full list
      */
-   private void merge(ArrayList<Score> left, ArrayList<Score> right, ArrayList<Score> whole) {
+   /*private void merge(ArrayList<Score> left, ArrayList<Score> right, ArrayList<Score> whole) {
         int leftIndex = 0;
         int rightIndex = 0;
         int wholeIndex = 0;
@@ -91,7 +96,7 @@ public class Scoreboard implements Serializable, MySubject {
      * @param scores unsorted ArrayList of scores
      * @return scores sorted ArrayList of scores
      */
-    public ArrayList<Score> sortScores(ArrayList<Score> scores){
+   /* public ArrayList<Score> sortScores(ArrayList<Score> scores){
         ArrayList<Score> left = new ArrayList<>();
         ArrayList<Score> right = new ArrayList<>();
         int center;
@@ -119,6 +124,7 @@ public class Scoreboard implements Serializable, MySubject {
         }
         return scores;
     }
+    */
 
     public String getScoreValues(boolean userScoresOnly,User currentPlayer){
 
