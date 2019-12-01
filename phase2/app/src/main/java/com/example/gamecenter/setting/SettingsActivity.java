@@ -23,6 +23,11 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     /** Create buttons: back, restart, play, pause, day, and night */
     private Switch setBackground;
 
+    /**
+     * Create items when starting the activity
+     * @param savedInstanceState
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +52,11 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         }
 
     }
+
+    /**
+     * Have different respond when click different button
+     * @param v
+     */
 
     @Override
     public void onClick(View v) {
