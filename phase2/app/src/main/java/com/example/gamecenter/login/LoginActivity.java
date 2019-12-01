@@ -27,7 +27,10 @@ public class LoginActivity extends AppCompatActivity{
      */
     private UserManager userManager;
 
-
+    /**
+     * Create items when starting the activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +44,7 @@ public class LoginActivity extends AppCompatActivity{
         this.mRunnable.run();
 
     /**
-     * Determine whether it is runalbe
+     * Determine whether it is runnalbe
      */
 
     }

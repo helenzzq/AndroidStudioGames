@@ -27,10 +27,17 @@ public class MainMenuActivity extends BaseActivity {
     private Handler handler;
     private Activity current;
     private TextView chooseGame;
+    // catchballgame button
     private Button catchballGame;
+    // catchballgame button
     private Button slidingGame;
+    // catchballgame button
     private Button math24Game;
 
+    /**
+     * Create items when starting the activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

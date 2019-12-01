@@ -23,10 +23,15 @@ public class MainEntryActivity extends AppCompatActivity{
     private Handler mHandler;
     private Activity current;
 
-    /*BASED ON: hhttps://www.youtube.com/watch?v=fI9UTA-NaO4
-ALL CREDIT FOR THE ORIGINAL IMPLEMENTATION OF A SIMILAR SINGLETON GOES TO THE ORIGINAL AUTHOR OF
+    /*
+     * BASED ON: hhttps://www.youtube.com/watch?v=fI9UTA-NaO4ALL
+     * CREDIT FOR THE ORIGINAL IMPLEMENTATION OF A SIMILAR SINGLETON GOES TO THE ORIGINAL AUTHOR OF
     THE CODE.*/
 
+    /**
+     * Create items when starting the activity
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
