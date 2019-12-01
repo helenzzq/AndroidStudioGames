@@ -18,7 +18,7 @@ import java.util.List;
 public class SlidingPresenter implements GameController, MySubject {
     private SlidingManager slidingManager;
     private SlidingActivity slidingView;
-    private com.example.gamecenter.games.slidinggame.activity.SlidingGrid SlidingGrid;
+    private SlidingGrid grid;
 
     /**
      * The list of observers of this class
@@ -30,7 +30,7 @@ public class SlidingPresenter implements GameController, MySubject {
     public SlidingPresenter(SlidingManager slidingManager, SlidingGrid gridView) {
         this.slidingManager = slidingManager;
         observers = new ArrayList<>();
-        SlidingGrid = gridView;
+        grid = gridView;
 
     }
 
@@ -68,16 +68,11 @@ public class SlidingPresenter implements GameController, MySubject {
             }
         }
         slidingView.updateScore(slidingManager.getScore());
-        if((slidingManager.checkNextLevel())&&(slidingView.getIsLevel1())){
+        if((slidingManager.isNextLevel())&&(SlidingActivity.getIsLevel1())){
             SlidingActivity.changeLevel();
-//            SlidingActivity.setNum();
-//            slidingManager.setNum(4);
             int level1Score = slidingManager.getScore();
             slidingView.startLevel2();
             slidingView.updateScore(level1Score);
-            slidingManager.setScore(level1Score);
-
-
         }
         if(slidingManager.isGameOver()){
             SlidingActivity.changeLevel();
@@ -90,6 +85,13 @@ public class SlidingPresenter implements GameController, MySubject {
 //        if(slidingManager.isGameOver()){
 //            slidingView.showResult();
 //        }
+    }
+
+    public void onPause(){
+        grid.onPause();
+    }
+    public void onResume(){
+        grid.onResume();
     }
 
 

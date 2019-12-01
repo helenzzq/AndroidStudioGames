@@ -10,7 +10,7 @@ public class SlidingManager implements GameManager {
     private SlidingCard[][] slidingCards;
     private CardCollection cardCollection;
 
-    private int score;
+    private static int score;
     private boolean gameOver;
     private boolean nextLevel;
 
@@ -28,7 +28,7 @@ public class SlidingManager implements GameManager {
 
     }
 
-    public static void setNum(int num) {
+    private static void setNum(int num) {
         SlidingManager.num = num;
     }
 
@@ -42,7 +42,7 @@ public class SlidingManager implements GameManager {
     }
 
     public void setScore(int score){
-        this.score = score;
+        SlidingManager.score = score;
     }
 
     public int getScore() {

@@ -1,5 +1,6 @@
 package com.example.gamecenter.games.slidinggame.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -74,12 +75,9 @@ public class SlidingGrid extends GridLayout{
                 float offsetY = event.getY() - startY;
                 if (Math.abs(offsetX) > Math.abs(offsetY)) {
                     if (offsetX < -5) {
-//                            weaponManager.swipeLeft();
                         //Left
                         presenter.swipe(false, true);
                     } else if (offsetX > 5) {
-                        //Right
-//                            weaponManager.swipeRight();
                         presenter.swipe(false, false);
 
                     }
@@ -95,7 +93,13 @@ public class SlidingGrid extends GridLayout{
         return true;
     }
 
-
+    @SuppressLint("ClickableViewAccessibility")
+    public void onPause(){
+        this.setOnTouchListener((view, motionEvent) -> true);
+    }
+    public void onResume(){
+        setOnTouchListener(this::setOnTouch);
+    }
 
 
     @Override

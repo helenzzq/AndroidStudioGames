@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -18,12 +19,14 @@ import com.example.gamecenter.games.math24game.activity.Math24Menu;
 import com.example.gamecenter.games.slidinggame.activity.SlidingMenu;
 import com.example.gamecenter.setting.SettingsActivity;
 import com.example.gamecenter.strategy.BackGroundSetter;
+import com.example.gamecenter.strategy.BaseActivity;
 
-public class MainMenuActivity extends AppCompatActivity {
+public class MainMenuActivity extends BaseActivity {
 
     private ImageView setting;
-    private Handler mHandler;
+    private Handler handler;
     private Activity current;
+    private TextView chooseGame;
     private Button catchballGame;
     private Button slidingGame;
     private Button math24Game;
@@ -33,18 +36,14 @@ public class MainMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mainmenu);
 
-
         //Set the runnable and handler
 
         current = this;
-        this.mHandler = new Handler();
-        this.mRunnable.run();
-
+        this.handler = new Handler();
+        this.runnable.run();
 
         SharedPreferences preferences = getSharedPreferences("USER", MODE_PRIVATE);
         String display = preferences.getString("MainMenuActivity", "");
-
-        final Button btPlay = findViewById(R.id.btPlay);
 
         setting = findViewById(R.id.setting_btn_mainMenu);
         catchballGame = findViewById(R.id.btn_catchBall);
@@ -52,47 +51,28 @@ public class MainMenuActivity extends AppCompatActivity {
         math24Game = findViewById(R.id.btn_math24);
 
         setting.setOnClickListener(v -> {
-            Intent intent2 = new Intent(MainMenuActivity.this, SettingsActivity.class);
-            startActivity(intent2);
+            switchToPage(SettingsActivity.class);
         });
 
         catchballGame.setOnClickListener(v -> {
-            Intent catchBallgame1 = new Intent(MainMenuActivity.this, CatchBallMenu.class);
-            startActivity(catchBallgame1);
+            switchToPage(CatchBallMenu.class);
         });
 
         slidingGame.setOnClickListener(v -> {
-            Intent slidingGame1 = new Intent(MainMenuActivity.this, SlidingMenu.class);
-            startActivity(slidingGame1);
+            switchToPage(SlidingMenu.class);
         });
 
         math24Game.setOnClickListener(v -> {
-            Intent math24Game1 = new Intent(MainMenuActivity.this, Math24Menu.class);
-            startActivity(math24Game1);
-            });
-
-
-        btPlay.setOnClickListener(v -> {
-            Intent displayScreen = new Intent(MainMenuActivity.this, CatchBallMenu.class);
-            startActivity(displayScreen);
+            switchToPage(Math24Menu.class);
         });
-
-
-        if (display.equals("User or password is incorrect")) {
-            btPlay.setEnabled(false);
-        }
-
-
     }
 
-    private final Runnable mRunnable = new Runnable() {
+    private final Runnable runnable = new Runnable() {
+        @Override
         public void run() {
             ConstraintLayout layout = findViewById(R.id.mainmenu);
-            BackGroundSetter.setWallPaper(new TextView[0], current, layout);
-            MainMenuActivity.this.mHandler.postDelayed(mRunnable, 50);
+            BackGroundSetter.setWallPaper(new TextView[]{findViewById(R.id.chooseGame1)}, current, layout);
+            handler.postDelayed(runnable, 50);
         }
-
-    };//runnable
-
-
+    };
 }
