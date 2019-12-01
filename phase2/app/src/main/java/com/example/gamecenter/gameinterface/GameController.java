@@ -12,11 +12,6 @@ public interface GameController {
     GameManager getGameManager();
 
     /**
-     * A setter for the Game Manager
-     */
-    void setGameManager(GameManager manager);
-
-    /**
      *
      * @param scoreboard
      * @param user

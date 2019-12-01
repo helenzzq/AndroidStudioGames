@@ -12,8 +12,6 @@ public class SlidingManager implements GameManager {
 
     private static int score;
     private boolean gameOver;
-    private boolean nextLevel;
-
     private static int num;
 
     public SlidingManager() {
@@ -21,18 +19,16 @@ public class SlidingManager implements GameManager {
         gameOver = false;
         cardCollection = new CardCollection();
         slidingCards = cardCollection.getCards();
-        if(SlidingActivity.getIsLevel1()){
-        score = 0;
+        if (SlidingActivity.getIsLevel1()) {
+            score = 0;
         }
-
-
     }
 
     private static void setNum(int num) {
         SlidingManager.num = num;
     }
 
-    static int getNum(){
+    static int getNum() {
         return num;
     }
 
@@ -41,7 +37,7 @@ public class SlidingManager implements GameManager {
         return slidingCards;
     }
 
-    public void setScore(int score){
+    public void setScore(int score) {
         SlidingManager.score = score;
     }
 
@@ -69,7 +65,7 @@ public class SlidingManager implements GameManager {
 
     }
 
-     public void swipeLeft() {
+    public void swipeLeft() {
         boolean merge = false;
         for (int y = 0; y < num; y++) {
             for (int x = 0; x < num; x++) {
@@ -86,7 +82,7 @@ public class SlidingManager implements GameManager {
                             slidingCards[x][y].setNum(slidingCards[x][y].getNum() + 1);
                             slidingCards[x1][y].setNum(0);
 
-                            score += (Math.pow(2,slidingCards[x][y].getNum()));
+                            score += (Math.pow(2, slidingCards[x][y].getNum()));
                             merge = true;
                         }
 
@@ -98,12 +94,11 @@ public class SlidingManager implements GameManager {
         if (merge) {
             cardCollection.addRandomNum();
             checkAllPair();
-            nextLevel = checkNextLevel();
         }
 
     }
 
-     public void swipeRight() {
+    public void swipeRight() {
         boolean merge = false;
         for (int y = 0; y < num; y++) {
             for (int x = (num - 1); x >= 0; x--) {
@@ -120,7 +115,7 @@ public class SlidingManager implements GameManager {
                         } else if (slidingCards[x][y].equals(slidingCards[x1][y])) {
                             slidingCards[x][y].setNum(slidingCards[x][y].getNum() + 1);
                             slidingCards[x1][y].setNum(0);
-                            score += (Math.pow(2,slidingCards[x][y].getNum()));
+                            score += (Math.pow(2, slidingCards[x][y].getNum()));
                             merge = true;
                         }
 
@@ -132,13 +127,11 @@ public class SlidingManager implements GameManager {
         if (merge) {
             cardCollection.addRandomNum();
             checkAllPair();
-            if(SlidingActivity.getIsLevel1()){
-            nextLevel = checkNextLevel();}
-        }
 
+        }
     }
 
-     public void swipeUp() {
+    public void swipeUp() {
         boolean merge = false;
         for (int x = 0; x < num; x++) {
             for (int y = 0; y < num; y++) {
@@ -156,7 +149,7 @@ public class SlidingManager implements GameManager {
                         } else if (slidingCards[x][y].equals(slidingCards[x][y1])) {
                             slidingCards[x][y].setNum(slidingCards[x][y].getNum() + 1);
                             slidingCards[x][y1].setNum(0);
-                            score += (Math.pow(2,slidingCards[x][y].getNum()));
+                            score += (Math.pow(2, slidingCards[x][y].getNum()));
                             merge = true;
 
                         }
@@ -169,13 +162,11 @@ public class SlidingManager implements GameManager {
         if (merge) {
             cardCollection.addRandomNum();
             checkAllPair();
-            if(SlidingActivity.getIsLevel1()){
-                nextLevel = checkNextLevel();}
-        }
 
+        }
     }
 
-     public void swipeDown() {
+    public void swipeDown() {
         boolean merge = false;
         for (int x = 0; x < num; x++) {
             for (int y = (num - 1); y >= 0; y--) {
@@ -194,7 +185,7 @@ public class SlidingManager implements GameManager {
                             slidingCards[x][y].setNum(slidingCards[x][y].getNum() + 1);
                             slidingCards[x][y1].setNum(0);
 
-                            score += (Math.pow(2,slidingCards[x][y].getNum()));
+                            score += (Math.pow(2, slidingCards[x][y].getNum()));
                             merge = true;
 
                         }
@@ -207,34 +198,27 @@ public class SlidingManager implements GameManager {
         if (merge) {
             cardCollection.addRandomNum();
             checkAllPair();
-            if(SlidingActivity.getIsLevel1()){
-                nextLevel = checkNextLevel();}
+
+        }
+    }
+
+        @Override
+        public boolean isGameOver () {
+            return gameOver;
         }
 
-    }
+        @Override
+        public boolean checkNextLevel () {
+            return getScore() >= 50 ;
 
-    @Override
-    public boolean isGameOver() {
-        return gameOver;
-    }
-
-    @Override
-    public boolean checkNextLevel() {
-        int currentScore = getScore();
-        nextLevel = (currentScore >= 50);
-        return nextLevel;
-    }
+        }
 
 
-    public void setCardCollection(){
-        cardCollection.setCardCollection();
-        cardCollection.addRandomNum();
-        cardCollection.addRandomNum();
-    }
+        public void setCardCollection () {
+            cardCollection.setCardCollection();
+            cardCollection.addRandomNum();
+            cardCollection.addRandomNum();
+        }
 
-    public void startNextLevel(){
 
     }
-
-
-}

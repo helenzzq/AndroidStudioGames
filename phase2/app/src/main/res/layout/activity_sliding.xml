@@ -23,7 +23,7 @@
             android:layout_marginTop="40dp"
             android:text=""
             android:textSize="28sp"
-            app:layout_constraintEnd_toEndOf="@id/tvScore"
+            app:layout_constraintEnd_toEndOf="@id/slidingScore"
             app:layout_constraintStart_toStartOf="@id/text_death"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.375" />
@@ -37,13 +37,14 @@
             android:textSize="26sp" />
 
         <TextView
-            android:id="@+id/tvScore"
+            android:id="@+id/slidingScore"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:text=""
             android:layout_marginStart="80dp"
             android:layout_marginTop="80dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textSize="28sp"/>
+            android:textSize="28sp" />
 
         <Chronometer
             android:id="@+id/slidingTimer"

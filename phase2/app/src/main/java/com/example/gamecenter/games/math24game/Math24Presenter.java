@@ -76,11 +76,6 @@ public class Math24Presenter implements GameController , MySubject {
         return this.mathManager;
     }
 
-    @Override
-    public void setGameManager(GameManager manager) {
-        this.mathManager =(Math24Manager) manager;
-    }
-
     public boolean checkToAddScore(Scoreboard scoreboard, String user) {
         if(mathManager.isGameOver()){
             scoreboard.addScore(user, mathManager.getScore());

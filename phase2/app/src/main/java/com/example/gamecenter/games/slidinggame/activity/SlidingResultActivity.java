@@ -23,7 +23,7 @@ public class SlidingResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sliding_result);
 
-        TextView slidingScoreLabel = findViewById(R.id.tvScore);
+        TextView slidingScoreLabel = findViewById(R.id.slidingScore);
         TextView slidingHighScoreLabel = findViewById(R.id.highScoreLabel2048);
 
         score = getScore("SLIDING_SCORE");

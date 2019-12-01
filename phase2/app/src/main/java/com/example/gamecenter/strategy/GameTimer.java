@@ -36,6 +36,10 @@ public class GameTimer {
 
     }
 
+    public void setChrono(Chronometer chrono) {
+        this.chrono = chrono;
+    }
+
     public Timer getTimer() {
         return timer;
     }

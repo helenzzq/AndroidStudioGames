@@ -84,12 +84,6 @@ public class CatchBallPresenter implements GameController, MySubject {
         return manager;
     }
 
-    @Override
-    public void setGameManager(GameManager manager) {
-        this.manager = (CatchBallManager) manager;
-    }
-
-
 
     /**
      * @param scoreboard
