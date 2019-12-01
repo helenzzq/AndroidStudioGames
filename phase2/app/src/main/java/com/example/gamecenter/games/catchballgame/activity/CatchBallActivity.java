@@ -100,6 +100,7 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
      */
     @Override
     public void goToResult() {
+        finish();
         super.goToResult(CatchBallResultActivity.class,"CATCH_BALL_SCORE", score);
     }
 
