@@ -87,7 +87,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     }
 
     /**
-     * Enable the Background button and set different background and text view.
+     * Enable the Background button and set different text color and background.
      */
     private void setBackGround(){
         //Enable set background button
