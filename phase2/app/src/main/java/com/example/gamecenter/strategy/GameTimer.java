@@ -28,7 +28,6 @@ public class GameTimer {
 
     public GameTimer(Chronometer chrono){
         this.chrono = chrono;
-        this.chrono.setFormat("USED TIME：%s");
         timer = new Timer();
     }
 
@@ -37,6 +36,7 @@ public class GameTimer {
      */
     public void restart(){
         timer = new Timer();
+        this.chrono.setFormat("USED TIME：%s");
         if(lastPause == 0){
         chrono.setBase(SystemClock.elapsedRealtime());}
         else{
@@ -64,11 +64,14 @@ public class GameTimer {
      * Gets the time.
      * @return time in seconds.
      */
-    public int getTime(){
-        return  (int)((SystemClock.elapsedRealtime() - chrono.getBase())/1000);
+    public long getTime(){
+        return  (int)(SystemClock.elapsedRealtime() - chrono.getBase())/1000;
     }
 
-    public void setChrono(Chronometer chronometer) {
-        this.chrono= chronometer;
+
+    public void setResume(Chronometer chronos){
+        chronos.setBase(chrono.getBase() + SystemClock.elapsedRealtime() - lastPause);
+        chronos.start();
+        this.chrono = chronos;
     }
 }

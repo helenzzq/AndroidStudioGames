@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,11 +39,9 @@ ALL CREDIT FOR THE ORIGINAL IMPLEMENTATION OF A SIMILAR SINGLETON GOES TO THE OR
         userManager.setAllUsers(fileSaver.getAllUsers());
 
         //Set the runnable and handler
-
         current = this;
         this.mHandler = new Handler();
         this.mRunnable.run();
-
 
 
     }

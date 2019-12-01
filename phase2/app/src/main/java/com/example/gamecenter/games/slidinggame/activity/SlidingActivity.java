@@ -3,6 +3,7 @@ package com.example.gamecenter.games.slidinggame.activity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
@@ -12,6 +13,8 @@ import com.example.gamecenter.strategy.BaseActivity;
 import com.example.gamecenter.R;
 import com.example.gamecenter.gameinterface.GameView;
 import com.example.gamecenter.strategy.GameTimer;
+
+import java.util.Timer;
 
 import static android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
 
@@ -26,6 +29,7 @@ public class SlidingActivity extends BaseActivity implements GameView {
     public static int num;
     @SuppressLint("StaticFieldLeak")
     private static GameTimer gameTimer;
+    private Chronometer chronometer;
     private static boolean isLevel1 = true;
 
 
@@ -38,6 +42,7 @@ public class SlidingActivity extends BaseActivity implements GameView {
         setContentView(R.layout.activity_sliding);
         textScore = findViewById(R.id.slidingScore);
         level = findViewById(R.id.slidingLevel);
+        chronometer = findViewById(R.id.slidingTimer);
 
         SlidingGrid.getPresenter().setSlidingView(this);
         initViewByLevel();
@@ -45,9 +50,7 @@ public class SlidingActivity extends BaseActivity implements GameView {
         setHelpButton();
         Button pauseBtn = findViewById(R.id.pause2048);
         pauseBtn.setTag(0);
-        setPauseButton(pauseBtn, gameTimer);
         gameTimer.restart();
-
     }
 
     @Override
@@ -73,18 +76,17 @@ public class SlidingActivity extends BaseActivity implements GameView {
     }
 
     public void initViewByLevel() {
-        Chronometer chronometer = findViewById(R.id.slidingTimer);
+
         if (isLevel1) {
             gameTimer = new GameTimer(chronometer);
-            level.setText("LEVEL1");
+            System.out.println(gameTimer);
+            level.setText("LEVEL1");}
 
-        } else {
-            gameTimer.setChrono(chronometer);
-            chronometer.start();
+         else {
+            gameTimer.setResume(chronometer);
             level.setText("LEVEL2");
 
-        }
-    }
+    }}
 
     private void setNum() {
         if (isLevel1) {
@@ -146,6 +148,7 @@ public class SlidingActivity extends BaseActivity implements GameView {
 
     public void startLevel2() {
         finish();
+        gameTimer.stop();
         Intent intent = new Intent(SlidingActivity.this, SlidingActivity.class);
         intent.putExtra("score", score);
         startActivity(intent);

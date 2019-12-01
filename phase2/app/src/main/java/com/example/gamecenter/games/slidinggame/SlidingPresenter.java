@@ -61,9 +61,7 @@ public class SlidingPresenter implements GameController, MySubject {
             }
         }
         slidingView.updateScore(slidingManager.getScore());
-
-        if((slidingManager.checkNextLevel())&&(SlidingActivity.getIsLevel1())){
-
+        if ((slidingManager.checkNextLevel()) && (slidingView.getIsLevel1())) {
             SlidingActivity.changeLevel();
 
             int level1Score = slidingManager.getScore();
@@ -104,10 +102,8 @@ public class SlidingPresenter implements GameController, MySubject {
      */
     @Override
     public GameManager getGameManager() {
-
         return slidingManager;
     }
-
 
 
     /**
