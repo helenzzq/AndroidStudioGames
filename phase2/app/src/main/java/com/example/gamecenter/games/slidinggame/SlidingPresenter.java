@@ -80,8 +80,8 @@ public class SlidingPresenter implements GameController, MySubject {
 
      private void checkGameOver(){
         if(slidingManager.isGameOver()){
-            onDestory();
             slidingView.goToResult();
+            onDestory();
         }
     }
 
@@ -131,8 +131,4 @@ public class SlidingPresenter implements GameController, MySubject {
         }
     }
 
-    private void onDestroy() {
-        slidingView = null;
-        slidingGrid = null;
-    }
 }
