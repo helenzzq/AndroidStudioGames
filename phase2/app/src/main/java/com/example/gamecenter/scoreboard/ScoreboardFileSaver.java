@@ -23,7 +23,7 @@ public class ScoreboardFileSaver implements Serializable, MyObserver {
     /*
     A List of globalScores
      */
-    private ArrayList<Score> GlobalScores  = new ArrayList<>();
+    private ArrayList<Score> globalScores  = new ArrayList<>();
 
     /**
      *
@@ -40,7 +40,7 @@ public class ScoreboardFileSaver implements Serializable, MyObserver {
      * @return
      */
     public ArrayList<Score> getGlobalScores() {
-        return GlobalScores;
+        return globalScores;
     }
 
 
@@ -59,7 +59,7 @@ public class ScoreboardFileSaver implements Serializable, MyObserver {
             InputStream inputStream = context.openFileInput(fileName);
             if (inputStream != null) {
                 ObjectInputStream input = new ObjectInputStream(inputStream);
-                GlobalScores = (ArrayList<Score>)input.readObject();
+                globalScores = (ArrayList<Score>)input.readObject();
                 inputStream.close();
             }
         } catch (FileNotFoundException e) {
@@ -78,7 +78,7 @@ public class ScoreboardFileSaver implements Serializable, MyObserver {
         try {
             ObjectOutputStream outputStream = new ObjectOutputStream(
                     context.openFileOutput(fileName,Context.MODE_PRIVATE));
-            outputStream.writeObject(GlobalScores);
+            outputStream.writeObject(globalScores);
             outputStream.close();
         } catch (IOException e) {
             Log.e("Exception", "File write failed: " + e.toString());
@@ -89,7 +89,7 @@ public class ScoreboardFileSaver implements Serializable, MyObserver {
 
     @Override
     public void update() {
-        GlobalScores = subject.getGlobalScore();
+        globalScores = subject.getGlobalScore();
         saveToFile(fileName);
     }
 

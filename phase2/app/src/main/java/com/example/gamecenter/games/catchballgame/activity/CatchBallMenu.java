@@ -48,8 +48,7 @@ public class CatchBallMenu extends BaseActivity implements GameMenu {
 
 
         scoreboard = new Scoreboard();
-        //!
-        ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, "CatchBallScores.ser");
+        ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
         scoreboard.register(scoreboardFileSaver);
         scoreboard.setGlobalScore(scoreboardFileSaver.getGlobalScores());
 
@@ -88,6 +87,7 @@ public class CatchBallMenu extends BaseActivity implements GameMenu {
         findViewById(R.id.quitBallBtn).setOnClickListener(v-> switchToPage(MainMenuActivity.class));
     }
 
+    @Override
     public void setScoreboardBtn(){
         findViewById(R.id.ballScoreBoardbtn).setOnClickListener(v->switchToPage(CatchBallScoreboardActivity.class));
     }

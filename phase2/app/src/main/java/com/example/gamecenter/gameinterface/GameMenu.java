@@ -18,5 +18,7 @@ public interface GameMenu {
      */
     void setHelpBtn();
 
+    void setScoreboardBtn();
+
 }
 

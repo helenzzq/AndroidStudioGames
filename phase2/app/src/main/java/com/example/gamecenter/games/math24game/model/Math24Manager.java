@@ -2,6 +2,7 @@ package com.example.gamecenter.games.math24game.model;
 
 import com.example.gamecenter.gameinterface.GameManager;
 import com.example.gamecenter.games.math24game.strategy.Calculator;
+import com.example.gamecenter.scoreboard.Scoreboard;
 
 public class Math24Manager implements GameManager {
 
@@ -70,6 +71,20 @@ public class Math24Manager implements GameManager {
 
     public int getScore() {
         return score;
+    }
+
+    /**
+     * @param scoreboard
+     * @param user
+     * @return
+     */
+    public boolean checkToAddScore(Scoreboard scoreboard, String user) {
+        if(isGameOver())
+        {
+            scoreboard.addScore(user,this.getScore());
+            return true;
+        }
+        return false;
     }
 }
 
