@@ -18,15 +18,12 @@ import com.example.gamecenter.games.math24game.activity.Math24Menu;
 import com.example.gamecenter.games.slidinggame.activity.SlidingMenu;
 import com.example.gamecenter.setting.SettingsActivity;
 import com.example.gamecenter.strategy.BackGroundSetter;
+import com.example.gamecenter.strategy.BaseActivity;
 
-public class MainMenuActivity extends AppCompatActivity {
+public class MainMenuActivity extends BaseActivity {
 
-    private ImageView setting;
     private Handler mHandler;
     private Activity current;
-    private Button catchballGame;
-    private Button slidingGame;
-    private Button math24Game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +43,10 @@ public class MainMenuActivity extends AppCompatActivity {
 
         final Button btPlay = findViewById(R.id.btPlay);
 
-        setting = findViewById(R.id.setting_btn_mainMenu);
-        catchballGame = findViewById(R.id.btn_catchBall);
-        slidingGame = findViewById(R.id.btn_slidingGame);
-        math24Game = findViewById(R.id.btn_math24);
+        ImageView setting = findViewById(R.id.setting_btn_mainMenu);
+        Button catchballGame = findViewById(R.id.btn_catchBall);
+        Button slidingGame = findViewById(R.id.btn_slidingGame);
+        Button math24Game = findViewById(R.id.btn_math24);
 
         setting.setOnClickListener(v -> {
             Intent intent2 = new Intent(MainMenuActivity.this, SettingsActivity.class);

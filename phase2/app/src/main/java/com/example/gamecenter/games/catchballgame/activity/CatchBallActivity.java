@@ -18,6 +18,8 @@ import android.widget.Toast;
 
 import com.example.gamecenter.gameinterface.GameView;
 import com.example.gamecenter.R;
+import com.example.gamecenter.games.catchballgame.model.CatchBallManager;
+import com.example.gamecenter.games.catchballgame.model.CatchBoard;
 import com.example.gamecenter.games.catchballgame.presenter.CatchBallPresenter;
 import com.example.gamecenter.strategy.BaseActivity;
 import com.example.gamecenter.strategy.GameTimer;
@@ -38,7 +40,6 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
 
     private TextView scoreLabel;
     private TextView startLabel;
-    private Button pauseButton, introButton;
 
     //Score for the game
     private int score=0;
@@ -54,7 +55,6 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
     private boolean actionFlag = false;
     private boolean startFlag = false;
     private TextView level;
-    private Chronometer chrono;
 
 
     private static final String fileName = "catchball.ser";
@@ -68,22 +68,20 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
         setBackButton();
         setSaveButton();
 
-        SharedPreferences levels = getSharedPreferences("ballLevel", Context.MODE_PRIVATE);
         ImageView[] imgs = new ImageView[]{findViewById(R.id.orange),findViewById(R.id.black),
                 findViewById(R.id.pink), findViewById(R.id.box)};
-        presenter = new CatchBallPresenter(this,levels.getString("level", "")
-                , imgs, getWindowManager());
+        presenter = new CatchBallPresenter(this, new CatchBallManager(new CatchBoard(getWindowManager(), -80,-80,8,imgs)));
 
 
         level = findViewById(R.id.catchBallLevel);
         level.setText("LEVEL1"  );
 
 //         Set GameTimer
-        chrono = findViewById(R.id.chronometerBall);
+        Chronometer chrono = findViewById(R.id.chronometerBall);
         gameTimer = new GameTimer(chrono);
 
-        pauseButton =findViewById(R.id.catchBallPause);
-        introButton = findViewById(R.id.catchBallIntro);
+        Button pauseButton = findViewById(R.id.catchBallPause);
+        Button introButton = findViewById(R.id.catchBallIntro);
         scoreLabel = findViewById(R.id.scoreLabel);
         startLabel = findViewById(R.id.startLabel);
 
@@ -92,6 +90,7 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
         setPauseButton(pauseButton, gameTimer);
         introButton.setOnClickListener(v -> {
             Intent catchBallIntro1 = new Intent(CatchBallActivity.this, CatchBallIntroActivity.class);
+            gameTimer.stop();
             startActivity(catchBallIntro1);
         });
     }
@@ -204,7 +203,6 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
     @Override
     public void update(Observable o, Object arg) {
         presenter.notifyObservers();
-     //Implement code here.
     }
 
     /**
