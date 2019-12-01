@@ -79,7 +79,7 @@ public class SlidingMenu extends BaseActivity implements GameMenu {
     }
     @Override
     public void setHelpBtn() {
-        findViewById(R.id.help_slide).setOnClickListener(v -> switchToPage(SlidingMenuIntroActivity.class));
+        findViewById(R.id.help_slide).setOnClickListener(v -> switchToPage(SlidingIntroActivity.class));
 
     }
 

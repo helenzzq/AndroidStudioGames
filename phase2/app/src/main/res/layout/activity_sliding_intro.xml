@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/points1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="90dp"
@@ -41,25 +41,25 @@
         app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/points2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="card 2"
         android:textSize="21sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="@+id/points1"
         app:layout_constraintTop_toTopOf="@+id/imageView3"
         app:layout_constraintVertical_bias="0.452" />
 
     <TextView
-        android:id="@+id/music"
+        android:id="@+id/points3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="card 3"
         android:textSize="21sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="@+id/points2"
         app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
     <ImageView
@@ -79,7 +79,7 @@
         android:text="card 4"
         android:textSize="21sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintEnd_toEndOf="@+id/music"
+        app:layout_constraintEnd_toEndOf="@+id/points3"
         app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
     <ImageView
@@ -290,7 +290,7 @@
 
 
     <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"

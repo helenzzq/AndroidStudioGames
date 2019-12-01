@@ -35,7 +35,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/music"
+        android:id="@+id/points3"
         android:layout_width="66dp"
         android:layout_height="33dp"
         android:layout_marginStart="40dp"
@@ -102,7 +102,7 @@
         android:layout_marginTop="46dp"
         android:backgroundTint="#CDDC39"
         android:text="play"
-        app:layout_constraintStart_toEndOf="@+id/music"
+        app:layout_constraintStart_toEndOf="@+id/points3"
         app:layout_constraintTop_toBottomOf="@+id/imageButton4" />
 
     <ImageView

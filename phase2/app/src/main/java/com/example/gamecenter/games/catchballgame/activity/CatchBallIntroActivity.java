@@ -53,7 +53,9 @@ public class CatchBallIntroActivity extends AppCompatActivity {
         public void run() {
           ConstraintLayout layout = findViewById(R.id.catchballintroPage);
           BackGroundSetter.setWallPaper(
-              new TextView[] {findViewById(R.id.catchBall_text)}, current, layout);
+              new TextView[] {findViewById(R.id.points1), findViewById(R.id.points2),
+              findViewById(R.id.points3),findViewById(R.id.points4),findViewById(R.id.intro1),
+              findViewById(R.id.intro2),findViewById(R.id.intro3),findViewById(R.id.title)}, current, layout);
           handler.postDelayed(runnable, 50);
         }
       };
