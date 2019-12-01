@@ -143,7 +143,9 @@ public class UserManager implements Serializable, MySubject{
             obj.setSubject(this);}
     }
 
-    //method to notify observers of change
+    /**
+     * Method to notify observers of change
+     */
     public void notifyObservers(){
         for (MyObserver obj : observers) {
             obj.update();

@@ -14,11 +14,13 @@ import androidx.core.content.ContextCompat;
 
 import com.example.gamecenter.strategy.BackGroundSetter;
 
-
+/**
+ * The Setting Activity that manages all the customization.
+ */
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener {
-    //crete mediaPlayer variable with type MediaPlayer
+    /** Create mediaPlayer variable with type MediaPlayer */
     private MediaPlayer mediaPlayer;
-    //create buttons: back, restart, play, pause, day, and night
+    /** Create buttons: back, restart, play, pause, day, and night */
     private Switch setBackground;
 
     @Override
@@ -69,8 +71,10 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    /**
+     * Update the switch
+     */
     private void updateSwitch(){
-        // update the switch
         if (BackGroundSetter.isSwitchStatus()){
             setBackground.setChecked(true);
 
@@ -80,9 +84,11 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         }
         setBackGround();
 
-
     }
 
+    /**
+     * Enable the Background button and set different background and text view.
+     */
     private void setBackGround(){
         //Enable set background button
         boolean on = (setBackground).isChecked();
@@ -104,9 +110,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                 t.setTextColor(Color.parseColor("#FF777070"));
             }
 
-
         }
-
 
     }
 }

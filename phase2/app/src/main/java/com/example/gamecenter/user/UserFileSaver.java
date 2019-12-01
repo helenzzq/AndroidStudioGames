@@ -16,6 +16,10 @@ import java.util.ArrayList;
 
 import static android.content.Context.MODE_PRIVATE;
 
+
+/**
+ * The UserFileSaver.
+ */
 public class UserFileSaver implements Serializable, MyObserver {
 
 
