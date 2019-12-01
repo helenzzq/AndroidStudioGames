@@ -63,7 +63,7 @@ public class Math24Presenter implements GameController , MySubject {
         else{
             mathView.setMessage("It's Wrong!!!");
             mathView.setLives(mathManager.getLives());
-            if(mathManager.getLives() == 0) {
+            if(mathManager.isGameOver()) {
                 mathView.showFailure();
                 mathView.goToResult();
             }
@@ -89,7 +89,7 @@ public class Math24Presenter implements GameController , MySubject {
 
     public boolean checkToAddScore(Scoreboard scoreboard, String user) {
         if(mathManager.isGameOver()){
-            scoreboard.addScore(user,mathManager.getScore());
+//            scoreboard.addScore(user,mathManager.getScore());
             mathManager = null;
             notifyObservers();
             return true;

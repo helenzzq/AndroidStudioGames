@@ -81,11 +81,6 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.gamecenter.HelpActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-        </activity>
         <activity android:name="com.example.gamecenter.setting.SettingsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

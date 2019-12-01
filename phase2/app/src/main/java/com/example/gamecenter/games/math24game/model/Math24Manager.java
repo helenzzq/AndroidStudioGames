@@ -14,6 +14,7 @@ public class Math24Manager implements GameManager {
     public Math24Manager(){
         this.score = 0;
         gameOver =false;
+        lives = 3;
         questionBank = new QuestionBank();
     }
 
@@ -25,7 +26,7 @@ public class Math24Manager implements GameManager {
 
     //test if the result equals 24
     public boolean isGameOver(){
-        return gameOver;
+        return (checkNextLevel()&& score >= 600 )|| lives <=0 ;
     }
 
     public boolean isCheckAnswer(){
@@ -46,22 +47,28 @@ public class Math24Manager implements GameManager {
         int result = (int)Math.round(Calculator.getResult(equation));
         if (result == 24) {
             checkAnswer = true;
+            addScore();
+
         }
         else{
-            lives -=1;
+            lives -= 1;
             checkAnswer = false;
+
         }
         return result;
     }
 
 
-    public int getScore() {
-        if(! checkNextLevel()){
+    private void addScore(){
+        if (score< 150) {
             score += 50;
-        }
-        else{
+        } else {
             score += 100;
         }
+
+    }
+
+    public int getScore() {
         return score;
     }
 }

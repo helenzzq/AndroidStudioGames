@@ -5,10 +5,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.gamecenter.gameinterface.GameMenu;
-import com.example.gamecenter.HelpActivity;
 import com.example.gamecenter.R;
 import com.example.gamecenter.games.catchballgame.presenter.CatchBallPresenter;
 import com.example.gamecenter.login.MainMenuActivity;
@@ -102,7 +100,7 @@ public class CatchBallMenu extends BaseActivity implements GameMenu {
 
     @Override
     public void setHelpBtn() {
-        findViewById(R.id.help_ball).setOnClickListener(v-> switchToPage(HelpActivity.class));
+        findViewById(R.id.help_ball).setOnClickListener(v -> switchToPage(CatchBallIntroActivity.class));
 
     }
 }
