@@ -56,7 +56,7 @@
         android:layout_marginTop="25dp"
         android:background="@drawable/buttonshape"
         android:textColor="#066EC3"
-        android:text="@string/help" />
+        android:text="@string/introduction" />
 
     <Button
         android:id="@+id/QuitslideButton"

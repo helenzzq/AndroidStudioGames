@@ -30,28 +30,16 @@
         android:layout_height="50dp"
         android:layout_below="@+id/catchBall_text"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/buttonshape"
         android:text="New Game"
         android:textColor="#0081BB" />
 
     <Button
-        android:id="@+id/Loadballbtn"
-        style="@android:style/Widget.DeviceDefault.Button.Small"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/newballGame"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"
-        android:background="@drawable/buttonshape"
-        android:textColor="#0081BB"
-        android:text="@string/loadgame" />
-
-    <Button
         android:id="@+id/ballScoreBoardbtn"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/Loadballbtn"
+        android:layout_below="@+id/newballGame"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:background="@drawable/buttonshape"
@@ -67,7 +55,7 @@
         android:layout_marginTop="25dp"
         android:background="@drawable/buttonshape"
         android:textColor="#0081BB"
-        android:text="@string/help" />
+        android:text="@string/introduction" />
 
     <Button
         android:id="@+id/quitBallBtn"
