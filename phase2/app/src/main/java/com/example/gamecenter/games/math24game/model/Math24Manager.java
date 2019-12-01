@@ -19,10 +19,9 @@ public class Math24Manager implements GameManager {
         questionBank = new QuestionBank();
     }
 
-
+    // get the math question from question bank
     public int[] getQuestion(){
         return questionBank.getRandomQ(checkNextLevel());
-
     }
 
     //test if the result equals 24

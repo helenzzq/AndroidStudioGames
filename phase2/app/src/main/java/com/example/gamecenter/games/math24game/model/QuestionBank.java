@@ -36,7 +36,5 @@ class QuestionBank {
             return level2[(int)(Math.random() * (level2.length - 1) + 1)];
 
         }
-
-
     }
 }
