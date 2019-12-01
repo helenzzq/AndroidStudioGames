@@ -31,8 +31,6 @@ public class Math24Menu extends BaseActivity implements GameMenu {
 
     private static final String fileName = "Math24.ser";
 
-    private User currentPlayer = UserManager.getCurrentUser();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

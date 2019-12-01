@@ -1,5 +1,8 @@
 package com.example.gamecenter.gameinterface;
 
+
+import com.example.gamecenter.scoreboard.Scoreboard;
+
 /**
  * An Interface of GameManager
  */
@@ -21,4 +24,5 @@ public interface GameManager {
      */
     boolean checkNextLevel();
 
+    boolean checkToAddScore(Scoreboard scoreboard,String userId,int time);
 }

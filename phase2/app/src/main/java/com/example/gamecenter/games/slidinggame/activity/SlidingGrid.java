@@ -60,10 +60,6 @@ public class SlidingGrid extends GridLayout{
         SlidingGrid.num = num;
     }
 
-    public static int getNum(){
-        return num;
-    }
-
     private boolean setOnTouch(View v, MotionEvent event){
 
         switch (event.getAction()) {

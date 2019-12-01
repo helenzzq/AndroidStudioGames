@@ -14,6 +14,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.gamecenter.gameinterface.GameController;
 import com.example.gamecenter.gameinterface.GameView;
 import com.example.gamecenter.R;
 import com.example.gamecenter.games.catchballgame.model.CatchBallManager;
@@ -79,7 +80,7 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
         level.setText("LEVEL1");
 
 
-//         Set GameTimer
+//Set GameTimer
         Chronometer chrono = findViewById(R.id.chronometerBall);
         gameTimer = new GameTimer(chrono);
 
@@ -226,6 +227,8 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
     public void update(Observable o, Object arg) {
         presenter.notifyObservers();
     }
+
+    //public int getTime(){}
 
 
 

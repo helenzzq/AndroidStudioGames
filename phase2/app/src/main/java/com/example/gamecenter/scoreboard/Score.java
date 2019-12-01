@@ -8,12 +8,23 @@ public class Score implements Serializable ,Comparable<Score>{
 
     private int score;
 
+    private int time;
+
     private String user;
 
-    public Score(String user,int score) {
+    public Score(int score,int time){
+        this.user = null;
+        this.score = score;
+        this.time = time;
+    }
+
+    public Score(String user,int score,int time) {
         this.score = score;
         this.user = user;
+        this.time = time;
     }
+
+
 
 
     public int getScore() {
@@ -25,6 +36,9 @@ public class Score implements Serializable ,Comparable<Score>{
     }
 
     public String getUsername(){return user;}
+
+    public int getTime(){return time;}
+
 
     @Override
     public boolean equals(Object obj) {

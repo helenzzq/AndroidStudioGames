@@ -33,7 +33,7 @@ public class Math24ScoreboardActivity extends AppCompatActivity {
         TextView gameTitle = findViewById(R.id.GameTitle);
         TextView scoreDescription = findViewById(R.id.ScoreDescription);
         gameTitle.setText("Math24");
-        scoreDescription.setText("Least moves taken");
+        scoreDescription.setText("Score of answers correct");
 
          TextView globalScoresText = findViewById(R.id.GlobalScores);
          String globalScoreValues = Math24Menu.scoreboard.getScoreValues(false, currentPlayer);

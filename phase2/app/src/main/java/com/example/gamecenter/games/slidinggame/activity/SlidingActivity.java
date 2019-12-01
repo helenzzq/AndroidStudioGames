@@ -154,6 +154,10 @@ public class SlidingActivity extends BaseActivity implements GameView {
         startActivity(intent);
     }
 
+    public int getTime(){
+        return gameTimer.getTime();
+    }
+
 }
 
 

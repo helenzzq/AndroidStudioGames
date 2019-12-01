@@ -64,7 +64,7 @@ public class GameTimer {
      * Gets the time.
      * @return time in seconds.
      */
-    public long getTime(){
+    public int getTime(){
         return  (int)(SystemClock.elapsedRealtime() - chrono.getBase())/1000;
     }
 
