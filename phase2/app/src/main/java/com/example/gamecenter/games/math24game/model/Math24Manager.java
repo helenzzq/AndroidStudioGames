@@ -48,6 +48,7 @@ public class Math24Manager implements GameManager {
         if (result == 24) {
             checkAnswer = true;
             addScore();
+
         }
         else{
             lives -= 1;

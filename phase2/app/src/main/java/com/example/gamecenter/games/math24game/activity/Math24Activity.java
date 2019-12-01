@@ -221,7 +221,7 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     @SuppressLint("DefaultLocale")
     @Override
     public void updateScore(int score) {
-        scoreText.setText(String.format("Your score: %d", this.score += score));
+        scoreText.setText(String.format("Your score: %d", this.score = score));
     }
 
     public void setLevel(String level) {
