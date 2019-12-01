@@ -1,23 +1,12 @@
 package com.example.gamecenter.games.catchballgame.presenter;
 
-import android.content.Context;
 import android.view.MotionEvent;
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.ImageView;
 
-import com.example.gamecenter.gamedata.CatchBallDataBuilder;
-import com.example.gamecenter.gamedata.GameData;
 import com.example.gamecenter.gameinterface.GameController;
-import com.example.gamecenter.gameinterface.GameManager;
 import com.example.gamecenter.gameinterface.MyObserver;
 import com.example.gamecenter.gameinterface.MySubject;
 import com.example.gamecenter.games.catchballgame.activity.CatchBallActivity;
 import com.example.gamecenter.games.catchballgame.model.CatchBallManager;
-import com.example.gamecenter.games.catchballgame.model.CatchBoard;
-import com.example.gamecenter.scoreboard.Scoreboard;
-import com.example.gamecenter.user.User;
-import com.example.gamecenter.user.UserManager;
 
 import java.util.ArrayList;
 import java.util.List;
