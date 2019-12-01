@@ -4,59 +4,68 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The User class creates different players.
+ */
 public class User implements Serializable {
-
+    /**
+     * username is the player's username.
+     * password is the player's password.
+     * score is the player's score.
+     */
     private String username;
     private String password;
-    private List<String> gameFile;
     private int score;
 
+    /**
+     * Construct an User.
+     * @param username player's username.
+     * @param password player's password.
+     */
     User(String username,String password){
-
         this.username=username;
-
         this.password=password;
-
         this.score = 0;
     }
 
-    private List<String> generateGameFiles(){
-        List<String> gameFiles = new ArrayList<>();
-        gameFiles.add(this.username + "CatchBall.ser");
-        gameFiles.add(this.username + "Weapon.ser");
-        gameFiles.add(this.username + "Math24.ser");
-        return gameFiles;
-    }
-
-
     /**
-     * Returns the file containing this user's data.
+     * Set the player's score.
+     * @param score the player's score.
      */
-    public String getCatchBallGameFile() {
-        return gameFile.get(0);
-    }
-
-
-    public String getWeaponGameFile(){return gameFile.get(1);}
-
-    public String getMath24GameFile(){return gameFile.get(2);}
-
     public void setScore(int score) {
         this.score = score;
     }
 
+    /**
+     * Get the player's score.
+     * @return the score.
+     */
     public int getScore(){
         return this.score;
     }
 
+    /**
+     * Get the player's password.
+     * @return the password.
+     */
     String getPassword() {
         return this.password;
     }
 
+
+    /**
+     * Get the player's username.
+     * @return username.
+     */
     public String getUsername() {
         return this.username;
     }
 
+    /**
+     * Override the equals method to check if the player's username has been previously registered.
+     * @param obj an object user
+     * @return true if it has been registered, false otherwise.
+     */
     @Override
     public boolean equals(Object obj) {
         if(obj instanceof User){
