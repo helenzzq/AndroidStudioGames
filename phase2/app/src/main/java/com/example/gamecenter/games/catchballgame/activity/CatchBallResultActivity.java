@@ -23,6 +23,9 @@ import com.example.gamecenter.strategy.BaseActivity;
 import com.example.gamecenter.user.User;
 import com.example.gamecenter.user.UserManager;
 
+/**
+ * Activity class of the result of Catch Ball.
+ * */
 public class CatchBallResultActivity extends BaseActivity {
 
     private Handler mHandler;
@@ -36,10 +39,13 @@ public class CatchBallResultActivity extends BaseActivity {
 
     private User currentPlayer = UserManager.getCurrentUser();
 
-
-    @SuppressLint("SetTextI18n")
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+  /**
+   * Create items when starting the activity.
+   *
+   * @param savedInstanceState */
+  @SuppressLint("SetTextI18n")
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catch_ball_result);
 
@@ -66,10 +72,16 @@ public class CatchBallResultActivity extends BaseActivity {
         currentPlayer.setScore(score);
 
 
-
+        /**
+         * Get the score from the game.
+         * */
         SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);
         int highScore = settings.getInt("CATCH_BALL_HIGH_SCORE", 0);
 
+
+        /**
+         * Determine whether score is the highest score.
+         * */
         if (score > highScore) {
             highScoreLabel.setText("High Score: " + score);
 
@@ -94,16 +106,22 @@ public class CatchBallResultActivity extends BaseActivity {
         }
     };
 
-    public int getScore(String dataName){
+  /**
+   * Get score.
+   *
+   * @param dataName
+   * @return
+   */
+  public int getScore(String dataName) {
         int score = getIntent().getIntExtra(dataName,0);
         return score;
     }
 
-    public int getTime(){
-        return 0;//not yet pass the time data
-    }
-
-    public void next(View view) {
+  /**
+   * Proceed to the next activity.
+   *
+   * @param view */
+  public void next(View view) {
         startActivity(new Intent(getApplicationContext(), SlidingMenu.class));
     }
 

@@ -51,7 +51,7 @@ public class CatchBallScoreboardActivity extends AppCompatActivity {
   /**
    * Switch to the starting menu activity of CatchBall.
    * */
-  private void switchToStarting() { 
+  private void switchToStarting() {
         Intent tmp = new Intent(this, CatchBallMenu.class);
         startActivity(tmp);
     }
