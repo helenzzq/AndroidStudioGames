@@ -103,31 +103,6 @@ public class SlidingPresenter implements GameController, MySubject {
         return null;
     }
 
-    /**
-     * A setter for the Game Manager
-     *
-     * @param manager The game manager.
-     */
-    @Override
-    public void setGameManager(GameManager manager) {
-
-    }
-
-    /**
-     * @param scoreboard The game's scoreboard.
-     * @param user The user's username.
-     * @return return true if the game is over. Otherwise return false.
-     */
-    @Override
-    public boolean checkToAddScore(Scoreboard scoreboard, String user) {
-       if(slidingManager.isGameOver()){
-           scoreboard.addScore(user,slidingManager.getScore());
-           slidingManager = null;
-           notifyObservers();
-           return true;
-       }
-       return false;
-    }
 
     /**
      * Register the MyObserver object to observe

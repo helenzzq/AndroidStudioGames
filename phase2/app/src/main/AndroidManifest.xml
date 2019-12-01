@@ -20,11 +20,19 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
+
         <activity android:name=".games.slidinggame.activity.SlidingIntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".games.catchballgame.activity.CatchBallScoreboardActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+        </intent-filter>
+        </activity>
+
         <activity android:name=".games.slidinggame.activity.SlidingMenu">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

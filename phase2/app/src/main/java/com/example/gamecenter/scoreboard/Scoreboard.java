@@ -6,12 +6,11 @@ import com.example.gamecenter.user.User;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
-import java.util.NoSuchElementException;
 
-public class Scoreboard implements Serializable, MySubject, Iterator {
+public class Scoreboard implements Serializable, MySubject {
 
     private ArrayList<Score> GlobalScore;
 
@@ -36,7 +35,7 @@ public class Scoreboard implements Serializable, MySubject, Iterator {
     }
 
     //public void sortScores(ArrayList<Score> scores){
-       // Collections.sort(scores);
+      // Collections.sort(scores);
     //}
 
     /**
@@ -47,7 +46,7 @@ public class Scoreboard implements Serializable, MySubject, Iterator {
      * @param right list on the right to be merged
      * @param whole full list
      */
-    private void merge(ArrayList<Score> left, ArrayList<Score> right, ArrayList<Score> whole) {
+   private void merge(ArrayList<Score> left, ArrayList<Score> right, ArrayList<Score> whole) {
         int leftIndex = 0;
         int rightIndex = 0;
         int wholeIndex = 0;
@@ -204,26 +203,4 @@ public class Scoreboard implements Serializable, MySubject, Iterator {
         return UserScores;
     }
 
-    /**
-     * Returns {@code true} if the iteration has more elements.
-     * (In other words, returns {@code true} if {@link #next} would
-     * return an element rather than throwing an exception.)
-     *
-     * @return {@code true} if the iteration has more elements
-     */
-    @Override
-    public boolean hasNext() {
-        return false;
-    }
-
-    /**
-     * Returns the next element in the iteration.
-     *
-     * @return the next element in the iteration
-     * @throws NoSuchElementException if the iteration has no more elements
-     */
-    @Override
-    public Object next() {
-        return null;
-    }
 }

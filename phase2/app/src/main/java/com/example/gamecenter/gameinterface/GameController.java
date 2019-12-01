@@ -11,19 +11,6 @@ public interface GameController {
 
     GameManager getGameManager();
 
-    /**
-     * A setter for the Game Manager
-     */
-    void setGameManager(GameManager manager);
-
-    /**
-     *
-     * @param scoreboard
-     * @param user
-     * @return
-     */
-
-    boolean checkToAddScore(Scoreboard scoreboard, String user);
 
     /**
      * Set up the board according to level of difficulty

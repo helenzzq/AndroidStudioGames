@@ -20,10 +20,6 @@ public class Math24Presenter implements GameController , MySubject {
     private static List<MyObserver> observers;
 
 
-    public Math24Presenter(){
-        observers = new ArrayList<>();
-    }
-
     public Math24Presenter(Math24Manager mathManager, Math24Activity mathView) {
         this.mathManager = mathManager;
         this.mathView = mathView;
@@ -40,14 +36,16 @@ public class Math24Presenter implements GameController , MySubject {
         }
         if (mathManager.checkNextLevel()){
             mathView.setLevel("Level2");
-            mathView.setLives(1);
         }
     }
+
+
 
     public void calculateResult(String mathExpression){
         int result = mathManager.calculate(mathExpression);
         mathView.showResult(result);
         checkCurrentResult();
+
     }
 
     private void checkCurrentResult() {
@@ -59,37 +57,26 @@ public class Math24Presenter implements GameController , MySubject {
         }
         else{
             mathView.setMessage("It's Wrong!!!");
-            mathView.setLives(mathManager.getLives());
-//            if(mathManager.isGameOver()) {
-//                mathView.showFailure();
-//                mathView.goToResult();
-//            }
+            mathView.updateLives();
+            if(mathView.getGameTimer().getTime()/60 >= 3) {
+                mathView.showFailure();
+                mathView.goToResult();
+            }
         }
+
     }
 
     public void onDestroy() {
         mathView = null;
     }
 
+
     @Override
     public Math24Manager getGameManager() {
         return this.mathManager;
     }
 
-    @Override
-    public void setGameManager(GameManager manager) {
-        this.mathManager =(Math24Manager) manager;
-    }
 
-    public boolean checkToAddScore(Scoreboard scoreboard, String user) {
-        if(mathManager.isGameOver()){
-            scoreboard.addScore(user, mathManager.getScore());
-            mathManager = null;
-            notifyObservers();
-            return true;
-        }
-        return false;
-    }
 
     /**
      * Register the MyObserver object to observe

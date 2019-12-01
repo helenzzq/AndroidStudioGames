@@ -2,6 +2,7 @@ package com.example.gamecenter.games.catchballgame.model;
 
 
 import com.example.gamecenter.gameinterface.GameManager;
+import com.example.gamecenter.scoreboard.Scoreboard;
 
 import java.io.Serializable;
 
@@ -88,6 +89,20 @@ public class CatchBallManager implements GameManager, Serializable {
         }
         return false;
 
+    }
+
+    /**
+     * @param scoreboard
+     * @param user
+     * @return
+     */
+    public boolean checkToAddScore(Scoreboard scoreboard, String user) {
+        if(isGameOver())
+        {
+            scoreboard.addScore(user,this.getScore());
+            return true;
+        }
+        return false;
     }
 
 

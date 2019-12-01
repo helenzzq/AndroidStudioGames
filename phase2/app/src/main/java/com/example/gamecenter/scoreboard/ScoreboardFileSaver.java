@@ -25,6 +25,10 @@ public class ScoreboardFileSaver implements Serializable, MyObserver {
      */
     private ArrayList<Score> GlobalScores  = new ArrayList<>();
 
+    /**
+     *
+     */
+
     private Scoreboard subject;
 
     /**
@@ -43,12 +47,14 @@ public class ScoreboardFileSaver implements Serializable, MyObserver {
     public ScoreboardFileSaver(Context context,String fileName){
         this.context = context;
         this.fileName = fileName;
-        loadFromFile();
+        loadFromFile(fileName);
 
     }
 
 
-    public void loadFromFile() {
+    //Deserialization
+
+    public void loadFromFile(String fileName) {
         try {
             InputStream inputStream = context.openFileInput(fileName);
             if (inputStream != null) {
@@ -65,6 +71,8 @@ public class ScoreboardFileSaver implements Serializable, MyObserver {
             Log.e("login activity", "File contained unexpected data type: " + e.toString());
         }
     }
+
+    //serialization
 
     public void saveToFile(String fileName) {
         try {
