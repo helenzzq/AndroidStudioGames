@@ -79,7 +79,7 @@ public class SlidingActivity extends BaseActivity implements GameView {
         return isLevel1;
     }
 
-    public static void notLevel1(){
+    public static void changeLevel(){
         isLevel1 = !isLevel1;
     }
 
@@ -102,11 +102,12 @@ public class SlidingActivity extends BaseActivity implements GameView {
 
     public void setBackButton() {
         findViewById(R.id.backtoMain).setOnClickListener(v -> {
-            Intent i = new Intent(this, SlidingMenu.class);
-            i.addFlags(FLAG_ACTIVITY_REORDER_TO_FRONT);
-            startActivity(i);
-            SlidingGrid.getPresenter();
+            isLevel1 = true;
             finish();
+            Intent i = new Intent(this, SlidingMenu.class);
+            startActivity(i);
+
+         //   SlidingGrid.getPresenter();
 
         });
     }
