@@ -16,13 +16,20 @@ import android.os.Bundle;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+/**
+ * Activity class of the first game's introduction.
+ * */
 public class CatchBallIntroActivity extends AppCompatActivity {
 
     //Initialize Class
     private Handler handler = new Handler();
     private Activity current;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+  /**
+   * Create items when starting this activity.
+   *
+   * @param savedInstanceState */
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catch_ball_intro);
 
@@ -31,12 +38,21 @@ public class CatchBallIntroActivity extends AppCompatActivity {
 
         current = this;
     }
-    private final Runnable runnable = new Runnable() {
+
+  /**
+   * A new interface Runnable.
+   * */
+  private final Runnable runnable =
+      new Runnable() {
+        /**
+         * Use Runnable to start a thread.
+         * */
         @Override
         public void run() {
-            RelativeLayout layout = findViewById(R.id.catchBallmenu);
-            BackGroundSetter.setWallPaper(new TextView[]{findViewById(R.id.catchBall_text)},current,layout);
-            handler.postDelayed(runnable, 50);
+          RelativeLayout layout = findViewById(R.id.catchBallmenu);
+          BackGroundSetter.setWallPaper(
+              new TextView[] {findViewById(R.id.catchBall_text)}, current, layout);
+          handler.postDelayed(runnable, 50);
         }
-    };
+      };
 }

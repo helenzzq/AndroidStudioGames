@@ -42,6 +42,11 @@ public class CatchBallMenu extends BaseActivity implements GameMenu {
 
     private User currentPlayer = UserManager.getCurrentUser();
 
+
+    /**
+     * Create items when starting this activity.
+     *
+     * @param savedInstanceState */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +67,14 @@ public class CatchBallMenu extends BaseActivity implements GameMenu {
 
 
     }
+
+    /**
+     * A new interface Runnable.
+     * */
     private final Runnable runnable = new Runnable() {
+        /**
+         * Use Runnable to start a thread.
+         * */
         @Override
         public void run() {
             RelativeLayout layout = findViewById(R.id.catchBallmenu);
@@ -71,7 +83,10 @@ public class CatchBallMenu extends BaseActivity implements GameMenu {
         }
     };
 
-    private void setButtons(){
+  /**
+   * Set the buttons.
+   * */
+  private void setButtons() {
         setQuitBtn();
         setHelpBtn();
         setNewGameBtn();
@@ -87,19 +102,28 @@ public class CatchBallMenu extends BaseActivity implements GameMenu {
         findViewById(R.id.quitBallBtn).setOnClickListener(v-> switchToPage(MainMenuActivity.class));
     }
 
-    @Override
-    public void setScoreboardBtn(){
+  /**
+   * Set scoreboard button.
+   * */
+  @Override
+  public void setScoreboardBtn() {
         findViewById(R.id.ballScoreBoardbtn).setOnClickListener(v->switchToPage(CatchBallScoreboardActivity.class));
     }
 
-    @Override
-    public void setNewGameBtn() {
+  /**
+   * Set new game button.
+   * */
+  @Override
+  public void setNewGameBtn() {
         findViewById(R.id.newballGame).setOnClickListener(v -> switchToPage(CatchBallActivity.class));
 
     }
 
-    @Override
-    public void setHelpBtn() {
+  /**
+   *  Set help button.
+   * */
+  @Override
+  public void setHelpBtn() {
         findViewById(R.id.help_ball).setOnClickListener(v -> switchToPage(CatchBallIntroActivity.class));
 
     }
