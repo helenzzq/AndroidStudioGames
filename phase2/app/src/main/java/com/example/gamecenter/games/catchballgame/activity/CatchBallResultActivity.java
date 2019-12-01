@@ -97,7 +97,9 @@ public class CatchBallResultActivity extends BaseActivity {
 
 
     }
-
+    /**
+     * A new interface Runnable.
+     * */
     private final Runnable mRunnable = new Runnable() {
         public void run() {
             LinearLayout layout = findViewById(R.id.catchBallResult);
