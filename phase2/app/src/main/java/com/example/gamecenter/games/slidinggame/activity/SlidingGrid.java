@@ -48,7 +48,8 @@ public class SlidingGrid extends GridLayout{
     }
 
     private void initGameView() {
-        presenter = new SlidingPresenter(new SlidingManager(),this);
+        presenter = new SlidingPresenter(new SlidingManager(SlidingActivity.getNum(),
+                SlidingActivity.getIsLevel1()),this);
         setColumnCount(num);
         setBackgroundColor(0xFFFFFFFF);
         addCards(getCardwidth(), getCardwidth(), presenter.getSlidingManager().getSlidingCards());
