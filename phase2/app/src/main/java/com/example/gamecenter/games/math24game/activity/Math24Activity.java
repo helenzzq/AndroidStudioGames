@@ -28,10 +28,9 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     private TextView mathExpression, result, message, textLive, scoreText,level;
     private Button[] nums, operatorBtns;
     private int score = 0;
-
     private Math24Presenter presenter;
 
-    private static final String fileName = "Math24Scores.ser";
+    private static final String fileName = "Math24.ser";
 
     private User currentPlayer = UserManager.getCurrentUser();
 
@@ -188,9 +187,7 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         clear.setEnabled(false);
         disableBtns(nums);
         disableBtns(operatorBtns);
-        equal.setEnabled(false);
         disableBtns(new Button[]{leftBracket, rightBracket, clear});
-
 
     }
     public void clearText(){
@@ -203,7 +200,6 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     public void enableAll(){
         enableBracket(true,true);
         enableBtns(operatorBtns);
-        equal.setEnabled(false);
         enableBtns(nums);
         clear.setEnabled(true);
 
@@ -243,9 +239,8 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         presenter.getGameManager().checkToAddScore(Math24Menu.scoreboard,currentPlayer.getUsername());
         ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
         scoreboardFileSaver.saveToFile(fileName);
-
         finish();
-        super.goToResult(Math24ScoreboardActivity.class);
+        super.goToResult(Math24ResultActivity.class, "MATH24_SCORE", score);
     }
 
     @SuppressLint("DefaultLocale")

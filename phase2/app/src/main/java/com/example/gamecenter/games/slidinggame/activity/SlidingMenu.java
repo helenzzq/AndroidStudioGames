@@ -8,8 +8,6 @@ import android.widget.TextView;
 
 import com.example.gamecenter.R;
 import com.example.gamecenter.games.catchballgame.activity.CatchBallScoreboardActivity;
-import com.example.gamecenter.scoreboard.Scoreboard;
-import com.example.gamecenter.scoreboard.ScoreboardFileSaver;
 import com.example.gamecenter.strategy.BackGroundSetter;
 import com.example.gamecenter.strategy.BaseActivity;
 import com.example.gamecenter.gameinterface.GameMenu;
@@ -19,24 +17,9 @@ import com.example.gamecenter.login.MainMenuActivity;
 public class SlidingMenu extends BaseActivity implements GameMenu {
     private Handler handler;
     private Activity current;
-
-    /**
-     * A ScoreBoard.
-     */
-    public static Scoreboard scoreboard;
-
-    private static final String fileName = "SlidingScores.ser";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-        scoreboard = new Scoreboard();
-        ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
-        scoreboard.register(scoreboardFileSaver);
-        scoreboard.setGlobalScore(scoreboardFileSaver.getGlobalScores());
-
         setContentView(R.layout.activity_slidingmenu);
 
         current = this;
@@ -58,7 +41,6 @@ public class SlidingMenu extends BaseActivity implements GameMenu {
         setQuitBtn();
         setHelpBtn();
         setNewGameBtn();
-        setScoreboardBtn();
         onClickSettingBtn(findViewById(R.id.setting_btn_slide));
     }
 
@@ -86,7 +68,7 @@ public class SlidingMenu extends BaseActivity implements GameMenu {
 
     @Override
     public void setScoreboardBtn(){
-        findViewById(R.id.slideScoreBoardbtn).setOnClickListener(v->switchToPage(SlidingScoreboardActivity.class));
+        findViewById(R.id.ballScoreBoardbtn).setOnClickListener(v->switchToPage(CatchBallScoreboardActivity.class));
     }
 
 

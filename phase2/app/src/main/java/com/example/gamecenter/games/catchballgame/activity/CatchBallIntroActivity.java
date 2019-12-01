@@ -1,8 +1,6 @@
 package com.example.gamecenter.games.catchballgame.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import com.example.gamecenter.R;
 import com.example.gamecenter.strategy.BackGroundSetter;
 
@@ -35,10 +33,10 @@ public class CatchBallIntroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catch_ball_intro);
 
+        this.handler = new Handler();
+        this.runnable.run();
 
-      current = this;
-      this.handler = new Handler();
-      this.runnable.run();
+        current = this;
     }
 
   /**
@@ -51,7 +49,7 @@ public class CatchBallIntroActivity extends AppCompatActivity {
          * */
         @Override
         public void run() {
-          ConstraintLayout layout = findViewById(R.id.catchballintroPage);
+          RelativeLayout layout = findViewById(R.id.catchBallmenu);
           BackGroundSetter.setWallPaper(
               new TextView[] {findViewById(R.id.points1), findViewById(R.id.points2),
               findViewById(R.id.points3),findViewById(R.id.points4),findViewById(R.id.intro1),
