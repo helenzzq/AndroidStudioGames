@@ -5,30 +5,39 @@ import android.graphics.Point;
 import java.util.ArrayList;
 import java.util.List;
 
+/*BASED ON: https://blog.csdn.net/ft_sunshine/article/details/52678815
+ALL CREDIT FOR THE ORIGINAL IMPLEMENTATION OF A SIMILAR SINGLETON GOES TO THE ORIGINAL AUTHOR OF
+    THE CODE.*/
+
+/**
+ * CardCollection class manages the SlidingCards.
+ */
 class CardCollection {
+    /** emptyPoints is a List of empty points.*/
     private List<Point> emptyPoints;
+    /** cardCollection is a 2D array containing SlidingCards.*/
     private  SlidingCard[][] cardCollection;
+    /** num is a static int indicates the number of rows and columns of the 2D array.*/
     private static int num;
 
     CardCollection(int num){
-        this.num = num;
+        CardCollection.num = num;
         cardCollection = new SlidingCard[num][num];
         emptyPoints = new ArrayList<>();
     }
 
+    /**
+     * Get the cardCollection.
+     * @return cardCollection.
+     */
      SlidingCard[][] getCards() {
         return cardCollection;
     }
 
-    private static void setNum(int num){
-        CardCollection.num = num;
-    }
-
-    public static int getNum()
-    {
-        return num;
-    }
-    
+    /**
+     * Initiate the cardCollection to 0 so that every element in array is 0 (no pic) in
+     * the beginning.
+     */
     void setCardCollection() {
         for (int y = 0; y < num; y++) {
             for (int x = 0; x < num; x++) {
@@ -37,6 +46,9 @@ class CardCollection {
         }
     }
 
+    /**
+     * The addRandomNum method can set one element in 2D array cardCollection to 2 or 4.
+     */
     void addRandomNum() {
 
         emptyPoints.clear();
