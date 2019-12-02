@@ -29,17 +29,21 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     private Button clear;
     private Button leftBracket, nextBtn;
     private Button rightBracket;
+    // private text: mathExpression, result, message, textLive, scoreText,level
     private TextView mathExpression, result, message, textLive, scoreText,level;
     private Button[] nums, operatorBtns;
     private int score = 0;
-
+    // presenter
     private Math24Presenter presenter;
 
     private static final String fileName = "Math24Scores.ser";
 
     private User currentPlayer = UserManager.getCurrentUser();
 
-
+    /**
+     * @param savedInstanceState
+     * onCreate buttons
+     */
     @SuppressLint({"DefaultLocale", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +74,10 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         presenter.onStart();
     }
 
+    /**
+     * @param pauseBtn  the button used to pause a game
+     * @param gameTimer a timer that displays the time
+     */
     @Override
     public void setPauseButton(Button pauseBtn, GameTimer gameTimer) {
         pauseBtn.setOnClickListener(v -> {
@@ -83,34 +91,55 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         });
     }
 
+    /**
+     * @return gameTimer variable
+     */
     public GameTimer getGameTimer() {
         return gameTimer;
     }
 
 
-
+    /**
+     * @param btn the number button
+     * disable the number button
+     */
     void disableBtns(Button[] btn) {
         for (Button b : btn) {
             b.setEnabled(false);
         }
     }
 
+    /**
+     * @param btn the number button
+     * enable the number button
+     */
     void enableBtns(Button[] btn) {
         for (Button b : btn) {
             b.setEnabled(true);
         }
     }
 
+    /**
+     * @return next button
+     */
     public Button getNextBtn() {
         return nextBtn;
     }
 
+    /**
+     * @param left left bracket
+     * @param right right bracket
+     * enable left or right bracket
+     */
     void enableBracket(boolean left, boolean right) {
         leftBracket.setEnabled(left);
         rightBracket.setEnabled(right);
 
     }
 
+    /**
+     * validate number buttons
+     */
     private void setOnClickNums() {
         for (Button num : nums) {
             num.setOnClickListener(v -> {
@@ -121,10 +150,11 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
                 checkNumDisabled();
             });
         }
-
-
     }
 
+    /**
+     * validate brackets
+     */
     private void setOnClickBrackets(
     ) {
         for (Button bracket : new Button[]{leftBracket, rightBracket}) {
@@ -141,6 +171,10 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
             });
         }
     }
+
+    /**
+     * validate operator buttons
+     */
     private void setOnClickOperators() {
         for (Button btn : operatorBtns) {
             btn.setOnClickListener(v -> {
@@ -153,6 +187,9 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
 
     }
 
+    /**
+     * @return get the number of the number button
+     */
     public Button[] getNums() {
         return nums;
     }
@@ -188,20 +225,28 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         }
     }
 
+    /**
+     * go back to math24 menu
+     */
     private void backToMain(){
         finish();
         switchToPage(Math24Menu.class);
     }
 
+    /**
+     * disable clear, num, operator, equal buttons
+     */
     public void disableAll() {
         clear.setEnabled(false);
         disableBtns(nums);
         disableBtns(operatorBtns);
         equal.setEnabled(false);
         disableBtns(new Button[]{leftBracket, rightBracket, clear});
-
-
     }
+
+    /**
+     * clear result, math expression and message texts
+     */
     public void clearText(){
         result.setText("");
         mathExpression.setText("");
@@ -209,6 +254,9 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
 
     }
 
+    /**
+     * enable bracket, operator, equal, numbers, and clear buttons.
+     */
     public void enableAll(){
         enableBracket(true,true);
         enableBtns(operatorBtns);
@@ -218,6 +266,10 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
 
     }
 
+    /**
+     * @return boolean
+     * see if the number is enabled or not
+     */
     private boolean checkNumDisabled() {
         for (Button num : nums) {
             if (num.isEnabled()) {
@@ -228,26 +280,39 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         return true;
     }
 
+    /**
+     * @param display set message
+     */
     @SuppressLint({"DefaultLocale", "SetTextI18n"})
     public void setMessage(String display) {
         message.setText(message.getText() + display);
 
     }
 
+    /**
+     * @param value calculated value
+     * set the result text
+     */
     @SuppressLint("SetTextI18n")
     public void showResult(int value) {
         result.setText("Result:"+ value);
     }
 
-
-
-
+    /**
+     * @param num set the number button of the four numbers in the question
+     * @param question int number in the question
+     * to turn integer numbers to number buttons
+     */
     @SuppressLint("DefaultLocale")
     public void setNumText(Button num, int question){
         num.setText(String.format("%d", question));
 
     }
 
+    /**
+     * @param displayName
+     * After the game is over, go to scoreboard that could save time, username and score
+     */
     public void goToResult(boolean displayName) {
         presenter.getGameManager().checkToAddScore(Math24Menu.scoreboard,currentPlayer.getUsername(),gameTimer.getTime(),getLevel());
         ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
@@ -257,23 +322,37 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         super.goToResult(Math24ScoreboardActivity.class, displayName);
     }
 
+    /**
+     * @param score the score of the player
+     * update the score text on the screen
+     */
     @SuppressLint("DefaultLocale")
     @Override
     public void updateScore(int score) {
         scoreText.setText(String.format("Your score: %d", this.score = score));
     }
 
+    /**
+     * @param level the current game level
+     * set the text that tells the player what the current level is
+     */
     public void setLevel(String level) {
         this.level.setText(level);
     }
 
+    /**
+     * @param lives number of lives
+     * set the text the tells the number lives available
+     */
     @SuppressLint("DefaultLocale")
     public void setLives(int lives) {
         textLive.setText(String.format("Lives: %d", lives));
     }
 
 
-
+    /**
+     * If the player failed the game, show the text "You lose the game!!!"
+     */
     public void showFailure(){
         textLive.setTextColor(Color.RED);
         message.setText("You lose the game!!!");
@@ -300,6 +379,9 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         setOnClickNums();
     }
 
+    /**
+     * set up operators
+     */
     private void setUpOperators() {
         Button plus = findViewById(R.id.btn_plus);
         Button minus = findViewById(R.id.btn_minus);
@@ -313,6 +395,9 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
 
     }
 
+    /**
+     * set up the buttons in the game page
+     */
     private void setUpMenuBtn() {
         nextBtn = findViewById(R.id.btn_next);
         Button backGame = findViewById(R.id.btn_back);
@@ -324,6 +409,9 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         clear.setOnClickListener(this);
     }
 
+    /**
+     * set up brackets
+     */
     private void setUpBrackets() {
         //create variables left bracket, right bracket and assign the the buttons to them respectively
         leftBracket = findViewById(R.id.btn_left);
@@ -332,6 +420,9 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
 
     }
 
+    /**
+     * set text space
+     */
     private void setTextSpace() {
         //put the output in result
         result = findViewById(R.id.math24result);
@@ -360,7 +451,9 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
 
     }
 
-
+    /**
+     * @return return the game level
+     */
     private String getLevel() {
         return level.getText().toString();
     }
