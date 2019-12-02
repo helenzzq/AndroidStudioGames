@@ -1,7 +1,14 @@
 package com.example.gamecenter.games.math24game.model;
 
 class QuestionBank {
+
+    /**
+     * create level 1 question bank
+     */
     private int[][] level1;
+    /**
+     * create level 2 question bank
+     */
     private int[][] level2;
 
     /**
