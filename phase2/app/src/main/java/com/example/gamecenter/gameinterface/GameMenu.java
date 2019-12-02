@@ -16,7 +16,7 @@ public interface GameMenu {
     /**
      * Activate the NewGame button.
      */
-    void setHelpBtn();
+    void setIntroBtn();
 
     void setScoreboardBtn();
 

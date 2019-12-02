@@ -77,7 +77,6 @@ E. Save:
 Save the current game state.
 
 F. Next:
-
 Math24: Jump to next question. 
 
 K. Return:
@@ -85,7 +84,7 @@ Return to the page before
 
 ** Important Note:
 If the player already finish the game, and get back to the game page by clicking the phone's 
-back button, #############
+back button, the player will go back to previous page, with timer stopped
 
 # ScoreBoard:
 A. After the game is over, a page will pop up asking the player whether want to save the score or not.
@@ -117,17 +116,17 @@ A. Game Rule:
     another card, or the edge of the grid.
     5. The game will end when their is no more space for merge and sliding. 
     
-B. Could check the "Sliding intro" page for clear introduction of the pictured cards
+B. Please check the "Sliding intro" page for clear introduction of the pictured cards
     
 
 
 ## Game 3: Math24
 A. Game Rule:
-  1. The purpose: use the 4 numbers to get 24. Each number must and can be only used once. \n
-  2. Three lives for level 1, and one live for level 2. The player will lose a live if the result isn't 24 after clicking the equal sign. \n
-  3. The clear button can clear the letters you entered before you press the equal sign.\n
-  4. After getting a question accurate, click 'next' button to get to next question.\n
-  5. After getting three questions accurate, you will jump to level 2, which needs more complex number combinations.\n
+  1. The purpose: use the 4 numbers to get 24. Each number must and can be only used once. 
+  2. Three lives for level 1, and one live for level 2. The player will lose a live if the result isn't 24 after clicking the equal sign. 
+  3. The clear button can clear the letters you entered before you press the equal sign.
+  4. After getting a question accurate, click 'next' button to get to next question.
+  5. After getting three questions accurate, you will jump to level 2, which needs more complex number combinations.
   6. The game will end when the player has no more lives. For level 2 specifically, if you get three questions accurate consecutively"
  
  

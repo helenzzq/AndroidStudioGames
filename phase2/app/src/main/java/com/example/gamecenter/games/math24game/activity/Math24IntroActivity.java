@@ -14,6 +14,10 @@ public class Math24IntroActivity extends AppCompatActivity implements View.OnCli
     private Button back;
     private TextView introTitle, introBody;
 
+    /** onCreate method for Math24 Introduction page
+     * @param savedInstanceState
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +29,11 @@ public class Math24IntroActivity extends AppCompatActivity implements View.OnCli
         back.setOnClickListener(this);
     }
 
+
+    /** Set the back button
+     * @param view
+     *
+     */
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_back2:

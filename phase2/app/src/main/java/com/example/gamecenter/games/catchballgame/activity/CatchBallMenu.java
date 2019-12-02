@@ -18,7 +18,7 @@ import com.example.gamecenter.user.User;
 import com.example.gamecenter.user.UserManager;
 
 public class CatchBallMenu extends BaseActivity implements GameMenu {
-    //there are three buttons in Main page: Start, setting and help
+    //CatchBallMenu has four buttons: New Game, Scoreboard, Introduction and Quit.
 
     /**
      * The Scoreboard
@@ -88,7 +88,7 @@ public class CatchBallMenu extends BaseActivity implements GameMenu {
    * */
   private void setButtons() {
         setQuitBtn();
-        setHelpBtn();
+        setIntroBtn();
         setNewGameBtn();
         setScoreboardBtn();
         onClickSettingBtn(findViewById(R.id.setting_btn_ball));
@@ -123,7 +123,7 @@ public class CatchBallMenu extends BaseActivity implements GameMenu {
    *  Set help button.
    * */
   @Override
-  public void setHelpBtn() {
+  public void setIntroBtn() {
         findViewById(R.id.help_ball).setOnClickListener(v -> switchToPage(CatchBallIntroActivity.class));
 
     }

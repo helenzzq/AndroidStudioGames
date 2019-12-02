@@ -5,10 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.gamecenter.games.catchballgame.activity.CatchBallScoreboardActivity;
-import com.example.gamecenter.games.math24game.Math24Presenter;
 import com.example.gamecenter.scoreboard.ScoreboardFileSaver;
 import com.example.gamecenter.strategy.BaseActivity;
 import com.example.gamecenter.gameinterface.GameMenu;
@@ -48,49 +45,67 @@ public class Math24Menu extends BaseActivity implements GameMenu {
         setButtons();
         this.handler = new Handler();
         this.runnable.run();
-
-
     }
+
+
     private final Runnable runnable = new Runnable() {
+        /**
+         * Set the color of the text that can adapt the different background colour
+         */
         @Override
         public void run() {
             RelativeLayout layout = findViewById(R.id.math24Menu);
-            BackGroundSetter.setWallPaper(new TextView[]{findViewById(R.id.savePrincess)},current,layout);
+            BackGroundSetter.setWallPaper(new TextView[]{findViewById(R.id.savePrincess)}, current, layout);
             handler.postDelayed(runnable, 50);
         }
     };
 
-    private void setButtons(){
+    /**
+     * Set buttons quit, intro, new game, and scoreboard
+     */
+    private void setButtons() {
         setQuitBtn();
-        setHelpBtn();
+        setIntroBtn();
         setNewGameBtn();
         setScoreboardBtn();
         onClickSettingBtn(findViewById(R.id.setting_btn_math));
     }
 
-
     /**
-     * Activate the quit button.
+     * Activate the scoreboard button.
      */
     @Override
-    public void setScoreboardBtn(){
-        findViewById(R.id.mathScoreBoardbtn).setOnClickListener(v->switchToPage(Math24ScoreboardActivity.class));
-    }
-    
-    @Override
-    public void setQuitBtn() {
-        findViewById(R.id.QuitmathButton).setOnClickListener(v-> switchToPage(MainMenuActivity.class));
+    public void setScoreboardBtn() {
+        findViewById(R.id.mathScoreBoardbtn).setOnClickListener(v -> switchToPage(Math24ScoreboardActivity.class));
     }
 
+    /**
+     * Activate the quit button
+     */
+    @Override
+    public void setQuitBtn() {
+        findViewById(R.id.QuitmathButton).setOnClickListener(v -> switchToPage(MainMenuActivity.class));
+    }
+
+    /**
+     * Activate the new game button
+     */
     @Override
     public void setNewGameBtn() {
         findViewById(R.id.newmathGame).setOnClickListener(v -> switchToPage(Math24Activity.class));
     }
+
+    /**
+     * Activate the intro button
+     */
     @Override
-    public void setHelpBtn() {
-        findViewById(R.id.help_mathBtn).setOnClickListener(v-> switchToPage(Math24IntroActivity.class));
+    public void setIntroBtn() {
+        findViewById(R.id.intro_mathBtn).setOnClickListener(v -> switchToPage(Math24IntroActivity.class));
     }
 
+    /**
+     * Activate Resume button
+     */
     @Override
     public void onResume() {
         super.onResume();

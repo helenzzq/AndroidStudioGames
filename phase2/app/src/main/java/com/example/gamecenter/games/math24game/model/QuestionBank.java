@@ -4,6 +4,9 @@ class QuestionBank {
     private int[][] level1;
     private int[][] level2;
 
+    /**
+     * Create question bank for two difficulty levels of the game
+     */
     QuestionBank() {
 
         level1 = new int[][]{
@@ -28,6 +31,10 @@ class QuestionBank {
     }
 
 
+    /**
+     * @param nextLevel True when the game is in level 2, while false when the game is in level 1
+     * @return one random question from the corresponding level's question bank
+     */
     int[] getRandomQ(boolean nextLevel){
         if (!nextLevel){
             return level1[(int)(Math.random() * (level1.length - 1) + 0.5)];
