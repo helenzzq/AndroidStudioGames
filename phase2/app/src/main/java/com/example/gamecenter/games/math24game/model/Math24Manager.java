@@ -12,6 +12,7 @@ public class Math24Manager implements GameManager {
     private boolean correctAnswer;
     private int lives;
 
+
     public Math24Manager(){
         this.score = 0;
         gameOver =false;
@@ -74,18 +75,17 @@ public class Math24Manager implements GameManager {
     }
 
     /**
-     * @param scoreboard
-     * @param user
-     * @return
+     * @param scoreboard the scoreboard of the game
+     * @param user the user of the game
      */
 
-    public boolean checkToAddScore(Scoreboard scoreboard, String user,int time) {
+    public void checkToAddScore(Scoreboard scoreboard, String user) {
         if(isGameOver())
         {
-            scoreboard.addScore(user,score,time);
-            return true;
+            scoreboard.addScore(user,score);
         }
-        return false;
     }
+
+
 }
 

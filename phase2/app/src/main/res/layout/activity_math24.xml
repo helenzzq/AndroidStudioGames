@@ -239,7 +239,7 @@
         app:layout_constraintTop_toBottomOf="@+id/mathnum4" />
 
     <TextView
-        android:id="@+id/text_live"
+        android:id="@+id/rankball"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

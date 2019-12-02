@@ -65,9 +65,6 @@ public class CatchBallManager implements GameManager, Serializable {
         return gameOver;
     }
 
-    public CatchBoard getBoard() {
-        return board;
-    }
 
     public void updatePlayerSize(){
         player.setY((int)player.getView().getY());
@@ -92,17 +89,14 @@ public class CatchBallManager implements GameManager, Serializable {
     }
 
     /**
-     * @param scoreboard
-     * @param user
-     * @return
+     * @param scoreboard the scoreboard of the game
+     * @param user the user of the game
      */
-    public boolean checkToAddScore(Scoreboard scoreboard, String user,int time) {
+    public void checkToAddScore(Scoreboard scoreboard, String user) {
         if(isGameOver())
         {
-            scoreboard.addScore(user,this.getScore(),time);
-            return true;
+            scoreboard.addScore(user,this.getScore());
         }
-        return false;
     }
 
 
