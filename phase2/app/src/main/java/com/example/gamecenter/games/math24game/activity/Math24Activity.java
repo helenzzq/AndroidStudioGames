@@ -285,6 +285,9 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         super.onDestroy();
     }
 
+    public Button getClear() {
+        return clear;
+    }
 
     private void setUpNumBtnView() {
         //create number buttons whose texts are questions

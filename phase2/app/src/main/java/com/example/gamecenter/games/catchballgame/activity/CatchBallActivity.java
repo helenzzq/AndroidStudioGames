@@ -131,7 +131,7 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
         prompts.getDisplayBothBtn().setOnClickListener(v -> {
             goToResult(currentPlayer.getUsername());
         });
-        prompts.getOnlyScoreBtn().setOnClickListener(v -> goToResult(""));
+        prompts.getOnlyScoreBtn().setOnClickListener(v -> goToResult("current User"));
         dialog.show();
 
     }
