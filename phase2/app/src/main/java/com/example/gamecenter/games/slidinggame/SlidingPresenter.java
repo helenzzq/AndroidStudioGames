@@ -94,7 +94,7 @@ public class SlidingPresenter implements GameController, MySubject {
         if(slidingManager.isGameOver()&& !SlidingActivity.getIsLevel1()){
             storeUserData();
             onDestory();
-//            slidingView.goToResult();
+            slidingView.showPrompt();
 
         }
     }
@@ -102,7 +102,7 @@ public class SlidingPresenter implements GameController, MySubject {
     public void onDestory(){
         SlidingActivity.setGameTimer(null);
         SlidingActivity.setIsLevel1(true);
-        slidingGrid.onDestory();
+        SlidingGrid.onDestory();
 
 
     }

@@ -1,8 +1,11 @@
 package com.example.gamecenter.games.slidinggame.activity;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TextView;
@@ -13,6 +16,8 @@ import com.example.gamecenter.strategy.BaseActivity;
 import com.example.gamecenter.R;
 import com.example.gamecenter.gameinterface.GameView;
 import com.example.gamecenter.strategy.GameTimer;
+import com.example.gamecenter.strategy.prompts.GamePrompts;
+import com.example.gamecenter.strategy.prompts.Prompts;
 
 
 import static android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
@@ -91,6 +96,13 @@ public class SlidingActivity extends BaseActivity implements GameView {
     }
 
 
+    private void backToMain(){
+        finish();
+        gameTimer = null;
+        SlidingGrid.onDestory();
+        switchToPage(SlidingMenu.class);
+    }
+
     public static int getNum() {
         return num;
     }
@@ -151,6 +163,19 @@ public class SlidingActivity extends BaseActivity implements GameView {
         Intent intent = new Intent(SlidingActivity.this, SlidingActivity.class);
         intent.putExtra("score", score);
         startActivity(intent);
+    }
+    public void showPrompt() {
+        ViewGroup layout = findViewById(R.id.catchBall);
+        Prompts prompts = new GamePrompts();
+        AlertDialog dialog = prompts.createPrompt(getLayoutInflater(), layout, this);
+        prompts.getBackToMainBtn().setOnClickListener(v -> {backToMain();
+        });
+        prompts.getDisplayBothBtn().setOnClickListener(v -> {
+            goToResult();
+        });
+        prompts.getOnlyScoreBtn().setOnClickListener(v -> goToResult());
+        dialog.show();
+
     }
 
     public static GameTimer getGameTimer(){

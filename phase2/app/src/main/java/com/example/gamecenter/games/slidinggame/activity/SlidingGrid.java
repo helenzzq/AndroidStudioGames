@@ -133,7 +133,7 @@ public class SlidingGrid extends GridLayout{
         }
     }
 
-    public void onDestory(){
+    public static void onDestory(){
         presenter = null;
     }
 

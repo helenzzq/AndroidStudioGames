@@ -10,8 +10,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".games.slidinggame.activity.SlidingScoreboardActivity"></activity>
+        <activity android:name=".games.slidinggame.activity.SlidingScoreboardActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+
+        </activity>
         <activity android:name=".games.math24game.activity.Math24ScoreboardActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".games.catchballgame.activity.CatchBallScoreboardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
@@ -28,11 +38,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".games.slidinggame.activity.SlidingIntroActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".games.catchballgame.activity.CatchBallScoreboardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>

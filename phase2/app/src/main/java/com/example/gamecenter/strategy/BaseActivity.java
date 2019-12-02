@@ -47,9 +47,9 @@ public class BaseActivity extends AppCompatActivity {
      * score.
      * @param targetPage gameResult class
      */
-    public void goToResult(Class targetPage, boolean displayName){
+    public void goToResult(Class targetPage){
         Intent intent = new Intent(this, targetPage);
-        intent.putExtra("saveChoice",displayName);
+        finish();
         startActivity(intent);
     }
 

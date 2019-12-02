@@ -176,7 +176,7 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
                 clearText();
                 break;
             case R.id.btn_back:
-                backToMain();
+                finish();
                 break;
             case R.id.btn_intro:
                 switchToPage(Math24IntroActivity.class);
@@ -186,11 +186,6 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
             default:
                 break;
         }
-    }
-
-    private void backToMain(){
-        finish();
-        switchToPage(Math24Menu.class);
     }
 
     public void disableAll() {
@@ -247,14 +242,14 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         num.setText(String.format("%d", question));
 
     }
-
-    public void goToResult(boolean displayName) {
-        presenter.getGameManager().checkToAddScore(Math24Menu.scoreboard,currentPlayer.getUsername(),gameTimer.getTime());
+    @Override
+    public void goToResult() {
+        presenter.getGameManager().checkToAddScore(Math24Menu.scoreboard,currentPlayer.getUsername());
         ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
         scoreboardFileSaver.saveToFile(fileName);
 
         finish();
-        super.goToResult(Math24ScoreboardActivity.class, displayName);
+        super.goToResult(Math24ScoreboardActivity.class);
     }
 
     @SuppressLint("DefaultLocale")
@@ -340,23 +335,22 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         mathExpression = findViewById(R.id.tv_calculation);
     }
 
-    /**
-     * Show prompts on the screen.
-     * */
+
+    private void backToMain(){
+        finish();
+        switchToPage(Math24Menu.class);
+    }
     public void showPrompt() {
         ViewGroup layout = findViewById(R.id.catchBall);
-        View view = getLayoutInflater().inflate(R.layout.fragment_massege,
-                layout, false);
         Prompts prompts = new GamePrompts();
         AlertDialog dialog = prompts.createPrompt(getLayoutInflater(), layout, this);
         prompts.getBackToMainBtn().setOnClickListener(v -> {backToMain();
         });
         prompts.getDisplayBothBtn().setOnClickListener(v -> {
-            goToResult(true);
+            goToResult();
         });
-        prompts.getOnlyScoreBtn().setOnClickListener(v -> goToResult(false));
+        prompts.getOnlyScoreBtn().setOnClickListener(v -> goToResult());
         dialog.show();
 
     }
-
 }

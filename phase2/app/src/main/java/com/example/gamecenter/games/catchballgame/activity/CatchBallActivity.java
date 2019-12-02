@@ -130,8 +130,6 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
      * */
     public void showPrompt() {
         ViewGroup layout = findViewById(R.id.catchBall);
-        view = getLayoutInflater().inflate(R.layout.fragment_massege,
-                layout, false);
         Prompts prompts = new GamePrompts();
         AlertDialog dialog = prompts.createPrompt(getLayoutInflater(), layout, this);
         prompts.getBackToMainBtn().setOnClickListener(v -> {backToMain();
