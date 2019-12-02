@@ -25,6 +25,11 @@ public class SlidingManager implements GameManager {
     /** num is the column and row number of map in the Sliding game.*/
     public static int num;
 
+    /**
+     * Create a SlidingManager
+     * @param num num of columns and rows
+     * @param isLevel1 true if is level1, false otherwise
+     */
     public SlidingManager(int num, boolean isLevel1) {
         SlidingManager.num = num;
         gameOver = false;

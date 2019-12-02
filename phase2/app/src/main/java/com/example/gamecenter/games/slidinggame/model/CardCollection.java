@@ -20,6 +20,10 @@ class CardCollection {
     /** num is a static int indicates the number of rows and columns of the 2D array.*/
     private static int num;
 
+    /**
+     * Create a CardCollection
+     * @param num the size of the 2D array.
+     */
     CardCollection(int num){
         CardCollection.num = num;
         cardCollection = new SlidingCard[num][num];
