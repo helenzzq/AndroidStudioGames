@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.gamecenter.games.math24game.Math24Presenter;
 import com.example.gamecenter.games.math24game.model.Math24Manager;
+import com.example.gamecenter.games.slidinggame.activity.SlidingScoreboardActivity;
 import com.example.gamecenter.scoreboard.ScoreboardFileSaver;
 import com.example.gamecenter.strategy.BaseActivity;
 import com.example.gamecenter.R;
@@ -246,14 +247,7 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
 
     }
 
-    public void goToResult() {
-//        presenter.getGameManager().checkToAddScore(Math24Menu.scoreboard,currentPlayer.getUsername());
-        ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
-        scoreboardFileSaver.saveToFile(fileName);
 
-        finish();
-        super.goToResult(Math24ScoreboardActivity.class);
-    }
 
     @SuppressLint("DefaultLocale")
     @Override
@@ -327,6 +321,15 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
 
     }
 
+    public void goToResult(boolean displayName) {
+        //        presenter.getGameManager().checkToAddScore(Math24Menu.scoreboard,currentPlayer.getUsername());
+        ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
+        scoreboardFileSaver.saveToFile(fileName);
+        finish();
+        super.goToResult(SlidingScoreboardActivity.class, displayName);
+
+    }
+
     private void setTextSpace() {
         //put the output in result
         result = findViewById(R.id.math24result);
@@ -350,9 +353,9 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         prompts.getBackToMainBtn().setOnClickListener(v -> {backToMain();
         });
         prompts.getDisplayBothBtn().setOnClickListener(v -> {
-            goToResult();
+            goToResult(true);
         });
-        prompts.getOnlyScoreBtn().setOnClickListener(v -> goToResult());
+        prompts.getOnlyScoreBtn().setOnClickListener(v -> goToResult(false));
         dialog.show();
 
     }

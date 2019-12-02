@@ -127,9 +127,9 @@ public class SlidingActivity extends BaseActivity implements GameView {
     }
 
 
-    public void goToResult() {
+    public void goToResult(boolean displayName) {
         finish();
-        super.goToResult(SlidingScoreboardActivity.class);
+        super.goToResult(SlidingScoreboardActivity.class, displayName);
 
     }
 
@@ -171,9 +171,9 @@ public class SlidingActivity extends BaseActivity implements GameView {
         prompts.getBackToMainBtn().setOnClickListener(v -> {backToMain();
         });
         prompts.getDisplayBothBtn().setOnClickListener(v -> {
-            goToResult();
+            goToResult(true);
         });
-        prompts.getOnlyScoreBtn().setOnClickListener(v -> goToResult());
+        prompts.getOnlyScoreBtn().setOnClickListener(v -> goToResult(false));
         dialog.show();
 
     }
