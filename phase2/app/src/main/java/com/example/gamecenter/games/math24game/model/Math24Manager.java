@@ -19,9 +19,10 @@ public class Math24Manager implements GameManager {
         questionBank = new QuestionBank();
     }
 
-    // get the math question from question bank
+
     public int[] getQuestion(){
         return questionBank.getRandomQ(checkNextLevel());
+
     }
 
     //test if the result equals 24
@@ -78,10 +79,11 @@ public class Math24Manager implements GameManager {
      * @param time
      * @return
      */
+
     public boolean checkToAddScore(Scoreboard scoreboard, String user,int time) {
         if(isGameOver())
         {
-            scoreboard.addScore(user,this.getScore(),time);
+//            scoreboard.addScore(user,score,time);
             return true;
         }
         return false;

@@ -70,17 +70,17 @@ public class Scoreboard implements Serializable, MySubject {
         StringBuilder scoreValues = new StringBuilder();
         for (int i = 0; i < numScores; i++) {
             Score currentItem = scoreList.get(i);
-            scoreValues.append(String.format(Locale.US, "%s:  score:%d time:%d",
-                    currentItem.getUsername(), currentItem.getScore(),currentItem.getTime())).append("\n");
+            scoreValues.append(String.format(Locale.US, "%s: %d",
+                    currentItem.getUsername(), currentItem.getScore())).append("\n");
         }
         return scoreValues.toString();
     }
-    
 
 
-    public void addScore(String currentPlayer, int score, int time){
-        Score s = new Score(currentPlayer,score,time);
-        GlobalScore.add(s);
+
+    public void addScore(String currentPlayer, int score){
+//        Score s = new Score(currentPlayer,score);
+//        GlobalScore.add(s);
         sortScores(GlobalScore);
         notifyObservers();
     }

@@ -9,10 +9,7 @@ public interface GameView {
      */
     void updateScore(int score);
 
-    /**
-     * Go to the result page 
-     */
-    void goToResult();
+
 
 
 }

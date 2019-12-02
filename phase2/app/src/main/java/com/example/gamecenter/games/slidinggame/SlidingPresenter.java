@@ -4,10 +4,15 @@ import com.example.gamecenter.gameinterface.GameController;
 import com.example.gamecenter.gameinterface.GameManager;
 import com.example.gamecenter.gameinterface.MyObserver;
 import com.example.gamecenter.gameinterface.MySubject;
+import com.example.gamecenter.games.catchballgame.activity.CatchBallMenu;
 import com.example.gamecenter.games.slidinggame.activity.SlidingActivity;
 import com.example.gamecenter.games.slidinggame.activity.SlidingGrid;
+import com.example.gamecenter.games.slidinggame.activity.SlidingMenu;
 import com.example.gamecenter.games.slidinggame.model.SlidingManager;
 import com.example.gamecenter.scoreboard.Scoreboard;
+import com.example.gamecenter.scoreboard.ScoreboardFileSaver;
+import com.example.gamecenter.user.User;
+import com.example.gamecenter.user.UserManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +21,12 @@ public class SlidingPresenter implements GameController, MySubject {
     private SlidingManager slidingManager;
     private SlidingActivity slidingView;
     private com.example.gamecenter.games.slidinggame.activity.SlidingGrid slidingGrid;
+
+
+    private static final String fileName = "CatchBallScores.ser";
+
+    private User currentPlayer = UserManager.getCurrentUser();
+
 
     /**
      * The list of observers of this class
@@ -62,9 +73,10 @@ public class SlidingPresenter implements GameController, MySubject {
         }
         checkGameOver();
         slidingView.updateScore(slidingManager.getScore());
-        if ((slidingManager.checkNextLevel()) && (SlidingActivity.getIsLevel1())) {
-            SlidingActivity.changeLevel();
+        if ((slidingManager.checkNextLevel()) && (SlidingActivity.num == 3)) {
+            SlidingManager.num = 4;
             slidingView.startLevel2();
+            SlidingActivity.changeLevel();
             slidingManager.setScore(slidingManager.getScore());
 
         }
@@ -79,9 +91,11 @@ public class SlidingPresenter implements GameController, MySubject {
 
 
      private void checkGameOver(){
-        if(slidingManager.isGameOver()){
+        if(slidingManager.isGameOver()&& !SlidingActivity.getIsLevel1()){
+            storeUserData();
             onDestory();
-            slidingView.goToResult();
+//            slidingView.goToResult();
+
         }
     }
 
@@ -89,8 +103,14 @@ public class SlidingPresenter implements GameController, MySubject {
         SlidingActivity.setGameTimer(null);
         SlidingActivity.setIsLevel1(true);
         slidingGrid.onDestory();
-        slidingView.finish();
 
+
+    }
+
+    private void storeUserData(){
+        slidingManager.checkToAddScore(SlidingMenu.scoreboard, UserManager.getCurrentUser().getUsername());
+        ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(slidingView, fileName);
+        scoreboardFileSaver.saveToFile(fileName);
     }
     public void onPause(){
         slidingGrid.onPause();
@@ -131,8 +151,4 @@ public class SlidingPresenter implements GameController, MySubject {
         }
     }
 
-    private void onDestroy() {
-        slidingView = null;
-        slidingGrid = null;
-    }
 }

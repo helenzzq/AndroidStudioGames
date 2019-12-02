@@ -2,9 +2,6 @@ package com.example.gamecenter.games.catchballgame.model;
 
 import android.widget.ImageView;
 
-/**
- * A class for the player.
- * */
 class PlayerPrince {
 
     /**

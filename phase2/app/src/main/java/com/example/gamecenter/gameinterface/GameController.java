@@ -18,7 +18,7 @@ public interface GameController {
      * @return
      */
 
- //  boolean checkToAddScore(Scoreboard scoreboard, String user);
+//    boolean checkToAddScore(Scoreboard scoreboard, String user);
 
 
     /**

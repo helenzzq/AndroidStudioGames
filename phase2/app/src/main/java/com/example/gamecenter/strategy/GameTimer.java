@@ -60,6 +60,7 @@ public class GameTimer {
         return timer;
     }
 
+
     /**
      * Gets the time.
      * @return time in seconds.
@@ -67,7 +68,6 @@ public class GameTimer {
     public int getTime(){
         return  (int)(SystemClock.elapsedRealtime() - chrono.getBase())/1000;
     }
-
 
     public void setResume(Chronometer chronos){
         chronos.setBase(chrono.getBase() + SystemClock.elapsedRealtime() - lastPause);

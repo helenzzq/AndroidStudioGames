@@ -46,12 +46,10 @@ public class BaseActivity extends AppCompatActivity {
      * The goToResult method is used to switch to the scoreboard page and pass in the player's
      * score.
      * @param targetPage gameResult class
-     * @param dataName a specific name given for the score
-     * @param score player's score
      */
-    public void goToResult(Class targetPage, String dataName,int score){
+    public void goToResult(Class targetPage, boolean displayName){
         Intent intent = new Intent(this, targetPage);
-        intent.putExtra(dataName, score);
+        intent.putExtra("saveChoice",displayName);
         startActivity(intent);
     }
 

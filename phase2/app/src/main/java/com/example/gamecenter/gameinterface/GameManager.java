@@ -24,5 +24,5 @@ public interface GameManager {
      */
     boolean checkNextLevel();
 
-    boolean checkToAddScore(Scoreboard scoreboard,String userId,int time);
+
 }
