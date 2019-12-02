@@ -11,6 +11,9 @@ import com.example.gamecenter.R;
 import com.example.gamecenter.user.User;
 import com.example.gamecenter.user.UserManager;
 
+/**
+ * The CatchBallScoreboardActivity can display the Scoreboard fot the CatchBall Game.
+ */
 public class CatchBallScoreboardActivity extends AppCompatActivity {
 
   /**

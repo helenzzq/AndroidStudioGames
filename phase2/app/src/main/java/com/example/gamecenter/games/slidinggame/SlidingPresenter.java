@@ -11,6 +11,7 @@ import com.example.gamecenter.games.slidinggame.activity.SlidingMenu;
 import com.example.gamecenter.games.slidinggame.model.SlidingManager;
 import com.example.gamecenter.scoreboard.Scoreboard;
 import com.example.gamecenter.scoreboard.ScoreboardFileSaver;
+import com.example.gamecenter.strategy.GameTimer;
 import com.example.gamecenter.user.User;
 import com.example.gamecenter.user.UserManager;
 
@@ -24,9 +25,6 @@ public class SlidingPresenter implements GameController, MySubject {
 
 
     private static final String fileName = "CatchBallScores.ser";
-
-    private User currentPlayer = UserManager.getCurrentUser();
-
 
     /**
      * The list of observers of this class
@@ -83,12 +81,6 @@ public class SlidingPresenter implements GameController, MySubject {
     }
 
 
-//        slidingManager.swipe(vertical, leftUp);
-//        slidingView.addScore(slidingManager.getScore());
-//        if(slidingManager.isGameOver()){
-//            slidingView.showResult();
-//        }
-
 
      private void checkGameOver(){
         if(slidingManager.isGameOver()&& !SlidingActivity.getIsLevel1()){
@@ -108,7 +100,7 @@ public class SlidingPresenter implements GameController, MySubject {
     }
 
     private void storeUserData(){
-        slidingManager.checkToAddScore(SlidingMenu.scoreboard, UserManager.getCurrentUser().getUsername());
+        slidingManager.checkToAddScore(SlidingMenu.scoreboard, UserManager.getCurrentUser().getUsername(), slidingView.getTime());
         ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(slidingView, fileName);
         scoreboardFileSaver.saveToFile(fileName);
     }

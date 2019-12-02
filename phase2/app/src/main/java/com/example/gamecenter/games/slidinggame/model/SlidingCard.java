@@ -17,7 +17,10 @@ public class SlidingCard extends FrameLayout {
     /** num is an integer in the array corresponds to an index*/
     private int num = 0;
 
-
+    /**
+     * Create a SlidingCard.
+     * @param context context
+     */
     public SlidingCard(Context context) {
         super(context);
         matchPic();

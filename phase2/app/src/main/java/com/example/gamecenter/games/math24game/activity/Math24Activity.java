@@ -248,8 +248,8 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
 
     }
 
-    public void goToResult(String displayName) {
-        presenter.getGameManager().checkToAddScore(Math24Menu.scoreboard,displayName);
+    public void goToResult(boolean displayName) {
+        presenter.getGameManager().checkToAddScore(Math24Menu.scoreboard,currentPlayer.getUsername(),gameTimer.getTime());
         ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
         scoreboardFileSaver.saveToFile(fileName);
 
@@ -338,7 +338,7 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         //the text saying whether or not the answer is accurate
         message = findViewById(R.id.message);
         //the text saying the number of lives left
-        textLive = findViewById(R.id.text_live);
+        textLive = findViewById(R.id.rankball);
         //create a text space called mathExpression to put the equation entered by the player
         mathExpression = findViewById(R.id.tv_calculation);
     }
@@ -353,12 +353,15 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         prompts.getBackToMainBtn().setOnClickListener(v -> {backToMain();
         });
         prompts.getDisplayBothBtn().setOnClickListener(v -> {
-            goToResult(currentPlayer.getUsername());
+            goToResult(true);
         });
-        prompts.getOnlyScoreBtn().setOnClickListener(v -> goToResult(""));
+        prompts.getOnlyScoreBtn().setOnClickListener(v -> goToResult(false));
         dialog.show();
 
     }
 
 
+    private String getLevel() {
+        return level.getText().toString();
+    }
 }

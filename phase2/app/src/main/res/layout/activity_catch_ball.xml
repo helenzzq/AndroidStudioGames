@@ -22,11 +22,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/text_live"
+        android:id="@+id/rankball"
         android:layout_width="142dp"
         android:layout_height="29dp"
         android:layout_marginTop="80dp"
-        android:text="lives remaining 3"
+        android:text="RANK: BRONZE"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -123,7 +123,7 @@
         android:layout_marginBottom="10dp"
         android:text=""
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/text_live"
+        app:layout_constraintBottom_toTopOf="@+id/rankball"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
