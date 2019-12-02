@@ -275,9 +275,9 @@ public class SlidingManager implements GameManager {
      * @param user the current player
      * @return true if Game is over, false otherwise.
      */
-    public boolean checkToAddScore(Scoreboard scoreboard, String user) {
+    public boolean checkToAddScore(Scoreboard scoreboard, String user,int time) {
         if(isGameOver()) {
-            scoreboard.addScore(user,this.getScore());
+            scoreboard.addScore(user,this.getScore(),time);
             return true;
         }
         return false;

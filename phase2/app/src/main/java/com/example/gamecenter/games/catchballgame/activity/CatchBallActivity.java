@@ -39,12 +39,10 @@ ALL CREDIT FOR THE ORIGINAL IMPLEMENTATION OF A SIMILAR SINGLETON GOES TO THE OR
 /**
  * Activity class of the first game: catch ball.
  * */
-public class CatchBallActivity extends BaseActivity implements GameView, Observer, Serializable {
+public class CatchBallActivity extends BaseActivity implements GameView, Serializable {
 
     private TextView scoreLabel;
     private TextView startLabel;
-
-    private View view;
 
     //Score for the game
     private int score = 0;
@@ -66,6 +64,12 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
     private TextView level;
 
     /**
+     * Rank of the game.
+     * */
+    private TextView rank;
+
+
+    /**
      * File of CatchBall game score.
      * */
     private static final String fileName = "CatchBallScores.ser";
@@ -77,8 +81,7 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
 
     /**
      * Create items when starting this activity.
-     *
-     * @param savedInstanceState */
+     */
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +95,8 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
 
         level = findViewById(R.id.catchBallLevel);
         level.setText("LEVEL1");
+
+        rank = findViewById(R.id.rankball);
 
 
 //         Set GameTimer
@@ -112,7 +117,7 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
      */
 
     public void goToResult(String displayName) {
-        presenter.getGameManager().checkToAddScore(CatchBallMenu.scoreboard, displayName);
+        presenter.getGameManager().checkToAddScore(CatchBallMenu.scoreboard, displayName,gameTimer.getTime());
         ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
         scoreboardFileSaver.saveToFile(fileName);
         finish();
@@ -164,9 +169,6 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
 
     /**
      * Create events on touching.
-     *
-     * @param action
-     * @return
      */
     @Override
     public boolean onTouchEvent(MotionEvent action) {
@@ -277,16 +279,9 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
     }
 
     /**
-     * Update game information to the observer.
-     *
-     * @param o
-     * @param arg
-     */
-    @Override
-    public void update(Observable o, Object arg) {
-        presenter.notifyObservers();
+     * Get the current Level of User
+     * */
+    private String getLevel() {
+        return level.getText().toString();
     }
-
-
-
 }

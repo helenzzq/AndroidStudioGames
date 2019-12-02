@@ -59,7 +59,7 @@ public class SlidingMenu extends BaseActivity implements GameMenu {
     };
     private void setButtons(){
         setQuitBtn();
-        setHelpBtn();
+        setIntroBtn();
         setNewGameBtn();
         setScoreboardBtn();
         onClickSettingBtn(findViewById(R.id.setting_btn_slide));
@@ -81,7 +81,7 @@ public class SlidingMenu extends BaseActivity implements GameMenu {
 
     }
     @Override
-    public void setHelpBtn() {
+    public void setIntroBtn() {
         findViewById(R.id.help_slide).setOnClickListener(v -> switchToPage(SlidingIntroActivity.class));
 
     }
