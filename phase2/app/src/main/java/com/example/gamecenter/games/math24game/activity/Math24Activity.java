@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.example.gamecenter.games.math24game.Math24Presenter;
 import com.example.gamecenter.games.math24game.model.Math24Manager;
-import com.example.gamecenter.games.slidinggame.activity.SlidingScoreboardActivity;
 import com.example.gamecenter.scoreboard.ScoreboardFileSaver;
 import com.example.gamecenter.strategy.BaseActivity;
 import com.example.gamecenter.R;
@@ -89,9 +88,6 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     }
 
 
-    public Button getClear() {
-        return clear;
-    }
 
     void disableBtns(Button[] btn) {
         for (Button b : btn) {
@@ -99,7 +95,7 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         }
     }
 
-    public void enableBtns(Button[] btn) {
+    void enableBtns(Button[] btn) {
         for (Button b : btn) {
             b.setEnabled(true);
         }
@@ -180,7 +176,7 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
                 clearText();
                 break;
             case R.id.btn_back:
-                finish();
+                backToMain();
                 break;
             case R.id.btn_intro:
                 switchToPage(Math24IntroActivity.class);
@@ -190,6 +186,11 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
             default:
                 break;
         }
+    }
+
+    private void backToMain(){
+        finish();
+        switchToPage(Math24Menu.class);
     }
 
     public void disableAll() {
@@ -247,7 +248,14 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
 
     }
 
+    public void goToResult(String displayName) {
+        presenter.getGameManager().checkToAddScore(Math24Menu.scoreboard,displayName);
+        ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
+        scoreboardFileSaver.saveToFile(fileName);
 
+        finish();
+        super.goToResult(Math24ScoreboardActivity.class, displayName);
+    }
 
     @SuppressLint("DefaultLocale")
     @Override
@@ -321,15 +329,6 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
 
     }
 
-    public void goToResult(boolean displayName) {
-        //        presenter.getGameManager().checkToAddScore(Math24Menu.scoreboard,currentPlayer.getUsername());
-        ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
-        scoreboardFileSaver.saveToFile(fileName);
-        finish();
-        super.goToResult(SlidingScoreboardActivity.class, displayName);
-
-    }
-
     private void setTextSpace() {
         //put the output in result
         result = findViewById(R.id.math24result);
@@ -341,22 +340,22 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         mathExpression = findViewById(R.id.tv_calculation);
     }
 
-
-    private void backToMain(){
-        finish();
-        switchToPage(Math24Menu.class);
-    }
+    /**
+     * Show prompts on the screen.
+     * */
     public void showPrompt() {
-        ViewGroup layout = findViewById(R.id.btn_math24);
+        ViewGroup layout = findViewById(R.id.catchBall);
         Prompts prompts = new GamePrompts();
         AlertDialog dialog = prompts.createPrompt(getLayoutInflater(), layout, this);
         prompts.getBackToMainBtn().setOnClickListener(v -> {backToMain();
         });
         prompts.getDisplayBothBtn().setOnClickListener(v -> {
-            goToResult(true);
+            goToResult(currentPlayer.getUsername());
         });
-        prompts.getOnlyScoreBtn().setOnClickListener(v -> goToResult(false));
+        prompts.getOnlyScoreBtn().setOnClickListener(v -> goToResult(""));
         dialog.show();
 
     }
+
+
 }

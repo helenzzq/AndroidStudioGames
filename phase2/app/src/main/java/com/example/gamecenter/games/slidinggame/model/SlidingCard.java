@@ -6,12 +6,16 @@ import android.widget.ImageView;
 
 import com.example.gamecenter.R;
 
+/**
+ * SlidingCard class contains the Image that are used in Sliding game.
+ */
 public class SlidingCard extends FrameLayout {
+    /** pic is an ImageView */
     private ImageView pic;
+    /** picArray is an int array that can store the pictures used in Sliding activity*/
     private int[] picArray = new int[16];
+    /** num is an integer in the array corresponds to an index*/
     private int num = 0;
-    private int c = 3;
-
 
 
     public SlidingCard(Context context) {
@@ -21,10 +25,12 @@ public class SlidingCard extends FrameLayout {
         LayoutParams lp = new LayoutParams(-1, -1);
         lp.setMargins(10, 10, 0, 0);
         addView(pic, lp);
-
         setNum(0);
     }
 
+    /**
+     * matchPic is a method that matches each card picture to a place in in the picArray.
+     */
     public void matchPic() {
         picArray[0] = 0;
         picArray[1] = R.drawable.rare0;
@@ -45,18 +51,29 @@ public class SlidingCard extends FrameLayout {
 
     }
 
-
+    /**
+     * Get num.
+     * @return num.
+     */
     public int getNum() {
         return num;
     }
 
+    /**
+     * Set num.
+     * @param num given an integer and set the backGround resource to
+     *            the correspond picture in picArray.
+     */
     public void setNum(int num) {
         this.num = num;
         pic.setBackgroundResource(picArray[num]);
-
-
     }
 
+    /**
+     * Change the equals method so that it can be used to compare if two cards are the same.
+     * @param o a SlidingCard
+     * @return true if they are the same, false otherwise.
+     */
     public boolean equals(SlidingCard o) {
         return getNum() == o.getNum();
     }

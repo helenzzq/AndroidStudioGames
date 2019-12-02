@@ -68,10 +68,13 @@
         android:id="@+id/chooseGame1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="85dp"
-        android:layout_marginTop="130dp"
-        android:text="Choose Game"
-        android:textSize="36sp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="132dp"
+        android:fontFamily="cursive"
+        android:text="Game Chanlleges"
+        android:textAppearance="@android:style/TextAppearance.Material.Small"
+        android:textSize="40sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

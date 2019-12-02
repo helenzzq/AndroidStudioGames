@@ -15,6 +15,9 @@ import com.example.gamecenter.strategy.BaseActivity;
 import com.example.gamecenter.gameinterface.GameMenu;
 import com.example.gamecenter.login.MainMenuActivity;
 
+/**
+ * The SlidingMenu class 
+ */
 
 public class SlidingMenu extends BaseActivity implements GameMenu {
     private Handler handler;

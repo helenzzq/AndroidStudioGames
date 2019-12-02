@@ -18,6 +18,7 @@ import com.example.gamecenter.gameinterface.GameView;
 import com.example.gamecenter.strategy.GameTimer;
 import com.example.gamecenter.strategy.prompts.GamePrompts;
 import com.example.gamecenter.strategy.prompts.Prompts;
+import com.example.gamecenter.user.UserManager;
 
 
 import static android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
@@ -127,7 +128,7 @@ public class SlidingActivity extends BaseActivity implements GameView {
     }
 
 
-    public void goToResult(boolean displayName) {
+    public void goToResult(String displayName) {
         finish();
         super.goToResult(SlidingScoreboardActivity.class, displayName);
 
@@ -152,12 +153,10 @@ public class SlidingActivity extends BaseActivity implements GameView {
             startActivity(i);
             gameTimer.stop();
 
-
         });
     }
 
     public void startLevel2() {
-
         gameTimer.stop();
         finish();
         Intent intent = new Intent(SlidingActivity.this, SlidingActivity.class);
@@ -171,9 +170,9 @@ public class SlidingActivity extends BaseActivity implements GameView {
         prompts.getBackToMainBtn().setOnClickListener(v -> {backToMain();
         });
         prompts.getDisplayBothBtn().setOnClickListener(v -> {
-            goToResult(true);
+            goToResult(UserManager.getCurrentUser().getUsername());
         });
-        prompts.getOnlyScoreBtn().setOnClickListener(v -> goToResult(false));
+        prompts.getOnlyScoreBtn().setOnClickListener(v -> goToResult(""));
         dialog.show();
 
     }
