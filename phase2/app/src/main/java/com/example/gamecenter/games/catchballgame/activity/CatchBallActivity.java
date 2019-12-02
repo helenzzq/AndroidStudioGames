@@ -112,7 +112,7 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
      */
 
     public void goToResult(String displayName) {
-        presenter.getGameManager().checkToAddScore(CatchBallMenu.scoreboard, displayName);
+        presenter.getGameManager().checkToAddScore(CatchBallMenu.scoreboard, displayName,gameTimer.getTime());
         ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
         scoreboardFileSaver.saveToFile(fileName);
         finish();
