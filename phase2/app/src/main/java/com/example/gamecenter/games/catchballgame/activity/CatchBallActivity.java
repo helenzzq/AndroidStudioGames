@@ -99,18 +99,12 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
         gameTimer = new GameTimer(chrono);
 
         Button pauseButton = findViewById(R.id.catchBallPause);
-        Button introButton = findViewById(R.id.catchBallIntro);
         scoreLabel = findViewById(R.id.scoreLabel);
         startLabel = findViewById(R.id.startLabel);
 
         scoreLabel.setText("Score: 0");
         pauseButton.setTag(0);
         setPauseButton(pauseButton, gameTimer);
-        introButton.setOnClickListener(v -> {
-            Intent catchBallIntro1 = new Intent(CatchBallActivity.this, CatchBallIntroActivity.class);
-            gameTimer.stop();
-            startActivity(catchBallIntro1);
-        });
     }
 
     /**

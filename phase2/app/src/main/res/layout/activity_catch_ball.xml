@@ -8,13 +8,6 @@
     android:orientation="vertical"
     tools:context=".games.catchballgame.activity.CatchBallActivity">
 
-    //william modified
-<!--    <fragment-->
-<!--        android:id="@+id/fragment_massege"-->
-<!--        android:name="com.example.gamecenter.games.catchballgame.activity"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content" />-->
-
     <Chronometer
         android:id="@+id/chronometerBall"
         android:layout_width="wrap_content"
@@ -76,7 +69,7 @@
             android:id="@+id/catchBallPause"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:layout_marginStart="160dp"
+            android:layout_marginStart="80dp"
             android:layout_marginTop="450dp"
             android:background="#CDDC39"
             android:text="@string/pause"
@@ -86,20 +79,10 @@
             android:id="@+id/catchBallBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="250dp"
             android:layout_marginTop="450dp"
             android:background="#CDDC39"
             android:text="@string/back"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/catchBallIntro"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginStart="290dp"
-            android:layout_marginTop="450dp"
-            android:background="#CDDC39"
-            android:text="Intro"
             android:textSize="18sp" />
 
         <ImageView
