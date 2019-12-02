@@ -1,11 +1,11 @@
 package com.example.gamecenter.games.catchballgame.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gamecenter.R;
 import com.example.gamecenter.user.User;
