@@ -57,12 +57,13 @@ public class SlidingActivity extends BaseActivity implements GameView {
         setHelpButton();
         Button pauseBtn = findViewById(R.id.pause2048);
         pauseBtn.setTag(0);
+        setPauseButton(pauseBtn, gameTimer);
         gameTimer.restart();
     }
 
     @Override
     public void setPauseButton(Button pauseBtn, GameTimer gameTimer) {
-       //SlidingPresenter presenter = SlidingGrid.getPresenter();
+       SlidingPresenter presenter = SlidingGrid.getPresenter();
         pauseBtn.setOnClickListener(v -> {
             super.setPauseButton(pauseBtn, gameTimer);
             if (pauseBtn.getText().equals("RESUME")){

@@ -57,11 +57,11 @@ public class Scoreboard implements Serializable, MySubject {
             scoreList = GlobalScore;
         }
 
-        if (scoreList.size() < 5) {
+        if (scoreList.size() < 3) {
             numScores = scoreList.size();
         }
         else {
-            numScores = 5;
+            numScores = 3;
         }
 
         StringBuilder scoreValues = new StringBuilder();
