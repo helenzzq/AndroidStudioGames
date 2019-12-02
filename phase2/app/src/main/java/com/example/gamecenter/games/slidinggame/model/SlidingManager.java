@@ -5,18 +5,28 @@ import com.example.gamecenter.games.slidinggame.activity.SlidingActivity;
 import com.example.gamecenter.games.slidinggame.activity.SlidingGrid;
 import com.example.gamecenter.scoreboard.Scoreboard;
 
+/*BASED ON: https://blog.csdn.net/ft_sunshine/article/details/52678815
+ALL CREDIT FOR THE ORIGINAL IMPLEMENTATION OF A SIMILAR SINGLETON GOES TO THE ORIGINAL AUTHOR OF
+    THE CODE.*/
+
+/**
+ * SlidingManager class contains all the game logic of the Sliding game.
+ */
 public class SlidingManager implements GameManager {
 
-
+    /** slidingCards is a 2D array of SlidingCards.*/
     private SlidingCard[][] slidingCards;
+    /** cardCollection is a CardCollection*/
     private CardCollection cardCollection;
-
+    /** score is the Player's score.*/
     private static int score;
+    /** gameOver indicates whether the game is over or not.*/
     private boolean gameOver;
+    /** num is the column and row number of map in the Sliding game.*/
     public static int num;
 
     public SlidingManager(int num, boolean isLevel1) {
-        this.num = num;
+        SlidingManager.num = num;
         gameOver = false;
         cardCollection = new CardCollection(num);
         slidingCards = cardCollection.getCards();
@@ -25,19 +35,35 @@ public class SlidingManager implements GameManager {
         }
     }
 
-
+    /**
+     * Get slidingCards.
+     * @return slidingCards.
+     */
     public SlidingCard[][] getSlidingCards() {
         return slidingCards;
     }
 
+    /**
+     * Set the player's score.
+     * @param score the current score.
+     */
     public void setScore(int score) {
         SlidingManager.score = score;
     }
 
+    /**
+     * Get the player's score.
+     * @return score.
+     */
     public int getScore() {
         return score;
     }
 
+    /**
+     * The checkAllPair method checks if the 2D array slidingCards has cards pairs that can still
+     * be merged or any empty spots that allows the game to continue. If so, game is not over.
+     * Otherwise, gameOver is true.
+     */
     private void checkAllPair() {
         gameOver = true;
         ALL:
@@ -58,6 +84,11 @@ public class SlidingManager implements GameManager {
 
     }
 
+    /**
+     * The swipeLeft method moves all the cards to the left most spots and merge all the pairs that
+     * can be merged when swiping left. After swiping, if gameOver is false, add a new card on the
+     * map using addRandomNum method.
+     */
     public void swipeLeft() {
         boolean merge = false;
         for (int y = 0; y < num; y++) {
@@ -88,9 +119,13 @@ public class SlidingManager implements GameManager {
             cardCollection.addRandomNum();
             checkAllPair();
         }
-
     }
 
+    /**
+     * The swipeRight method moves all the cards to the right most spots and merge all the pairs that
+     * can be merged when swiping right. After swiping, if gameOver is false, add a new card on the
+     * map using addRandomNum method.
+     */
     public void swipeRight() {
         boolean merge = false;
         for (int y = 0; y < num; y++) {
@@ -124,6 +159,11 @@ public class SlidingManager implements GameManager {
         }
     }
 
+    /**
+     * The swipeUp method moves all the cards to the up most spots and merge all the pairs that
+     * can be merged when swiping up. After swiping, if gameOver is false, add a new card on the
+     * map using addRandomNum method.
+     */
     public void swipeUp() {
         boolean merge = false;
         for (int x = 0; x < num; x++) {
@@ -159,6 +199,11 @@ public class SlidingManager implements GameManager {
         }
     }
 
+    /**
+     * The swipeDown method moves all the cards to the down most spots and merge all the pairs that
+     * can be merged when swiping down. After swiping, if gameOver is false, add a new card on the
+     * map using addRandomNum method.
+     */
     public void swipeDown() {
         boolean merge = false;
         for (int x = 0; x < num; x++) {
@@ -195,33 +240,43 @@ public class SlidingManager implements GameManager {
         }
     }
 
-        @Override
-        public boolean isGameOver () {
-            return gameOver;
-        }
+    /**
+     * Get gameOver.
+     * @return gameOver.
+     */
+    @Override
+    public boolean isGameOver() {
+        return gameOver;
+    }
 
-        @Override
-        public boolean checkNextLevel () {
-            return getScore() >= 50 ;
+    /**
+     * The checkNextLevel checks if the player can enter level2.
+     * @return true if the player's score is greater than 50, false otherwise.
+     */
+    @Override
+    public boolean checkNextLevel() {
+        return getScore() >= 50;
 
-        }
+    }
 
-
-        public void setCardCollection () {
-            cardCollection.setCardCollection();
-            cardCollection.addRandomNum();
-            cardCollection.addRandomNum();
-        }
+    /**
+     * The setCardCollection method uses the setCardCollection and addRandomNum method to set the
+     * 2D array with 2 elements with pics and others without any pic.
+     */
+    public void setCardCollection() {
+        cardCollection.setCardCollection();
+        cardCollection.addRandomNum();
+        cardCollection.addRandomNum();
+    }
 
 
     /**
-     * @param scoreboard
-     * @param user
-     * @return
+     * @param scoreboard a scoreboard
+     * @param user the current player
+     * @return true if Game is over, false otherwise.
      */
     public boolean checkToAddScore(Scoreboard scoreboard, String user) {
-        if(isGameOver())
-        {
+        if(isGameOver()) {
             scoreboard.addScore(user,this.getScore());
             return true;
         }
