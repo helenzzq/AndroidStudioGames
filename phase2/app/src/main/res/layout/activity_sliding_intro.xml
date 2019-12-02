@@ -9,6 +9,8 @@
     android:id="@+id/slidingintroPage">
 
 
+
+
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
@@ -298,7 +300,20 @@
         android:text="@string/introduction"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.563"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/back_2048"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/back_2048"
+        android:layout_width="96dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/buttonshape"
+        android:textColor="#0081BB"
+        android:text="@string/back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.076"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
