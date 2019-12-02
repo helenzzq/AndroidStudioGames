@@ -187,6 +187,10 @@ public class SlidingActivity extends BaseActivity implements GameView {
         return gameTimer.getTime();
     }
 
+
+    private String getLevel() {
+        return level.getText().toString();
+    }
 }
 
 

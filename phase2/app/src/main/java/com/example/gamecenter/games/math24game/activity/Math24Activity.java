@@ -361,4 +361,7 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     }
 
 
+    private String getLevel() {
+        return level.getText().toString();
+    }
 }
