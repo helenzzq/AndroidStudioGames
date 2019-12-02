@@ -2,7 +2,6 @@ package com.example.gamecenter.games.catchballgame.activity;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
@@ -14,8 +13,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.gamecenter.gameinterface.GameView;
 import com.example.gamecenter.R;
+import com.example.gamecenter.gameinterface.GameView;
 import com.example.gamecenter.games.catchballgame.model.CatchBallManager;
 import com.example.gamecenter.games.catchballgame.model.CatchBoard;
 import com.example.gamecenter.games.catchballgame.presenter.CatchBallPresenter;
@@ -28,8 +27,6 @@ import com.example.gamecenter.user.User;
 import com.example.gamecenter.user.UserManager;
 
 import java.io.Serializable;
-import java.util.Observable;
-import java.util.Observer;
 import java.util.TimerTask;
 
 /*BASED ON: https://youtu.be/ojD6ZDi2ep8

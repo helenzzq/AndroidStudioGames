@@ -42,7 +42,7 @@ public class Scoreboard implements Serializable, MySubject {
 
 
 
-    public String getScoreValues(boolean userScoresOnly,User currentPlayer){
+    public String getScoreValues(boolean userScoresOnly, User currentPlayer){
 
         ArrayList<Score> scoreList;
         int numScores;

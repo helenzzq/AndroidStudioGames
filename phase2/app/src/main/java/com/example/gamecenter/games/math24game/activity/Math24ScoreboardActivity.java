@@ -7,9 +7,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.gamecenter.user.User;
-import com.example.gamecenter.login.LoginActivity;
 import com.example.gamecenter.R;
+import com.example.gamecenter.user.User;
 import com.example.gamecenter.user.UserManager;
 
 

@@ -4,15 +4,11 @@ import com.example.gamecenter.gameinterface.GameController;
 import com.example.gamecenter.gameinterface.GameManager;
 import com.example.gamecenter.gameinterface.MyObserver;
 import com.example.gamecenter.gameinterface.MySubject;
-import com.example.gamecenter.games.catchballgame.activity.CatchBallMenu;
 import com.example.gamecenter.games.slidinggame.activity.SlidingActivity;
 import com.example.gamecenter.games.slidinggame.activity.SlidingGrid;
 import com.example.gamecenter.games.slidinggame.activity.SlidingMenu;
 import com.example.gamecenter.games.slidinggame.model.SlidingManager;
-import com.example.gamecenter.scoreboard.Scoreboard;
 import com.example.gamecenter.scoreboard.ScoreboardFileSaver;
-import com.example.gamecenter.strategy.GameTimer;
-import com.example.gamecenter.user.User;
 import com.example.gamecenter.user.UserManager;
 
 import java.util.ArrayList;
