@@ -49,7 +49,6 @@ public class SlidingActivity extends BaseActivity implements GameView {
         SlidingGrid.getPresenter().setSlidingView(this);
         initViewByLevel();
         setBackButton();
-        setHelpButton();
         Button pauseBtn = findViewById(R.id.pause2048);
         pauseBtn.setTag(0);
         setPauseButton(pauseBtn, gameTimer);
@@ -142,15 +141,6 @@ public class SlidingActivity extends BaseActivity implements GameView {
         SlidingActivity.gameTimer = gameTimer;
     }
 
-    public void setHelpButton() {
-        findViewById(R.id.Help2048).setOnClickListener(v -> {
-            Intent i = new Intent(this, SlidingIntroActivity.class);
-            i.addFlags(FLAG_ACTIVITY_REORDER_TO_FRONT);
-            startActivity(i);
-            gameTimer.stop();
-
-        });
-    }
 
     public void startLevel2() {
         gameTimer.stop();

@@ -89,22 +89,12 @@
         android:text="@string/pause"
         android:textSize="18sp" />
 
-    <Button
-        android:id="@+id/Help2048"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="550dp"
-        android:layout_toEndOf="@id/pause2048"
-        android:background="#CDDC39"
-        android:text="intro"
-        android:textSize="18sp" />
 
     <Button
         android:id="@+id/backtoMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="-390dp"
+        android:layout_marginStart="-130dp"
         android:layout_marginTop="550dp"
         android:layout_toEndOf="@id/weaponView"
         android:background="#CDDC39"
