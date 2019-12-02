@@ -88,6 +88,9 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     }
 
 
+    public Button getClear() {
+        return clear;
+    }
 
     void disableBtns(Button[] btn) {
         for (Button b : btn) {
@@ -95,7 +98,7 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         }
     }
 
-    void enableBtns(Button[] btn) {
+    public void enableBtns(Button[] btn) {
         for (Button b : btn) {
             b.setEnabled(true);
         }
@@ -242,9 +245,9 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         num.setText(String.format("%d", question));
 
     }
-    @Override
+
     public void goToResult() {
-        presenter.getGameManager().checkToAddScore(Math24Menu.scoreboard,currentPlayer.getUsername());
+//        presenter.getGameManager().checkToAddScore(Math24Menu.scoreboard,currentPlayer.getUsername());
         ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
         scoreboardFileSaver.saveToFile(fileName);
 
@@ -341,7 +344,7 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         switchToPage(Math24Menu.class);
     }
     public void showPrompt() {
-        ViewGroup layout = findViewById(R.id.catchBall);
+        ViewGroup layout = findViewById(R.id.btn_math24);
         Prompts prompts = new GamePrompts();
         AlertDialog dialog = prompts.createPrompt(getLayoutInflater(), layout, this);
         prompts.getBackToMainBtn().setOnClickListener(v -> {backToMain();

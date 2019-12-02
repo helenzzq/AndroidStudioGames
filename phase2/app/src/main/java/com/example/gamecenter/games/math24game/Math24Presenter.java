@@ -51,7 +51,6 @@ public class Math24Presenter implements GameController , MySubject {
         if(mathManager.isCorrectAnswer()){
             mathView.setMessage("Congratulations!\n Click Next to proceed");
             mathView.getNextBtn().setEnabled(true);
-            mathView.disableAll();
             mathView.updateScore(mathManager.getScore());
         }
         else{
@@ -62,7 +61,8 @@ public class Math24Presenter implements GameController , MySubject {
                 mathView.showPrompt();
             }
         }
-
+        mathView.disableAll();
+        mathView.getClear().setEnabled(true);
     }
 
     public void onDestroy() {

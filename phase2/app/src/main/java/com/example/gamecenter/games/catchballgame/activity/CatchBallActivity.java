@@ -117,12 +117,12 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
      * Go to the result of the Game.
      */
 
-    public void goToResult(boolean displayName) {
+    public void goToResult() {
         presenter.getGameManager().checkToAddScore(CatchBallMenu.scoreboard, currentPlayer.getUsername());
         ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
         scoreboardFileSaver.saveToFile(fileName);
         finish();
-        super.goToResult(CatchBallScoreboardActivity.class, displayName);
+        super.goToResult(CatchBallScoreboardActivity.class);
     }
 
     /**
@@ -135,9 +135,9 @@ public class CatchBallActivity extends BaseActivity implements GameView, Observe
         prompts.getBackToMainBtn().setOnClickListener(v -> {backToMain();
         });
         prompts.getDisplayBothBtn().setOnClickListener(v -> {
-            goToResult(true);
+            goToResult();
         });
-        prompts.getOnlyScoreBtn().setOnClickListener(v -> goToResult(false));
+        prompts.getOnlyScoreBtn().setOnClickListener(v -> goToResult());
         dialog.show();
 
     }

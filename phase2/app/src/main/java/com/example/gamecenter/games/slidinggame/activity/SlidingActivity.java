@@ -127,9 +127,9 @@ public class SlidingActivity extends BaseActivity implements GameView {
     }
 
 
-    public void goToResult(boolean displayName) {
+    public void goToResult() {
         finish();
-        super.goToResult(SlidingScoreboardActivity.class, displayName);
+        super.goToResult(SlidingScoreboardActivity.class);
 
     }
 
@@ -165,7 +165,7 @@ public class SlidingActivity extends BaseActivity implements GameView {
         startActivity(intent);
     }
     public void showPrompt() {
-        ViewGroup layout = findViewById(R.id.catchBall);
+        ViewGroup layout = findViewById(R.id.weaponPage);
         Prompts prompts = new GamePrompts();
         AlertDialog dialog = prompts.createPrompt(getLayoutInflater(), layout, this);
         prompts.getBackToMainBtn().setOnClickListener(v -> {backToMain();
