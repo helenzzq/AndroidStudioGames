@@ -1,9 +1,11 @@
 package com.example.gamecenter.games.math24game.activity;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -14,6 +16,8 @@ import com.example.gamecenter.strategy.BaseActivity;
 import com.example.gamecenter.R;
 import com.example.gamecenter.gameinterface.GameView;
 import com.example.gamecenter.strategy.GameTimer;
+import com.example.gamecenter.strategy.prompts.GamePrompts;
+import com.example.gamecenter.strategy.prompts.Prompts;
 import com.example.gamecenter.user.User;
 import com.example.gamecenter.user.UserManager;
 
@@ -172,7 +176,7 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
                 clearText();
                 break;
             case R.id.btn_back:
-                finish();
+                backToMain();
                 break;
             case R.id.btn_intro:
                 switchToPage(Math24IntroActivity.class);
@@ -182,6 +186,11 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
             default:
                 break;
         }
+    }
+
+    private void backToMain(){
+        finish();
+        switchToPage(Math24Menu.class);
     }
 
     public void disableAll() {
@@ -329,6 +338,25 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         textLive = findViewById(R.id.text_live);
         //create a text space called mathExpression to put the equation entered by the player
         mathExpression = findViewById(R.id.tv_calculation);
+    }
+
+    /**
+     * Show prompts on the screen.
+     * */
+    public void showPrompt() {
+        ViewGroup layout = findViewById(R.id.catchBall);
+        View view = getLayoutInflater().inflate(R.layout.fragment_massege,
+                layout, false);
+        Prompts prompts = new GamePrompts();
+        AlertDialog dialog = prompts.createPrompt(getLayoutInflater(), layout, this);
+        prompts.getBackToMainBtn().setOnClickListener(v -> {backToMain();
+        });
+        prompts.getDisplayBothBtn().setOnClickListener(v -> {
+            goToResult(true);
+        });
+        prompts.getOnlyScoreBtn().setOnClickListener(v -> goToResult(false));
+        dialog.show();
+
     }
 
 }
