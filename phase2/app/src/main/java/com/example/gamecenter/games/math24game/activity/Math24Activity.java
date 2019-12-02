@@ -9,12 +9,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.gamecenter.R;
+import com.example.gamecenter.gameinterface.GameView;
 import com.example.gamecenter.games.math24game.Math24Presenter;
 import com.example.gamecenter.games.math24game.model.Math24Manager;
 import com.example.gamecenter.scoreboard.ScoreboardFileSaver;
 import com.example.gamecenter.strategy.BaseActivity;
-import com.example.gamecenter.R;
-import com.example.gamecenter.gameinterface.GameView;
 import com.example.gamecenter.strategy.GameTimer;
 import com.example.gamecenter.strategy.prompts.GamePrompts;
 import com.example.gamecenter.strategy.prompts.Prompts;

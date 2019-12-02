@@ -1,8 +1,6 @@
 package com.example.gamecenter.games.slidinggame.model;
 
 import com.example.gamecenter.gameinterface.GameManager;
-import com.example.gamecenter.games.slidinggame.activity.SlidingActivity;
-import com.example.gamecenter.games.slidinggame.activity.SlidingGrid;
 import com.example.gamecenter.scoreboard.Scoreboard;
 
 /*BASED ON: https://blog.csdn.net/ft_sunshine/article/details/52678815
@@ -280,7 +278,7 @@ public class SlidingManager implements GameManager {
      * @param user the current player
      * @return true if Game is over, false otherwise.
      */
-    public boolean checkToAddScore(Scoreboard scoreboard, String user,int time) {
+    public boolean checkToAddScore(Scoreboard scoreboard, String user, int time) {
         if(isGameOver()) {
             scoreboard.addScore(user,this.getScore(),time);
             return true;

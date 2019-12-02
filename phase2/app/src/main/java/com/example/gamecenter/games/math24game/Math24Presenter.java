@@ -11,7 +11,7 @@ import com.example.gamecenter.games.math24game.model.Math24Manager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Math24Presenter implements GameController , MySubject {
+public class Math24Presenter implements GameController, MySubject {
 
     private Math24Manager mathManager;
     private Math24Activity mathView;
