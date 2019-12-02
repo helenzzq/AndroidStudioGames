@@ -39,7 +39,11 @@ public class Math24Presenter implements GameController, MySubject {
     }
 
 
-
+    /**
+     * @param mathExpression
+     * show result of the equation after call this method
+     * check whether it's correct.
+     */
     public void calculateResult(String mathExpression){
         int result = mathManager.calculate(mathExpression);
         mathView.showResult(result);
@@ -48,12 +52,19 @@ public class Math24Presenter implements GameController, MySubject {
     }
 
     private void checkCurrentResult() {
+        //if the result is correct, the message "congratulations! click Next to proceed will appear."
+        // the "next" will be enabled for the player to get to next question
+        // score will get updated
         if(mathManager.isCorrectAnswer()){
             mathView.setMessage("Congratulations!\n Click Next to proceed");
             mathView.getNextBtn().setEnabled(true);
             mathView.updateScore(mathManager.getScore());
         }
         else{
+            //if the result if wrong, the message "It's Wrong" will appear
+            // lives get updated
+            // if the game is over after getting the current question wrong, a page will pop up
+            //asking whether the player want to save the score
             mathView.setMessage("It's Wrong!!!");
             mathView.setLives(mathManager.getLives());
             if(mathManager.isGameOver()) {
@@ -61,6 +72,7 @@ public class Math24Presenter implements GameController, MySubject {
                 mathView.showPrompt();
             }
         }
+        //disable some buttons
         mathView.disableAll();
         mathView.getClear().setEnabled(true);
     }

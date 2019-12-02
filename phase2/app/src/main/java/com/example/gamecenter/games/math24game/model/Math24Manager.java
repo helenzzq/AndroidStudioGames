@@ -5,13 +5,18 @@ import com.example.gamecenter.games.math24game.strategy.Calculator;
 import com.example.gamecenter.scoreboard.Scoreboard;
 
 public class Math24Manager implements GameManager {
-
+    //create int variable score
     private int score;
+    //create boolean gameOver to tell whether the game is over or not
     private boolean gameOver;
+    //create QuestionBank type variable questionBank
     private QuestionBank questionBank;
+    //create boolean correctAnswer to tell whether the player get 24 by their equation
     private boolean correctAnswer;
+    //create int variable lives to count lives available
     private int lives;
 
+    //constructor of Math24Manager
     public Math24Manager(){
         this.score = 0;
         gameOver =false;
@@ -19,6 +24,9 @@ public class Math24Manager implements GameManager {
         questionBank = new QuestionBank();
     }
 
+    /**
+     * @return the random question selected from the corresponding question bank
+     */
     public int[] getQuestion(){
         return questionBank.getRandomQ(checkNextLevel());
 
@@ -29,15 +37,26 @@ public class Math24Manager implements GameManager {
         return score >= 450 || lives <= 0 || checkNextLevel() && !isCorrectAnswer();
     }
 
+    /**
+     * @return return true or false according to the boolean variable correctAnswer
+     */
     public boolean isCorrectAnswer(){
         return correctAnswer;
     }
 
+
+    /**
+     * @return return true if the score is equal or larger than 150
+     */
     @Override
     public boolean checkNextLevel() {
         return score >= 150;
     }
 
+
+    /**
+     * @return return the current number of lives
+     */
     public int getLives() {
         return lives;
     }
