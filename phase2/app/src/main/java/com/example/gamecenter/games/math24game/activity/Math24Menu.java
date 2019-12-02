@@ -1,11 +1,13 @@
 package com.example.gamecenter.games.math24game.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.gamecenter.games.slidinggame.activity.SlidingScoreboardActivity;
 import com.example.gamecenter.scoreboard.ScoreboardFileSaver;
 import com.example.gamecenter.strategy.BaseActivity;
 import com.example.gamecenter.gameinterface.GameMenu;
@@ -76,7 +78,12 @@ public class Math24Menu extends BaseActivity implements GameMenu {
      */
     @Override
     public void setScoreboardBtn() {
-        findViewById(R.id.mathScoreBoardbtn).setOnClickListener(v -> switchToPage(Math24ScoreboardActivity.class));
+        findViewById(R.id.mathScoreBoardbtn).setOnClickListener(v ->{
+            Intent i = new Intent(this, Math24ScoreboardActivity.class);
+            i.putExtra("saveChoice", true);
+            startActivity(i);
+
+        });
     }
 
     /**

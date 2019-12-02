@@ -22,6 +22,8 @@ public class SlidingScoreboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_score);
         addReturnButtonListener();
 
+
+
         boolean displayName = getIntent().getExtras().getBoolean("saveChoice");
 
         //Change to appropriate game title and score description

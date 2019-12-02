@@ -32,6 +32,7 @@ public class SlidingActivity extends BaseActivity implements GameView {
     private static GameTimer gameTimer;
     private Chronometer chronometer;
     private static boolean isLevel1 = true;
+    private SlidingPresenter presenter = SlidingGrid.getPresenter();
 
 
     //private TextView level;
