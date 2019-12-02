@@ -92,10 +92,10 @@ public class CatchBallManager implements GameManager, Serializable {
      * @param scoreboard the scoreboard of the game
      * @param user the user of the game
      */
-    public void checkToAddScore(Scoreboard scoreboard, String user, int time) {
+    public void checkToAddScore(Scoreboard scoreboard, String user, int time, String level) {
         if(isGameOver())
         {
-            scoreboard.addScore(user,this.getScore(),time);
+            scoreboard.addScore(user,this.getScore(),time,level);
         }
     }
 

@@ -7,8 +7,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.gamecenter.R;
 import com.example.gamecenter.user.User;
+import com.example.gamecenter.login.LoginActivity;
+import com.example.gamecenter.R;
 import com.example.gamecenter.user.UserManager;
 
 
@@ -34,13 +35,14 @@ public class Math24ScoreboardActivity extends AppCompatActivity {
         gameTitle.setText("Math24");
         scoreDescription.setText("Score of answers correct");
 
-         TextView globalScoresText = findViewById(R.id.GlobalScores);
-         String globalScoreValues = Math24Menu.scoreboard.getScoreValues(false, currentPlayer);
-         globalScoresText.setText(globalScoreValues);
+        boolean displayName = getIntent().getExtras().getBoolean("saveChoice");
+        TextView globalScoresText = findViewById(R.id.GlobalScores);
+        String globalScoreValues = Math24Menu.scoreboard.getScoreValues(displayName,false, currentPlayer);
+        globalScoresText.setText(globalScoreValues);
 
-         TextView userScoresText = findViewById(R.id.UserScores);
-         String userScoreValues = Math24Menu.scoreboard.getScoreValues(true, currentPlayer);
-         userScoresText.setText(userScoreValues);
+        TextView userScoresText = findViewById(R.id.UserScores);
+        String userScoreValues = Math24Menu.scoreboard.getScoreValues(displayName,true, currentPlayer);
+        userScoresText.setText(userScoreValues);
     }
 
     /**

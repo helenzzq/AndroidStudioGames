@@ -96,7 +96,7 @@ public class SlidingPresenter implements GameController, MySubject {
     }
 
     private void storeUserData(){
-        slidingManager.checkToAddScore(SlidingMenu.scoreboard, UserManager.getCurrentUser().getUsername(), slidingView.getTime());
+        slidingManager.checkToAddScore(SlidingMenu.scoreboard, UserManager.getCurrentUser().getUsername(), slidingView.getTime(),slidingView.getLevel());
         ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(slidingView, fileName);
         scoreboardFileSaver.saveToFile(fileName);
     }

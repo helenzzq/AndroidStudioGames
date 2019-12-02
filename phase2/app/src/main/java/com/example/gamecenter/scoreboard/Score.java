@@ -12,11 +12,14 @@ public class Score implements Serializable ,Comparable<Score>{
 
     private String user;
 
+    private String level;
 
-    public Score(String user,int score,int time) {
+
+    public Score(String user,int score,int time,String level) {
         this.score = score;
         this.user = user;
         this.time = time;
+        this.level = level;
     }
 
 
@@ -32,14 +35,15 @@ public class Score implements Serializable ,Comparable<Score>{
 
     public String getUsername(){return user;}
 
+    public String getLevel(){return level;}
+
     public int getTime(){return time;}
 
 
     @Override
     public boolean equals(Object obj) {
         if(obj instanceof Score)
-        {
-            Score o = (Score) obj;
+        {Score o = (Score) obj;
             return (o.getUsername().equals(this.getUsername()) && o.getScore() == this.getScore());}
         return false;
     }
