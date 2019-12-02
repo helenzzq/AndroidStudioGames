@@ -7,9 +7,8 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.gamecenter.games.slidinggame.activity.SlidingGrid;
-import com.example.gamecenter.login.MainEntryActivity;
 import com.example.gamecenter.setting.SettingsActivity;
+import com.example.gamecenter.user.User;
 
 import static android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
 
@@ -47,12 +46,11 @@ public class BaseActivity extends AppCompatActivity {
     /**
      * The goToResult method is used to switch to the scoreboard page and pass in the player's
      * score.
-     * @param scoreBoard gameResult class
+     * @param targetPage gameResult class
      */
-    public void goToResult(Class scoreBoard, boolean displayName){
-        Intent intent = new Intent(this, scoreBoard);
-        intent.putExtra("saveChoice", displayName);
-        finish();
+    public void goToResult(Class targetPage, String displayName){
+        Intent intent = new Intent(this, targetPage);
+        intent.putExtra("saveChoice",displayName);
         startActivity(intent);
     }
 
