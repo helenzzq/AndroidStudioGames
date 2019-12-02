@@ -1,5 +1,8 @@
 package com.example.gamecenter.gameinterface;
 
+
+import com.example.gamecenter.scoreboard.Scoreboard;
+
 /**
  * An Interface of GameManager
  */
@@ -20,5 +23,6 @@ public interface GameManager {
      * Check whether we can go to next level
      */
     boolean checkNextLevel();
+
 
 }

@@ -43,9 +43,9 @@ public class LoginActivity extends AppCompatActivity{
         this.mHandler = new Handler();
         this.mRunnable.run();
 
-    /**
-     * Determine whether it is runnalbe
-     */
+        /**
+         * Determine whether it is runnalbe
+         */
 
     }
     private final Runnable mRunnable = new Runnable()

@@ -75,12 +75,12 @@ public class Scoreboard implements Serializable, MySubject {
         }
         return scoreValues.toString();
     }
-    
+
 
 
     public void addScore(String currentPlayer, int score){
-        Score s = new Score(currentPlayer,score);
-        GlobalScore.add(s);
+//        Score s = new Score(currentPlayer,score);
+//        GlobalScore.add(s);
         sortScores(GlobalScore);
         notifyObservers();
     }

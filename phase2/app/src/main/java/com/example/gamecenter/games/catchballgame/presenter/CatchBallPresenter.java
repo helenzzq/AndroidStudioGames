@@ -11,9 +11,7 @@ import com.example.gamecenter.games.catchballgame.model.CatchBallManager;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A class for the presenter, in terms of MVP pattern, of the first game Catch Ball.
- * */
+
 public class CatchBallPresenter implements GameController, MySubject {
 
     /**
@@ -21,35 +19,18 @@ public class CatchBallPresenter implements GameController, MySubject {
      */
     private static List<MyObserver> observers;
 
-  /**
-   * Instance of game manager.
-   * */
-  private CatchBallManager manager;
 
-  /**
-   * Instance of the gameview.
-   * */
-  private CatchBallActivity catchBallView;
+    private CatchBallManager manager;
+    private CatchBallActivity catchBallView;
 
-  /**
-   * A constructor of the class.
-   * @param boardView
-   * @param manager
-   */
-  public CatchBallPresenter(CatchBallActivity boardView, CatchBallManager manager) {
+    public CatchBallPresenter(CatchBallActivity boardView, CatchBallManager manager) {
         this.catchBallView = boardView;
         observers = new ArrayList<>();
         this.manager = manager;
     }
 
-  /**
-   * Initialize when starting the game.
-   *
-   * @param action
-   * @param startFlag
-   * @param frameHeight
-   */
-  public void onStart(MotionEvent action, boolean startFlag, int frameHeight) {
+
+    public void onStart(MotionEvent action, boolean startFlag, int frameHeight) {
         if (startFlag) {
             catchBallView.makeAction(action);
 
@@ -64,11 +45,7 @@ public class CatchBallPresenter implements GameController, MySubject {
 
     }
 
-  /**
-   * Check whether hit the target ball.
-   *
-   * @param actionFlag */
-  public void hitCheck(boolean actionFlag) {
+    public void hitCheck(boolean actionFlag) {
         manager.hitCheck();
         catchBallView.updateScore(manager.getScore());
         if (manager.isGameOver()) {
@@ -84,18 +61,13 @@ public class CatchBallPresenter implements GameController, MySubject {
         }
     }
 
-  /**
-   * Destroy the game view.
-   * */
-  public void onDestroy() {
+    public void onDestroy() {
         catchBallView = null;
     }
 
-  /**
-   * Get the game manager.
-   * @return */
-  @Override
-  public CatchBallManager getGameManager() {
+
+    @Override
+    public CatchBallManager getGameManager() {
         return manager;
     }
 
@@ -111,11 +83,8 @@ public class CatchBallPresenter implements GameController, MySubject {
             obs.setSubject(this);}
     }
 
-  /**
-   * Notify the observer.
-   * */
-  @Override
-  public void notifyObservers() {
+    @Override
+    public void notifyObservers() {
         for (MyObserver obs: observers) {
             obs.update();
         }

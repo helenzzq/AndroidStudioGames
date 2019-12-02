@@ -75,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="150dp"
         android:text="("
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -153,10 +153,10 @@
         android:id="@+id/tv_calculation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="40dp"
         android:text=""
-        android:textSize="23sp"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mathnum1" />
 
@@ -164,59 +164,65 @@
         android:id="@+id/math24result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="264dp"
+        android:layout_marginEnd="251dp"
+        android:layout_marginBottom="435dp"
         android:gravity="center_horizontal"
         android:text=""
-        android:textSize="23sp"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/message"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btn_next"
-        android:layout_width="80dp"
-        android:layout_height="45dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginBottom="20dp"
         android:background="#CDDC39"
         android:text="next"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_intro" />
 
     <Button
         android:id="@+id/btn_intro"
-        android:layout_width="80dp"
-        android:layout_height="45dp"
+        android:layout_width="98dp"
+        android:layout_height="48dp"
         android:layout_marginStart="15dp"
         android:layout_marginBottom="20dp"
         android:background="#CDDC39"
         android:text="intro"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/mathPause" />
 
     <Button
         android:id="@+id/mathPause"
-        android:layout_width="80dp"
-        android:layout_height="45dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginBottom="20dp"
         android:background="#CDDC39"
         android:text="@string/pause"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_back" />
 
     <Button
         android:id="@+id/btn_back"
-        android:layout_width="80dp"
-        android:layout_height="45dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginBottom="20dp"
         android:background="#CDDC39"
         android:text="@string/back"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -245,8 +251,8 @@
 
     <TextView
         android:id="@+id/message"
-        android:layout_width="170dp"
-        android:layout_height="327dp"
+        android:layout_width="218dp"
+        android:layout_height="317dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="10dp"
         android:gravity="center_horizontal"

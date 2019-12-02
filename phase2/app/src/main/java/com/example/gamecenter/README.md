@@ -5,6 +5,7 @@ Instructions of how to install and play the project
 
 ## Project setup instructions
 
+* Please use Pixel 3 API 28 device.
 * Please note Java SDK version 8 is required. Ensure you have upgraded before attempting to run our program!
 
 1. Open Android Studio. Click "Check out project from Version Control" -> "Git".
@@ -33,47 +34,66 @@ After creating your account, you can enter the correct username and password to 
 into the next page. In the next page, click "Startplay" button to go to the main page of the first
 game "Catch Ball".
 
+## Setting:
+Setting button is on the left up corner of the screen. The player can customize by three ways. 
+1. Turn on night mode or not.(As the night mode on, the text color will change to adapt the background)
+2. Choose a character.
+3. Start play the music or pause.
+
 ## The common button in these three game:
+
+### On menu page of each game: 
 A. New Game:
 Start a new game
 
-B. Resume:
-Go back to the game state where the player stopped the game
-
-C. Scoreboard:
+B. Scoreboard:
 Scoreboard for this specific game after clicking it.
 The player's score will be stored on the scoreboard.
+Also, the scoreboard will include both Global Top scores and User Top Scores
 
-D. Help:
+C. Introduction:
 Introduction for the game
 
-E. Quit:
-Quit the game, game state will/won't be saved. #######
+D.  Quit:
+Quit the game, game state won't be saved. 
+The player will go back to "Choose Game" menu.
 
-F. Back:
-Return the the page before.
+### On game page: 
+A. Intro:
+Introduction of the game. If you click the 
 
-G. Pause:
+B. Back:
+Return to the menu of the sepcific game.
+
+C. Pause:
 Timer will stop and the game will remain its current state.
 The current "pause" button will change to "resume" button.
 
-H. Resume:
+D. Resume:
 Timer will start, and the game will start from the state where it stops. 
 The current "resume" button will change to "pause" button.
 
-I. Save:
+E. Save:
 Save the current game state.
 
-J. Next:
-After you finish the current game, you will see a scoreboard that includes your username and score
-for current game.
+F. Next:
+
+Math24: Jump to next question. 
+
+K. Return:
+Return to the page before
 
 ** Important Note:
 If the player already finish the game, and get back to the game page by clicking the phone's 
 back button, #############
 
-## In the ScoreBoard page:
-
+# ScoreBoard:
+A. After the game is over, a page will pop up asking the player whether want to save the score or not.
+There are three options:
+    1. Save the score, and display both username and score on scoreboard.
+    2. Save the score, but only display the score on scoreboard.
+    3. Do not save the score, and go back to the main page.
+B. On the scoreboard, you can choose "Main Menu" button to go back to "choose game" page.
 
 
 # Introduction of the game:

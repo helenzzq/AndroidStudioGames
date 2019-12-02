@@ -112,7 +112,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
             BackGroundSetter.setSwitchStatus(true );
 
             for (TextView k : texts) {
-            k.setTextColor(Color.parseColor("#FFFFFF"));}
+                k.setTextColor(Color.parseColor("#FFFFFF"));}
         } else {
             layout.setBackground(ContextCompat.getDrawable(this, com.example.gamecenter.R.drawable.whitebackground));
             BackGroundSetter.setSwitchStatus(false );
