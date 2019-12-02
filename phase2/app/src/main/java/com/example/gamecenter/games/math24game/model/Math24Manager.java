@@ -76,14 +76,13 @@ public class Math24Manager implements GameManager {
     /**
      * @param scoreboard
      * @param user
-     * @param time
      * @return
      */
 
-    public boolean checkToAddScore(Scoreboard scoreboard, String user,int time) {
+    public boolean checkToAddScore(Scoreboard scoreboard, String user) {
         if(isGameOver())
         {
-//            scoreboard.addScore(user,score,time);
+            scoreboard.addScore(user,score);
             return true;
         }
         return false;

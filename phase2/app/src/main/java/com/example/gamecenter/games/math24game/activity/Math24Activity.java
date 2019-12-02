@@ -322,11 +322,13 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
     }
 
     public void goToResult(boolean displayName) {
-        //        presenter.getGameManager().checkToAddScore(Math24Menu.scoreboard,currentPlayer.getUsername());
+
+        presenter.getGameManager().checkToAddScore(Math24Menu.scoreboard,currentPlayer.getUsername());
         ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
         scoreboardFileSaver.saveToFile(fileName);
+
         finish();
-        super.goToResult(SlidingScoreboardActivity.class, displayName);
+        super.goToResult(Math24ScoreboardActivity.class, displayName);
 
     }
 
