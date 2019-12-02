@@ -68,7 +68,7 @@ public class Scoreboard implements Serializable, MySubject {
         StringBuilder scoreValues = new StringBuilder();
         for (int i = 0; i < numScores; i++) {
             Score currentItem = scoreList.get(i);
-            String names = "";
+            String names = currentItem.getUsername();
             if (userScoresOnly){
                 names = currentItem.getUsername();
             }

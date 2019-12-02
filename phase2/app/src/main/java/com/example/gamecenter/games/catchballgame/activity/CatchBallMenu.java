@@ -1,6 +1,7 @@
 package com.example.gamecenter.games.catchballgame.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.RelativeLayout;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import com.example.gamecenter.gameinterface.GameMenu;
 import com.example.gamecenter.R;
 import com.example.gamecenter.games.catchballgame.presenter.CatchBallPresenter;
+import com.example.gamecenter.games.math24game.activity.Math24ScoreboardActivity;
 import com.example.gamecenter.login.MainMenuActivity;
 import com.example.gamecenter.scoreboard.Scoreboard;
 import com.example.gamecenter.scoreboard.ScoreboardFileSaver;
@@ -107,7 +109,12 @@ public class CatchBallMenu extends BaseActivity implements GameMenu {
    * */
   @Override
   public void setScoreboardBtn() {
-        findViewById(R.id.ballScoreBoardbtn).setOnClickListener(v->switchToPage(CatchBallScoreboardActivity.class));
+        findViewById(R.id.ballScoreBoardbtn).setOnClickListener(v-> {
+
+            Intent i = new Intent(this, CatchBallScoreboardActivity.class);
+            i.putExtra("saveChoice", true);
+            startActivity(i);
+        });
     }
 
   /**

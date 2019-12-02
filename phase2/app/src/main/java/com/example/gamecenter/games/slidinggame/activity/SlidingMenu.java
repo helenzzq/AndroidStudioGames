@@ -1,6 +1,7 @@
 package com.example.gamecenter.games.slidinggame.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.RelativeLayout;
@@ -10,10 +11,13 @@ import com.example.gamecenter.R;
 import com.example.gamecenter.games.catchballgame.activity.CatchBallScoreboardActivity;
 import com.example.gamecenter.scoreboard.Scoreboard;
 import com.example.gamecenter.scoreboard.ScoreboardFileSaver;
+import com.example.gamecenter.setting.SettingsActivity;
 import com.example.gamecenter.strategy.BackGroundSetter;
 import com.example.gamecenter.strategy.BaseActivity;
 import com.example.gamecenter.gameinterface.GameMenu;
 import com.example.gamecenter.login.MainMenuActivity;
+
+import static android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
 
 /**
  * The SlidingMenu class 
@@ -93,7 +97,13 @@ public class SlidingMenu extends BaseActivity implements GameMenu {
 
     @Override
     public void setScoreboardBtn(){
-        findViewById(R.id.slideScoreBoardbtn).setOnClickListener(v->switchToPage(SlidingScoreboardActivity.class));
+        findViewById(R.id.slideScoreBoardbtn).setOnClickListener(v->{
+            Intent i = new Intent(this, SlidingScoreboardActivity.class);
+            i.putExtra("saveChoice", true);
+            startActivity(i);
+
+        });
+
     }
 
 
