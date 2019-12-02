@@ -11,10 +11,10 @@ public class OrangeBall extends Ball {
 
     /**
      * Create an OrangeBall
-     * @param x
-     * @param y
-     * @param view
-     * @param speed
+     * @param x coordinate
+     * @param y coordinate
+     * @param view the view of the OrangeBall
+     * @param speed the speed of the OrangeBall
      */
     OrangeBall(int x, int y, ImageView view, int speed){
         super(x,y, view, speed);
@@ -23,14 +23,22 @@ public class OrangeBall extends Ball {
 
     }
 
-    
+    /**
+     * A getter for the point of the OrangeBall.
+     * @return point
+     */
     @Override
     public int getPoint() {
         return point;
     }
 
 
-    //12
+    /**
+     * The move method for the OrangeBall.
+     * @param screenWidth the screenwidth
+     * @param  frameHeight the frameHeight of the screen
+     * @param width the width of the item
+     */
     @Override
     public void move(int screenWidth, int frameHeight, int width) {
         super.move(screenWidth,frameHeight, 20);
