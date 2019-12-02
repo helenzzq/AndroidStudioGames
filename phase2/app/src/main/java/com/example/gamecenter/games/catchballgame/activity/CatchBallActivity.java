@@ -116,8 +116,8 @@ public class CatchBallActivity extends BaseActivity implements GameView, Seriali
      * Go to the result of the Game.
      */
 
-    public void goToResult(String displayName) {
-        presenter.getGameManager().checkToAddScore(CatchBallMenu.scoreboard, displayName,gameTimer.getTime());
+    public void goToResult(boolean displayName) {
+        presenter.getGameManager().checkToAddScore(CatchBallMenu.scoreboard, currentPlayer.getUsername(),gameTimer.getTime());
         ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
         scoreboardFileSaver.saveToFile(fileName);
         finish();
@@ -134,9 +134,9 @@ public class CatchBallActivity extends BaseActivity implements GameView, Seriali
         prompts.getBackToMainBtn().setOnClickListener(v -> {backToMain();
         });
         prompts.getDisplayBothBtn().setOnClickListener(v -> {
-            goToResult(currentPlayer.getUsername());
+            goToResult(true);
         });
-        prompts.getOnlyScoreBtn().setOnClickListener(v -> goToResult("current User"));
+        prompts.getOnlyScoreBtn().setOnClickListener(v -> goToResult(false));
         dialog.show();
 
     }

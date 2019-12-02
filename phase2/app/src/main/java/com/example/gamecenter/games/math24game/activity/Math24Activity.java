@@ -248,8 +248,8 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
 
     }
 
-    public void goToResult(String displayName) {
-        presenter.getGameManager().checkToAddScore(Math24Menu.scoreboard,displayName,gameTimer.getTime());
+    public void goToResult(boolean displayName) {
+        presenter.getGameManager().checkToAddScore(Math24Menu.scoreboard,currentPlayer.getUsername(),gameTimer.getTime());
         ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
         scoreboardFileSaver.saveToFile(fileName);
 
@@ -353,9 +353,9 @@ public class Math24Activity extends BaseActivity implements GameView, View.OnCli
         prompts.getBackToMainBtn().setOnClickListener(v -> {backToMain();
         });
         prompts.getDisplayBothBtn().setOnClickListener(v -> {
-            goToResult(currentPlayer.getUsername());
+            goToResult(true);
         });
-        prompts.getOnlyScoreBtn().setOnClickListener(v -> goToResult(""));
+        prompts.getOnlyScoreBtn().setOnClickListener(v -> goToResult(false));
         dialog.show();
 
     }
