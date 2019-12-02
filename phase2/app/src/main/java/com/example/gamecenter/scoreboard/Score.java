@@ -12,16 +12,10 @@ public class Score implements Serializable ,Comparable<Score>{
 
     private String user;
 
-    public Score(int score,int time){
-        this.user = null;
-        this.score = score;
-        this.time = time;
-    }
 
-    public Score(String user,int score,int time) {
+    public Score(String user,int score) {
         this.score = score;
         this.user = user;
-        this.time = time;
     }
 
 

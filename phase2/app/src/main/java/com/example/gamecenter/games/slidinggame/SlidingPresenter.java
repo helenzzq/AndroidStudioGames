@@ -112,6 +112,7 @@ public class SlidingPresenter implements GameController, MySubject {
         ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(slidingView, fileName);
         scoreboardFileSaver.saveToFile(fileName);
     }
+
     public void onPause(){
         slidingGrid.onPause();
     }

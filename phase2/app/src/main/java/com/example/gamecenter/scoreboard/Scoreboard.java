@@ -79,11 +79,12 @@ public class Scoreboard implements Serializable, MySubject {
 
 
     public void addScore(String currentPlayer, int score){
-//        Score s = new Score(currentPlayer,score);
-//        GlobalScore.add(s);
+        Score s = new Score(currentPlayer,score);
+        GlobalScore.add(s);
         sortScores(GlobalScore);
         notifyObservers();
     }
+
 
     public ArrayList<Score> getGlobalScoreboard(){
         return GlobalScore;
