@@ -19,6 +19,14 @@ public class GamePrompts extends Fragment implements Prompts {
     private Button backToMain;
     private Button onlyScore;
 
+
+    /**
+     * Create Prompt window according to context
+     * @param inflater the inflator
+     * @param container the view group
+     * @param context the context
+     * @return AlertDialog
+     */
     @Override
     public AlertDialog createPrompt(LayoutInflater inflater,
                                     ViewGroup container,
@@ -38,16 +46,28 @@ public class GamePrompts extends Fragment implements Prompts {
 
     }
 
+    /**
+     * get back button
+     * @return button
+     */
     @Override
     public Button getBackToMainBtn() {
         return backToMain;
     }
 
+    /**
+     * get onlyscore button
+     * @return button
+     */
     @Override
     public Button getOnlyScoreBtn() {
         return onlyScore;
     }
 
+    /**
+     * get display both button
+     * @return button
+     */
     @Override
     public Button getDisplayBothBtn() {
         return displayBoth;
