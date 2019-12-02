@@ -13,9 +13,11 @@ import android.widget.TextView;
 
 import static android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
 
+/**
+ * The SlidingIntroActivity class.
+ */
 public class SlidingIntroActivity extends AppCompatActivity {
 
-    Button back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,13 +25,15 @@ public class SlidingIntroActivity extends AppCompatActivity {
         setBackButton();
     }
 
+    /**
+     * Set the BackButton.
+     */
     public void setBackButton() {
         findViewById(R.id.back_2048).setOnClickListener(v -> {
             Intent i = new Intent(this, SlidingActivity.class);
             i.addFlags(FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(i);
             SlidingActivity.getGameTimer().restart();
-
 
         });
     }
