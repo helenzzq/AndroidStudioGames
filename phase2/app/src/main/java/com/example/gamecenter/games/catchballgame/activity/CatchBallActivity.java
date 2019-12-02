@@ -60,11 +60,6 @@ public class CatchBallActivity extends BaseActivity implements GameView, Seriali
      * */
     private TextView level;
 
-    /**
-     * Rank of the game.
-     * */
-    private TextView rank;
-
 
     /**
      * File of CatchBall game score.
@@ -93,7 +88,6 @@ public class CatchBallActivity extends BaseActivity implements GameView, Seriali
         level = findViewById(R.id.catchBallLevel);
         level.setText("LEVEL1");
 
-        rank = findViewById(R.id.rankball);
 
 
 //         Set GameTimer
@@ -114,7 +108,7 @@ public class CatchBallActivity extends BaseActivity implements GameView, Seriali
      */
 
     public void goToResult(boolean displayName) {
-        presenter.getGameManager().checkToAddScore(CatchBallMenu.scoreboard, currentPlayer.getUsername(),gameTimer.getTime());
+        presenter.getGameManager().checkToAddScore(CatchBallMenu.scoreboard, currentPlayer.getUsername(),gameTimer.getTime(),getLevel());
         ScoreboardFileSaver scoreboardFileSaver = new ScoreboardFileSaver(this, fileName);
         scoreboardFileSaver.saveToFile(fileName);
         finish();

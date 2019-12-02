@@ -1,13 +1,14 @@
 package com.example.gamecenter.games.slidinggame.activity;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.gamecenter.R;
+import com.example.gamecenter.games.catchballgame.activity.CatchBallMenu;
 import com.example.gamecenter.user.User;
 import com.example.gamecenter.user.UserManager;
 
@@ -21,6 +22,8 @@ public class SlidingScoreboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_score);
         addReturnButtonListener();
 
+        boolean displayName = getIntent().getExtras().getBoolean("saveChoice");
+
         //Change to appropriate game title and score description
         TextView gameTitle = findViewById(R.id.GameTitle);
         TextView scoreDescription = findViewById(R.id.ScoreDescription);
@@ -29,11 +32,11 @@ public class SlidingScoreboardActivity extends AppCompatActivity {
 
         TextView globalScoresText = findViewById(R.id.GlobalScores);
 
-        String globalScoreValues = SlidingMenu.scoreboard.getScoreValues(false, currentPlayer);
+        String globalScoreValues = SlidingMenu.scoreboard.getScoreValues(displayName,false, currentPlayer);
         globalScoresText.setText(globalScoreValues);
 
         TextView userScoresText = findViewById(R.id.UserScores);
-        String userScoreValues = SlidingMenu.scoreboard.getScoreValues(true, currentPlayer);
+        String userScoreValues = SlidingMenu.scoreboard.getScoreValues(displayName,true, currentPlayer);
         userScoresText.setText(userScoreValues);
 
     }

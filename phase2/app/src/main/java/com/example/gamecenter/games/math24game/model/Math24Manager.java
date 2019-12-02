@@ -76,10 +76,10 @@ public class Math24Manager implements GameManager {
      * @param user the user of the game
      */
 
-    public void checkToAddScore(Scoreboard scoreboard, String user, int time) {
+    public void checkToAddScore(Scoreboard scoreboard, String user, int time, String level) {
         if(isGameOver())
         {
-            scoreboard.addScore(user,score,time);
+            scoreboard.addScore(user,score,time,level);
         }
     }
 

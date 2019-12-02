@@ -1,11 +1,11 @@
 package com.example.gamecenter.games.catchballgame.activity;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gamecenter.R;
 import com.example.gamecenter.user.User;
@@ -16,10 +16,10 @@ import com.example.gamecenter.user.UserManager;
  */
 public class CatchBallScoreboardActivity extends AppCompatActivity {
 
-  /**
-   * The current user.
-   * */
-  private User currentPlayer = UserManager.getCurrentUser();
+    /**
+     * The current user.
+     * */
+    private User currentPlayer = UserManager.getCurrentUser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,7 @@ public class CatchBallScoreboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_score);
         addReturnButtonListener();
 
+        boolean displayName = getIntent().getExtras().getBoolean("saveChoice");
         //Change to appropriate game title and score description
         TextView gameTitle = findViewById(R.id.GameTitle);
         TextView scoreDescription = findViewById(R.id.ScoreDescription);
@@ -35,11 +36,11 @@ public class CatchBallScoreboardActivity extends AppCompatActivity {
 
         TextView globalScoresText = findViewById(R.id.GlobalScores);
 
-        String globalScoreValues = CatchBallMenu.scoreboard.getScoreValues(false, currentPlayer);
+        String globalScoreValues = CatchBallMenu.scoreboard.getScoreValues(displayName,false, currentPlayer);
         globalScoresText.setText(globalScoreValues);
 
         TextView userScoresText = findViewById(R.id.UserScores);
-        String userScoreValues = CatchBallMenu.scoreboard.getScoreValues(true, currentPlayer);
+        String userScoreValues = CatchBallMenu.scoreboard.getScoreValues(displayName,true, currentPlayer);
         userScoresText.setText(userScoreValues);
     }
 
@@ -51,10 +52,10 @@ public class CatchBallScoreboardActivity extends AppCompatActivity {
         ReturnButton.setOnClickListener(v -> switchToStarting());
     }
 
-  /**
-   * Switch to the starting menu activity of CatchBall.
-   * */
-  private void switchToStarting() {
+    /**
+     * Switch to the starting menu activity of CatchBall.
+     * */
+    private void switchToStarting() {
         Intent tmp = new Intent(this, CatchBallMenu.class);
         startActivity(tmp);
     }

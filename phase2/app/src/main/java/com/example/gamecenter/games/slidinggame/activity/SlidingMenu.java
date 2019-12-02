@@ -57,6 +57,10 @@ public class SlidingMenu extends BaseActivity implements GameMenu {
             handler.postDelayed(runnable, 50);
         }
     };
+
+    /**
+     * Set all four buttons on this page.
+     */
     private void setButtons(){
         setQuitBtn();
         setIntroBtn();

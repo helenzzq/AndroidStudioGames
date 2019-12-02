@@ -3,6 +3,7 @@ package com.example.gamecenter.scoreboard;
 import com.example.gamecenter.gameinterface.MyObserver;
 import com.example.gamecenter.gameinterface.MySubject;
 import com.example.gamecenter.user.User;
+import com.example.gamecenter.user.UserManager;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ public class Scoreboard implements Serializable, MySubject {
     public void setGlobalScore(ArrayList<Score> globalScore) {
         GlobalScore = globalScore;
     }
-    
+
 
     private ArrayList<Score> sortScores(ArrayList<Score> scores){
         Collections.sort(scores,Collections.reverseOrder());
@@ -42,7 +43,7 @@ public class Scoreboard implements Serializable, MySubject {
 
 
 
-    public String getScoreValues(boolean userScoresOnly, User currentPlayer){
+    public String getScoreValues(boolean displayName, boolean userScoresOnly,User currentPlayer){
 
         ArrayList<Score> scoreList;
         int numScores;
@@ -67,16 +68,26 @@ public class Scoreboard implements Serializable, MySubject {
         StringBuilder scoreValues = new StringBuilder();
         for (int i = 0; i < numScores; i++) {
             Score currentItem = scoreList.get(i);
-            scoreValues.append(String.format(Locale.US, "%s: %d, Time used: %ds",
-                    currentItem.getUsername(), currentItem.getScore(),currentItem.getTime())).append("\n");
+            String names = "";
+            if (userScoresOnly){
+                names = currentItem.getUsername();
+            }
+            else if (!displayName && currentItem.getUsername().equals(UserManager.getCurrentUser().getUsername())){
+                names = "Anonymous";
+            }
+            scoreValues.append(String.format(Locale.US, "%s: %d, Time used: %ds, Rank: %s",
+                    names,
+                    currentItem.getScore(),
+                    currentItem.getTime(),
+                    currentItem.getLevel())).append("\n");
         }
         return scoreValues.toString();
     }
 
 
 
-    public void addScore(String currentPlayer, int score, int time){
-        Score s = new Score(currentPlayer,score,time);
+    public void addScore(String currentPlayer, int score, int time, String level){
+        Score s = new Score(currentPlayer,score,time,level);
         GlobalScore.add(s);
         sortScores(GlobalScore);
         notifyObservers();
@@ -102,11 +113,11 @@ public class Scoreboard implements Serializable, MySubject {
         }
 
     }
-        @Override
-        public void notifyObservers(){
-            for (MyObserver obj : observers) {
-                obj.update();
-            }
+    @Override
+    public void notifyObservers(){
+        for (MyObserver obj : observers) {
+            obj.update();
+        }
     }
 
     /**

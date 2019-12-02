@@ -33,8 +33,6 @@ public class SlidingActivity extends BaseActivity implements GameView {
     private Chronometer chronometer;
     private static boolean isLevel1 = true;
 
-    private SlidingPresenter presenter = SlidingGrid.getPresenter();
-
 
     //private TextView level;
 
@@ -184,7 +182,7 @@ public class SlidingActivity extends BaseActivity implements GameView {
     }
 
 
-    private String getLevel() {
+    public String getLevel() {
         return level.getText().toString();
     }
 }
