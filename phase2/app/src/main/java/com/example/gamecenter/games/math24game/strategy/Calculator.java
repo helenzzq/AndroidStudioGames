@@ -13,7 +13,6 @@ public class Calculator {
 
     public static double getResult(String formula){
         double returnValue = 0;
-        String returnV;
         try{
             returnValue = doAnalysis(formula);
         } catch(Exception nfe){

@@ -25,7 +25,6 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
 
     /**
      * Create items when starting the activity
-     * @param savedInstanceState
      */
 
     @Override

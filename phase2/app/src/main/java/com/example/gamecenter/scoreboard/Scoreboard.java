@@ -36,9 +36,8 @@ public class Scoreboard implements Serializable, MySubject {
     }
 
 
-    private ArrayList<Score> sortScores(ArrayList<Score> scores){
+    private void sortScores(ArrayList<Score> scores){
         Collections.sort(scores,Collections.reverseOrder());
-        return scores;
     }
 
 

@@ -11,6 +11,8 @@ import com.example.gamecenter.R;
 import com.example.gamecenter.user.User;
 import com.example.gamecenter.user.UserManager;
 
+import java.util.Objects;
+
 /**
  * The CatchBallScoreboardActivity can display the Scoreboard fot the CatchBall Game.
  */
@@ -27,7 +29,7 @@ public class CatchBallScoreboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_score);
         addReturnButtonListener();
 
-        boolean displayName = getIntent().getExtras().getBoolean("saveChoice");
+        boolean displayName = Objects.requireNonNull(getIntent().getExtras()).getBoolean("saveChoice");
         //Change to appropriate game title and score description
         TextView gameTitle = findViewById(R.id.GameTitle);
         TextView scoreDescription = findViewById(R.id.ScoreDescription);

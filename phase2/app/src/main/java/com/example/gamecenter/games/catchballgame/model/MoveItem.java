@@ -38,6 +38,4 @@ interface MoveItem {
 
     void setSpeed(int speed);
 
-    int getSpeed();
-
 }

@@ -12,6 +12,8 @@ import com.example.gamecenter.login.LoginActivity;
 import com.example.gamecenter.R;
 import com.example.gamecenter.user.UserManager;
 
+import java.util.Objects;
+
 
 public class Math24ScoreboardActivity extends AppCompatActivity {
 
@@ -35,7 +37,7 @@ public class Math24ScoreboardActivity extends AppCompatActivity {
         gameTitle.setText("Math24");
         scoreDescription.setText("Score of answers correct");
 
-        boolean displayName = getIntent().getExtras().getBoolean("saveChoice");
+        boolean displayName = Objects.requireNonNull(getIntent().getExtras()).getBoolean("saveChoice");
         TextView globalScoresText = findViewById(R.id.GlobalScores);
         String globalScoreValues = Math24Menu.scoreboard.getScoreValues(displayName,false, currentPlayer);
         globalScoresText.setText(globalScoreValues);

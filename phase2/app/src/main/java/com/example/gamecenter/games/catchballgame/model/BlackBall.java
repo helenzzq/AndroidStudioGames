@@ -25,7 +25,7 @@ class BlackBall extends Ball {
 
     /**
      * A getter for the point of BlackBall.
-     * @return
+     * @return int
      */
     @Override
     public int getPoint() {

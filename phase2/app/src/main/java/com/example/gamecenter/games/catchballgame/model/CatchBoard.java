@@ -16,12 +16,6 @@ public class CatchBoard extends Observable implements Serializable {
     private int screenWidth;
     /** frameHeight is the frame height.*/
     private int frameHeight;
-    /** orange is an OrangeBall.*/
-    private OrangeBall orange;
-    /** black is a BlackBall.*/
-    private BlackBall black;
-    /** pink is a PinkBall.*/
-    private Ball pink;
     /** balls is a 2D array of Balls.*/
     private Ball[] balls;
     /** playerPrince is a PlayerPrince.*/
@@ -43,11 +37,14 @@ public class CatchBoard extends Observable implements Serializable {
 
         screenWidth = size.x;
         playerPrince = new PlayerPrince(views[3]);
-        orange = new OrangeBall(x,y,views[0],baseSpeed);
-        pink = new PinkBall(x,y,views[2],baseSpeed+8);
-        black = new BlackBall(x,y,views[1],baseSpeed+4);
+        /** orange is an OrangeBall.*/
+        OrangeBall orange = new OrangeBall(x, y, views[0], baseSpeed);
+        /** pink is a PinkBall.*/
+        Ball pink = new PinkBall(x, y, views[2], baseSpeed + 8);
+        /** black is a BlackBall.*/
+        BlackBall black = new BlackBall(x, y, views[1], baseSpeed + 4);
 
-        balls = new Ball[] {orange,black,pink};
+        balls = new Ball[] {orange, black, pink};
 
     }
 

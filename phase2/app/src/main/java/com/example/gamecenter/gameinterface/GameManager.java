@@ -1,8 +1,6 @@
 package com.example.gamecenter.gameinterface;
 
 
-import com.example.gamecenter.scoreboard.Scoreboard;
-
 /**
  * An Interface of GameManager
  */

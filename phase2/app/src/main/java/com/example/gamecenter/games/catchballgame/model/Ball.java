@@ -85,14 +85,6 @@ class Ball implements MoveItem {
     }
 
     /**
-     * A getter for speed.
-     * @return speed.
-     */
-    public int getSpeed() {
-        return speed;
-    }
-
-    /**
      * A getter for the ball's view
      */
     //cannot change appearance

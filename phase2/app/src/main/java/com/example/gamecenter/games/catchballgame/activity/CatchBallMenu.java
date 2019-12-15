@@ -41,10 +41,6 @@ public class CatchBallMenu extends BaseActivity implements GameMenu {
     private Activity current;
 
 
-
-    private User currentPlayer = UserManager.getCurrentUser();
-
-
     /**
      * Create items when starting this activity.
      *

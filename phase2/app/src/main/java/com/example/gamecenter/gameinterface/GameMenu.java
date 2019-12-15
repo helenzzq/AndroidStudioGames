@@ -1,7 +1,5 @@
 package com.example.gamecenter.gameinterface;
 
-import android.view.View;
-
 public interface GameMenu {
     /**
      * Activate the quit button.

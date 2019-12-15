@@ -23,20 +23,11 @@ import com.example.gamecenter.strategy.BaseActivity;
 
 public class MainMenuActivity extends BaseActivity {
 
-    private ImageView setting;
     private Handler handler;
     private Activity current;
-    private TextView chooseGame;
-    // catchballgame button
-    private Button catchballGame;
-    // catchballgame button
-    private Button slidingGame;
-    // catchballgame button
-    private Button math24Game;
 
     /**
      * Create items when starting the activity
-     * @param savedInstanceState
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +43,13 @@ public class MainMenuActivity extends BaseActivity {
         SharedPreferences preferences = getSharedPreferences("USER", MODE_PRIVATE);
         String display = preferences.getString("MainMenuActivity", "");
 
-        setting = findViewById(R.id.setting_btn_mainMenu);
-        catchballGame = findViewById(R.id.btn_catchBall);
-        slidingGame = findViewById(R.id.btn_slidingGame);
-        math24Game = findViewById(R.id.btn_math24);
+        ImageView setting = findViewById(R.id.setting_btn_mainMenu);
+        // catchballgame button
+        Button catchballGame = findViewById(R.id.btn_catchBall);
+        // catchballgame button
+        Button slidingGame = findViewById(R.id.btn_slidingGame);
+        // catchballgame button
+        Button math24Game = findViewById(R.id.btn_math24);
 
         setting.setOnClickListener(v -> {
             switchToPage(SettingsActivity.class);

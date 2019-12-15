@@ -30,7 +30,7 @@ public class MainEntryActivity extends AppCompatActivity{
 
     /**
      * Create items when starting the activity
-     * @param savedInstanceState
+
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {

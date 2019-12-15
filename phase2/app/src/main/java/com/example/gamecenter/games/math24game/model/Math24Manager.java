@@ -7,8 +7,6 @@ import com.example.gamecenter.scoreboard.Scoreboard;
 public class Math24Manager implements GameManager {
     //create int variable score
     private int score;
-    //create boolean gameOver to tell whether the game is over or not
-    private boolean gameOver;
     //create QuestionBank type variable questionBank
     private QuestionBank questionBank;
     //create boolean correctAnswer to tell whether the player get 24 by their equation
@@ -19,7 +17,8 @@ public class Math24Manager implements GameManager {
     //constructor of Math24Manager
     public Math24Manager(){
         this.score = 0;
-        gameOver =false;
+        //create boolean gameOver to tell whether the game is over or not
+        boolean gameOver = false;
         lives = 3;
         questionBank = new QuestionBank();
     }

@@ -54,7 +54,7 @@ public class ScoreboardFileSaver implements Serializable, MyObserver {
 
     //Deserialization
 
-    public void loadFromFile(String fileName) {
+    private void loadFromFile(String fileName) {
         try {
             InputStream inputStream = context.openFileInput(fileName);
             if (inputStream != null) {

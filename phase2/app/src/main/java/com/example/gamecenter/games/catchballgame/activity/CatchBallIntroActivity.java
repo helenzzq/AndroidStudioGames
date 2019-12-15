@@ -28,8 +28,7 @@ public class CatchBallIntroActivity extends AppCompatActivity {
     private Activity current;
   /**
    * Create items when starting this activity.
-   *
-   * @param savedInstanceState */
+   */
   @Override
   protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
